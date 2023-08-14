@@ -1,2 +1,1 @@
-# aipnf
-AI Personalized Narrative Fiction
+# AI Personalized Narrative Fiction
