@@ -1,1 +1,1 @@
-# AI Personalized Narrative Fiction
+# AI Personalized Interactive Fiction
