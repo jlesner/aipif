@@ -1,4 +1,4 @@
-positive_prompt_samples = [
+style_prompt_samples = [
     "Bubble Pop: The sudden burst of a soapy bubble, like a tiny drumbeat tickling your ear.",
     "Duck Quack: A loud, nasal honk as if the duck is laughing at its own joke.",
     "Jelly Wobble: A slow, floppy shake, like a bowl of giggling jelly on a trampoline.",

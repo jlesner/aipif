@@ -1,4 +1,4 @@
-postive_prompt_samples = [
+style_prompt_samples = [
     "Bubbly flute melodies dancing over the gentle strumming of a ukulele, like butterflies fluttering in a sunny meadow.",
     "A playful accordion setting the scene for a whimsical circus, with jesters juggling and elephants parading.",
     "Cheerful piano notes sprinkling like raindrops, with a soft violin humming a lullaby in the background.",
