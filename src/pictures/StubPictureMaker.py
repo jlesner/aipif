@@ -1,7 +1,7 @@
-from music.MusicMaker import MusicMaker
+from PictureMaker import PictureMaker
 
-class StubPictureMaker(MusicMaker):
+class StubPictureMaker(PictureMaker):
 
-    def make_picture(self, description_prompt:dict):
+    def make_picture(self, * prompt_dict:dict):
         return "file://stub_picture.png"
     

@@ -1,6 +1,6 @@
-from Context import Context
+from ..Context import Context
 
-class StoryMaker:
+class TextMaker:
     """
     Base class for objects that implement make_story()
 
@@ -12,12 +12,12 @@ class StoryMaker:
     def __init__(self, context:Context):
         self._context = context
 
-    def make_story(self, description_prompt: dict):
+    def make_text(self, prompt_dict: dict):
         """
-        Generates story based on the provided `description_prompt`.
+        Generates text  based on the provided `prompt_dict`.
         
         Arguments:
-        - `description_prompt` (dict): A dictionary containing:
+        - `prompt_dict` (dict): A dictionary containing:
         * `positive_prompt_text` (str): Describes the story or situation.
         * `negative_prompt_text` (optional str): Describes what should not be in the story.
         * `style_prompt_text` (optional str): Describes the desired story style.
@@ -26,6 +26,6 @@ class StoryMaker:
         * `negative_prompt_images` (optional list of str): Image URL strings as negative examples.
 
         Returns:
-            None or web browser playable url of story matching `description_prompt`
+            None or web browser playable url of story matching `prompt_dict`
         """
         raise Exception("Function not implemented")

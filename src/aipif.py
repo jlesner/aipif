@@ -3,7 +3,7 @@ from Context import Context
 from pictures.StubPictureMaker import StubPictureMaker
 from sounds.StubSoundMaker import StubSoundMaker
 from music.StubMusicMaker import StubMusicMaker
-from story.StubStoryMaker import StubStoryMaker
+from text.StubTextMaker import StubTextMaker
 
 
 def context_configure(context:Context):
@@ -22,7 +22,7 @@ def state_setup(context:Context):
     context.state['make_picture'] = StubPictureMaker(context).make_picture
     context.state['make_sound'] = StubSoundMaker(context).make_sound
     context.state['make_music'] = StubMusicMaker(context).make_music
-    context.state['make_story'] = StubStoryMaker(context).make_story
+    context.state['make_story'] = StubTextMaker(context).make_text
 
 
 if __name__ == '__main__':

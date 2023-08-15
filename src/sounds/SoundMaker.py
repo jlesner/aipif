@@ -1,4 +1,4 @@
-from Context import Context
+from ..Context import Context
 
 class SoundMaker:
     """
@@ -12,12 +12,12 @@ class SoundMaker:
     def __init__(self, context:Context):
         self._context = context
 
-    def make_sound(self, description_prompt: dict):
+    def make_sound(self, prompt_dict: dict):
         """
-        Generates sound based on the provided `description_prompt`.
+        Generates sound based on the provided `prompt_dict`.
         
         Arguments:
-        - `description_prompt` (dict): A dictionary containing:
+        - `prompt_dict`(dict): A dictionary containing:
         * `positive_prompt_text` (str): Describes the sound or situation.
         * `negative_prompt_text` (optional str): Describes what should not be in the sound.        
         * `style_prompt_text` (optional str): Describes the desired sound style.
@@ -27,6 +27,6 @@ class SoundMaker:
         * `negative_prompt_sounds` (optional list of str): Image URL strings as negative examples.
 
         Returns:
-            None or web browser playable url str of sound matching `description_prompt`
+            None or web browser playable url str of sound matching `prompt_dict`
         """
         raise Exception("Function not implemented")

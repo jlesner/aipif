@@ -1,3 +1,4 @@
+# IMPORTANT: Check GDOCs version for latest
 
 # Overview 
 
@@ -11,9 +12,9 @@ Build a prototype that transforms information about a desired picture into a jpg
 
 The prototype will be a python function:
 
-```make_picture(description_prompt) => url_to_picture_file```
+```make_picture(prompt_dict) => url_to_picture_file```
 
-The `description_prompt` is a dictionary that 
+The `prompt_dict` is a dictionary that 
 * will contain `positive_prompt_text` string describing the picture or the situation
     * see `postive_prompt_samples.py` 
 * may contain `negative_prompt_text` string describing what should not be in the picture
@@ -27,7 +28,7 @@ The `description_prompt` is a dictionary that
 
 
 This prototype 
-* must use the `description_prompt` to create new picture (generative AI)
+* must use the `prompt_dict` to create new picture (generative AI)
 * can leverage existing AI picture generation tools via APIs or running locally.
 * can generate simple pictures such as stick people or pencil cartoons
 * can generate anime or photos if those are easier to generate

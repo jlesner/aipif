@@ -12,12 +12,12 @@ class PictureMaker:
     def __init__(self, context:Context):
         self._context = context
 
-    def make_picture(self, description_prompt: dict):
+    def make_picture(self, prompt_dict: dict):
         """
-        Generates a picture based on the provided `description_prompt`.
+        Generates a picture based on the provided `prompt_dict`.
         
         Arguments:
-        - `description_prompt` (dict): A dictionary containing:
+        - `prompt_dict` (dict): A dictionary containing:
         * `positive_prompt_text` (str): Describes the picture or situation.
         * `negative_prompt_text` (optional str): Describes what should not be in the picture.
         * `style_prompt_text` (optional str): Describes the desired picture style.
@@ -27,6 +27,6 @@ class PictureMaker:
         * `negative_prompt_images` (optional list of str): Image URL strings as negative examples.
 
         Returns:
-            None or web browser playable url str of music matching `description_prompt`
+            None or web browser playable url str of music matching `prompt_dict`
         """
         raise Exception("Function not implemented")

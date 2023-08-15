@@ -1,3 +1,5 @@
+# IMPORTANT: Check GDOCs version for latest
+
 # Overview
 
 AI models exist that can accept text (and/or sound) inputs (humming) and generate music
@@ -18,20 +20,20 @@ Build a prototype that transforms information about desired music into a url a w
 
 Ideally the prototype will be a python function:
 
-```make_music(description_prompt) => url_to_music_file```
+```make_music(prompt_dict) => url_to_music_file```
 
-Where `description_prompt` is a dictionary that:
+Where `prompt_dict` is a dictionary that:
 * will contain `positive_prompt_text` string describing the sound or situation that needs it
     * See `postive_prompt_samples.py`
 * may contain `negative_prompt_text` string describing what the sound should not be
 
 This prototype:
-* can use the `description_prompt` to SELECT EXISTING music (recommender AI)
+* can use the `prompt_dict` to SELECT EXISTING music (recommender AI)
     * rather than generate music one option is to get existing music from open source asset libraries
     * these open source assets will hopefully come with descriptive labels / file names
-    * task becomes use `description_prompt` to select music from existing collection of music
+    * task becomes use `prompt_dict` to select music from existing collection of music
     * if library is not too big perhaps an LLM can be prompted to do this selection?
     * "For SITUATION below please pick the best music from the MUSIC_LIST below. \nSITUATUON:\n{situation}\nMUSIC_LIST:\n{music_list}\n"
-* can use the `description_prompt` to CREATE NEW music (generative AI)
+* can use the `prompt_dict` to CREATE NEW music (generative AI)
     * can use existing AI sound effect generation tools via APIs or running locally.
     * see https://github.com/steven2358/awesome-generative-ai#audio
