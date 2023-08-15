@@ -11,7 +11,7 @@ class Context:
                 Only strings are allowed as keys and values.
 
             state: dict
-                Function lookup table built by configure() from context.config.
+                Function lookup table built from context.config.
                 Also holds state shared between functions.
                 See aipif.state_setup() for details.
 

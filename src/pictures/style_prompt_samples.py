@@ -1,5 +1,9 @@
 # google images can verify generated style. for example: https://www.google.com/search?q=Quentin+Blake+art
 
+# TODO add Edward Gorey style https://www.google.com/search?q=Edward+Gorey+art
+# TODO add studio ghibli style https://www.google.com/search?q=studio+ghibli+art
+# TODO add disney art style https://www.google.com/search?q=disney+art
+
 style_prompt_samples = [
     "Detailed and whimsical depictions of anthropomorphic animals in natural settings in the style of art from Beatrix Potter, Cicely Mary Barker, Tasha Tudor",
     "Dreamlike, intricate illustrations often featuring fantastical creatures in the style of art from Maurice Sendak, Chris Van Allsburg, Robert Sabuda",
