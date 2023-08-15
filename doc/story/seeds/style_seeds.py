@@ -35,6 +35,7 @@ illustrator_list = [
     ('Laura Carlin', 'Textured, layered, and often muted illustrations with a contemporary feel.', 'Isabelle Arsenault, Beatrice Alemagna')
 ]
 
+
 author_list = [
     ("Dr. Seuss", 
      "Whimsical rhymes, imaginative worlds, and playful characters.",
