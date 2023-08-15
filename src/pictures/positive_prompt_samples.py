@@ -1,5 +1,5 @@
 
-postive_prompt_samples = [
+positive_prompt_samples = [
     "Dancing Bananas: A group of bananas, each with smiling faces, dancing in a conga line wearing sunglasses and beach hats.",
     "Penguin's Pool Party: Penguins wearing swimsuits, sunbathing on towels, and sipping on juice boxes by a pool filled with rubber duckies.",
     "Alien's Day at School: A friendly green alien struggling to carry an oversized school backpack, while being surrounded by curious school kids.",
