@@ -3,12 +3,6 @@
 # Dilemmas can arise in various contexts, such as personal decisions, ethical considerations, social issues, and more. The term "dilemma" comes from the Greek words "di-" (two) and "lemma" (premise), highlighting the central idea of having to choose between two conflicting premises or alternatives.
 
 
-
-
-
-
-
-
 dilemma_dict = {
     "Choosing a toy at the store": ["Pick the most expensive toy", "Choose a toy within budget", "Can't decide and chooses nothing", "Chooses multiple toys"],
     "Friend wants the same toy they're playing with": ["Shares the toy", "Refuses to share", "Gives the toy up entirely", "Suggests another toy instead"],

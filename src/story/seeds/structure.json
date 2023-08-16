@@ -1,0 +1,151 @@
+{
+    "acts": [
+      {
+        "act_number": 1,
+        "name": "Setup",
+        "description": "This is the beginning of the story where the main characters, setting, and initial conflict are introduced. The goal in Act 1 is to establish the foundation of the story and engage the audience's interest. It typically includes the \"inciting incident,\" which is the event that sets the main plot in motion and disrupts the protagonist's normal life.",
+        "parts": [
+          {
+            "part_number": 1,
+            "name": "Introduction to Characters and Setting",
+            "sequences": [
+              {
+                "sequence_number": 1,
+                "name": "Introducing Protagonist's Daily Life",
+                "description": "Showcasing the protagonist's routine, relationships, and environment."
+              },
+              {
+                "sequence_number": 2,
+                "name": "Establishing World's Rules and Tone",
+                "description": "Introducing the rules of the story's world and setting the tone for the narrative."
+              }
+            ]
+          },
+          {
+            "part_number": 2,
+            "name": "Introduction of the Inciting Incident",
+            "sequences": [
+              {
+                "sequence_number": 3,
+                "name": "Presenting the Disruptive Event",
+                "description": "Introducing the event that disrupts the protagonist's normal life and sets the story in motion."
+              },
+              {
+                "sequence_number": 4,
+                "name": "Initial Reaction of the Protagonist",
+                "description": "Portraying the protagonist's initial response and emotions upon encountering the inciting incident.",
+                "max_branches": "3"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "act_number": 2,
+        "name": "Confrontation",
+        "description":"Also known as the \"rising action,\"  This is where the protagonist faces challenges, obstacles, and conflicts that escalate as the story progresses. The tension and stakes increase, leading to a pivotal moment known as the \"climax.\" The climax is the highest point of tension in the story and involves the protagonist confronting the main obstacle or antagonist.",
+        "parts": [
+          {
+            "part_number": 3,
+            "name": "Protagonist's Initial Response",
+            "sequences": [
+              {
+                "sequence_number": 5,
+                "name": "Reluctance or Resistance",
+                "description": "Depicting the protagonist's initial reluctance or resistance to engage with the new situation."
+              }
+            ]
+          },
+          {
+            "part_number": 4,
+            "name": "Escalation of Conflicts and Obstacles",
+            "sequences": [
+              {
+                "sequence_number": 6,
+                "name": "Introduction of Challenges",
+                "description": "Introducing challenges that push the protagonist to confront the central conflict."
+              },
+              {
+                "sequence_number": 7,
+                "name": "Raising the Stakes",
+                "description": "Increasing tension by introducing additional obstacles or antagonistic forces."
+              }
+            ]
+          },
+          {
+            "part_number": 5,
+            "name": "Climax",
+            "sequences": [
+              {
+                "sequence_number": 8,
+                "name": "Building Tension",
+                "description": "Gradually building tension and anticipation leading up to the story's climax."
+              },
+              {
+                "sequence_number": 9,
+                "name": "Direct Confrontation",
+                "description": "Depicting the protagonist's head-on confrontation with the main obstacle, resulting in a turning point.",
+                "max_branches": "3"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "act_number": 3,
+        "name": "Resolution",
+        "description":"This is the final act where the story's conflicts are resolved. After the climax, there's a period of falling action where loose ends are tied up and the story's outcomes are determined. This act provides closure to the audience and showcases the characters' growth and transformation based on their experiences throughout the story.",
+        "parts": [
+          {
+            "part_number": 6,
+            "name": "Falling Action and Consequences",
+            "sequences": [
+              {
+                "sequence_number": 10,
+                "name": "Aftermath of the Climax",
+                "description": "Addressing the aftermath of the climax and exploring the consequences of key decisions."
+              },
+              {
+                "sequence_number": 11,
+                "name": "Resolution of Subplots",
+                "description": "Resolving any remaining subplots or loose ends in the story."
+              }
+            ]
+          },
+          {
+            "part_number": 7,
+            "name": "Resolution",
+            "sequences": [
+              {
+                "sequence_number": 12,
+                "name": "Character Growth and Transformation",
+                "description": "Showcasing the protagonist's growth, transformation, or change in perspective."
+              },
+              {
+                "sequence_number": 13,
+                "name": "Main Conflict Resolution",
+                "description": "Resolving the main conflict and demonstrating how the characters have evolved."
+              }
+            ]
+          },
+          {
+            "part_number": 8,
+            "name": "Conclusion",
+            "sequences": [
+              {
+                "sequence_number": 14,
+                "name": "Final Character Arcs",
+                "description": "Wrapping up any final character arcs or lingering plot points."
+              },
+              {
+                "sequence_number": 15,
+                "name": "Sense of Closure",
+                "description": "Providing a sense of closure and leaving the audience with a lasting impression."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+  
