@@ -13,8 +13,8 @@ for i in range(10):
     style_prompt_text = style_prompt_samples[random.randint(0, len(style_prompt_samples)-1)]
 
     make_music_output =  music_maker.make_music({\
-            positive_prompt_text: positive_prompt_text, \
-            style_prompt_text: style_prompt_text, \
+            "positive_prompt_text": positive_prompt_text, \
+            "style_prompt_text": style_prompt_text, \
         })
 
     print(f"positive_prompt_text: {positive_prompt_text}")
