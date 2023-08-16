@@ -60,29 +60,29 @@ story_types = {
         ["Bob McLeod", "Shannon Hale", "Jacky Davis"]
     ),
 
-    "Realistic": (
-        "Stories that depict real-life situations kids can relate to, like school, family, and friendships.",
-        [
-            "Ramona Quimby series by Beverly Cleary",
-            "Amelia Bedelia series by Peggy Parish",
-            "Lola Levine series by Monica Brown",
-            "Judy Moody series by Megan McDonald",
-            "Henry Huggins series by Beverly Cleary"
-        ],
-        ["Beverly Cleary", "Peggy Parish", "Monica Brown"]
-    ),
+    # "Realistic": (
+    #     "Stories that depict real-life situations kids can relate to, like school, family, and friendships.",
+    #     [
+    #         "Ramona Quimby series by Beverly Cleary",
+    #         "Amelia Bedelia series by Peggy Parish",
+    #         "Lola Levine series by Monica Brown",
+    #         "Judy Moody series by Megan McDonald",
+    #         "Henry Huggins series by Beverly Cleary"
+    #     ],
+    #     ["Beverly Cleary", "Peggy Parish", "Monica Brown"]
+    # ),
 
-    "Bedtime": (
-        "Gentle stories perfect for winding down, often set at night and featuring repetitive, soothing language.",
-        [
-            "Goodnight Moon by Margaret Wise Brown",
-            "The Going-To-Bed Book by Sandra Boynton",
-            "Llama Llama Red Pajama by Anna Dewdney",
-            "The Napping House by Audrey Wood",
-            "Time for Bed by Mem Fox"
-        ],
-        ["Margaret Wise Brown", "Sandra Boynton", "Anna Dewdney"]
-    ),
+    # "Bedtime": (
+    #     "Gentle stories perfect for winding down, often set at night and featuring repetitive, soothing language.",
+    #     [
+    #         "Goodnight Moon by Margaret Wise Brown",
+    #         "The Going-To-Bed Book by Sandra Boynton",
+    #         "Llama Llama Red Pajama by Anna Dewdney",
+    #         "The Napping House by Audrey Wood",
+    #         "Time for Bed by Mem Fox"
+    #     ],
+    #     ["Margaret Wise Brown", "Sandra Boynton", "Anna Dewdney"]
+    # ),
 
     "Mysteries": (
         "Engaging tales where characters solve puzzles or uncover secrets, often involving clever thinking.",
@@ -108,29 +108,29 @@ story_types = {
         ["Jane Yolen", "Oliver Jeffers", "Ben Hatke"]
     ),
 
-    "Historical": (
-        "Tales set in the past, often teaching kids about different time periods and cultures.",
-        [
-            "Magic Tree House series (historical adventures) by Mary Pope Osborne",
-            "The Little House series by Laura Ingalls Wilder",
-            "American Girl series by various authors",
-            "Stone Soup by Marcia Brown",
-            "Molly's Pilgrim by Barbara Cohen"
-        ],
-        ["Mary Pope Osborne", "Laura Ingalls Wilder", "Marcia Brown"]
-    ),
+    # "Historical": (
+    #     "Tales set in the past, often teaching kids about different time periods and cultures.",
+    #     [
+    #         "Magic Tree House series (historical adventures) by Mary Pope Osborne",
+    #         "The Little House series by Laura Ingalls Wilder",
+    #         "American Girl series by various authors",
+    #         "Stone Soup by Marcia Brown",
+    #         "Molly's Pilgrim by Barbara Cohen"
+    #     ],
+    #     ["Mary Pope Osborne", "Laura Ingalls Wilder", "Marcia Brown"]
+    # ),
 
-    "Educational": (
-        "Informative stories that teach kids about various topics, from science to social studies.",
-        [
-            "The Magic School Bus series by Joanna Cole",
-            "A Seed is Sleepy by Dianna Hutts Aston",
-            "The Story of Ruby Bridges by Robert Coles",
-            "Me... Jane by Patrick McDonnell",
-            "What Do You Do With an Idea? by Kobi Yamada"
-        ],
-        ["Joanna Cole", "Dianna Hutts Aston", "Kobi Yamada"]
-    ),
+    # "Educational": (
+    #     "Informative stories that teach kids about various topics, from science to social studies.",
+    #     [
+    #         "The Magic School Bus series by Joanna Cole",
+    #         "A Seed is Sleepy by Dianna Hutts Aston",
+    #         "The Story of Ruby Bridges by Robert Coles",
+    #         "Me... Jane by Patrick McDonnell",
+    #         "What Do You Do With an Idea? by Kobi Yamada"
+    #     ],
+    #     ["Joanna Cole", "Dianna Hutts Aston", "Kobi Yamada"]
+    # ),
 
     "Folktales": (
         "Traditional stories passed down through generations, often teaching cultural values and norms.",
@@ -144,65 +144,65 @@ story_types = {
         ["Gerald McDermott", "Jon J Muth", "Verna Aardema"]
     ),
 
-    "Rhyming": (
-        "Playful stories with rhythmic and repetitive text, making them catchy and memorable.",
-        [
-            "The Gruffalo by Julia Donaldson",
-            "Chicka Chicka Boom Boom by Bill Martin Jr. and John Archambault",
-            "Green Eggs and Ham by Dr. Seuss",
-            "Each Peach Pear Plum by Janet and Allan Ahlberg",
-            "Hairy Maclary from Donaldson's Dairy by Lynley Dodd"
-        ],
-        ["Julia Donaldson", "Dr. Seuss", "Lynley Dodd"]
-    ),
+    # "Rhyming": (
+    #     "Playful stories with rhythmic and repetitive text, making them catchy and memorable.",
+    #     [
+    #         "The Gruffalo by Julia Donaldson",
+    #         "Chicka Chicka Boom Boom by Bill Martin Jr. and John Archambault",
+    #         "Green Eggs and Ham by Dr. Seuss",
+    #         "Each Peach Pear Plum by Janet and Allan Ahlberg",
+    #         "Hairy Maclary from Donaldson's Dairy by Lynley Dodd"
+    #     ],
+    #     ["Julia Donaldson", "Dr. Seuss", "Lynley Dodd"]
+    # ),
 
-    "Mythology": (
-        "Ancient tales that explain the mysteries of the world, often involving gods, goddesses, and heroes.",
-        [
-            "D'Aulaires' Book of Greek Myths by Ingri d'Aulaire and Edgar Parin d'Aulaire",
-            "Pegasus series by Kate O'Hearn",
-            "The Gods and Goddesses of Olympus by Aliki",
-            "The Hero and the Minotaur by Robert Byrd",
-            "A Child's Introduction to Norse Mythology by Heather Alexander"
-        ],
-        ["Ingri d'Aulaire", "Kate O'Hearn", "Aliki"]
-    ),
+    # "Mythology": (
+    #     "Ancient tales that explain the mysteries of the world, often involving gods, goddesses, and heroes.",
+    #     [
+    #         "D'Aulaires' Book of Greek Myths by Ingri d'Aulaire and Edgar Parin d'Aulaire",
+    #         "Pegasus series by Kate O'Hearn",
+    #         "The Gods and Goddesses of Olympus by Aliki",
+    #         "The Hero and the Minotaur by Robert Byrd",
+    #         "A Child's Introduction to Norse Mythology by Heather Alexander"
+    #     ],
+    #     ["Ingri d'Aulaire", "Kate O'Hearn", "Aliki"]
+    # ),
 
-    "Pop-Up Books": (
-        "Interactive stories with 3D elements that pop out from the pages, making the story come alive.",
-        [
-            "The Very Hungry Caterpillar Pop-Up Book by Eric Carle",
-            "Alice's Adventures in Wonderland: A Pop-up Adaptation by Robert Sabuda",
-            "The Pop-Up Mice of Mr. Brice by Dr. Seuss",
-            "The 12 Days of Christmas Anniversary Edition: A Pop-up Celebration by Robert Sabuda",
-            "Winter in White: A Mini Pop-up Treat by Robert Sabuda"
-        ],
-        ["Eric Carle", "Robert Sabuda", "Dr. Seuss"]
-    ),
+    # "Pop-Up Books": (
+    #     "Interactive stories with 3D elements that pop out from the pages, making the story come alive.",
+    #     [
+    #         "The Very Hungry Caterpillar Pop-Up Book by Eric Carle",
+    #         "Alice's Adventures in Wonderland: A Pop-up Adaptation by Robert Sabuda",
+    #         "The Pop-Up Mice of Mr. Brice by Dr. Seuss",
+    #         "The 12 Days of Christmas Anniversary Edition: A Pop-up Celebration by Robert Sabuda",
+    #         "Winter in White: A Mini Pop-up Treat by Robert Sabuda"
+    #     ],
+    #     ["Eric Carle", "Robert Sabuda", "Dr. Seuss"]
+    # ),
 
-    "Board Books": (
-        "Sturdy books designed for very young readers, often featuring simple concepts like colors, numbers, or shapes.",
-        [
-            "Brown Bear, Brown Bear, What Do You See? by Bill Martin Jr. and Eric Carle",
-            "Dear Zoo by Rod Campbell",
-            "First 100 Words by Roger Priddy",
-            "Peek-A Who? by Nina Laden",
-            "Touch and Feel: Farm by DK"
-        ],
-        ["Bill Martin Jr.", "Eric Carle", "Rod Campbell"]
-    ),
+    # "Board Books": (
+    #     "Sturdy books designed for very young readers, often featuring simple concepts like colors, numbers, or shapes.",
+    #     [
+    #         "Brown Bear, Brown Bear, What Do You See? by Bill Martin Jr. and Eric Carle",
+    #         "Dear Zoo by Rod Campbell",
+    #         "First 100 Words by Roger Priddy",
+    #         "Peek-A Who? by Nina Laden",
+    #         "Touch and Feel: Farm by DK"
+    #     ],
+    #     ["Bill Martin Jr.", "Eric Carle", "Rod Campbell"]
+    # ),
 
-    "Lift-the-Flap": (
-        "Interactive stories where kids can lift flaps to reveal surprises, adding an element of discovery.",
-        [
-            "Where's Spot? by Eric Hill",
-            "Dear Zoo by Rod Campbell",
-            "Open the Barn Door by Christopher Santoro",
-            "Peek-a-Baby by Karen Katz",
-            "What's in My Truck? by Linda Bleck"
-        ],
-        ["Eric Hill", "Rod Campbell", "Karen Katz"]
-    ),
+    # "Lift-the-Flap": (
+    #     "Interactive stories where kids can lift flaps to reveal surprises, adding an element of discovery.",
+    #     [
+    #         "Where's Spot? by Eric Hill",
+    #         "Dear Zoo by Rod Campbell",
+    #         "Open the Barn Door by Christopher Santoro",
+    #         "Peek-a-Baby by Karen Katz",
+    #         "What's in My Truck? by Linda Bleck"
+    #     ],
+    #     ["Eric Hill", "Rod Campbell", "Karen Katz"]
+    # ),
 
     "Humorous": (
         "Light-hearted tales that make kids laugh, often featuring silly characters and scenarios.",
@@ -216,17 +216,17 @@ story_types = {
         ["Mo Willems", "Laura Numeroff", "Drew Daywalt"]
     ),
 
-    "Poetry": (
-        "Collections of poems, often with beautiful language and imagery, that explore a range of emotions and themes.",
-        [
-            "Where the Sidewalk Ends by Shel Silverstein",
-            "A Child's Garden of Verses by Robert Louis Stevenson",
-            "Falling Up by Shel Silverstein",
-            "The Random House Book of Poetry for Children edited by Jack Prelutsky",
-            "It's Raining Pigs & Noodles by Jack Prelutsky"
-        ],
-        ["Shel Silverstein", "Robert Louis Stevenson", "Jack Prelutsky"]
-    ),
+    # "Poetry": (
+    #     "Collections of poems, often with beautiful language and imagery, that explore a range of emotions and themes.",
+    #     [
+    #         "Where the Sidewalk Ends by Shel Silverstein",
+    #         "A Child's Garden of Verses by Robert Louis Stevenson",
+    #         "Falling Up by Shel Silverstein",
+    #         "The Random House Book of Poetry for Children edited by Jack Prelutsky",
+    #         "It's Raining Pigs & Noodles by Jack Prelutsky"
+    #     ],
+    #     ["Shel Silverstein", "Robert Louis Stevenson", "Jack Prelutsky"]
+    # ),
 
     "Nature": (
         "Stories that explore the wonders of the natural world, from animals to plants to the weather.",

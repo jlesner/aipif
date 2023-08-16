@@ -21,7 +21,7 @@ emoji_descriptions = [
     ("🍫", "A bar of chocolate with a bite taken out of it"),
     ("🎃", "A carved orange pumpkin lantern for Halloween"),
     ("🐰", "A fluffy white rabbit with large, perky ears"),
-    ("🍓", "A ripe red strawberry with green leaves on top"),
+    # ("🍓", "A ripe red strawberry with green leaves on top"),
     ("🚗", "A shiny red car zooming down the road"),
     ("🎀", "A cute pink bowtie perfect for a gift or hair"),
     ("🍔", "A juicy hamburger with lettuce, cheese, and a beef patty"),
@@ -83,7 +83,7 @@ emoji_descriptions = [
 
 # note some below are wrong
 
-emoji_descriptions = [
+emoji_descriptions2 = [
     ("😀", "A grinning face showing white teeth without eyes."),
     ("😃", "A grinning face with big eyes and toothy smile."),
     ("😄", "A smiling face with open mouth and smiling eyes."),
