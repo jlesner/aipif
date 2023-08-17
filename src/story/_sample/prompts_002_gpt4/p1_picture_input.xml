@@ -1,5 +1,3 @@
-
-
 Update XML below so each <sequence> element gets a new child <illustration> containing a vivid description of one single significant moment in the narrative. For this single moment vividly describe the characters: what are they? what is their appearance?  what they are they doing? What expressions do their faces have? Vividly and redundantly describe all details for setting the mood, showing the location, and giving context to the scene. Please make sure your vivid description flows well with the previous illustration and the next illustrtion in the sequence. Please reply only with the updated XML below. Do this for every <sequence> element in the XML below.
 
 <story>
