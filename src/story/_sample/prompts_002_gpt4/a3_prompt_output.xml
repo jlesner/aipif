@@ -1,0 +1,55 @@
+<act name="Resolution">
+    <description>Having faced the challenges of the vast cosmos, Bella finds her way back home, learning the true meaning of adventure and the value of friendship.</description>
+    <part name="Falling Action and Consequences">
+      <sequence name="Aftermath of the Climax">
+        <setting>Exterior, the meadow's edge near the thicket of trees, dawn. The first light of morning illuminates the meadow, and a faint hum is heard in the distance.</setting>
+        <outline>
+          The rocket descends gracefully, landing smoothly in the meadow.
+          Buddy, relieved: "Bella! You're back!"
+          Bella, laughing: "That was... quite the ride!"
+        </outline>
+      </sequence>
+      <sequence name="Resolution of Subplots">
+        <setting>Exterior, the meadow, morning. Birds are singing and other butterflies have gathered around Bella, curious about her adventure.</setting>
+        <outline>
+          Bella, recounting: "The stars were amazing, but it's true what they say: there's no place like home!"
+          Fellow butterfly: "Would you go again?"
+          Bella, thoughtfully: "Maybe, but for now, I'm just glad to be back with all of you."
+        </outline>
+      </sequence>
+    </part>
+    <part name="Resolution">
+      <sequence name="Character Growth and Transformation">
+        <setting>Exterior, the meadow, mid-morning. The sun is higher now, casting a warm glow over Bella and Buddy.</setting>
+        <outline>
+          Buddy, jokingly: "Still dreaming of the stars?"
+          Bella, smiling: "Always. But I've learned that sometimes, dreams are best as just that... dreams."
+        </outline>
+      </sequence>
+      <sequence name="Main Conflict Resolution">
+        <setting>Exterior, the meadow's edge near the thicket of trees. The toy rocket sits silently, a reminder of Bella's daring adventure.</setting>
+        <outline>
+          Buddy: "So, what will you do with the rocket now?"
+          Bella: "I think I'll leave it here, as a reminder that adventures await, but there's nothing like the comfort of friends and home."
+        </outline>
+      </sequence>
+    </part>
+    <part name="Conclusion">
+      <sequence name="Final Character Arcs">
+        <setting>Exterior, vibrant meadow, sunny day. Life continues as it always has, but with a new sense of wonder and appreciation.</setting>
+        <outline>
+          Buddy chases his tail, while Bella flits from flower to flower, a little more contentedly.
+          Buddy, teasingly: "Ready for another space adventure?"
+          Bella, laughing: "Maybe another day, Buddy. For now, this meadow is all the adventure I need."
+        </outline>
+      </sequence>
+      <sequence name="Sense of Closure">
+        <setting>Exterior, the meadow, late afternoon. The sun begins its descent, casting long shadows and a soft glow over the landscape.</setting>
+        <outline>
+          As the day winds down, Bella and Buddy sit atop the rock, looking up at the sky.
+          Bella, contentedly: "It's good to be home."
+          Buddy, nodding: "Yes, the best adventures are the ones we share with friends."
+        </outline>
+      </sequence>
+    </part>
+</act>

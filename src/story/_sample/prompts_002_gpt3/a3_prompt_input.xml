@@ -1,0 +1,84 @@
+<story>
+    <sequence name="Introducing Protagonist's Daily Life">
+      <setting>Under the bright sun, in a cozy house nestled by a colorful garden.</setting>
+      <outline>Meet Mia, a curious child who loves exploring nature with her loyal companion, Max the dog.</outline>
+    </sequence>
+    <sequence name="Establishing World's Rules and Tone">
+      <setting>As evening falls, the stars start twinkling in the sky.</setting>
+      <outline>Stars have secrets, planets have stories, and dreams come alive at night.</outline>
+    </sequence>
+    <sequence name="Present the Disruptive Event">
+      <setting>Inside Mia's room, as dawn breaks and the first light peeks through the curtains.</setting>
+      <outline>A mysterious flutter catches Mia's eye—a tiny butterfly with shimmering wings.</outline>
+    </sequence>
+    <sequence name="Initial Reaction of the Protagonist">
+      <setting>Mia's room, bathed in the gentle glow of morning.</setting>
+      <outline>Mia's heart races with excitement as she gazes at the butterfly. "Max, look at this magical creature!" she exclaims.</outline>
+      <protagonist_reaction>"I wonder where it came from," Mia ponders, her eyes reflecting wonder.</protagonist_reaction>
+    </sequence>
+    <sequence name="Reluctance or Resistance">
+      <setting>Mia's room, as the first light of dawn filters in through the curtains.</setting>
+      <outline>Mia blinks sleepily, reluctant to leave her warm bed. She notices the butterfly on her windowsill.</outline>
+    </sequence>
+    <sequence name="Introduction of Challenges">
+      <setting>Mia's room, morning sunlight painting the walls with a golden hue.</setting>
+      <outline>The butterfly flutters its wings and seems to beckon Mia outside. Max, tail wagging, nudges her, urging her to follow.</outline>
+    </sequence>
+    <sequence name="Raising the Stakes">
+      <setting>Mia's backyard, a vibrant array of flowers surrounding them.</setting>
+      <outline>As Mia and Max step into the garden, they notice more butterflies gathered, all with shimmering wings like the first. Mia realizes they're leading her somewhere.</outline>
+    </sequence>
+    <sequence name="Building Tension">
+      <setting>The heart of the garden, a small grove with an ancient tree.</setting>
+      <outline>The butterflies guide Mia to a hidden clearing, where a tree stands covered in glowing, enchanted vines. The air hums with magic, and Mia senses an important decision approaching.</outline>
+    </sequence>
+    <sequence name="Direct Confrontation">
+      <setting>The magical grove, sunlight filtering through the leaves.</setting>
+      <outline>Mia approaches the tree, drawn by the vines' gentle touch. The vines tighten, preventing her from going further—a guardian spirit materializes, urging Mia to prove her worthiness to touch the heart of the tree.</outline>
+      <protagonist_reaction>Overwhelmed, Mia hesitates and considers retreating. She closes her eyes, and in her mind, she hears the voices of her loved ones. Filled with their love, she extends her hand with newfound confidence.</protagonist_reaction>
+    </sequence>
+</story>
+
+You will continue this story for a child by editing the XML below. 
+
+Show, Don't Tell: When possible reveal information using dialoge do not state it directly.  If a specific aspect is important for the viewer to know, reveal it using dialoge between characters. For example, if a character is sad, do not say "The character was sad."  Instead, have another character ask "Why are you sad?"  This will allow the viewer to infer the character is sad without being told directly.
+
+Economy of Words: Be concise. You don't need long, poetic descriptions. Every word should serve the purpose of conveying essential visual or auditory information, setting the mood, or advancing the story.
+
+Clarity is Key: While you don't want to be overly verbose, you do want to be clear. Children reading should have a good understanding action and how it relates to the entire story.
+
+Please reply only with the updated XML shown below. 
+
+ <act name="Resolution">
+    <description>This is the final act where the story's conflicts are resolved. After the climax, there's a period of falling action where loose ends are tied up and the story's outcomes are determined. This act provides closure to the audience and showcases the characters' growth and transformation based on their experiences throughout the story.</description>
+    <part name="Falling Action and Consequences">
+      <sequence name="Aftermath of the Climax">
+        <setting>Where and when the scene takes place: Interior or Exterior? location? time of day (day or night)? This is where you'd paint a picture of the surroundings, the ambiance, any relevant objects or features, and the initial actions or states of the characters.</setting>
+        <outline>Address the aftermath of the climax and exploring the consequences of key decisions.</outline>
+      </sequence>
+      <sequence name="Resolution of Subplots">
+        <setting>Where and when the scene takes place: Interior or Exterior? location? time of day (day or night)? This is where you'd paint a picture of the surroundings, the ambiance, any relevant objects or features, and the initial actions or states of the characters.</setting>
+        <outline>Resolve any remaining subplots or loose ends in the story.</outline>
+      </sequence>
+    </part>
+    <part name="Resolution">
+      <sequence name="Character Growth and Transformation">
+        <setting>Where and when the scene takes place: Interior or Exterior? location? time of day (day or night)? This is where you'd paint a picture of the surroundings, the ambiance, any relevant objects or features, and the initial actions or states of the characters.</setting>
+        <outline>Showcase the protagonist's growth, transformation, or change in perspective.</outline>
+      </sequence>
+      <sequence name="Main Conflict Resolution">
+        <setting>Where and when the scene takes place: Interior or Exterior? location? time of day (day or night)? This is where you'd paint a picture of the surroundings, the ambiance, any relevant objects or features, and the initial actions or states of the characters.</setting>
+        <outline>Resolve the main conflict and demonstrating how the characters have evolved.</outline>
+      </sequence>
+    </part>
+    <part name="Conclusion">
+      <sequence name="Final Character Arcs">
+        <setting>Where and when the scene takes place: Interior or Exterior? location? time of day (day or night)? This is where you'd paint a picture of the surroundings, the ambiance, any relevant objects or features, and the initial actions or states of the characters.</setting>
+        <outline>Wrap up any final character arcs or lingering plot points.</outline>
+      </sequence>
+      <sequence name="Sense of Closure">
+        <setting>Where and when the scene takes place: Interior or Exterior? location? time of day (day or night)? This is where you'd paint a picture of the surroundings, the ambiance, any relevant objects or features, and the initial actions or states of the characters.</setting>
+        <outline>Provide a sense of closure and leaving the audience with a lasting impression.</outline>
+      </sequence>
+    </part>
+  </act>

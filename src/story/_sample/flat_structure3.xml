@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<acts>
+  <act name="Setup">
+    <description>This is the beginning of the story where the main characters, setting, and initial conflict are introduced. Establish the foundation of the story and engage the audience's interest. It typically includes the "inciting incident," which is the event that sets the main plot in motion and disrupts the protagonist's normal life.</description>
+    <part name="Introduction to Characters and Setting">
+      <sequence name="Introducing Protagonist's Daily Life">
+        <setting>Where and when the scene takes place: Interior or Exterior? location? time of day (day or night)? This is where you'd paint a picture of the surroundings, the ambiance, any relevant objects or features, and the initial actions or states of the characters.</setting>
+        <outline>Showcase the protagonist's routine, relationships, and environment.</outline>
+      </sequence>
+      <sequence name="Establishing World's Rules and Tone">
+        <setting>Where and when the scene takes place: Interior or Exterior? location? time of day (day or night)? This is where you'd paint a picture of the surroundings, the ambiance, any relevant objects or features, and the initial actions or states of the characters.</setting>
+        <outline>Introduce the rules of the story's world and setting the tone for the narrative.</outline>
+      </sequence>
+    </part>
+    <part name="Introduction of the Inciting Incident">
+      <sequence name="Present the Disruptive Event">
+        <setting>Where and when the scene takes place: Interior or Exterior? location? time of day (day or night)? This is where you'd paint a picture of the surroundings, the ambiance, any relevant objects or features, and the initial actions or states of the characters.</setting>
+        <outline>Introduce the event that disrupts the protagonist's normal life and sets the story in motion.</outline>
+      </sequence>
+      <sequence name="Initial Reaction of the Protagonist">
+        <setting>Where and when the scene takes place: Interior or Exterior? location? time of day (day or night)? This is where you'd paint a picture of the surroundings, the ambiance, any relevant objects or features, and the initial actions or states of the characters.</setting>
+        <outline>Portray the protagonist's initial response and emotions upon encountering the inciting incident.</outline>
+      </sequence>
+    </part>
+  </act>
+  <act name="Confrontation">
+    <description>Also known as the "rising action,"  This is where the protagonist faces challenges, obstacles, and conflicts that escalate as the story progresses. The tension and stakes increase, leading to a pivotal moment known as the "climax." The climax is the highest point of tension in the story and involves the protagonist confronting the main obstacle or antagonist.</description>
+    <part name="Protagonist's Initial Response">
+      <sequence name="Reluctance or Resistance">
+        <setting>Where and when the scene takes place: Interior or Exterior? location? time of day (day or night)? This is where you'd paint a picture of the surroundings, the ambiance, any relevant objects or features, and the initial actions or states of the characters.</setting>
+        <outline>Depict the protagonist's initial reluctance or resistance to engage with the new situation.</outline>
+      </sequence>
+    </part>
+    <part name="Escalation of Conflicts and Obstacles">
+      <sequence name="Introduction of Challenges">
+        <setting>Where and when the scene takes place: Interior or Exterior? location? time of day (day or night)? This is where you'd paint a picture of the surroundings, the ambiance, any relevant objects or features, and the initial actions or states of the characters.</setting>
+        <outline>Introduce challenges that push the protagonist to confront the central conflict.</outline>
+      </sequence>
+      <sequence name="Raising the Stakes">
+        <setting>Where and when the scene takes place: Interior or Exterior? location? time of day (day or night)? This is where you'd paint a picture of the surroundings, the ambiance, any relevant objects or features, and the initial actions or states of the characters.</setting>
+        <outline>Increase tension by introducing additional obstacles or antagonistic forces.</outline>
+      </sequence>
+    </part>
+    <part name="Climax">
+      <sequence name="Building Tension">
+        <setting>Where and when the scene takes place: Interior or Exterior? location? time of day (day or night)? This is where you'd paint a picture of the surroundings, the ambiance, any relevant objects or features, and the initial actions or states of the characters.</setting>
+        <outline>Gradually build tension and anticipation leading up to the story's climax.</outline>
+      </sequence>
+      <sequence name="Direct Confrontation">
+        <setting>Where and when the scene takes place: Interior or Exterior? location? time of day (day or night)? This is where you'd paint a picture of the surroundings, the ambiance, any relevant objects or features, and the initial actions or states of the characters.</setting>
+        <outline>Depict the protagonist's head-on confrontation with the main obstacle, resulting in a turning point.</outline>
+      </sequence>
+    </part>
+  </act>
+  <act name="Resolution">
+    <description>This is the final act where the story's conflicts are resolved. After the climax, there's a period of falling action where loose ends are tied up and the story's outcomes are determined. This act provides closure to the audience and showcases the characters' growth and transformation based on their experiences throughout the story.</description>
+    <part name="Falling Action and Consequences">
+      <sequence name="Aftermath of the Climax">
+        <setting>Where and when the scene takes place: Interior or Exterior? location? time of day (day or night)? This is where you'd paint a picture of the surroundings, the ambiance, any relevant objects or features, and the initial actions or states of the characters.</setting>
+        <outline>Address the aftermath of the climax and exploring the consequences of key decisions.</outline>
+      </sequence>
+      <sequence name="Resolution of Subplots">
+        <setting>Where and when the scene takes place: Interior or Exterior? location? time of day (day or night)? This is where you'd paint a picture of the surroundings, the ambiance, any relevant objects or features, and the initial actions or states of the characters.</setting>
+        <outline>Resolve any remaining subplots or loose ends in the story.</outline>
+      </sequence>
+    </part>
+    <part name="Resolution">
+      <sequence name="Character Growth and Transformation">
+        <setting>Where and when the scene takes place: Interior or Exterior? location? time of day (day or night)? This is where you'd paint a picture of the surroundings, the ambiance, any relevant objects or features, and the initial actions or states of the characters.</setting>
+        <outline>Showcase the protagonist's growth, transformation, or change in perspective.</outline>
+      </sequence>
+      <sequence name="Main Conflict Resolution">
+        <setting>Where and when the scene takes place: Interior or Exterior? location? time of day (day or night)? This is where you'd paint a picture of the surroundings, the ambiance, any relevant objects or features, and the initial actions or states of the characters.</setting>
+        <outline>Resolve the main conflict and demonstrating how the characters have evolved.</outline>
+      </sequence>
+    </part>
+    <part name="Conclusion">
+      <sequence name="Final Character Arcs">
+        <setting>Where and when the scene takes place: Interior or Exterior? location? time of day (day or night)? This is where you'd paint a picture of the surroundings, the ambiance, any relevant objects or features, and the initial actions or states of the characters.</setting>
+        <outline>Wrap up any final character arcs or lingering plot points.</outline>
+      </sequence>
+      <sequence name="Sense of Closure">
+        <setting>Where and when the scene takes place: Interior or Exterior? location? time of day (day or night)? This is where you'd paint a picture of the surroundings, the ambiance, any relevant objects or features, and the initial actions or states of the characters.</setting>
+        <outline>Provide a sense of closure and leaving the audience with a lasting impression.</outline>
+      </sequence>
+    </part>
+  </act>
+</acts>

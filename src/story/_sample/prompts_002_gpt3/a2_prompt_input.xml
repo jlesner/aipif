@@ -1,0 +1,62 @@
+<story>
+    <sequence name="Introducing Protagonist's Daily Life">
+      <setting>Under the bright sun, in a cozy house nestled by a colorful garden.</setting>
+      <outline>Meet Mia, a curious child who loves exploring nature with her loyal companion, Max the dog.</outline>
+    </sequence>
+    <sequence name="Establishing World's Rules and Tone">
+      <setting>As evening falls, the stars start twinkling in the sky.</setting>
+      <outline>Stars have secrets, planets have stories, and dreams come alive at night.</outline>
+    </sequence>
+    <sequence name="Present the Disruptive Event">
+      <setting>Inside Mia's room, as dawn breaks and the first light peeks through the curtains.</setting>
+      <outline>A mysterious flutter catches Mia's eye—a tiny butterfly with shimmering wings.</outline>
+    </sequence>
+    <sequence name="Initial Reaction of the Protagonist">
+      <setting>Mia's room, bathed in the gentle glow of morning.</setting>
+      <outline>Mia's heart races with excitement as she gazes at the butterfly. "Max, look at this magical creature!" she exclaims.</outline>
+      <protagonist_reaction>"I wonder where it came from," Mia ponders, her eyes reflecting wonder.</protagonist_reaction>
+    </sequence>
+</story>
+
+You will continue this story for a child by editing the XML below. 
+
+Show, Don't Tell: When possible reveal information using dialoge do not state it directly.  If a specific aspect is important for the viewer to know, reveal it using dialoge between characters. For example, if a character is sad, do not say "The character was sad."  Instead, have another character ask "Why are you sad?"  This will allow the viewer to infer the character is sad without being told directly.
+
+Economy of Words: Be concise. You don't need long, poetic descriptions. Every word should serve the purpose of conveying essential visual or auditory information, setting the mood, or advancing the story.
+
+Clarity is Key: While you don't want to be overly verbose, you do want to be clear. Children reading should have a good understanding action and how it relates to the entire story.
+
+Please reply only with the updated XML shown below. 
+
+ <act name="Confrontation">
+    <description>Also known as the "rising action,"  This is where the protagonist faces challenges, obstacles, and conflicts that escalate as the story progresses. The tension and stakes increase, leading to a pivotal moment known as the "climax." The climax is the highest point of tension in the story and involves the protagonist confronting the main obstacle or antagonist.</description>
+    <part name="Protagonist's Initial Response">
+      <sequence name="Reluctance or Resistance">
+        <setting>Where and when the scene takes place: Interior or Exterior? location? time of day (day or night)? This is where you'd paint a picture of the surroundings, the ambiance, any relevant objects or features, and the initial actions or states of the characters.</setting>
+        <outline>Depict the protagonist's initial reluctance or resistance to engage with the new situation.</outline>
+      </sequence>
+    </part>
+    <part name="Escalation of Conflicts and Obstacles">
+      <sequence name="Introduction of Challenges">
+        <setting>Where and when the scene takes place: Interior or Exterior? location? time of day (day or night)? This is where you'd paint a picture of the surroundings, the ambiance, any relevant objects or features, and the initial actions or states of the characters.</setting>
+        <outline>Introduce challenges that push the protagonist to confront the central conflict.</outline>
+      </sequence>
+      <sequence name="Raising the Stakes">
+        <setting>Where and when the scene takes place: Interior or Exterior? location? time of day (day or night)? This is where you'd paint a picture of the surroundings, the ambiance, any relevant objects or features, and the initial actions or states of the characters.</setting>
+        <outline>Increase tension by introducing additional obstacles or antagonistic forces.</outline>
+      </sequence>
+    </part>
+    <part name="Climax">
+      <sequence name="Building Tension">
+        <setting>Where and when the scene takes place: Interior or Exterior? location? time of day (day or night)? This is where you'd paint a picture of the surroundings, the ambiance, any relevant objects or features, and the initial actions or states of the characters.</setting>
+        <outline>Gradually build tension and anticipation leading up to the story's climax.</outline>
+      </sequence>
+      <sequence name="Direct Confrontation">
+        <setting>Where and when the scene takes place: Interior or Exterior? location? time of day (day or night)? This is where you'd paint a picture of the surroundings, the ambiance, any relevant objects or features, and the initial actions or states of the characters.</setting>
+        <outline>Depict the protagonist's head-on confrontation with the main obstacle, resulting in a turning point.</outline>
+        <protagonist_reaction>Breifly describe one way the protagonist can react to the head-on confrontation . Do not mention this is choice or option. </protagonist_reaction>
+        <protagonist_reaction>Breifly describe a second different way the protagonist can react to the head-on confrontation. Do not mention this is choice or option. </protagonist_reaction>
+        <protagonist_reaction>Breifly describe a third very different way the protagonist can react to the head-on confrontation. Do not mention this is choice or option. </protagonist_reaction>
+      </sequence>
+    </part>
+  </act>

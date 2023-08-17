@@ -1,0 +1,36 @@
+<act name="Butterfly's Space Adventure">
+  <description>A curious butterfly named Bella wants to explore the world beyond the meadow. A chance encounter with an unusual object inspires a journey to the stars.</description>
+  <part name="Introduction to Characters and Setting">
+    <sequence name="Introducing Protagonist's Daily Life">
+      <setting>Exterior, a vibrant meadow, sunny day. Butterflies flutter around, birds chirp in the background, and flowers sway with the breeze.</setting>
+      <illustration>Bella, a delicate butterfly with wings painted in various shades of blue and green, flits gracefully from one colorful flower to another. Her inquisitive eyes sparkle with wonder as she interacts with her fellow butterflies. Nearby, Buddy, a playful dog with a wagging tail and a mischievous grin, chases his own tail, his excitement evident in his energetic movements.</illustration>
+      <outline>Bella the butterfly flits from flower to flower, greeting her fellow butterflies. A playful dog, Buddy, chases his tail nearby, causing a small ruckus.</outline>
+    </sequence>
+    <sequence name="Establishing World's Rules and Tone">
+      <setting>Exterior, same meadow, a clearer area with fewer flowers. Bella sits atop a rock, looking up at the sky, watching birds soar.</setting>
+      <illustration>Bella perches delicately on a sunlit rock, her wings casting intricate patterns of shadow on the surface. Her gaze is fixed on the cerulean sky, her curiosity evident in the way her antennae quiver. Buddy sits beside her, his tail thumping against the ground as he watches Bella with a mix of confusion and curiosity.</illustration>
+      <outline>Buddy, panting: "Why do you always look up there, Bella?"
+               Bella, dreamily: "There's so much more beyond this meadow, Buddy. I wish I could see the stars up close."
+               Buddy, confused: "Stars? Those tiny dots? Why?"</outline>
+    </sequence>
+  </part>
+  <part name="Introduction of the Inciting Incident">
+    <sequence name="Present the Disruptive Event">
+      <setting>Exterior, the meadow's edge near a thicket of trees, late afternoon. The sun casts long shadows, and there's a soft glow from a peculiar object half-buried in the ground.</setting>
+      <illustration>The meadow's vibrant colors give way to a more subdued palette as Bella and Buddy venture toward the thicket of trees. The late afternoon sun casts long, golden shadows across the grass. Amid the shadows, a small toy rocket rests, partially buried in the earth. Its intricate design catches the sunlight, creating glimmers of anticipation.</illustration>
+      <outline>As Bella and Buddy play, they stumble upon a small toy rocket. It's intricate and seems to have a tiny cockpit.
+               Bella, excitedly: "Look, Buddy! It's like the ones humans play with! What if... I could fly it to the stars?"
+               Buddy, skeptical: "It's just a toy, Bella."</outline>
+    </sequence>
+    <sequence name="Initial Reaction of the Protagonist">
+      <setting>Exterior, the same spot near the thicket of trees. Bella stands on the rocket, inspecting it while Buddy watches, intrigued.</setting>
+      <illustration>Bella's delicate form stands atop the rocket, her wings outstretched for balance. Her multi-hued wings catch the last rays of sunlight, creating a breathtaking display of color against the backdrop of the meadow. Buddy watches with wide eyes, his ears perked forward, his tail still. The rocket's buttons emit a soft glow, illuminating Bella's determined expression as she investigates.</illustration>
+      <outline>Bella feels the rocket's buttons, and suddenly, it lights up and hums.
+               Buddy, alarmed: "What did you do?!"
+               Bella, joyfully: "I don’t know, but maybe this is my chance to touch the stars!"</outline>
+      <protagonist_reaction>Bella tries to figure out how to enter the rocket, excitedly buzzing around it.</protagonist_reaction>
+      <protagonist_reaction>Bella hesitates, thinking it might be safer to just admire it from the outside and not meddle with it further.</protagonist_reaction>
+      <protagonist_reaction>Bella decides to fetch some friends for advice, not wanting to embark on this adventure alone.</protagonist_reaction>
+    </sequence>
+  </part>
+</act>

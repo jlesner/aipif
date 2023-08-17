@@ -1,0 +1,124 @@
+<act name="Butterfly's Space Adventure">
+  <description>A curious butterfly named Bella wants to explore the world beyond the meadow. A chance encounter with an unusual object inspires a journey to the stars.</description>
+  <part name="Introduction to Characters and Setting">
+    <sequence name="Introducing Protagonist's Daily Life">
+      <setting>Exterior, a vibrant meadow, sunny day. Butterflies flutter around, birds chirp in the background, and flowers sway with the breeze.</setting>
+      <outline>Bella the butterfly flits from flower to flower, greeting her fellow butterflies. A playful dog, Buddy, chases his tail nearby, causing a small ruckus.</outline>
+    </sequence>
+    <sequence name="Establishing World's Rules and Tone">
+      <setting>Exterior, same meadow, a clearer area with less flowers. Bella sits atop a rock, looking up at the sky, watching birds soar.</setting>
+      <outline>Buddy, panting: "Why do you always look up there, Bella?"
+               Bella, dreamily: "There's so much more beyond this meadow, Buddy. I wish I could see the stars up close."
+               Buddy, confused: "Stars? Those tiny dots? Why?"</outline>
+    </sequence>
+  </part>
+  <part name="Introduction of the Inciting Incident">
+    <sequence name="Present the Disruptive Event">
+      <setting>Exterior, the meadow's edge near a thicket of trees, late afternoon. The sun casts long shadows and there's a soft glow from a peculiar object half-buried in the ground.</setting>
+      <outline>As Bella and Buddy play, they stumble upon a small toy rocket. It's intricate and seems to have a tiny cockpit.
+               Bella, excitedly: "Look, Buddy! It's like the ones humans play with! What if... I could fly it to the stars?"
+               Buddy, skeptical: "It's just a toy, Bella."</outline>
+    </sequence>
+    <sequence name="Initial Reaction of the Protagonist">
+      <setting>Exterior, the same spot near the thicket of trees. Bella stands on the rocket, inspecting it while Buddy watches, intrigued.</setting>
+      <outline>Bella feels the rocket's buttons, and suddenly, it lights up and hums.
+               Buddy, alarmed: "What did you do?!"
+               Bella, joyfully: "I don’t know, but maybe this is my chance to touch the stars!"</outline>
+      <protagonist_reaction>Bella tries to figure out how to enter the rocket, excitedly buzzing around it.</protagonist_reaction>
+      <protagonist_reaction>Bella hesitates, thinking it might be safer to just admire it from the outside and not meddle with it further.</protagonist_reaction>
+      <protagonist_reaction>Bella decides to fetch some friends for advice, not wanting to embark on this adventure alone.</protagonist_reaction>
+    </sequence>
+  </part>
+</act>
+
+<act name="Confrontation">
+    <description>Bella decides to explore space with the rocket, facing unforeseen challenges along the way. This culminates in her daring confrontation with the vastness of space, forcing her to make a crucial decision.</description>
+    <part name="Protagonist's Initial Response">
+      <sequence name="Reluctance or Resistance">
+        <setting>Exterior, the meadow's edge near the thicket of trees, twilight. The setting sun casts a warm glow over the toy rocket, which now hums more intensely.</setting>
+        <outline>
+          Buddy, worried: "Are you sure about this, Bella? It could be dangerous!"
+          Bella, hesitating: "I'm not sure, Buddy. But I've always dreamed of the stars."
+        </outline>
+      </sequence>
+    </part>
+    <part name="Escalation of Conflicts and Obstacles">
+      <sequence name="Introduction of Challenges">
+        <setting>Interior, inside the rocket's tiny cockpit. Buttons light up and the rocket vibrates as it prepares to launch.</setting>
+        <outline>
+          Bella, nervous: "I hope I remember which button to press!"
+          The rocket suddenly lurches, causing Bella to accidentally hit multiple buttons.
+          Bella, panicking: "Oh no! That wasn’t right!"
+        </outline>
+      </sequence>
+      <sequence name="Raising the Stakes">
+        <setting>Exterior, in the night sky, just above the clouds. Stars twinkle in the distance, but nearby there are storm clouds, producing lightning and thunder.</setting>
+        <outline>
+          Buddy, from the ground via a tiny communicator: "Bella, watch out for the storm ahead!"
+          Bella, determined: "I see it, Buddy. I'll try to navigate around it."
+        </outline>
+      </sequence>
+    </part>
+    <part name="Climax">
+      <sequence name="Building Tension">
+        <setting>Exterior, deep space. A beautiful nebula swirls nearby, but an asteroid field lies directly in Bella's path.</setting>
+        <outline>
+          Bella, in awe: "The stars are even more beautiful up close!"
+          The rocket's alarms suddenly blare.
+          Bella, alert: "Oh no, asteroids!"
+        </outline>
+      </sequence>
+      <sequence name="Direct Confrontation">
+        <setting>Exterior, amidst the asteroid field. Large space rocks loom dangerously close, and the rocket weaves to avoid them.</setting>
+        <outline>
+          Buddy, frantic: "Bella, get out of there!"
+          Bella, with determination: "I've come this far, Buddy. I can't give up now!"
+        </outline>
+        <protagonist_reaction>Bella shuts off the rocket's engines momentarily, floating in space, waiting for a clear path through the asteroids.</protagonist_reaction>
+      </sequence>
+    </part>
+</act>
+
+You will continue this story for a child by editing the XML below. 
+
+Show, Don't Tell: When possible reveal information using dialoge do not state it directly.  If a specific aspect is important for the viewer to know, reveal it using dialoge between characters. For example, if a character is sad, do not say "The character was sad."  Instead, have another character ask "Why are you sad?"  This will allow the viewer to infer the character is sad without being told directly.
+
+Economy of Words: Be concise. You don't need long, poetic descriptions. Every word should serve the purpose of conveying essential visual or auditory information, setting the mood, or advancing the story.
+
+Clarity is Key: While you don't want to be overly verbose, you do want to be clear. Children reading should have a good understanding action and how it relates to the entire story.
+
+Please reply only with the updated XML shown below. 
+
+ <act name="Resolution">
+    <description>This is the final act where the story's conflicts are resolved. After the climax, there's a period of falling action where loose ends are tied up and the story's outcomes are determined. This act provides closure to the audience and showcases the characters' growth and transformation based on their experiences throughout the story.</description>
+    <part name="Falling Action and Consequences">
+      <sequence name="Aftermath of the Climax">
+        <setting>Where and when the scene takes place: Interior or Exterior? location? time of day (day or night)? This is where you'd paint a picture of the surroundings, the ambiance, any relevant objects or features, and the initial actions or states of the characters.</setting>
+        <outline>Address the aftermath of the climax and exploring the consequences of key decisions.</outline>
+      </sequence>
+      <sequence name="Resolution of Subplots">
+        <setting>Where and when the scene takes place: Interior or Exterior? location? time of day (day or night)? This is where you'd paint a picture of the surroundings, the ambiance, any relevant objects or features, and the initial actions or states of the characters.</setting>
+        <outline>Resolve any remaining subplots or loose ends in the story.</outline>
+      </sequence>
+    </part>
+    <part name="Resolution">
+      <sequence name="Character Growth and Transformation">
+        <setting>Where and when the scene takes place: Interior or Exterior? location? time of day (day or night)? This is where you'd paint a picture of the surroundings, the ambiance, any relevant objects or features, and the initial actions or states of the characters.</setting>
+        <outline>Showcase the protagonist's growth, transformation, or change in perspective.</outline>
+      </sequence>
+      <sequence name="Main Conflict Resolution">
+        <setting>Where and when the scene takes place: Interior or Exterior? location? time of day (day or night)? This is where you'd paint a picture of the surroundings, the ambiance, any relevant objects or features, and the initial actions or states of the characters.</setting>
+        <outline>Resolve the main conflict and demonstrating how the characters have evolved.</outline>
+      </sequence>
+    </part>
+    <part name="Conclusion">
+      <sequence name="Final Character Arcs">
+        <setting>Where and when the scene takes place: Interior or Exterior? location? time of day (day or night)? This is where you'd paint a picture of the surroundings, the ambiance, any relevant objects or features, and the initial actions or states of the characters.</setting>
+        <outline>Wrap up any final character arcs or lingering plot points.</outline>
+      </sequence>
+      <sequence name="Sense of Closure">
+        <setting>Where and when the scene takes place: Interior or Exterior? location? time of day (day or night)? This is where you'd paint a picture of the surroundings, the ambiance, any relevant objects or features, and the initial actions or states of the characters.</setting>
+        <outline>Provide a sense of closure and leaving the audience with a lasting impression.</outline>
+      </sequence>
+    </part>
+  </act>

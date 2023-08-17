@@ -1,0 +1,80 @@
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    <xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes" />
+    <!--   
+    <xsl:output method="html" encoding="UTF-8" />
+     -->
+    <xsl:strip-space elements="*" />
+
+    <xsl:template match="sequence">
+        <xsl:element name="sequence">
+            <xsl:attribute name="act">
+                <xsl:value-of select="ancestor::act/name"/>
+            </xsl:attribute>
+            <xsl:attribute name="part">
+                <xsl:value-of select="ancestor::part/name"/>
+            </xsl:attribute>
+            <xsl:attribute name="sequence">
+                <xsl:value-of select="name"/>
+            </xsl:attribute>
+            <xsl:element name="setting_description">
+                     <xsl:text>Where and when the scene takes place: Interior or Exterior? location? time of day (day or night)? This is where you'd paint a picture of the surroundings, the ambiance, any relevant objects or features, and the initial actions or states of the characters.</xsl:text>
+                <!-- <xsl:attribute name="purpose">
+                </xsl:attribute> -->
+            </xsl:element>
+            <xsl:element name="story_outline">
+                     <xsl:text></xsl:text>
+                     <xsl:value-of select="description"/>
+                <!-- <xsl:attribute name="purpose">
+                </xsl:attribute> -->
+            </xsl:element>
+        </xsl:element>
+    </xsl:template>
+
+    <xsl:template match="part">
+        <xsl:element name="part">
+            <xsl:element name="act_name">
+                <xsl:value-of select="ancestor::act/name"/>
+            </xsl:element>
+            <xsl:element name="part_name">
+                <xsl:value-of select="name"/>
+            </xsl:element>
+            <xsl:element name="description">
+                <xsl:text> </xsl:text>
+            </xsl:element>  
+        </xsl:element>
+    </xsl:template>
+
+    <xsl:template match="act">
+        <xsl:element name="act">
+            <xsl:element name="act_name">
+                <xsl:value-of select="name"/>
+            </xsl:element>
+            <xsl:element name="description">
+                <xsl:text> </xsl:text>
+            </xsl:element>  
+        </xsl:element>
+    </xsl:template>
+
+    <xsl:template match="/">
+        <xsl:element name="root">
+            <xsl:element name="act_list">
+                <xsl:apply-templates select="//act"/>
+            </xsl:element>
+            <xsl:element name="part_list">
+                <xsl:apply-templates select="//part"/>
+            </xsl:element>
+            <xsl:element name="sequence_list">
+                <xsl:apply-templates select="//sequence"/>
+            </xsl:element>
+        </xsl:element>
+    </xsl:template>
+
+    <!-- Identity template: copies everything as-is 
+    -->
+    <!-- <xsl:template match="@* | node()">
+        <xsl:copy>
+            <xsl:apply-templates select="@* | node()"/>
+        </xsl:copy>
+    </xsl:template> -->
+
+</xsl:stylesheet>

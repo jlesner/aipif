@@ -1,0 +1,121 @@
+<acts>
+    <act>
+        <name>Setup</name>
+        <description>This is the beginning of the story where the main characters, setting, and initial conflict are introduced. Establish the foundation of the story and engage the audience's interest. It typically includes the "inciting incident," which is the event that sets the main plot in motion and disrupts the protagonist's normal life.</description>
+        <parts>
+            <part>
+                <name>Introduction to Characters and Setting</name>
+                <sequences>
+                    <sequence>
+                        <name>Introducing Protagonist's Daily Life</name>
+                        <description>Showcase the protagonist's routine, relationships, and environment.</description>
+                    </sequence>
+                    <sequence>
+                        <name>Establishing World's Rules and Tone</name>
+                        <description>Introduce the rules of the story's world and setting the tone for the narrative.</description>
+                    </sequence>
+                </sequences>
+            </part>
+            <part>
+                <name>Introduction of the Inciting Incident</name>
+                <sequences>
+                    <sequence>
+                        <name>Present the Disruptive Event</name>
+                        <description>Introduce the event that disrupts the protagonist's normal life and sets the story in motion.</description>
+                    </sequence>
+                    <sequence>
+                        <name>Initial Reaction of the Protagonist</name>
+                        <description>Portray the protagonist's initial response and emotions upon encountering the inciting incident.</description>
+                    </sequence>
+                </sequences>
+            </part>
+        </parts>
+    </act>
+    <act>
+        <name>Confrontation</name>
+        <description>Also known as the "rising action,"  This is where the protagonist faces challenges, obstacles, and conflicts that escalate as the story progresses. The tension and stakes increase, leading to a pivotal moment known as the "climax." The climax is the highest point of tension in the story and involves the protagonist confronting the main obstacle or antagonist.</description>
+        <parts>
+            <part>
+                <name>Protagonist's Initial Response</name>
+                <sequences>
+                    <sequence>
+                        <name>Reluctance or Resistance</name>
+                        <description>Depict the protagonist's initial reluctance or resistance to engage with the new situation.</description>
+                    </sequence>
+                </sequences>
+            </part>
+            <part>
+                <name>Escalation of Conflicts and Obstacles</name>
+                <sequences>
+                    <sequence>
+                        <name>Introduction of Challenges</name>
+                        <description>Introduce challenges that push the protagonist to confront the central conflict.</description>
+                    </sequence>
+                    <sequence>
+                        <name>Raising the Stakes</name>
+                        <description>Increase tension by introducing additional obstacles or antagonistic forces.</description>
+                    </sequence>
+                </sequences>
+            </part>
+            <part>
+                <name>Climax</name>
+                <sequences>
+                    <sequence>
+                        <name>Building Tension</name>
+                        <description>Gradually build tension and anticipation leading up to the story's climax.</description>
+                    </sequence>
+                    <sequence>
+                        <name>Direct Confrontation</name>
+                        <description>Depict the protagonist's head-on confrontation with the main obstacle, resulting in a turning point.</description>
+                        <max_branches>3</max_branches>
+                    </sequence>
+                </sequences>
+            </part>
+        </parts>
+    </act>
+    <act>
+        <name>Resolution</name>
+        <description>This is the final act where the story's conflicts are resolved. After the climax, there's a period of falling action where loose ends are tied up and the story's outcomes are determined. This act provides closure to the audience and showcases the characters' growth and transformation based on their experiences throughout the story.</description>
+        <parts>
+            <part>
+                <name>Falling Action and Consequences</name>
+                <sequences>
+                    <sequence>
+                        <name>Aftermath of the Climax</name>
+                        <description>Address the aftermath of the climax and exploring the consequences of key decisions.</description>
+                    </sequence>
+                    <sequence>
+                        <name>Resolution of Subplots</name>
+                        <description>Resolve any remaining subplots or loose ends in the story.</description>
+                    </sequence>
+                </sequences>
+            </part>
+            <part>
+                <name>Resolution</name>
+                <sequences>
+                    <sequence>
+                        <name>Character Growth and Transformation</name>
+                        <description>Showcase the protagonist's growth, transformation, or change in perspective.</description>
+                    </sequence>
+                    <sequence>
+                        <name>Main Conflict Resolution</name>
+                        <description>Resolve the main conflict and demonstrating how the characters have evolved.</description>
+                    </sequence>
+                </sequences>
+            </part>
+            <part>
+                <name>Conclusion</name>
+                <sequences>
+                    <sequence>
+                        <name>Final Character Arcs</name>
+                        <description>Wrap up any final character arcs or lingering plot points.</description>
+                    </sequence>
+                    <sequence>
+                        <name>Sense of Closure</name>
+                        <description>Provide a sense of closure and leaving the audience with a lasting impression.</description>
+                    </sequence>
+                </sequences>
+            </part>
+        </parts>
+    </act>
+</acts>

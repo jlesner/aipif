@@ -1,0 +1,30 @@
+Please reply only with the XML below being updated. 
+A child gives you these emojis to write a children story out of them:
+🦋 🐶 🚀 🌟 🌍
+Inspired by these emojis you will write the child a story. Add <story_outline> elements to each <sequence> in the given XML story structure to match the <sequence> node's <description>.  For the last sequence node please add three <option> nodes that very briefly describe different ways the story protagonist's can react to the inciting incident.  Make sure each option makes sense given your <story_outline> and do not duplicate the <option> text inside the <story_outline>. Inside each <option> do not indicate it is an option. Make sure <story_outline> does not indicate which option the story will follow.  Please do not use emoji in the writing. 
+
+
+<sequence>
+  <act_name>Setup</act_name>
+  <part_name>Introduction to Characters and Setting</part_name>
+  <sequence_name>Introducing Protagonist's Daily Life</sequence_name>
+  <description>Showcasing the protagonist's routine, relationships, and environment.</description>
+  <sequence>
+    <act_name>Setup</act_name>
+    <part_name>Introduction to Characters and Setting</part_name>
+    <sequence_name>Establishing World's Rules and Tone</sequence_name>
+    <description>Introducing the rules of the story's world and setting the tone for the narrative.</description>
+    <sequence>
+      <act_name>Setup</act_name>
+      <part_name>Introduction of the Inciting Incident</part_name>
+      <sequence_name>Presenting the Disruptive Event</sequence_name>
+      <description>Introducing the event that disrupts the protagonist's normal life and sets the story in motion.</description>
+      <sequence>
+        <act_name>Setup</act_name>
+        <part_name>Introduction of the Inciting Incident</part_name>
+        <sequence_name>Initial Reaction of the Protagonist</sequence_name>
+        <description>Portraying the protagonist's initial response and emotions upon encountering the inciting incident.</description>
+      </sequence>
+    </sequence>
+  </sequence>
+</sequence>

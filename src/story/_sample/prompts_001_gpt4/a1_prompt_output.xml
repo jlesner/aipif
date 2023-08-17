@@ -1,0 +1,31 @@
+<sequence>
+  <act_name>Setup</act_name>
+  <part_name>Introduction to Characters and Setting</part_name>
+  <sequence_name>Introducing Protagonist's Daily Life</sequence_name>
+  <description>Showcasing the protagonist's routine, relationships, and environment.</description>
+  <story_outline>In a serene meadow, a young butterfly named Bella flits around, often playing with her best friend, a playful puppy named Pippin. They spend their days chasing each other, exploring the flowers, and napping under the warm sun. Life in the meadow is peaceful and routine for Bella and Pippin.</story_outline>
+  <sequence>
+    <act_name>Setup</act_name>
+    <part_name>Introduction to Characters and Setting</part_name>
+    <sequence_name>Establishing World's Rules and Tone</sequence_name>
+    <description>Introducing the rules of the story's world and setting the tone for the narrative.</description>
+    <story_outline>This meadow, although mostly peaceful, has tales of otherworldly adventures. Legends speak of a mysterious rocket that can transport creatures to distant worlds among the stars. While most of the animals consider these stories as mere tales, some believe they hold truths waiting to be discovered.</story_outline>
+    <sequence>
+      <act_name>Setup</act_name>
+      <part_name>Introduction of the Inciting Incident</part_name>
+      <sequence_name>Presenting the Disruptive Event</sequence_name>
+      <description>Introducing the event that disrupts the protagonist's normal life and sets the story in motion.</description>
+      <story_outline>One day, while Bella and Pippin are playing near a hidden part of the meadow, they stumble upon a real, gleaming rocket. Curiously, it appears to be beckoning them closer. As they approach, the rocket door opens, revealing a map of the cosmos with a highlighted path leading to a distant star named "Stellar Haven."</story_outline>
+      <sequence>
+        <act_name>Setup</act_name>
+        <part_name>Introduction of the Inciting Incident</part_name>
+        <sequence_name>Initial Reaction of the Protagonist</sequence_name>
+        <description>Portraying the protagonist's initial response and emotions upon encountering the inciting incident.</description>
+        <story_outline>Bella, with her wings trembling, feels a mix of excitement and apprehension. Pippin, with his tail wagging slowly, senses the gravity of their discovery and looks to Bella, awaiting her decision on what to do next.</story_outline>
+        <option>Feeling adventurous, Bella suggests they board the rocket and embark on the cosmic journey to Stellar Haven.</option>
+        <option>Bella, feeling uncertain, decides to seek advice from the elder creatures of the meadow before making a decision.</option>
+        <option>Pippin, driven by his protective instincts, suggests hiding the rocket to ensure no one else gets tempted by its mysterious allure.</option>
+      </sequence>
+    </sequence>
+  </sequence>
+</sequence>

@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
-  <user_data/>
-  <story_data>
-    <sequence>
-      <act_name>Setup</act_name>
-      <part_name>Introduction to Characters and Setting</part_name>
-      <sequence_name>Introducing Protagonist's Daily Life</sequence_name>
-      <description>Showcasing the protagonist's routine, relationships, and environment.</description>
-      <sequence>
-        <act_name>Setup</act_name>
-        <part_name>Introduction to Characters and Setting</part_name>
-        <sequence_name>Establishing World's Rules and Tone</sequence_name>
-        <description>Introducing the rules of the story's world and setting the tone for the narrative.</description>
-        <sequence>
-          <act_name>Setup</act_name>
-          <part_name>Introduction of the Inciting Incident</part_name>
-          <sequence_name>Presenting the Disruptive Event</sequence_name>
-          <description>Introducing the event that disrupts the protagonist's normal life and sets the story in motion.</description>
-          <sequence>
-            <act_name>Setup</act_name>
-            <part_name>Introduction of the Inciting Incident</part_name>
-            <sequence_name>Initial Reaction of the Protagonist</sequence_name>
-            <description>Portraying the protagonist's initial response and emotions upon encountering the inciting incident.</description>
-            <child_count>3</child_count>
-          </sequence>
-        </sequence>
-      </sequence>
-    </sequence>
-  </story_data>
+  <user_data>
+    <request type="make_picture">
+      <arg type="positive_prompt_text">Draw a picture of a cow.</arg>
+    </request>
+    <cinterview>
+      <emoji>
+          <emoji>🦋</emoji>
+          <description>A graceful butterfly with vibrant blue wings</description>
+      </emoji>
+      <emoji>
+          <emoji>🐶</emoji>
+          <description>A smiling dog's face with floppy ears</description>
+      </emoji>
+      <emoji>
+          <emoji>🚀</emoji>
+          <description>A silver rocket ship blasting off into space</description>
+      </emoji>
+      <emoji>
+          <emoji>🌟</emoji>
+          <description>A shimmering golden star twinkling in the night</description>
+      </emoji>
+      <emoji>
+          <emoji>🌍</emoji>
+          <description>A representation of our blue and green Earth</description>
+      </emoji>
+    </cinterview>
+  </user_data>
+  <story_data/>
   <meta_data>
     <act_list>
       <act>
@@ -109,7 +109,6 @@
         <part_name>Introduction of the Inciting Incident</part_name>
         <sequence_name>Initial Reaction of the Protagonist</sequence_name>
         <description>Portraying the protagonist's initial response and emotions upon encountering the inciting incident.</description>
-        <child_count>3</child_count>
       </sequence>
       <sequence>
         <act_name>Confrontation</act_name>
@@ -140,7 +139,6 @@
         <part_name>Climax</part_name>
         <sequence_name>Direct Confrontation</sequence_name>
         <description>Depicting the protagonist's head-on confrontation with the main obstacle, resulting in a turning point.</description>
-        <child_count>3</child_count>
       </sequence>
       <sequence>
         <act_name>Resolution</act_name>
@@ -180,4 +178,5 @@
       </sequence>
     </sequence_list>
   </meta_data>
+
 </root>
