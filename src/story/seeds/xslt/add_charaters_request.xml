@@ -1,0 +1,32 @@
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    <xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes" />
+    <!--   
+    <xsl:output method="html" encoding="UTF-8" />
+     -->
+    <xsl:strip-space elements="*" />
+
+    <xsl:template match="story_data[not(sequence)]">
+        <xsl:copy>
+            <xsl:copy-of select="/root/meta_data/sequence_list/sequence[1]" />
+        </xsl:copy>
+    </xsl:template>
+
+    <xsl:template match="sequence[ancestor::story_data and not(sequence)]">
+        <xsl:variable name="sequence_name" select="sequence_name" />
+        <xsl:copy>
+            <xsl:apply-templates select="@* | node()"/>
+            <xsl:copy-of select="
+                /root/meta_data/sequence_list/sequence[
+                    preceding-sibling::sequence[1]/sequence_name = $sequence_name
+                ]
+            " />
+        </xsl:copy>
+    </xsl:template>
+
+    <xsl:template match="@* | node()">
+        <xsl:copy>
+            <xsl:apply-templates select="@* | node()"/>
+        </xsl:copy>
+    </xsl:template>
+
+</xsl:stylesheet>

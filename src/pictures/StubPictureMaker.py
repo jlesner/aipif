@@ -1,4 +1,4 @@
-from PictureMaker import PictureMaker
+from pictures.PictureMaker import PictureMaker
 
 class StubPictureMaker(PictureMaker):
 
