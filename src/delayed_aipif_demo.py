@@ -29,7 +29,7 @@ def activity_simulate(context:Context):
     for i in range(50):
         activity = random.choice(['make_picture', 'make_sound', 'make_music', 'make_story'])        
         context.state[activity]({"positive_prompt_text": f"iteration {i}"})
-        logging.info(f"{activity} iteration {i}")
+        print(f"{activity} iteration {i}")
 
 
 if __name__ == '__main__':
