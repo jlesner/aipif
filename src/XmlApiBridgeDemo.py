@@ -5,6 +5,7 @@
 # output xml to stdout
 
 import sys
+import re
 from lxml import etree
 
 from Context import Context # ! don't know why it can't import when in /story !
@@ -32,10 +33,34 @@ def address_requests(input_file, output_file):
                 raise Exception(f"Unknown request type: {request_type}")
     tree.write(output_file, pretty_print=True)
 
+def extract_xml(input_file, output_file):
+    with open(input_file, "r") as f:
+        content = f.read()
+    match = re.search(r'\<\?xml version="1\.0" encoding="UTF-8"\?\>\s*<root>.*?</root>', content, re.DOTALL)
+    if match:
+        xml_content = match.group()
+        with open(output_file, "w") as f:
+            f.write(xml_content)
+    else:
+        raise Exception("No xml found in input file")
+    
+def valid_xml(input_file):
+    try:
+        input_tree = etree.parse(input_file)
+        expressions = [
+            # not sure what to put here yet
+        ]
+        for expr in expressions:
+            if not input_tree.xpath(expr):
+                return False
+        return True
+    except etree.XMLSyntaxError:
+        return False
 
 if __name__ == "__main__":
     # input_xml = sys.stdin.read()
     input_xml = sys.argv[1]
     # input_xml = "story/seeds/flat_structure.xml"
-    address_requests(input_xml, "/dev/stdout")
+    # address_requests(input_xml, "/dev/stdout")
+    extract_xml(input_xml, "test.xml")
     
