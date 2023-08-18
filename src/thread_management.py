@@ -42,6 +42,13 @@ class BoundedBuffer:
 
             self.not_full.notify()
             return item
+    
+    def __str__(self):
+        rStr = "[ "
+        for i in range(self.out_pos, self.in_pos):
+            rStr += str(self.buffer[i]) + " "
+        rStr += "]"
+        return rStr
 
 def worker(context,id):
     while True:
@@ -50,6 +57,7 @@ def worker(context,id):
             context.state['todo_tasks'].add(item)
             print(f"Worker {id} received termination signal")
             break
-        result = item.process_function(item.input_dict)
-        print(f"Worker {id} processing {item.process_function.__name__} request to {result}")
-        context.state['done_tasks'].add(result)
+        process_result = item.process_function(item.input_dict)
+        item.output = process_result
+        print(f"Worker {id} processing {item.process_function.__name__} request to {process_result}")
+        context.state['done_tasks'].add(item)

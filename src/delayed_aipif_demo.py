@@ -46,7 +46,20 @@ if __name__ == '__main__':
     context = Context()
     context_configure(context)
     state_setup(context)
-    print("starting tasks")
-    threading.Thread(target=task_manager, args=(context,)).start()
+    print("starting tasks!")
+    manager_thread = threading.Thread(target=task_manager, args=(context,))
+    manager_thread.start()
+
+    worker_threads = []
     for i in range(context.config['num_workers']):
-        threading.Thread(target=worker, args=(context,i)).start()
+        worker_thread = threading.Thread(target=worker, args=(context,i))
+        worker_thread.start()
+        worker_threads.append(worker_thread)
+    
+    for worker_thread in worker_threads:
+        worker_thread.join()
+
+    manager_thread.join()
+
+    print("all done!")
+    print(context.state['done_tasks'])  
