@@ -68,18 +68,20 @@ config.style.page.footer.link.font: "small caps"
         </xsl:when>
 
         <!-- Check the next sequence in the next act -->
-        <xsl:when test="parent::act/following-sibling::act[1]/part[1]/sequence[1]">
+        <xsl:when test="parent::part/parent::act/following-sibling::act[1]/part[1]/sequence[1]">
             <xsl:text>
 
 [[next page.|</xsl:text>
-            <xsl:value-of select="ancestor::act/following-sibling::act[1]/part[1]/sequence[1]/@nam"/>
+            <xsl:value-of select="parent::part/parent::act/following-sibling::act[1]/part[1]/sequence[1]/@name"/>
             <xsl:text>]]
 
 </xsl:text>
         </xsl:when>
         <xsl:otherwise>
         <xsl:text>
-The End!</xsl:text>    
+
+The End!
+</xsl:text>    
         </xsl:otherwise>
     </xsl:choose>
 

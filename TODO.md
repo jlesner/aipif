@@ -1,13 +1,19 @@
-
-
 # Jasmine Task List
 
-## XML to Twee / Twine
-### which twine dialect to use?
-### what do we want our twines to do ? 
-#### play music? => JS extension
-#### sound effects? =>
+## XML to Twee / Twine / Tweego
+### run experiments creating the published child experience aka twines / HTML
 
+## research 
+### which twine dialect is best for our purpose?
+### what do we want our twines to do ? 
+#### play music? => abcjs 
+#### sound effects? => ???
+
+## update sample picture prompts to be less complex 
+
+## emji DB
+
+---------------------
 
 
 ## DONE UPDATE concept slide 
