@@ -667,7 +667,7 @@ emoji_descriptions2 = [
     ("👖", "Jeans."),
     ("👗", "A dress."),
     ("👘", "A kimono."),
-    ("👙", "A bikini."),
+    # ("👙", "A bikini."),
     ("👚", "A woman's blouse."),
     ("👛", "A purse."),
     ("👜", "A handbag."),

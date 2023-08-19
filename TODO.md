@@ -2,11 +2,19 @@
 
 # Jasmine Task List
 
-## UPDATE concept slide 
+## XML to Twee / Twine
+### which twine dialect to use?
+### what do we want our twines to do ? 
+#### play music? => JS extension
+#### sound effects? =>
+
+
+
+## DONE UPDATE concept slide 
 
 Make it clear that the product of our project is NOT a single static twine game. The product of our project an AI tool that parents / children can use to make personalized interactive twine games.
-
 We generate interactive twine games that are static so that the parent can review / approve. This is important because what LLMs generate is not predictable. This also allows child’s iPad etc to be loaded with their personalized twines and they can enjoy them without need for internet access. 
+
 
 ## web service setup
 ### "sells the service" -> shows concept slide
@@ -18,19 +26,11 @@ We generate interactive twine games that are static so that the parent can revie
 ### design - emoji?
 ### implementation - html+js?
 
-## parent interview
-### design - word cloud?
-### implementation - html+js?
-
 ## text_maker - connect python to LLM
 ### implementation
 
-## story representation
-### segment_node
-#### parent
-#### outline_text
-#### positive_prompt_template
-
+# DONE
+## story representation => XML
 
 ## prompts
 ### story outline
@@ -43,3 +43,12 @@ We generate interactive twine games that are static so that the parent can revie
 
 ### dpost_outline_list_entry => dpost_segment_list
 
+
+
+
+
+# cutline
+
+## parent interview
+### design - word cloud?
+### implementation - html+js?

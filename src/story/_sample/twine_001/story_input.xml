@@ -1,7 +1,4 @@
-Update XML below so each <sequence> element gets a new child <illustration> containing a vivid description of a single significant moment in the narrative. For this single moment vividly describe the characters: what are they? what is their appearance?  what they are they doing? What expressions do their faces have? Vividly and redundantly describe all details for setting and the mood, showing the location, and giving context to the scene. Please make sure your vivid description flows well with the previous illustration and the next illustrtion in the sequence. Please reply only with the updated XML below. Do this for every <sequence> element in the XML below.
-
 <story>
-
 <act name="Butterfly's Space Adventure">
   <description>A curious butterfly named Bella wants to explore the world beyond the meadow. A chance encounter with an unusual object inspires a journey to the stars.</description>
   <part name="Introduction to Characters and Setting">
@@ -78,11 +75,12 @@ Update XML below so each <sequence> element gets a new child <illustration> cont
           Buddy, frantic: "Bella, get out of there!"
           Bella, with determination: "I've come this far, Buddy. I can't give up now!"
         </outline>
+        <protagonist_reaction>Bella attempts to steer the rocket manually, using her wings to guide the ship's levers and narrowly avoiding the asteroids.</protagonist_reaction>
+        <protagonist_reaction>Bella searches for a button to activate the rocket's autopilot, hoping it can navigate the field better than she can.</protagonist_reaction>
         <protagonist_reaction>Bella shuts off the rocket's engines momentarily, floating in space, waiting for a clear path through the asteroids.</protagonist_reaction>
       </sequence>
     </part>
 </act>
-
 <act name="Resolution">
     <description>Having faced the challenges of the vast cosmos, Bella finds her way back home, learning the true meaning of adventure and the value of friendship.</description>
     <part name="Falling Action and Consequences">
