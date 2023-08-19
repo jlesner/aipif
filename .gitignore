@@ -1,6 +1,6 @@
 # local settings
 .env
-
+_exclude
 _media
 
 # Byte-compiled / optimized / DLL files
