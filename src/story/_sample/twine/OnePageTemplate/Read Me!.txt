@@ -1,0 +1,73 @@
+========*ONE PAGE TEMPLATE*========
+
+========Thanks!
+Thank you for downloading this Template Asset pack! I hope you will enjoy it as much as I did creating it! 
+If you found use with it, please consider:
+- Rating it on the asset page
+- Leaving a comment
+- Sharing the asset pack with others (from itch directly or through my Tumblr posts)
+
+THANK YOU AGAIN! <3
+
+========Credits:
+This template is under the CC-BY license, which requires crediting for free use.
+As such, please include either my itch/tumblr link or the asset page link in your project. 
+Consider tagging me in social platform or sending me a link to your project: I love to see what my template was used for!
+
+========This Folder includes:
+- HTML ready-to-use file
+- Open Dyslexic Font (font folder) and imported FontAwesome (6.1.0)
+- .tw, .js and .css file for Tweego
+- Annotated passages, stylesheet and javascript
+- Chapel's Dialog API Macro set
+- Mobile adapted (Landscape, min-height: 315px)
+
+========Template made by manonamora on Twine (v 2.7.0)/Tweego with Sugarcube (v 2.36.1).
+Any use with other version may break some macros/UI aspects (you may need to adjust those manually). 
+A New IFID should be generated before using the template. See the *How to Change IFID* file.
+This theme is fitted for a portrait viewing only.
+
+========Notes:
+The templates provides 3 basic (colour only) themes. If you want to forgo one or both of the additional themes, you will need to remove:
+- The Theme Setting in the Javascript part of the file
+- The relevant class (.gn or .or) in the CSS/Stylesheet
+If you want to add another theme, you will need to add another class to the Theme setting and edit the CSS/Stylesheet accordingly.
+
+I encourage you to edit your CSS/Stylesheet to your liking. The format used is only a suggestion and to show what can be potentially done. I still tried to keep it simple, so you won't see any background images or animations further than the hardcoded Sugarcube ones. It is obviously more than possible to add those to this file.
+I highly recommend W3 schools (for CSS Beginner) and MDN (for more advanced code) if you encounter an unknown CSS reference or are looking for a specific one.
+
+If you have any question about or any issue with the template, send me an ask over on Tumblr or comment on the asset page. 
+
+========Links
+Tumblr: 
+	https://manonamora-if.tumblr.com/
+Itch:
+	https://manonamora.itch.io/
+Asset Page:
+	https://manonamora.itch.io/twine-sugarcube-templates
+SugarCube Guide:
+	https://manonamora.itch.io/twine-sugarcube-guide
+
+Twinery (Twine):
+	https://twinery.org/
+Sugarcube 2 Documentation:
+	https://www.motoslave.net/sugarcube/2/docs/
+Twine Resources:
+	https://www.tumblr.com/manonamora-if/700577877042888704/interactive-fiction-twine-resource-megalist
+W3 School:
+	https://www.w3schools.com/css/default.asp
+	https://www.w3schools.com/cssref/default.asp
+(MDN)Mozilla Developer:
+	https://developer.mozilla.org/en-US/
+
+Macros from:
+- Chapel: Dialog API
+	https://github.com/ChapelR/custom-macros-for-sugarcube-2/
+
+Assets from:
+- FontAwesome
+https://fontawesome.com/
+- GoogleFonts
+https://fonts.google.com/
+- OpenDyslexic
+https://opendyslexic.org/
