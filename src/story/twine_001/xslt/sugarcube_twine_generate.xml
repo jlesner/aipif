@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:output method="text"/>
+
+<xsl:template match="story">
+
+    <xsl:text>
+:: StoryTitle
+My Story
+
+:: StoryData
+{
+  "ifid": "649AB536-20DE-4D3D-BAF5-544D2ED975F6",
+  "format": "SugarCube",
+  "format-version": "2.36.1",
+  "start": "Title Page",
+  "zoom": 1
+}
+
+:: Title Page
+
+</xsl:text>
+
+    <xsl:variable name="next_seq" select="sequence[1]"/>
+
+    <xsl:variable name="next_seq_name">
+        <xsl:text>__</xsl:text>
+        <xsl:value-of select="$next_seq/@name"/>
+    </xsl:variable>
+
+    <xsl:variable name="next_seq_hash">
+        <xsl:call-template name="hash_string">
+            <xsl:with-param name="input" select="$next_seq_name"/>
+        </xsl:call-template>
+    </xsl:variable>
+
+<xsl:text>
+[[WELCOME|</xsl:text>
+    <xsl:value-of select="$next_seq_hash"/>
+    <xsl:text>]]
+</xsl:text>
+
+    <xsl:apply-templates select="sequence"/>
+
+</xsl:template>
+
+
+<xsl:template match="sequence">
+    
+    <xsl:variable name="seq_name">
+        <xsl:value-of select="ancestor::branch[1]/protagonist_reaction"/>
+        <xsl:text>__</xsl:text>
+        <xsl:value-of select="@name"/>
+    </xsl:variable>
+
+    <xsl:variable name="seq_hash">
+        <xsl:call-template name="hash_string">
+            <xsl:with-param name="input" select="$seq_name"/>
+        </xsl:call-template>
+    </xsl:variable>
+
+<xsl:text>
+:: </xsl:text>
+    <xsl:value-of select="$seq_hash"/>
+    <xsl:text>
+
+</xsl:text>
+        <xsl:value-of select="normalize-space(outline)"/>
+
+    <xsl:choose>
+
+        <xsl:when test="branch">
+            <xsl:text>
+</xsl:text>
+            <xsl:apply-templates select="branch"/>
+            <xsl:apply-templates select="branch/sequence"/>
+
+        </xsl:when>
+
+        <xsl:when test="not(following-sibling::sequence)">
+            <xsl:text>
+The End!
+</xsl:text>
+        </xsl:when>
+
+        <xsl:otherwise>
+
+            <xsl:variable name="next_seq" select="following-sibling::sequence[1]"/>
+            
+            <xsl:variable name="next_seq_name">
+                <xsl:value-of select="ancestor::branch[1]/protagonist_reaction"/>
+                <xsl:text>__</xsl:text>
+                <xsl:value-of select="$next_seq/@name"/>
+            </xsl:variable>
+
+            <xsl:variable name="next_seq_hash">
+                <xsl:call-template name="hash_string">
+                    <xsl:with-param name="input" select="$next_seq_name"/>
+                </xsl:call-template>
+            </xsl:variable>
+
+            <xsl:text>
+
+[[next page.|</xsl:text>
+            <xsl:value-of select="$next_seq_hash"/>
+            <xsl:text>]]
+</xsl:text>
+        </xsl:otherwise>
+
+    </xsl:choose>
+
+</xsl:template>
+
+<xsl:template match="branch">
+
+    <xsl:variable name="next_seq_name">
+        <xsl:value-of select="protagonist_reaction"/>
+        <xsl:text>__</xsl:text>
+        <xsl:value-of select="sequence[1]/@name"/>
+    </xsl:variable>
+
+    <xsl:variable name="next_seq_hash">
+        <xsl:call-template name="hash_string">
+            <xsl:with-param name="input" select="$next_seq_name"/>
+        </xsl:call-template>
+    </xsl:variable>
+
+    <xsl:text>
+    
+[[</xsl:text>
+    <xsl:value-of select="protagonist_reaction"/>
+    <xsl:text>|</xsl:text>
+    <xsl:value-of select="$next_seq_hash"/>
+    <xsl:text>]]
+</xsl:text>
+
+</xsl:template>
+
+
+<xsl:template name="hash_string">
+    <xsl:param name="input"/>
+    <xsl:param name="index" select="1"/>
+    <xsl:param name="sum" select="0"/>
+    
+    <xsl:choose>
+        <xsl:when test="$index &lt;= string-length($input)">
+            <xsl:variable name="char" select="substring($input, $index, 1)"/>
+            <xsl:variable name="charValue" select="string-length(substring-before(' &quot;!#$%&amp;()*+,-./0123456789:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~', $char)) + 32"/>
+            
+            <xsl:call-template name="hash_string">
+                <xsl:with-param name="input" select="$input"/>
+                <xsl:with-param name="index" select="$index + 1"/>
+                <xsl:with-param name="sum" select="$sum + $charValue"/>
+            </xsl:call-template>
+        </xsl:when>
+        <xsl:otherwise>                
+            <xsl:value-of select="format-number($sum mod 1234567, '#########')"/>
+        </xsl:otherwise>
+    </xsl:choose>
+</xsl:template>
+
+
+
+
+</xsl:stylesheet>

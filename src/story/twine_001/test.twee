@@ -5,26 +5,14 @@ My Story
 :: StoryData
 {
   "ifid": "649AB536-20DE-4D3D-BAF5-544D2ED975F6",
-  "format": "Chapbook",
-  "format-version": "1.2.3",
+  "format": "SugarCube",
+  "format-version": "2.36.1",
   "start": "Title Page",
   "zoom": 1
 }
 
 :: Title Page
-config.body.transition.name: "fadeInOut"
-config.body.transition.duration: "2000ms"
-config.style.page.font: "Iowan Old Style/Constantia/Georgia/serif 18"
-config.style.page.color: "gray-9 on white"
-config.style.page.link.font: "underline"
-config.style.page.link.color: "blue-6"
-config.style.page.link.lineColor: "blue-6"
-config.style.page.link.active.color: "blue-6"
-config.style.page.header.font: "18"
-config.style.page.header.link.font: "small caps"
-config.style.page.footer.font: "16"
-config.style.page.footer.link.font: "small caps"
---
+
 
 [[WELCOME|3648]]
 
