@@ -1,0 +1,21 @@
+<scene name="Establishing World's Rules and Tone" act="Setup" part="Introduction to Characters and Setting" index="1">
+    <setting>Exterior, the beach island. Late afternoon, with the sun starting its descent. The island is peaceful, with the only noise being the soft sound of waves crashing. A wooden sign stands near Penguin’s setup, reading: "Penguin’s Pizzas – Try the Fish Only!" Birds can be seen in the distance, and there's an unusual, hovering spaceship nearby with a blinking light.</setting>
+    <dialogue>
+        Alien: "Why the sad face, Penguin? Isn't this island paradise?"
+        Penguin: "It is, but no one wants my special fish-only pizza. Maybe I'm in the wrong business."
+        Alien: "In my galaxy, we value uniqueness. Maybe you just haven't met the right customers yet!"
+    </dialogue>
+    <introduction>As the sun begins its descent, Penguin, deep in thought, considers his place on this beautiful island. But the wise Alien offers a different perspective.</introduction>
+    <illustration>An oddly shaped, translucent spaceship hovers just above the beach sand. It emanates a soft, neon glow. The spaceship has several circular windows, revealing strange instruments and blinking lights inside. Nearby, a curious crab looks up at the spaceship, its claws raised in astonishment.</illustration>
+    <illustration_title>"Beachside UFO Surprise!"</illustration_title>
+    <music>Calm, soothing, and slightly whimsical beach sounds: soft strums of a ukulele, gentle waves, occasional chirping of birds, with a subtle, mystical undertone hinting at the alien’s presence – perhaps a theremin playing softly.</music>
+    <abc_music>X:1
+T:Beachside Whimsy
+M:4/4
+L:1/4
+K:C
+G|:"C"c2e2|"G7"d2B2|"C"c2e2|"G7"d2f2|
+"G"b2a2|"C"g2e2|"F"a2g2|"C"e2:|</abc_music>
+    <protagonist_reaction>Penguin, inspired by Alien's words, decides to whip up a new pizza with even more varieties of fish, believing that there's a unique flavor for everyone.</protagonist_reaction>
+    <protagonist_reaction>Penguin, disheartened, starts packing up his pizza stall, pondering if he should really transition to a new venture.</protagonist_reaction>
+</scene>

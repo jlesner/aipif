@@ -4,21 +4,22 @@
 
     <xsl:template match="story">
         <xsl:element name="prompt">
-            <xsl:text>A young child selected the following emojis: ${emoji_list} 
-Inspired by these emoji you have started writing this story:</xsl:text>
+            <xsl:text>A young child asked you for a story about the following emojis: ${emoji_list} 
+Here is the story you have written so far:</xsl:text>
 <![CDATA[
 ${growing_story}
 ]]>
 <xsl:text>
-Write the next scene building on the last protagonist_reaction above by editing the XML below.
+Please write the next scene building on the last protagonist_reaction above by editing the XML below.
 Show, Don't Tell: When possible reveal information using dialoge do not state it directly.  If a specific aspect is important, reveal it using dialoge between characters. For example, if a character is sad, do not say &quot;The character was sad.&quot;  Instead, have another character ask &quot;Why are you sad?&quot; This will allows audience to infer the character is sad without being told directly.
 Economy of Words: Be concise. You don't need long, poetic descriptions. Every word should serve the purpose of conveying essential visual or auditory information, setting the mood, or advancing the story.
-Clarity is Key: While you don't want to be overly verbose, you do want to be clear. Children reading should have a good understanding action and how it relates to the entire story.
+Clarity is Key: While you don't want to be overly verbose, you do want to be clear.
+Use simple words and short sentences. You are writing this story for a young child.
 
 Please reply only with the updated XML below:
 
 </xsl:text>
-            <xsl:apply-templates select="scene[4]"/>
+            <xsl:apply-templates select="scene[2]"/>
         </xsl:element>
     </xsl:template>
 

@@ -1,14 +1,24 @@
-<?xml version="1.0" ?>
-<prompt>
-    A young child asked you for a story about the following emojis: ${emoji_list} 
+A young child asked you for a story about the following emojis: 🐧🍕🥄🏝👽 
 Here is the story you have written so far:
-${growing_story}
+
+<scene name="The Peculiar Pizza Delivery" act="Setup" part="Introduction to Characters and Setting" index="0">
+    <setting>Exterior, a sunny and lively beach island. Palm trees provide shade over a small picnic setup. The turquoise water gently laps the shore. A blanket lies on the soft sand with a pizza box, revealing a half-eaten pizza. The bright sun shines down, casting shadows over the area.</setting>
+    <dialogue>
+        Penguin: "Every day, the same pizza order. Cheese and anchovy. Why doesn't anyone order a fish-only pizza?"
+        Alien: "Well, if I had a mouth, I'd definitely try the fish-only pizza. But I prefer my food beamed!"
+    </dialogue>
+    <introduction>On a bright and sunny island, Penguin, the pizza chef, always wonders why his special fish-only pizza never gets any orders. But today, a peculiar guest, an alien, joins him.</introduction>
+    <illustration>A curious penguin wearing a white chef hat, with a hint of frustration in its eyes. In its flipper, it holds a spatula. Its black and white feathers contrast sharply with the colorful surroundings of the beach. Pudgy in the middle, it stands on the soft sand, its tiny webbed feet slightly sinking in.</illustration>
+    <protagonist_reaction>Penguin, feeling a bit down, contemplates closing his pizza business and starting a new venture, perhaps a fish burger shack.</protagonist_reaction>
+</scene>
+
 Please write the next scene building on the last protagonist_reaction above by editing the XML below.
 Show, Don't Tell: When possible reveal information using dialoge do not state it directly.  If a specific aspect is important, reveal it using dialoge between characters. For example, if a character is sad, do not say &quot;The character was sad.&quot;  Instead, have another character ask &quot;Why are you sad?&quot; This will allows audience to infer the character is sad without being told directly.
 Economy of Words: Be concise. You don't need long, poetic descriptions. Every word should serve the purpose of conveying essential visual or auditory information, setting the mood, or advancing the story.
 Clarity is Key: While you don't want to be overly verbose, you do want to be clear.
 Use simple words and short sentences. You are writing this story for a young child.
 Please reply only with the updated XML below:
+
     <scene name="Establishing World's Rules and Tone" act="Setup" part="Introduction to Characters and Setting" index="1">
         <setting>Where and when the scene takes place: Interior or Exterior? location? time of day (day or night)? Paint a picture of the surroundings, the ambiance, any relevant objects or features and initial states of characters.</setting>
         <dialogue>Introduce the rules of the story's world and setting the tone for the narrative.</dialogue>
@@ -20,4 +30,3 @@ Please reply only with the updated XML below:
         <protagonist_reaction>Briefly describe a single different way the protagonist can react to the situation described in this scene. If asked to propose more than one reaction make all reactions as different as possible from each other and make sure some are bad and some are good. Do not mention reactions are choices or options.</protagonist_reaction>
         <protagonist_reaction>Briefly describe a single different way the protagonist can react to the situation described in this scene. If asked to propose more than one reaction make all reactions as different as possible from each other and make sure some are bad and some are good. Do not mention reactions are choices or options.</protagonist_reaction>
     </scene>
-</prompt>

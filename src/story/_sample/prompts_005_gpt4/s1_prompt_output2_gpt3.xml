@@ -1,0 +1,15 @@
+<scene name="Establishing World's Rules and Tone" act="Setup" part="Introduction to Characters and Setting" index="1">
+    <setting>As the sun sets, the beach island transforms into a magical realm. The sky is painted with hues of orange, pink, and purple. Glittering stars start to twinkle in the darkening sky. The palm trees sway gently in the evening breeze, casting long shadows on the sand. A few glowing seashells light up the surroundings.</setting>
+    <dialogue>
+        Alien: "Penguin, have you ever wondered what stories the stars tell in the night sky?"
+        Penguin: "Oh, I've imagined a few, like constellations forming pizza slices or giant fish!"
+        Alien: "Stories can be delicious, just like your pizzas!"
+    </dialogue>
+    <introduction>As the island transitions from day to night, the alien and Penguin engage in imaginative conversations under the starlit sky.</introduction>
+    <illustration>An enchanting night scene with a clear sky full of stars. The alien and the penguin sit on the sand, gazing up at the stars with wonder. A faint glow from seashells adds a magical touch to the scene.</illustration>
+    <illustration_title>"Starry Conversations"</illustration_title>
+    <music>A gentle melody of twinkling notes fills the air, creating a sense of whimsy and curiosity.</music>
+    <abc_music>X:1\nT:Starry Serenade\nM:6/8\nL:1/8\nK:C\nE|G2 G G2 G|A2 A A2 A|B2 B B2 B|c2 c c3|\nG G A A B B c c|d d e e f f g g|a a b b a a b b|a2 G G3:|\n|:c|e2 e e2 e|d2 d d2 d|c2 c c2 c|B2 B B3|\ne e d d c c B B|A A B B c c d d|e e f f g g a a|g2 G G3:|</abc_music>
+    <protagonist_reaction>Penguin, inspired by the alien's words, starts imagining shapes in the stars and sharing his pizza-themed constellation ideas.</protagonist_reaction>
+    <protagonist_reaction>Feeling a newfound connection, the alien suggests they create their own constellation by arranging seashells on the sand, sparking a creative and collaborative endeavor.</protagonist_reaction>
+</scene>
