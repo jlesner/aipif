@@ -1,0 +1,62 @@
+<act name="Setup">
+    <description>The whimsical world of Wisteria is turned upside down when a mysterious rocket lands, with the hope of a little butterfly and her curious dog friend, the planet might find its star again.</description>
+    
+    <part name="Introduction to Characters and Setting">
+        <sequence name="Introducing Protagonist's Daily Life">
+            <setting>Exterior, Wisteria Meadow, Day. A vibrant landscape with fluttering butterflies, playful pups, and glistening dew on tall grass.</setting>
+            <outline>Bella the butterfly flits around, playing with her best friend, Ruff the dog, amidst the meadow's beauty.</outline>
+            <music>Gentle flutes mimic the flutter of butterfly wings, soft strings create a backdrop of sunlit meadows, and playful pizzicato notes follow Ruff's prancing.</music>
+            <abc_music>X:1
+                      T:Wisteria Waltz
+                      M:3/4
+                      L:1/8
+                      K:D
+                      A2B2|c2B2A2|d3e f2|e4 d2|c2A2G2|F4A2|B2A2G2|A6|</abc_music>
+            <illustration>Bella, a radiant butterfly with iridescent blue wings. As she hovers over a daisy, her eyes sparkle with joy, and her delicate antennae dance with each flutter of her wings.</illustration>
+        </sequence>
+
+        <sequence name="Establishing World's Rules and Tone">
+            <setting>Exterior, Wisteria's Central Square, Day. A gathering place for creatures, surrounded by tall dandelions serving as natural lampposts.</setting>
+            <outline>Animals gather around the town’s noticeboard, discussing the day's events, emphasizing the camaraderie and unity in Wisteria.</outline>
+            <music>Melodious harmonies of woodwinds and strings depict a serene, close-knit community atmosphere.</music>
+            <abc_music>X:2
+                      T:Wisteria's Harmony
+                      M:4/4
+                      L:1/8
+                      K:G
+                      D4|E2F2G2|A2B2c2|d2c2B2|A4 G2|F2E2D2|C4B2|A6|</abc_music>
+            <illustration>Ruff, a small, fluffy golden retriever with a wagging tail and an always curious expression. He excitedly sniffs the noticeboard, eyes wide and ears perked up.</illustration>
+        </sequence>
+    </part>
+    
+    <part name="Introduction of the Inciting Incident">
+        <sequence name="Present the Disruptive Event">
+            <setting>Exterior, Edge of Wisteria Meadow, Night. The once bright sky is now darkened, only lit by a landed rocket emitting a soft glow, casting shadows over the terrain.</setting>
+            <outline>The rocket's hatch opens, revealing a lost star, Luna, who seeks help to return to the sky, setting Wisteria's biggest mission into motion.</outline>
+            <music>Mysterious deep tones from a bass clarinet combined with twinkling triangle notes, introducing a sense of wonder and uncertainty.</music>
+            <abc_music>X:3
+                      T:Mysteries of the Cosmos
+                      M:3/4
+                      L:1/8
+                      K:Cm
+                      G2A2|B2A2G2|c3d e2|d4 c2|B2G2F2|E4G2|A2G2F2|G6|</abc_music>
+            <illustration>Luna, a shimmering star with a soft radiant glow. Eyes drooping with sadness, her five points droop slightly. She extends a light beam like an arm, beckoning for assistance.</illustration>
+        </sequence>
+        
+        <sequence name="Initial Reaction of the Protagonist">
+            <setting>Exterior, Wisteria Meadow, Night. Creatures gather at a distance, eyes on the rocket, whispers filling the air.</setting>
+            <outline>Bella and Ruff approach Luna, showing varying emotions of awe, fear, and excitement.</outline>
+            <protagonist_reaction>Bella, feeling a kinship with another sky dweller, immediately offers to help Luna.</protagonist_reaction>
+            <protagonist_reaction>Ruff, hesitant, hides behind Bella, peeking out occasionally with wide, anxious eyes.</protagonist_reaction>
+            <protagonist_reaction>Upon seeing Luna's sadness, Ruff gathers the courage to approach, nudging her gently with his nose in a comforting gesture.</protagonist_reaction>
+            <music>Ascending scales on a celesta interwoven with a lilting melody on the violin, capturing the intertwining emotions of the moment.</music>
+            <abc_music>X:4
+                      T:Promise of Adventure
+                      M:4/4
+                      L:1/8
+                      K:A
+                      e4|f2g2a2|b2c2d2|e2d2c2|b4 a2|g2f2e2|d4c2|b6|</abc_music>
+            <illustration>A group of meadow creatures, ranging from curious squirrels with bushy tails to gentle deer with wide eyes, all staring at the rocket with a mix of wonder and apprehension.</illustration>
+        </sequence>
+    </part>
+</act>

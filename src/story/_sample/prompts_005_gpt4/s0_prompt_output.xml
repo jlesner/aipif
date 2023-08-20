@@ -1,0 +1,21 @@
+<scene name="The Peculiar Pizza Delivery" act="Setup" part="Introduction to Characters and Setting" index="0">
+    <setting>Exterior, a sunny and lively beach island. Palm trees provide shade over a small picnic setup. The turquoise water gently laps the shore. A blanket lies on the soft sand with a pizza box, revealing a half-eaten pizza. The bright sun shines down, casting shadows over the area.</setting>
+    <dialogue>
+        Penguin: "Every day, the same pizza order. Cheese and anchovy. Why doesn't anyone order a fish-only pizza?"
+        Alien: "Well, if I had a mouth, I'd definitely try the fish-only pizza. But I prefer my food beamed!"
+    </dialogue>
+    <introduction>On a bright and sunny island, Penguin, the pizza chef, always wonders why his special fish-only pizza never gets any orders. But today, a peculiar guest, an alien, joins him.</introduction>
+    <illustration>A curious penguin wearing a white chef hat, with a hint of frustration in its eyes. In its flipper, it holds a spatula. Its black and white feathers contrast sharply with the colorful surroundings of the beach. Pudgy in the middle, it stands on the soft sand, its tiny webbed feet slightly sinking in.</illustration>
+    <music>Upbeat and tropical, with the rhythmic beat of drums, the soft strumming of a ukulele, and the occasional chirping of seagulls in the distance. The melody is lively, reminiscent of a sunny day on a beach.</music>
+    <abc_music>
+X:1
+T:Penguin's Pizza Paradise
+M:4/4
+L:1/8
+K:C
+|: c2 e2 d2 c2 | e2 f2 g2 e2 | d2 e2 f2 d2 | c8 :|
+|: e2 e2 f2 g2 | a2 a2 g2 e2 | d2 e2 f2 d2 | c8 :|
+    </abc_music>
+    <protagonist_reaction>Penguin, with renewed hope, decides to create a new recipe for a fish-only pizza, imagining the potential orders from other animals on the island.</protagonist_reaction>
+    <protagonist_reaction>Penguin, feeling a bit down, contemplates closing his pizza business and starting a new venture, perhaps a fish burger shack.</protagonist_reaction>
+</scene>

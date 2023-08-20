@@ -1,0 +1,67 @@
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    <xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes" />
+    <!--   
+    <xsl:output method="html" encoding="UTF-8" />
+     -->
+    <xsl:strip-space elements="*" />
+    
+    <xsl:template match="sequence">
+
+        <xsl:copy>
+            <xsl:apply-templates select="@*"/>
+    
+            <xsl:element name="setting">
+                <xsl:text>Where and when the scene takes place: Interior or Exterior? location? time of day (day or night)? Paint a picture of the surroundings, the ambiance, any relevant objects or features and initial states of characters.</xsl:text>
+            </xsl:element>
+
+            <xsl:element name="dialogue">
+                <xsl:value-of select="outline"/>
+            </xsl:element>
+
+            <xsl:element name="introduction">
+                <xsl:text>Write the words a narrator would use to introduce this sequence</xsl:text>
+            </xsl:element>
+
+            <xsl:element name="illustration">
+                <xsl:text>Vividly describe one (just one) important character in this sequence. If possible pick a character you have not yet picked before. Make the description self contained because our illustrator will only see your description and nothing else. Names of characters etc. will not mean anything to them.</xsl:text>
+            </xsl:element>
+        
+            <xsl:element name="music">
+                <xsl:text>Give a vivid description of suitable music that matches the mood, location and gives context to this sequence. Make the description self contained because our musician will only see your description and nothing else.</xsl:text>
+            </xsl:element>
+        
+            <xsl:element name="abc_music">
+                <xsl:text>Compose a suitable background music tune this sequence using ABC music notation.</xsl:text>
+                <!-- <xsl:text>Please split it across lines.</xsl:text> -->
+            </xsl:element>
+
+            <xsl:for-each select="//*[position() &lt; @branch_count]">
+                <xsl:element name="protagonist_reaction">
+                    <xsl:text>Briefly describe a single different way the protagonist can react to the situation described in this sequence. If asked to propose more than one reaction make all reactions as different as possible from each other and make sure some are bad and some are good. Do not mention reactions are choices or options.</xsl:text>
+                </xsl:element>
+            </xsl:for-each>
+
+        </xsl:copy>
+<!--
+        <xsl:if test="@branch_count">
+            <xsl:element name="protagonist_reaction">
+                <xsl:text>Breifly describe one way the protagonist can react to the inciting incident. Make sure all reactions are different from each other. Do not mention this is a choice or an option.</xsl:text>
+            </xsl:element>
+
+            <xsl:element name="protagonist_reaction">
+                <xsl:text>Breifly describe a different way the protagonist can react to the inciting incident. Do not mention this is a choice or an option.</xsl:text>
+            </xsl:element>
+
+            <xsl:element name="protagonist_reaction">
+                <xsl:text>Breifly describe a third different way the protagonist can react to the inciting incident. Do not mention this is a choice or an option.</xsl:text>
+            </xsl:element>
+        </xsl:if> -->
+    </xsl:template>
+
+    <xsl:template match="@*|node()">
+        <xsl:copy>
+            <xsl:apply-templates select="@*|node()"/>
+        </xsl:copy>
+    </xsl:template>
+
+</xsl:stylesheet>

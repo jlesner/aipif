@@ -1,0 +1,49 @@
+<act name="Confrontation">
+    <description>Bella decides to explore space with the rocket, facing unforeseen challenges along the way. This culminates in her daring confrontation with the vastness of space, forcing her to make a crucial decision.</description>
+    <part name="Protagonist's Initial Response">
+      <sequence name="Reluctance or Resistance">
+        <setting>Exterior, the meadow's edge near the thicket of trees, twilight. The setting sun casts a warm glow over the toy rocket, which now hums more intensely.</setting>
+        <outline>
+          Buddy, worried: "Are you sure about this, Bella? It could be dangerous!"
+          Bella, hesitating: "I'm not sure, Buddy. But I've always dreamed of the stars."
+        </outline>
+      </sequence>
+    </part>
+    <part name="Escalation of Conflicts and Obstacles">
+      <sequence name="Introduction of Challenges">
+        <setting>Interior, inside the rocket's tiny cockpit. Buttons light up and the rocket vibrates as it prepares to launch.</setting>
+        <outline>
+          Bella, nervous: "I hope I remember which button to press!"
+          The rocket suddenly lurches, causing Bella to accidentally hit multiple buttons.
+          Bella, panicking: "Oh no! That wasn’t right!"
+        </outline>
+      </sequence>
+      <sequence name="Raising the Stakes">
+        <setting>Exterior, in the night sky, just above the clouds. Stars twinkle in the distance, but nearby there are storm clouds, producing lightning and thunder.</setting>
+        <outline>
+          Buddy, from the ground via a tiny communicator: "Bella, watch out for the storm ahead!"
+          Bella, determined: "I see it, Buddy. I'll try to navigate around it."
+        </outline>
+      </sequence>
+    </part>
+    <part name="Climax">
+      <sequence name="Building Tension">
+        <setting>Exterior, deep space. A beautiful nebula swirls nearby, but an asteroid field lies directly in Bella's path.</setting>
+        <outline>
+          Bella, in awe: "The stars are even more beautiful up close!"
+          The rocket's alarms suddenly blare.
+          Bella, alert: "Oh no, asteroids!"
+        </outline>
+      </sequence>
+      <sequence name="Direct Confrontation">
+        <setting>Exterior, amidst the asteroid field. Large space rocks loom dangerously close, and the rocket weaves to avoid them.</setting>
+        <outline>
+          Buddy, frantic: "Bella, get out of there!"
+          Bella, with determination: "I've come this far, Buddy. I can't give up now!"
+        </outline>
+        <protagonist_reaction>Bella attempts to steer the rocket manually, using her wings to guide the ship's levers and narrowly avoiding the asteroids.</protagonist_reaction>
+        <protagonist_reaction>Bella searches for a button to activate the rocket's autopilot, hoping it can navigate the field better than she can.</protagonist_reaction>
+        <protagonist_reaction>Bella shuts off the rocket's engines momentarily, floating in space, waiting for a clear path through the asteroids.</protagonist_reaction>
+      </sequence>
+    </part>
+</act>

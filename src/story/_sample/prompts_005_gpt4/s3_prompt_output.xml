@@ -1,0 +1,21 @@
+<scene name="Initial Reaction of the Protagonist" act="Setup" part="Introduction of the Inciting Incident" branch_count="3" index="3">
+    <setting>Exterior, beach island, night. The campfire casts dancing shadows on the faces of islanders gathered around, its orange glow competing with the cold shimmer of starlight above. Sounds of laughter and soft chatter fill the air. Penguin waddles nervously towards the group, his eyes fixated on the child with the spoon.</setting>
+    <dialogue>
+        Child (with spoon): "Wow! I suddenly tasted fish pizza! That was... interesting!"
+        Penguin: "Did you like it? I mean... would you order one if it was on a menu?"
+        Child (with spoon): "Definitely! It's a fun twist. But I didn't order anything, how did that happen?"
+    </dialogue>
+    <introduction>Amidst the cozy circle of islanders around the campfire, Penguin cautiously approaches, seeking feedback on the unexpected flavor that has just been beamed into the child's mouth.</introduction>
+    <illustration>A middle-aged islander woman with dark, braided hair adorned with seashells. Her expression is a mix of surprise and intrigue, as she witnesses the exchange between Penguin and the child. She is wearing a bright sarong, and in her hand is a wooden ladle, suggesting she's responsible for serving the food at the campfire gathering.</illustration>
+    <illustration_title>"Spoonful of Surprise!"</illustration_title>
+    <music>Soft, melodic ukulele strumming that creates a relaxed island vibe. Intermittent sounds of waves crashing and the distant chirping of night critters add to the serenity of the scene, punctuated by the rhythmic beat of a hand drum, suggesting a celebratory gathering.</music>
+    <abc_music>X:1
+T:Ukulele Night
+M:4/4
+L:1/8
+K:Cmaj
+e2e2 e2dc|B2B2 B2AG|A2A2 A2GF|E6 E2|e2e2 e2dc|B2B2 B2AG|A2F2 E4|C6 C2||
+</abc_music>
+    <protagonist_reaction>Penguin's face brightens up, feeling validated about his unique creation, and he eagerly discusses the possibility of introducing this flavor to other islanders.</protagonist_reaction>
+    <protagonist_reaction>Penguin, feeling a little embarrassed by the unexpected beaming, apologizes and offers the child a free fish-only pizza the next day.</protagonist_reaction>
+</scene>

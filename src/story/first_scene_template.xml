@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<prompt>
+    A young child selected the following emojis: ${emoji_list}
+Inspired by the emoji selected by this child you are writing for the child a story by editing the XML below. 
+Show, Don't Tell: When possible reveal information using dialoge do not state it directly.  If a specific aspect is important, reveal it using dialoge between characters. For example, if a character is sad, do not say &quot;The character was sad.&quot;  Instead, have another character ask &quot;Why are you sad?&quot; This will allows audience to infer the character is sad without being told directly.
+Economy of Words: Be concise. You don't need long, poetic descriptions. Every word should serve the purpose of conveying essential visual or auditory information, setting the mood, or advancing the story.
+Clarity is Key: While you don't want to be overly verbose, you do want to be clear. Children reading should have a good understanding action and how it relates to the entire story.
+Please reply only with the updated XML below.
+    <scene name="Introducing Protagonist's Daily Life" act="Setup" part="Introduction to Characters and Setting" index="0">
+        <setting>Where and when the scene takes place: Interior or Exterior? location? time of day (day or night)? Paint a picture of the surroundings, the ambiance, any relevant objects or features and initial states of characters.</setting>
+        <dialogue>Showcase the protagonist's routine, relationships, and environment.</dialogue>
+        <introduction>Write the words a narrator would use to introduce this scene</introduction>
+        <illustration>Pick an important character or an important object vividly describe it so it can be illustrated. Pick someone or something you have not picked and described before. Make the description self contained because our illustrator will only see your description and nothing else. Names of characters etc. will not mean anything to them.</illustration>
+        <illustration_title>Pick a short funny title to accompany the illustration you described above.</illustration_title>
+        <music>Vividly describe music that matches the mood, location and gives context to this scene. Make the description self contained because our musician will only see your description and nothing else.</music>
+        <abc_music>Compose a suitable background music tune for this scene using ABC music notation.</abc_music>
+        <protagonist_reaction>Briefly describe a single different way the protagonist can react to the situation described in this scene. If asked to propose more than one reaction make all reactions as different as possible from each other and make sure some are bad and some are good. Do not mention reactions are choices or options.</protagonist_reaction>
+        <protagonist_reaction>Briefly describe a single different way the protagonist can react to the situation described in this scene. If asked to propose more than one reaction make all reactions as different as possible from each other and make sure some are bad and some are good. Do not mention reactions are choices or options.</protagonist_reaction>
+    </scene>
+</prompt>

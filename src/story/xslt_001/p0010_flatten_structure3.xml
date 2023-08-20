@@ -16,6 +16,12 @@
         <xsl:apply-templates select="node()"/>
     </xsl:template>
 
+    <xsl:template match="acts">
+        <xsl:element name="story">
+            <xsl:apply-templates select="node()"/>
+        </xsl:element>
+    </xsl:template>
+
     <xsl:template match="part">
         <xsl:element name="part">
             <xsl:attribute name="name">
@@ -39,13 +45,13 @@
             <xsl:attribute name="name">
                 <xsl:value-of select="name"/>
             </xsl:attribute>
-            <xsl:element name="setting">
-                     <xsl:text>Where and when the scene takes place: Interior or Exterior? location? time of day (day or night)? This is where you'd paint a picture of the surroundings, the ambiance, any relevant objects or features, and the initial actions or states of the characters.</xsl:text>
-            </xsl:element>
+            <xsl:if test="@branch_count">
+                <xsl:attribute name="branch_count">
+                    <xsl:value-of select="@branch_count"/>
+                </xsl:attribute>
+            </xsl:if>
             <xsl:element name="outline">
                      <xsl:value-of select="description"/>
-                <!-- <xsl:attribute name="purpose">
-                </xsl:attribute> -->
             </xsl:element>
         </xsl:element>
     </xsl:template>
@@ -63,9 +69,6 @@
             </xsl:element>
         </xsl:element>
     </xsl:template> -->
-
-    <!-- Identity template: copies everything as-is 
-    -->
 
     <xsl:template match="@* | node()">
         <xsl:copy>

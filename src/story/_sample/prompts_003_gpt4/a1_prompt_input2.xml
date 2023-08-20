@@ -1,0 +1,65 @@
+A child gives you these emojis to write a children story out of them:
+🦋 🐶 🚀 🌟 🌍
+
+Inspired by these emojis you will write the child a story by editing the XML below. 
+
+Show, Don't Tell: When possible reveal information using dialoge do not state it directly.  If a specific aspect is important for the viewer to know, reveal it using dialoge between characters. For example, if a character is sad, do not say "The character was sad."  Instead, have another character ask "Why are you sad?"  This will allow the viewer to infer the character is sad without being told directly.
+
+Economy of Words: Be concise. You don't need long, poetic descriptions. Every word should serve the purpose of conveying essential visual or auditory information, setting the mood, or advancing the story.
+
+Clarity is Key: While you don't want to be overly verbose, you do want to be clear. Children reading should have a good understanding action and how it relates to the entire story.
+
+Please reply only with the updated XML. 
+
+  <act name="Setup">
+    <description>This is the beginning of the story where the main characters, setting, and initial conflict are introduced. Establish the foundation of the story and engage the audience's interest. It typically includes the "inciting incident," which is the event that sets the main plot in motion and disrupts the protagonist's normal life.</description>
+    <part name="Introduction to Characters and Setting">
+      <sequence name="Introducing Protagonist's Daily Life">
+        <setting>Where and when the scene takes place: Interior or Exterior? location? time of day (day or night)? This is where you'd paint a picture of the surroundings, the ambiance, any relevant objects or features, and the initial actions or states of the characters.</setting>
+        <dialogue>Showcase the protagonist's routine, relationships, and environment. A story narrator tells audience what dialoge between characters can not. </dialogue>
+
+        <music>A vivid verbose description of suitable music that matches the mood, the location, and gives context to the scene.</music>
+        <abc_music>Compose a suitable background music loop for this sequence using ABC music notation. Split it across lines as necessary.</abc_music>
+        <illustration>Vividly describe one new character or thing in this sequence. Description needs to be self contained and not refer to anything not in the description. Also do not pick a character or thing you have already picked before unless there are no other characters or things to pick.</illustration>
+
+      </sequence>
+      <sequence name="Establishing World's Rules and Tone">
+        <setting>Where and when the scene takes place: Interior or Exterior? location? time of day (day or night)? This is where you'd paint a picture of the surroundings, the ambiance, any relevant objects or features, and the initial actions or states of the characters.</setting>
+        <dialogue>Introduce the rules of the story's world and setting the tone for the narrative. A story narrator tells audience what dialoge between characters can not.  </dialogue>
+
+        <music>A vivid verbose description of suitable music that matches the mood, the location, and gives context to the scene.</music>
+        <abc_music>Compose a suitable background music loop for this sequence using ABC music notation. Split it across lines as necessary.</abc_music>
+        <illustration>Vividly describe one new character or thing in this sequence. Description needs to be self contained and not refer to anything not in the description. Also do not pick a character or thing you have already picked before unless there are no other characters or things to pick.</illustration>
+
+      </sequence>
+    </part>
+    <part name="Introduction of the Inciting Incident">
+      <sequence name="Present the Disruptive Event">
+        <setting>Where and when the scene takes place: Interior or Exterior? location? time of day (day or night)? This is where you'd paint a picture of the surroundings, the ambiance, any relevant objects or features, and the initial actions or states of the characters.</setting>
+        <dialogue>Introduce the event that disrupts the protagonist's normal life and sets the story in motion. Give the protagonist a moral or ethical dilemma to solve. A story narrator tells audience what dialoge between characters can not.</dialogue>
+
+        <music>A vivid verbose description of suitable music that matches the mood, the location, and gives context to the scene.</music>
+        <abc_music>Compose a suitable background music loop for this sequence using ABC music notation. Split it across lines as necessary.</abc_music>
+        
+        <illustration>Vividly describe one new character or thing in this sequence. Description needs to be self contained and not refer to anything not in the description. Also do not pick a character or thing you have already picked before unless there are no other characters or things to pick.</illustration>
+
+      </sequence>
+      <sequence name="Initial Reaction of the Protagonist">
+        <setting>Where and when the scene takes place: Interior or Exterior? location? time of day (day or night)? This is where you'd paint a picture of the surroundings, the ambiance, any relevant objects or features, and the initial actions or states of the characters.</setting>
+        
+        <dialogue>Portray the protagonist's initial response and emotions upon encountering the inciting incident.  A story narrator tells audience what dialoge between characters can not. </dialogue>
+
+        <music>A vivid verbose description of suitable music that matches the mood, the location, and gives context to the scene.</music>
+        <abc_music>Compose a suitable background music loop for this sequence using ABC music notation. Split it across lines as necessary.</abc_music>
+        <illustration>Vividly describe one new character or thing in this sequence. Description needs to be self contained and not refer to anything not in the description. Also do not pick a character or thing you have already picked before unless there are no other characters or things to pick.</illustration>
+
+        <protagonist_reaction>Breifly describe one way the protagonist can react to the inciting incident. Do not mention this is choice or option. </protagonist_reaction>
+
+        <protagonist_reaction>Breifly describe a second different way the protagonist can react to the inciting incident. Do not mention this is choice or option. </protagonist_reaction>
+
+        <protagonist_reaction>Breifly describe a third very different way the protagonist can react to the inciting incident. Do not mention this is choice or option. </protagonist_reaction>
+
+      </sequence>
+    </part>
+  </act>
+

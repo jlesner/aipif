@@ -1,0 +1,60 @@
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    <xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes" />
+    <xsl:strip-space elements="*" />
+
+    <xsl:template match="name">
+    </xsl:template>
+
+    <xsl:template match="parts">
+        <xsl:apply-templates select="node()"/>
+    </xsl:template>
+
+    <xsl:template match="sequences">
+        <xsl:apply-templates select="node()"/>
+    </xsl:template>
+
+    <xsl:template match="acts">
+        <xsl:element name="story">
+            <xsl:apply-templates select="node()"/>
+        </xsl:element>
+    </xsl:template>
+
+    <xsl:template match="part | act">
+        <xsl:apply-templates select="node()"/>
+    </xsl:template>
+
+    <xsl:template match="sequence">
+        <xsl:element name="scene">
+            
+            <xsl:attribute name="name">
+                <xsl:value-of select="name"/>
+            </xsl:attribute>
+            
+            <xsl:attribute name="act">
+                <xsl:value-of select="ancestor::act/name"/>
+            </xsl:attribute>
+
+            <xsl:attribute name="part">
+                <xsl:value-of select="ancestor::part/name"/>
+            </xsl:attribute>
+
+            <xsl:if test="@branch_count">
+                <xsl:attribute name="branch_count">
+                    <xsl:value-of select="@branch_count"/>
+                </xsl:attribute>
+            </xsl:if>
+
+            <xsl:element name="outline">
+                <xsl:value-of select="description"/>
+            </xsl:element>
+
+        </xsl:element>
+    </xsl:template>
+
+    <xsl:template match="@* | node()">
+        <xsl:copy>
+            <xsl:apply-templates select="@* | node()"/>
+        </xsl:copy>
+    </xsl:template>
+
+</xsl:stylesheet>

@@ -1,0 +1,22 @@
+<scene name="Establishing World's Rules and Tone" act="Setup" part="Introduction to Characters and Setting" index="1">
+    <setting>Exterior, the same beach island, just a few meters away from Penguin's pizza setup. There is a small makeshift tent resembling an extraterrestrial device. Bright colors emit from it, and there's a peculiar sound of beeping. The sun is starting its descent, painting the sky in shades of orange and pink.</setting>
+    <dialogue>
+        Alien: "You know, on my planet, we exchange foods. It's a way to learn and appreciate other cultures."
+        Penguin: "Really? Here, people just stick to what they know. Maybe that's why my fish-only pizza isn't popular."
+        Alien: "Or perhaps, they haven't tasted the right fish-only pizza. Ever thought about that?"
+    </dialogue>
+    <introduction>As the day turns to evening, Penguin and Alien venture closer to a curious tent emitting radiant colors. The two continue their conversation about tastes, preferences, and what it means to appreciate new experiences.</introduction>
+    <illustration>An alien, tall and slender, with translucent green skin showing hints of luminescence. It has large oval eyes that seem to capture everything around it. Instead of hands, it has multiple tentacle-like appendages, one of which holds a device resembling a remote. It has no discernible mouth, yet its expressions are surprisingly human, reflecting curiosity and empathy.</illustration>
+    <music>A mellow and mysterious tune with a touch of otherworldliness. The sound of wind chimes intermittently interrupting soft, haunting melodies played on a synthesizer. A distant sound of waves crashing provides a gentle background.</music>
+    <abc_music>
+X:1
+T:Penguin and Alien's Encounter
+M:4/4
+L:1/8
+K:Gmin
+GABc d2dc | BGAF G2A2 | e2ef g2fe | d2cB A4 |
+z2z2 G2G2 | FEDC B,2C2 | D2D2 G2F2 | G6z2 |
+    </abc_music>
+    <protagonist_reaction>Penguin, inspired by the alien's words, gets excited about hosting an island-wide pizza tasting event to introduce his unique fish-only pizza to everyone.</protagonist_reaction>
+    <protagonist_reaction>Penguin, feeling a bit uncertain, considers asking the alien if there's a way to beam the taste of his fish-only pizza into the minds of the island residents, hoping it'll garner interest in his specialty.</protagonist_reaction>
+</scene>

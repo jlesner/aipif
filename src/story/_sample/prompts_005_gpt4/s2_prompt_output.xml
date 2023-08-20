@@ -1,0 +1,21 @@
+<scene name="Present the Disruptive Event" act="Setup" part="Introduction of the Inciting Incident" index="2">
+    <setting>Exterior, the beach island, now under a canopy of twinkling stars. A silver machine, about the size of the pizza box, stands next to the tent, emitting a faint hum. Penguin stands hesitantly by it, while Alien manipulates its tentacle-like appendages over the machine.</setting>
+    <dialogue>
+        Alien: "With this Taste-Beamer, we can transmit the flavor of your pizza directly to someone's taste buds. Ready to give it a try?"
+        Penguin: "I'm nervous, but... okay. Who will be our first taste-tester?"
+        Alien: "See that group by the campfire? Let's beam the flavor to the kid with the spoon!"
+    </dialogue>
+    <introduction>Under a starry sky, Alien introduces Penguin to a revolutionary machine – the Taste-Beamer. It's a device that can beam the flavors of food directly to one's taste buds, and they decide to give it a whirl on a young islander.</introduction>
+    <illustration>A young child, about 7 years old, sitting by a campfire. They have golden-brown skin and curly black hair tied up in a messy bun. Their eyes are wide with wonder, looking at the stars above, while clutching a spoon in one hand, remnants of dessert still clinging to it. They're wearing a t-shirt with a big pizza slice print on it.</illustration>
+    <music>Mellow island rhythms played on a ukulele, combined with the gentle sounds of waves crashing in the distance and the soft crackling of a campfire. A soothing and expectant atmosphere permeates the scene, creating a sense of wonder and anticipation.</music>
+    <abc_music>X:1
+T:Twinkling Taste Test
+M:4/4
+L:1/8
+K:C
+|:e3d c2B2|A2G2 E4|e3d c2B2|A2G2 E4:|
+|e2e2 e2d2|c2c2 c2B2|A2A2 A2G2|E6||
+</abc_music>
+    <protagonist_reaction>Penguin, feeling a rush of excitement, decides to approach the child after beaming the flavor, eager to see their reaction up close and possibly get feedback on his fish-only pizza.</protagonist_reaction>
+    <protagonist_reaction>Penguin, overwhelmed by the implications of this new technology, decides to stay back and just watch from a distance, unsure if he's ready to confront the immediate reactions of the taste-testers.</protagonist_reaction>
+</scene>

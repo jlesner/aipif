@@ -1,4 +1,4 @@
-<acts>
+<story>
     <act>
         <name>Setup</name>
         <description>This is the beginning of the story where the main characters, setting, and initial conflict are introduced. Establish the foundation of the story and engage the audience's interest. It typically includes the "inciting incident," which is the event that sets the main plot in motion and disrupts the protagonist's normal life.</description>
@@ -23,7 +23,7 @@
                         <name>Present the Disruptive Event</name>
                         <description>Introduce the event that disrupts the protagonist's normal life and sets the story in motion.</description>
                     </sequence>
-                    <sequence>
+                    <sequence branch_count="3">
                         <name>Initial Reaction of the Protagonist</name>
                         <description>Portray the protagonist's initial response and emotions upon encountering the inciting incident.</description>
                     </sequence>
@@ -64,10 +64,9 @@
                         <name>Building Tension</name>
                         <description>Gradually build tension and anticipation leading up to the story's climax.</description>
                     </sequence>
-                    <sequence>
+                    <sequence branch_count="3">
                         <name>Direct Confrontation</name>
                         <description>Depict the protagonist's head-on confrontation with the main obstacle, resulting in a turning point.</description>
-                        <max_branches>3</max_branches>
                     </sequence>
                 </sequences>
             </part>
@@ -118,4 +117,4 @@
             </part>
         </parts>
     </act>
-</acts>
+</story>
