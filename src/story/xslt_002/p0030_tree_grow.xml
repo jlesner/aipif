@@ -7,7 +7,7 @@
         <xsl:copy>
             <xsl:apply-templates select="@*|node()"/>
             <xsl:element name="request">
-                <xsl:attribute name="type">
+                <xsl:attribute name="type">elayed
                     <xsl:text>make_text</xsl:text>
                 </xsl:attribute>
                 <xsl:element name="positive_prompt_text">
@@ -63,7 +63,7 @@ A young child asked you for a story about the following emojis:</xsl:text>
 Here is the story you have written so far:
                             </xsl:text>
 
-                            <xsl:call-template name="story_history">
+                            <xsl:call-template name="story_so_far">
                                 <xsl:with-param name="last_scene" select="$scene"/>
                             </xsl:call-template>
 
@@ -84,7 +84,7 @@ Please reply only with the updated XML below:
     </xsl:template>
     
     
-    <xsl:template name="story_history">
+    <xsl:template name="story_so_far">
         <xsl:param name="last_scene"/>
         
         <xsl:element name="story_so_far">

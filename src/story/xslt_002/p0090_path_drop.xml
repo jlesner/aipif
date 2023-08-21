@@ -5,6 +5,7 @@
     <xsl:template match="
             path
             | abc_music
+            | dialogue
         ">
     </xsl:template>
 

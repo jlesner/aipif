@@ -26,7 +26,7 @@
                 G2AG F2E2|c2Bc d2cB|A2G2 F2E2|C6||
             </abc_music>
             <protagonist_reaction>Penguin tilts its head curiously, taking a moment to observe the alien and then offers a slice of pizza with a friendly chirp, signaling the start of a new friendship.</protagonist_reaction>
-        </scene>        
+        </scene>
     </xsl:template>
     
     <xsl:template match="@*|node()">
