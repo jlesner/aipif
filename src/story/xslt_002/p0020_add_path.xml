@@ -1,0 +1,78 @@
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    <xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes" />
+    <xsl:strip-space elements="*" />
+    
+
+    <xsl:template match="story">
+        <xsl:copy>
+            <xsl:element name="path">
+                <xsl:apply-templates select="scene"/>
+            </xsl:element>
+        </xsl:copy>
+    </xsl:template>
+
+    <xsl:template match="scene">
+
+        <xsl:variable name="index" select="count(preceding-sibling::scene)+1"/>
+   
+        <xsl:copy>
+            <xsl:apply-templates select="@*"/>
+    
+            <xsl:attribute name="index">
+                <xsl:value-of select="$index"/>
+            </xsl:attribute>
+
+            <xsl:variable name="branch_count">
+                <xsl:value-of select="@branch_count"/>
+            </xsl:variable>
+
+            <xsl:element name="setting">
+                <xsl:text>Where and when the scene takes place: Interior or Exterior? location? time of day (day or night)? Paint a picture of the surroundings, the ambiance, any relevant objects or features and initial states of characters.</xsl:text>
+            </xsl:element>
+
+            <xsl:element name="dialogue">
+                <xsl:value-of select="outline"/>
+            </xsl:element>
+
+            <xsl:element name="introduction">
+                <xsl:text>Write the words a narrator would use to introduce this scene</xsl:text>
+            </xsl:element>
+
+            <xsl:element name="illustration">
+                <xsl:text>Pick an important character or an important object from this scene and vividly describe it to be illustrated. Pick someone or something you have not yet picked before. Make your description self contained because our illustrator will only see your description and nothing else. Names of characters etc. will not mean anything to them.</xsl:text>
+            </xsl:element>
+
+            <xsl:element name="illustration_title">
+                <xsl:text>Pick a short funny title to accompany the illustration you described above.</xsl:text>
+            </xsl:element>
+
+            <xsl:element name="sound">
+                <xsl:text>Vividly describe one single simple sound suitable to introduce this scene that matches the mood, location and gives context. Make your description self contained because our sound effects team will only see your description and nothing else.</xsl:text>
+            </xsl:element>        
+
+            <xsl:element name="music">
+                <xsl:text>Vividly describe music that matches this scene's mood, location and gives context. Make the description self contained because our musician will only see your description and nothing else.</xsl:text>
+            </xsl:element>
+        
+            <xsl:element name="abc_music">
+                <xsl:text>Compose a suitable music tune for this scene using ABC music notation.</xsl:text>
+                <!-- <xsl:text>Please split it across lines.</xsl:text> -->
+            </xsl:element>
+
+            <xsl:for-each select="(//node() | //@*)[position() &lt;= number($branch_count) ]">
+                <xsl:element name="protagonist_reaction">
+                    <xsl:text>Briefly propose a single different way the protagonist can react to the situation in this scene. If asked to propose more than one reaction make all reactions as different as possible from each other and make sure some are bad and some are good. Do not mention reactions are choices or options.</xsl:text>
+                </xsl:element>
+            </xsl:for-each>
+
+        </xsl:copy>
+
+    </xsl:template>
+
+    <xsl:template match="@*|node()">
+        <xsl:copy>
+            <xsl:apply-templates select="@*|node()"/>
+        </xsl:copy>
+    </xsl:template>
+
+</xsl:stylesheet>

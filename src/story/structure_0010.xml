@@ -109,7 +109,7 @@
                         <name>Final Character Arcs</name>
                         <description>Wrap up any final character arcs or lingering plot points.</description>
                     </sequence>
-                    <sequence>
+                    <sequence branch_count="0">
                         <name>Sense of Closure</name>
                         <description>Provide a sense of closure and leaving the audience with a lasting impression.</description>
                     </sequence>

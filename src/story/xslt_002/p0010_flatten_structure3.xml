@@ -38,11 +38,18 @@
                 <xsl:value-of select="ancestor::part/name"/>
             </xsl:attribute>
 
-            <xsl:if test="@branch_count">
-                <xsl:attribute name="branch_count">
-                    <xsl:value-of select="@branch_count"/>
-                </xsl:attribute>
-            </xsl:if>
+            <xsl:choose>
+                <xsl:when test="@branch_count">
+                    <xsl:attribute name="branch_count">
+                        <xsl:value-of select="@branch_count"/>
+                    </xsl:attribute>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:attribute name="branch_count">
+                        <xsl:value-of select="1"/>
+                    </xsl:attribute>
+                </xsl:otherwise>
+            </xsl:choose>
 
             <xsl:element name="outline">
                 <xsl:value-of select="description"/>
