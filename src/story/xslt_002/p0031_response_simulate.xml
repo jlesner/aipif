@@ -3,15 +3,15 @@
     <xsl:strip-space elements="*" />
 
     <xsl:template match="request[@type='make_text']">
-        <scene name="Penguin Pizza Party" act="Setup" part="Introduction to Characters and Setting" branch_count="1" index="0">
+        <scene name="Penguin Pizza Party" act="Setup" part="Introduction to Characters and Setting" branch_count="1" index="1">
             <setting>Exterior, a sunny beach on a remote tropical island. Gentle waves lap the shore, and a lone palm tree casts shade over a blanket spread with pizza slices. A UFO hovers high above, casting a faint shadow on the sand below.</setting>
+            <introduction>On a sunlit island, Penguin, our tuxedoed hero, was about to enjoy a pizza when an unexpected visitor from the stars landed. A curious alien with a penchant for new foods joined Penguin's meal, sparking an unusual friendship.</introduction>
             <dialogue>
                 Penguin: "Pizza again for lunch, but why no fish topping?"
                 Alien: "Sorry, our spaceship doesn't store fish. By the way, what's that thing next to the pizza?"
                 Penguin: "Oh, that's a spoon. I use it to eat my ice cream!"
                 Alien: "Ice cream? Never heard of it. Maybe we can make it in our spaceship."
             </dialogue>
-            <introduction>On a sunlit island, Penguin, our tuxedoed hero, was about to enjoy a pizza when an unexpected visitor from the stars landed. A curious alien with a penchant for new foods joined Penguin's meal, sparking an unusual friendship.</introduction>
             <illustration>An excited penguin wearing a napkin around its neck, holding a pizza slice with one flipper and a spoon with the other, standing next to an intrigued alien. The UFO is visible in the background with the beach and palm tree framing the scene.</illustration>
             <illustration_title>"Pizza Palooza with Extraterrestrial Extras!"</illustration_title>
             <sound>The gentle rustling of palm leaves mixed with the distant humming of a UFO and the rhythmic sound of waves crashing on the shore.</sound>

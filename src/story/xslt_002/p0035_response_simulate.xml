@@ -1,0 +1,37 @@
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    <xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes" />
+    <xsl:strip-space elements="*" />
+
+    <xsl:template match="request[@type='make_text']">
+        <scene name="Intergalactic Fusion" act="Confrontation" part="Protagonist's Initial Response" branch_count="1" index="5">
+            <setting>Interior, Alien's spaceship kitchen. Cosmic lights cast glows of purples and blues, illuminating a kitchen island. Alien fruits and Earthly ingredients are spread out, each floating slightly above the surface. Through a window, distant stars twinkle in the black vastness of space.</setting>
+            <introduction>With the galaxy at their fingertips, Penguin and Alien stand ready to mix flavors of Earth and the cosmos. However, combining unfamiliar ingredients comes with its own set of challenges.</introduction>
+            <dialogue>
+            Alien: "So, how about we add this Zogfruit with chocolate chips?"
+            Penguin: "Hmm... Zogfruit? I've never heard of it. How does it taste?"
+            Alien: "It's a mix of sweet, sour, and a hint of spicy. A favorite on my planet!"
+            Penguin: "Whoa, that's quite a combination. Let's add it slowly and see how it goes!"
+            </dialogue>
+            <illustration>A Zogfruit, glowing slightly, radiating multiple colors like a mini aurora. Its surface has textures resembling both an apple and a dragon fruit. It levitates above the counter, with shimmering particles spiraling around it, hinting at its mysterious properties.</illustration>
+            <illustration_title>"The Mesmerizing Zogfruit"</illustration_title>
+            <sound>The soft hum of the spaceship, interspersed with the faint, magical chime of floating ingredients coming into contact with each other.</sound>
+            <music>Mellow, whimsical notes with a hint of mystery. Soft percussions reminiscent of twinkling stars, layered with gentle string instruments producing a dreamy undertone.</music>
+            <abc_music>
+            X:1
+            T:Intergalactic Fusion
+            M:4/4
+            L:1/8
+            K:Dmaj
+            D2 F2 A3 F|G2 E2 E4|F2 A2 d3 F|E6|A2 d2 F2 A2|G2 F2 E4|D6||
+            </abc_music>
+            <protagonist_reaction>Penguin, a bit apprehensive, asks, "Can we taste the Zogfruit by itself first before mixing it with anything?"</protagonist_reaction>
+        </scene>
+    </xsl:template>
+    
+    <xsl:template match="@*|node()">
+        <xsl:copy>
+            <xsl:apply-templates select="@*|node()"/>
+        </xsl:copy>
+    </xsl:template>
+
+</xsl:stylesheet>

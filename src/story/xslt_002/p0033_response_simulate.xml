@@ -1,0 +1,41 @@
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    <xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes" />
+    <xsl:strip-space elements="*" />
+
+    <xsl:template match="request[@type='make_text']">
+        <scene name="Space Pizza Catastrophe" act="Setup" part="Introduction of the Inciting Incident" branch_count="1" index="3">
+            <setting>Interior, the alien spaceship's kitchen. Brightly lit with soft bluish hues, the high-tech countertops gleam, and a strange pizza oven hums in the corner. Daytime.</setting>
+            <introduction>As Penguin and Alien explore the spaceship's kitchen, an odd machine catches Penguin's eye.</introduction>
+            <dialogue>
+                Penguin: "What's that shiny thing over there?"
+                Alien: "That's our Intergalactic Pizza Oven 3000! It creates pizzas from any part of the galaxy. Want to try?"
+                Penguin: "Of course!"
+                Alien: "Alright, just press that button."
+                *Penguin excitedly presses the button*
+                *BOOM! A pizza with bizarre alien toppings erupts from the oven*
+                Penguin: "Whoa! That's not like any pizza I've ever seen!"
+            </dialogue>
+            <illustration>A pizza overflowing with weird and colorful toppings: spiral-shaped fruits, floating cheese balls, and gummy worms that wiggle. Penguin and Alien stand with wide eyes and open mouths, shocked at the pizza's appearance.</illustration>
+            <illustration_title>"Galactic Pizza Surprise!"</illustration_title>
+            <sound>The muffled boom of the pizza oven followed by a soft sizzle of the alien toppings.</sound>
+            <music>Upbeat and whimsical, featuring electronic beeps and bloops that give a futuristic feel, mixed with playful piano notes reflecting Penguin's curiosity.</music>
+            <abc_music>
+                X:1
+                T:Galactic Whimsy
+                M:4/4
+                L:1/4
+                K:C
+                e e d c | B A G F | E E D C | D4 |
+                A A B c | d e f g | a a g f | e4 |
+            </abc_music>
+            <protagonist_reaction>Penguin, eyes sparkling with excitement, takes a brave bite and exclaims, "This might be the weirdest pizza I've ever had, but it's delicious!"</protagonist_reaction>
+        </scene>
+    </xsl:template>
+    
+    <xsl:template match="@*|node()">
+        <xsl:copy>
+            <xsl:apply-templates select="@*|node()"/>
+        </xsl:copy>
+    </xsl:template>
+
+</xsl:stylesheet>

@@ -1,0 +1,34 @@
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    <xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes" />
+    <xsl:strip-space elements="*" />
+
+    <xsl:template match="request[@type='make_text']">
+        <scene name="Establishing World's Rules and Tone" act="Setup" part="Introduction to Characters and Setting" branch_count="1" index="2">
+            <setting>Interior, inside the spacious and futuristic cockpit of the alien's spaceship, embedded within the heart of the tropical island. Daylight filters in from the windows, illuminating gleaming control panels and unknown tech.</setting>
+            <introduction>Inside the spaceship, Penguin is wide-eyed with curiosity. Alien gadgets buzz, lights flash, and the smell of something sweet begins to fill the air.</introduction>
+            <dialogue>
+                Alien: "In our world, we don't use spoons. We use telekinesis to eat! Want to give it a try?"
+                Penguin: "Teleki-what now? That sounds fun! But how does it work?"
+                Alien: "Just focus on the object and imagine moving it. Give it a try with that slice of pizza!"
+            </dialogue>
+            <illustration>A penguin, looking bewildered, attempting to concentrate hard on a pizza slice hovering in mid-air, surrounded by an array of shining and blinking spaceship controls.</illustration>
+            <illustration_title>"Pizza Mind Over Matter!"</illustration_title>
+            <sound>A soft, futuristic beep echoing rhythmically, as if from one of the spaceship's control panels.</sound>
+            <music>A gentle, ambient, and otherworldly tune, filled with synthesizers creating an atmosphere of wonder and discovery.</music>
+            <abc_music>X:1
+            T:Spaceship Serenade
+            M:4/4
+            K:C
+            L:1/4
+            EFGA|B2c2|d2B2|A2G2|EFGA|B2c2|e2d2|c4|]</abc_music>
+            <protagonist_reaction>Penguin giggles and says, "I think I'll stick to flippers and spoons for now!" as the pizza slice flops back onto the plate.</protagonist_reaction>
+        </scene>
+    </xsl:template>
+    
+    <xsl:template match="@*|node()">
+        <xsl:copy>
+            <xsl:apply-templates select="@*|node()"/>
+        </xsl:copy>
+    </xsl:template>
+
+</xsl:stylesheet>

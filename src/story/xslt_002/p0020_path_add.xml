@@ -30,12 +30,12 @@
                 <xsl:text>Where and when the scene takes place: Interior or Exterior? location? time of day (day or night)? Paint a picture of the surroundings, the ambiance, any relevant objects or features and initial states of characters.</xsl:text>
             </xsl:element>
 
-            <xsl:element name="dialogue">
-                <xsl:value-of select="outline"/>
-            </xsl:element>
-
             <xsl:element name="introduction">
                 <xsl:text>Write the words a narrator would use to introduce this scene</xsl:text>
+            </xsl:element>
+
+            <xsl:element name="dialogue">
+                <xsl:value-of select="outline"/>
             </xsl:element>
 
             <xsl:element name="illustration">

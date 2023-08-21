@@ -8,13 +8,15 @@
             <xsl:apply-templates select="@*|node()"/>
             <xsl:element name="request">
                 <xsl:attribute name="type">
-                    <xsl:value-of select="make_text"/>
+                    <xsl:text>make_text</xsl:text>
                 </xsl:attribute>
                 <xsl:element name="positive_prompt_text">
                     <xsl:text>
 A young child selected the following emojis: </xsl:text>
-                    <xsl:value-of select="ancestor::tree/prompt"/><xsl:text>
-Inspired by these emojis you are going to begin to write a story for the child by editing the XML below. 
+                    <xsl:value-of select="ancestor::tree/prompt"/>
+                    <xsl:value-of select="prompt"/>
+                    <xsl:text>
+Inspired by these emojis you will write a story for the child by editing the XML below. 
 Show, Don't Tell: When possible reveal information using dialoge do not state it directly. If a specific aspect is important, reveal it using dialoge between characters. For example, if a character is sad, do not say "The character was sad."  Instead, have another character ask "Why are you sad?" This will allow audience to infer the character is sad without being told directly.
 Economy of Words: Be concise. You don't need long, poetic descriptions. Every word should serve the purpose of conveying essential visual or auditory information, setting the mood, or advancing the story.
 Clarity is Key: While you don't want to be overly verbose, you do want to be clear. Children reading should have a good understanding action and how it relates to the entire story.
@@ -27,7 +29,12 @@ Please reply only with the updated XML below.
     </xsl:template>
 
 
-    <xsl:template match="scene[ancestor::tree and protagonist_reaction and not(branch)]">
+    <xsl:template match="scene[
+            ancestor::tree
+            and protagonist_reaction 
+            and not(branch)
+            and not(ancestor::request)
+        ]">
         <xsl:variable name="scene" select="."/>
         <xsl:copy>
             <xsl:apply-templates select="@*"/>
@@ -46,7 +53,7 @@ Please reply only with the updated XML below.
 
                     <xsl:element name="request">
                         <xsl:attribute name="type">
-                            <xsl:value-of select="make_text"/>
+                            <xsl:text>make_text</xsl:text>
                         </xsl:attribute>
 
                         <xsl:element name="positive_prompt_text">
@@ -81,10 +88,18 @@ Please reply only with the updated XML below:
         <xsl:param name="last_scene"/>
         
         <xsl:element name="story_so_far">
-            <xsl:for-each select="$last_scene/ancestor::scene">
+            <xsl:for-each select="ancestor::scene">
                 <xsl:element name="scene">
                     <xsl:apply-templates select="@*"/>
-                    <xsl:apply-templates select="node()[not(name()='branch')]"/>
+                    <xsl:apply-templates select="node()[
+                            not(
+                                name()='branch'
+                                or name()='abc_music'
+                                or name()='music'
+                                or name()='sound'
+                                or name()='illustration_title'
+                            )
+                        ]"/>
                     <!-- TODO add protagonist reactions to story history-->
                 </xsl:element>
             </xsl:for-each>

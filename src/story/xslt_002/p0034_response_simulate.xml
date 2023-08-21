@@ -1,0 +1,36 @@
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    <xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes" />
+    <xsl:strip-space elements="*" />
+
+    <xsl:template match="request[@type='make_text']">
+        <scene name="Cosmic Concoctions" act="Rising Action" part="Challenges and Adventures" branch_count="3" index="4">
+            <setting>Interior, Alien's spaceship kitchen. The room is larger than before, illuminated by soft, swirling galaxy lights, reflecting the vastness of space. An array of alien ingredients line the countertops. The Intergalactic Pizza Oven 3000 sits humming, waiting for its next command.</setting>
+            <introduction>With the bizarre pizza steaming in front of them, Penguin and Alien ponder the endless culinary possibilities the universe has to offer.</introduction>
+            <dialogue>
+                Alien: "Well, now that you've tried that, how about we make a dessert from my home planet?"
+                Penguin: "Only if we can use this spoon!"
+                Alien: "Deal! Let’s mix a few of these ingredients and see what we get!"
+            </dialogue>
+            <illustration>An array of cosmic ingredients: nebula nectar, star-shaped fruits, shimmering jelly orbs, and a swirling, sparkling galaxy sauce, all laid out neatly on a countertop. At the center is the spoon, shining brightly as if absorbing the cosmic energy.</illustration>
+            <illustration_title>"Cosmic Kitchen Chaos"</illustration_title>
+            <sound>A gentle bubbling and fizzing as if cosmic ingredients are being mixed together, creating a soft, otherworldly concoction.</sound>
+            <music>Light and playful tunes, invoking a sense of cosmic wonder and curiosity, with soft chimes reminiscent of twinkling stars.</music>
+            <abc_music>X:1
+            T:Galactic Giggles
+            M:4/4
+            L:1/8
+            K:C
+            |:EFGA B2B2 | c4 z4 | G2A2 B2c2 | d2c2B2A2 | GFGA B2B2 |1 e2d2c2B2 :|2 e2d2c2z2 |]</abc_music>
+            <protagonist_reaction>Penguin, feeling overwhelmed, hesitates and says, "Maybe we should stick to the basics and just try that ice cream idea?"</protagonist_reaction>
+            <protagonist_reaction>Penguin, getting overly excited, spills the ingredients everywhere, exclaiming, "Oops! I guess we're making a cosmic mess instead!"</protagonist_reaction>
+            <protagonist_reaction>Penguin, intrigued, suggests, "Why don't we combine a bit of Earth's flavors with your cosmic ingredients? Let’s make it a true intergalactic dessert!"</protagonist_reaction>
+        </scene>
+    </xsl:template>
+    
+    <xsl:template match="@*|node()">
+        <xsl:copy>
+            <xsl:apply-templates select="@*|node()"/>
+        </xsl:copy>
+    </xsl:template>
+
+</xsl:stylesheet>
