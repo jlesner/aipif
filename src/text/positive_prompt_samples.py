@@ -1,16 +1,16 @@
 
 
 positive_prompt_samples = [
-    "Dancing Bananas: A group of bananas, each with smiling faces, dancing in a conga line wearing sunglasses and beach hats.",
-    "Penguin's Pool Party: Penguins wearing swimsuits, sunbathing on towels, and sipping on juice boxes by a pool filled with rubber duckies.",
+    # "Dancing Bananas: A group of bananas, each with smiling faces, dancing in a conga line wearing sunglasses and beach hats.",
+    # "Penguin's Pool Party: Penguins wearing swimsuits, sunbathing on towels, and sipping on juice boxes by a pool filled with rubber duckies.",
     # "Alien's Day at School: A friendly green alien struggling to carry an oversized school backpack, while being surrounded by curious school kids.",
     # "The Roller-skating Rabbit: A fluffy bunny on roller-skates, zooming past a group of astonished tortoises who are moving at a snail's pace.",
     # "Fish's Underwater Birthday: Colorful fish wearing party hats, blowing party horns, and floating around a seaweed-decorated birthday cake.",
     # "Giraffe's Bad Hair Day: A giraffe looking shocked at its frizzy, rainbow-colored mane in a mirror, while a cheeky monkey holds a hair dryer.",
     # "Elephant's Ice Cream Oops: A clumsy elephant dropping a mountain of ice cream scoops from its cone, while ants cheer in anticipation below.",
-    # "Dragon's BBQ Mishap: A dragon accidentally setting its marshmallow on fire while trying to roast it, with a group of giggling fairies holding fire extinguishers.",
+    "Dragon's BBQ Mishap: A dragon accidentally setting its marshmallow on fire while trying to roast it, with a group of giggling fairies holding fire extinguishers.",
     # "Unicorn's Paint Day: A unicorn with a paintbrush in its tail, accidentally splattering rainbow paint everywhere and creating abstract masterpieces.",
-    # "Hippo's Ballet Recital: A graceful hippopotamus in a tutu, pirouetting on stage while other animals applaud enthusiastically.",
+    "Hippo's Ballet Recital: A graceful hippopotamus in a tutu, pirouetting on stage while other animals applaud enthusiastically.",
     # "Bear's Pillow Fort: A bear snug inside a grand pillow fort, reading a storybook by flashlight, surrounded by stuffed animal friends.",
     # "Snail's Rocket Ride: A snail with wide-eyed excitement, strapping onto a tiny rocket, ready to zoom around at unbelievable speeds.",
     # "Lion's Vegetable Quest: A lion with a shopping list, looking puzzled in a vegetable market, trying to figure out what broccoli is.",

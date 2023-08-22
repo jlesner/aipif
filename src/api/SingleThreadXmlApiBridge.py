@@ -8,7 +8,7 @@ import sys
 import re
 from lxml import etree
 
-from Context import Context 
+from common.Context import Context 
 from pictures.StubPictureMaker import StubPictureMaker
 from text.DelayedTextMaker import DelayedTextMaker
 from text.StubTextMaker import StubTextMaker

@@ -1,6 +1,6 @@
 import logging
 import random
-from Context import Context
+from common.Context import Context
 from pictures.DelayedPictureMaker import DelayedPictureMaker
 from sounds.DelayedSoundMaker import DelayedSoundMaker
 from music.DelayedMusicMaker import DelayedMusicMaker

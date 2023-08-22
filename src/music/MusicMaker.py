@@ -1,16 +1,6 @@
-from Context import Context
+from common.ContextAware import ContextAware
 
-class MusicMaker:
-    """
-    Base class for objects that implement make_music()
-
-    Arguments:
-        context:Context
-            replaces global variables for tracking config / state / stats
-
-    """
-    def __init__(self, context:Context):
-        self._context = context
+class MusicMaker(ContextAware):
 
     def make_music(self, prompt_dict: dict):
         """

@@ -1,5 +1,5 @@
 import random
-from Context import Context
+from common.Context import Context
 from text.positive_prompt_samples import positive_prompt_samples
 from text.Gpt35TextMaker import Gpt35TextMaker
 
@@ -12,7 +12,7 @@ for i in range(1):
     # style_prompt_text = style_prompt_samples[random.randint(0, len(style_prompt_samples)-1)]
 
     make_text_output =  text_maker.make_text({\
-            "positive_prompt_text": "Please give a more vivid description the picture this passage paints: " + positive_prompt_text, \
+            "positive_prompt_text": "Please give a more vivid description of picture this passage paints: " + positive_prompt_text, \
             # "style_prompt_text": style_prompt_text, \
         })
 

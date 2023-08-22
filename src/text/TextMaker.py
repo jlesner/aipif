@@ -1,16 +1,7 @@
-from Context import Context
 
-class TextMaker:
-    """
-    Base class for objects that implement make_story()
+from common.ContextAware import ContextAware
 
-    Arguments:
-        context:Context
-            replaces global variables for tracking config / state / stats
-
-    """
-    def __init__(self, context:Context):
-        self._context = context
+class TextMaker(ContextAware):
 
     def make_text(self, prompt_dict: dict):
         """

@@ -1,8 +1,8 @@
 import time
 import random
 import threading
-from Context import Context
-from BoundedBuffer import BoundedBuffer
+from common.Context import Context
+from common.BoundedBuffer import BoundedBuffer
 from pictures.DelayedPictureMaker import DelayedPictureMaker
 from sounds.DelayedSoundMaker import DelayedSoundMaker
 from music.DelayedMusicMaker import DelayedMusicMaker

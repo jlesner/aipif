@@ -1,16 +1,7 @@
-from Context import Context
+from common.ContextAware import ContextAware
 
-class PictureMaker:
-    """
-    Base class for objects that implement make_picture()
+class PictureMaker(ContextAware):
 
-    Arguments:
-        context:Context
-            replaces global variables for tracking config / state / stats
-
-    """
-    def __init__(self, context:Context):
-        self._context = context
 
     def make_picture(self, prompt_dict: dict):
         """

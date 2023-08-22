@@ -4,7 +4,6 @@ import random
 import tomesd
 import torch
 from diffusers import DiffusionPipeline, utils
-from Context import Context
 from media.MediaManager import MediaManager
 from pictures.PictureMaker import PictureMaker
 

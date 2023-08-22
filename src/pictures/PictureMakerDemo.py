@@ -1,5 +1,5 @@
 import random
-from Context import Context
+from common.Context import Context
 from pictures.StubPictureMaker import StubPictureMaker
 from pictures.positive_prompt_samples import positive_prompt_samples
 from pictures.style_prompt_samples import style_prompt_samples

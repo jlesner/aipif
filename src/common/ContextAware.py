@@ -1,6 +1,6 @@
 from collections import defaultdict
 
-from click import Context
+from common.Context import Context
 
 class ContextAware:
     """
@@ -11,5 +11,5 @@ class ContextAware:
             replaces global variables for tracking config / state / stats
 
     """
-    def __init__(self, context:Context):
+    def __init__(self, context:Context=Context()):
         self._context = context

@@ -1,16 +1,6 @@
-from Context import Context
+from common.ContextAware import ContextAware
 
-class SoundMaker:
-    """
-    Base class for objects that implement make_sound()
-
-    Arguments:
-        context:Context
-            replaces global variables for tracking config / state / stats
-
-    """
-    def __init__(self, context:Context):
-        self._context = context
+class SoundMaker(ContextAware):
 
     def make_sound(self, prompt_dict: dict):
         """

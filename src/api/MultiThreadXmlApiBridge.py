@@ -5,8 +5,8 @@ import random
 import threading
 from lxml import etree
 
-from Context import Context 
-from BoundedBuffer import BoundedBuffer
+from common.Context import Context 
+from common.BoundedBuffer import BoundedBuffer
 from pictures.StubPictureMaker import StubPictureMaker
 from text.DelayedTextMaker import DelayedTextMaker
 from text.StubTextMaker import StubTextMaker

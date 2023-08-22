@@ -1,5 +1,5 @@
 import random
-from Context import Context
+from common.Context import Context
 from sounds.StubSoundMaker import StubSoundMaker
 from sounds.positive_prompt_samples import positive_prompt_samples
 from sounds.style_prompt_samples import style_prompt_samples
