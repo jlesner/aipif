@@ -8,41 +8,58 @@ import sys
 import re
 from lxml import etree
 
-from Context import Context # ! don't know why it can't import when in /story !
+from Context import Context 
 from pictures.StubPictureMaker import StubPictureMaker
+from text.StubTextMaker import StubTextMaker
 
-context = Context() # empty since no configuration is needed for StubPictureMaker
 
-picture_maker = StubPictureMaker(context)
-
-def address_requests(input_file, output_file):
-    tree = etree.parse(input_xml)
-    request_nodes = tree.xpath("//request[not(response)]")
+def context_configure(context:Context):
+    # if your module needs to be configured, you can do it here
+    # eventually we will have a config file and/or command line args
+    #
+    # WARNING: DO NOT CHECKIN YOUR API KEYS / SECRETS
+    #
+    context.config['story_maker_port'] = 8080
+    context.config['make_text_attempts'] = 3
     
+
+def state_setup(context:Context):
+    # for now we hardcode function bindings
+    context.state['picture_maker'] = StubPictureMaker(context)
+    context.state['text_maker'] = StubTextMaker(context)
+
+
+def address_requests(context, input_file, output_file): # manager thread
+    tree = etree.parse(input_xml)
+    request_nodes = tree.xpath("//request")
     for request_node in request_nodes:
-        request_type = request_node.get("type")
-        match request_type:
-            case "make_picture":
-                positive_prompt_text = request_node.find('arg[@type="positive_prompt_text"]').text
-                print(f"positive_prompt_text: {positive_prompt_text}")
-                response = picture_maker.make_picture({"positive_prompt_text": positive_prompt_text})
-                response_node = etree.SubElement(request_node, "response")
-                response_node.text = response
-                break
-            case _:
-                raise Exception(f"Unknown request type: {request_type}")
+        process_request(context,request_node)
     tree.write(output_file, pretty_print=True)
 
-def extract_xml(input_file, output_file):
-    with open(input_file, "r") as f:
-        content = f.read()
-    match = re.search(r'\<\?xml version="1\.0" encoding="UTF-8"\?\>\s*<root>.*?</root>', content, re.DOTALL)
+
+def process_request(context, request_node):  # worker thread
+    request_type = request_node.get("type")
+    match request_type:
+        case "make_text":
+            attempts_left = context.config['make_text_attempts']
+            while(True):
+                positive_prompt_text = request_node.find('positive_prompt_text').text
+                response_text = ({"positive_prompt_text": positive_prompt_text})
+                response_string_xml = extract_xml(response_text)
+                if valid_xml(response_string_xml):
+                    break
+                attempts_left -= 1
+                if attempts_left <= 0:
+                    raise Exception("Unable to generate valid xml response")
+        case _:
+            raise Exception(f"Unknown request type: {request_type}")
+
+def extract_xml(input_string):
+    match = re.search(r'<scene .*?</scene>', input_string, re.DOTALL)
     if match:
-        xml_content = match.group()
-        with open(output_file, "w") as f:
-            f.write(xml_content)
+        return match.group()
     else:
-        raise Exception("No xml found in input file")
+        raise Exception("No xml found in input string")
     
 def valid_xml(input_file):
     try:
@@ -52,15 +69,15 @@ def valid_xml(input_file):
         ]
         for expr in expressions:
             if not input_tree.xpath(expr):
-                return False
-        return True
+                return (False, None)
+        return (True, input_tree)
     except etree.XMLSyntaxError:
-        return False
+        return (False, input_tree)
 
 if __name__ == "__main__":
-    # input_xml = sys.stdin.read()
-    input_xml = sys.argv[1]
-    # input_xml = "story/seeds/flat_structure.xml"
-    # address_requests(input_xml, "/dev/stdout")
-    extract_xml(input_xml, "test.xml")
+    context = Context() 
+    context_configure(context)
+    state_setup(context)
+    input_xml = 'story/_generated/p00311_response_simulate.xml'
+    address_requests(context, input_xml, "/dev/stdout")
     
