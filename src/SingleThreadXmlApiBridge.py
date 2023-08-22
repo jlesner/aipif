@@ -15,11 +15,6 @@ from text.StubTextMaker import StubTextMaker
 
 
 def context_configure(context:Context):
-    # if your module needs to be configured, you can do it here
-    # eventually we will have a config file and/or command line args
-    #
-    # WARNING: DO NOT CHECKIN YOUR API KEYS / SECRETS
-    #
     context.config['story_maker_port'] = 8080
     context.config['make_text_attempts'] = 3
     

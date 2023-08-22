@@ -14,8 +14,7 @@ picture_maker = FastLocalSdPictureMaker(context)
 #     positive_prompt_text = positive_prompt_samples[random.randint(0, len(positive_prompt_samples)-1)]
 #     style_prompt_text = style_prompt_samples[random.randint(0, len(style_prompt_samples)-1)]
 
-positive_prompt_text = "A pizza overflowing with weird and colorful toppings: spiral-shaped fruits, floating cheese balls, and gummy worms that wiggle."
-# Penguin and Alien stand with wide eyes and open mouths, shocked at the pizza's appearance."
+positive_prompt_text = "A pizza overflowing with weird and colorful toppings: spiral-shaped fruits, floating cheese balls, and gummy worms that wiggle. Penguin and Alien stand with wide eyes and open mouths, shocked at the pizza's appearance."
 style_prompt_text = "Expressive, sketchy line drawings often filled with humor and energy in the style of art from Quentin Blake"
 
 # make_picture_output =  picture_maker.make_picture({\
