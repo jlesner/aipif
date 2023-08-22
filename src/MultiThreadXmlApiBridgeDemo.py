@@ -8,7 +8,9 @@ from lxml import etree
 from Context import Context 
 from BoundedBuffer import BoundedBuffer
 from pictures.StubPictureMaker import StubPictureMaker
+from text.DelayedTextMaker import DelayedTextMaker
 from text.StubTextMaker import StubTextMaker
+
 
 class Task:
     def __init__(self, request_node=None):
@@ -33,7 +35,7 @@ def state_setup(context:Context):
     context.state['done_tasks'] = BoundedBuffer(5)
 
     context.state['picture_maker'] = StubPictureMaker(context)
-    context.state['text_maker'] = StubTextMaker(context)
+    context.state['text_maker'] = DelayedTextMaker(context)
 
 
 def address_requests(context, input_file, output_file): # manager thread

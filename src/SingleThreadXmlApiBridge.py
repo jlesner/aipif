@@ -10,6 +10,7 @@ from lxml import etree
 
 from Context import Context 
 from pictures.StubPictureMaker import StubPictureMaker
+from text.DelayedTextMaker import DelayedTextMaker
 from text.StubTextMaker import StubTextMaker
 
 
@@ -26,7 +27,7 @@ def context_configure(context:Context):
 def state_setup(context:Context):
     # for now we hardcode function bindings
     context.state['picture_maker'] = StubPictureMaker(context)
-    context.state['text_maker'] = StubTextMaker(context)
+    context.state['text_maker'] = DelayedTextMaker(context)
 
 
 def address_requests(context, input_file, output_file): # manager thread
@@ -96,6 +97,6 @@ if __name__ == "__main__":
     context_configure(context)
     state_setup(context)
     # input_xml = 'story/_generated/p00311_response_simulate.xml'
-    input_xml = 'story/_generated/p00351_response_simulate.xml'
-    address_requests(context, input_xml, "/dev/stdout")
+    # input_xml = 'story/_generated/p00351_response_simulate.xml'
+    address_requests(context, "/dev/stdin", "/dev/stdout")
     
