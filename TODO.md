@@ -38,6 +38,10 @@ We generate interactive twine games that are static so that the parent can revie
 # DONE
 ## story representation => XML
 
+## making the twine file better
+### make buttons nicer(center them?)
+### add a settings tab 
+
 ## prompts
 ### story outline
 
