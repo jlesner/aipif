@@ -7,7 +7,7 @@
         <xsl:copy>
             <xsl:apply-templates select="@*|node()"/>
             <xsl:element name="request">
-                <xsl:attribute name="type">elayed
+                <xsl:attribute name="type">
                     <xsl:text>make_text</xsl:text>
                 </xsl:attribute>
                 <xsl:element name="positive_prompt_text">

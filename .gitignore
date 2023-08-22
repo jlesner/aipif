@@ -5,6 +5,7 @@ _generated
 _media
 
 sd_venv/
+story_venv/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

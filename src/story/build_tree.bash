@@ -24,6 +24,7 @@ cat structure_0010.xml \
     | tee _generated/p00342_response_simulate.xml \
     \
     | xsltproc xslt_002/p0030_tree_grow.xml /dev/stdin \
+    | tee _generated/p00351_response_simulate.xml \
     | xsltproc xslt_002/p0035_response_simulate.xml /dev/stdin \
     | tee _generated/p00352_response_simulate.xml \
     \
