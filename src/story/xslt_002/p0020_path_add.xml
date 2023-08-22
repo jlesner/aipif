@@ -39,7 +39,7 @@
             </xsl:element>
 
             <xsl:element name="illustration">
-                <xsl:text>Pick an important character or an important object from this scene and vividly describe it to be illustrated. Pick someone or something you have not yet picked before. Make your description self contained because our illustrator will only see your description and nothing else. Names of characters etc. will not mean anything to them.</xsl:text>
+                <xsl:text>Pick an important character or an important object from this scene and vividly describe it to be illustrated. Pick someone or something you have not yet picked before. Make your description simple and self contained because our illustrator will only see your description and nothing else. Names of characters etc. will not mean anything to them and our illustrator easily gets confused if you try to describe an entire scene so describe just one character or object and nothing else.</xsl:text>
             </xsl:element>
 
             <xsl:element name="illustration_title">
