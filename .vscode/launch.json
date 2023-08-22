@@ -10,6 +10,7 @@
             "request": "launch",
             "program": "${file}",
             "cwd": "${workspaceFolder}/src",
+            "args": ["story/_generated/p00311_response_simulate.xml"],
             "console": "integratedTerminal",
             "justMyCode": true,
             "env": {

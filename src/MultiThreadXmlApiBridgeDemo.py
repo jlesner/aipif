@@ -1,17 +1,19 @@
-# read xml from stdin
-# find all request nodes that do not have a response child
-# issue request to api
-# attach as a child the response to its request node
-# output xml to stdout
-
 import sys
 import re
+import time
+import random
+import threading
 from lxml import etree
 
 from Context import Context 
+from BoundedBuffer import BoundedBuffer
 from pictures.StubPictureMaker import StubPictureMaker
 from text.StubTextMaker import StubTextMaker
 
+class Task:
+    def __init__(self, request_node=None):
+        self.request_node = request_node
+        self.response_node = None
 
 def context_configure(context:Context):
     # if your module needs to be configured, you can do it here
@@ -20,11 +22,16 @@ def context_configure(context:Context):
     # WARNING: DO NOT CHECKIN YOUR API KEYS / SECRETS
     #
     context.config['story_maker_port'] = 8080
+    context.config['num_workers'] = 4
+    context.config['sentinel'] = "STOP"
     context.config['make_text_attempts'] = 3
     
 
 def state_setup(context:Context):
     # for now we hardcode function bindings
+    context.state['todo_tasks'] = BoundedBuffer(5)
+    context.state['done_tasks'] = BoundedBuffer(5)
+
     context.state['picture_maker'] = StubPictureMaker(context)
     context.state['text_maker'] = StubTextMaker(context)
 
@@ -33,31 +40,62 @@ def address_requests(context, input_file, output_file): # manager thread
     tree = etree.parse(input_file)
     request_nodes = tree.xpath("//request")
     for request_node in request_nodes:
-        response_node = process_request(context, request_node)
+        task = Task(request_node)
+        context.state['todo_tasks'].add(task)
+        print(f"Manager producing {task.request_node.get('type')}",file=sys.stderr)
+        time.sleep(random.random())
+    print(f"Manager gathering done tasks! {len(request_nodes)} tasks",file=sys.stderr)
+    context.state['todo_tasks'].add(context.config['sentinel'])
+    while(True):
+        if context.state['done_tasks'].count == len(request_nodes):
+            break
+        # print(f"Manager waiting for done tasks! {context.state['done_tasks'].size()} tasks",file=sys.stderr)
+        time.sleep(0.1)
+    print("Manager building new xml tree",file=sys.stderr)
+    while context.state['done_tasks'].count > 0:
+        item = context.state['done_tasks'].remove()
+        request_node = item.request_node
+        response_node = item.response_node
         request_parent = request_node.getparent()
         request_parent.replace(request_node, response_node)
+
     tree.write(output_file, pretty_print=True)
 
 
-def process_request(context, request_node):  # worker thread
-    request_type = request_node.get("type")
-    match request_type:
-        case "make_text":
-            attempts_left = context.config['make_text_attempts']
-            while(True):
-                positive_prompt_text = request_node.find('positive_prompt_text').text
-                prompt_dict = ({"positive_prompt_text": positive_prompt_text})
-                response_string= context.state['text_maker'].make_text(prompt_dict)
-                response_string_xml = extract_xml(response_string)
-                if valid_xml(response_string_xml):
-                    break
-                attempts_left -= 1
-                if attempts_left <= 0:
-                    raise Exception("Ran out of attempts to generate valid xml response")
-                
-            return etree.fromstring(response_string_xml)
-        case _:
-            raise Exception(f"Unknown request type: {request_type}")
+def process_request(context, id):  # worker thread
+    while True:
+        item = context.state['todo_tasks'].remove()
+        if item == context.config['sentinel']:
+            context.state['todo_tasks'].add(item)
+            print(f"Worker {id} received termination signal",file=sys.stderr)
+            break
+        else:
+            request_node = item.request_node
+            request_type = request_node.get("type")
+            try:
+                match request_type:
+                    case "make_text":
+                        attempts_left = context.config['make_text_attempts']
+                        while(True):
+                            positive_prompt_text = request_node.find('positive_prompt_text').text
+                            prompt_dict = ({"positive_prompt_text": positive_prompt_text})
+                            response_string= context.state['text_maker'].make_text(prompt_dict)
+                            response_string_xml = extract_xml(response_string)
+                            if valid_xml(response_string_xml):
+                                break
+                            attempts_left -= 1
+                            if attempts_left <= 0:
+                                raise Exception("Ran out of attempts to generate valid xml response")
+                            
+                        item.response_node = etree.fromstring(response_string_xml)
+                        context.state['done_tasks'].add(item)
+                    case _:
+                        raise Exception(f"Unknown request type: {request_type}")
+            except Exception as e:
+                print(f"Worker {id} encountered error: {e}",file=sys.stderr)
+                item.response_node = etree.fromstring(f"<error>{e}</error>")
+                context.state['done_tasks'].add(item)
+                continue
 
 def extract_xml(input_string):
     match = re.search(r'<scene .*?</scene>', input_string, re.DOTALL)
@@ -75,7 +113,6 @@ def valid_xml(input_string):
                 "/scene/@part",
                 "/scene/@branch_count",
                 "/scene/@index",
-                # "/scene/@key", # TODO: enable once there is key gen
                 "/scene/setting",
                 "/scene/introduction",
                 "/scene/dialogue",
@@ -95,7 +132,16 @@ if __name__ == "__main__":
     context = Context() 
     context_configure(context)
     state_setup(context)
-    # input_xml = 'story/_generated/p00311_response_simulate.xml'
-    input_xml = 'story/_generated/p00351_response_simulate.xml'
-    address_requests(context, input_xml, "/dev/stdout")
+    manager_thread = threading.Thread(target=address_requests, args=(context,"/dev/stdin","/dev/stdout"))
+    manager_thread.start()
     
+    worker_threads = []
+    for i in range(context.config['num_workers']):
+        worker_thread = threading.Thread(target=process_request, args=(context,i))
+        worker_thread.start()
+        worker_threads.append(worker_thread)
+    
+    for worker_thread in worker_threads:
+        worker_thread.join()
+    
+    manager_thread.join()
