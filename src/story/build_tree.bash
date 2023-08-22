@@ -16,10 +16,12 @@ cat structure_0010.xml \
     | tee _generated/p00322_response_simulate.xml \
     \
     | xsltproc xslt_002/p0030_tree_grow.xml /dev/stdin \
+    | tee _generated/p00331_response_simulate.xml \
     | xsltproc xslt_002/p0033_response_simulate.xml /dev/stdin \
     | tee _generated/p00332_response_simulate.xml \
     \
     | xsltproc xslt_002/p0030_tree_grow.xml /dev/stdin \
+    | tee _generated/p00341_response_simulate.xml \
     | xsltproc xslt_002/p0034_response_simulate.xml /dev/stdin \
     | tee _generated/p00342_response_simulate.xml \
     \
@@ -29,6 +31,7 @@ cat structure_0010.xml \
     | tee _generated/p00352_response_simulate.xml \
     \
     | xsltproc xslt_002/p0030_tree_grow.xml /dev/stdin \
+    | tee _generated/p00361_response_simulate.xml \
     | xsltproc xslt_002/p0036_response_simulate.xml /dev/stdin \
     | tee _generated/p00362_response_simulate.xml \
     \
