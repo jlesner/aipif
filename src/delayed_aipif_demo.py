@@ -2,11 +2,17 @@ import time
 import random
 import threading
 from Context import Context
-from thread_management import Model_Task, BoundedBuffer, worker
+from BoundedBuffer import BoundedBuffer
 from pictures.DelayedPictureMaker import DelayedPictureMaker
 from sounds.DelayedSoundMaker import DelayedSoundMaker
 from music.DelayedMusicMaker import DelayedMusicMaker
 from text.DelayedTextMaker import DelayedTextMaker
+
+class Model_Task:
+    def __init__(self, process_function=None, prompt_dict={}): # not sure if should be None or empty dict
+        self.process_function = process_function
+        self.input_dict = prompt_dict
+        self.output = None
 
 def context_configure(context:Context):
     # if your module needs to be configured, you can do it here
@@ -30,6 +36,18 @@ def state_setup(context:Context):
     context.state['make_sound'] = DelayedSoundMaker(context).make_sound
     context.state['make_music'] = DelayedMusicMaker(context).make_music
     context.state['make_story'] = DelayedTextMaker(context).make_text
+
+def worker(context,id):
+    while True:
+        item = context.state['todo_tasks'].remove()
+        if item == context.config['sentinel']:
+            context.state['todo_tasks'].add(item)
+            print(f"Worker {id} received termination signal")
+            break
+        process_result = item.process_function(item.input_dict)
+        item.output = process_result
+        print(f"Worker {id} processing {item.process_function.__name__} request to {process_result}")
+        context.state['done_tasks'].add(item)
 
 def task_manager(context:Context):
     for i in range(5):

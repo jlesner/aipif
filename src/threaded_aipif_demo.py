@@ -14,7 +14,6 @@ def context_configure(context:Context):
     # WARNING: DO NOT CHECKIN YOUR API KEYS / SECRETS
     #
     context.config['story_maker_port'] = 8080
-    
 
 def state_setup(context:Context):
     # setup context.state using context.config 

@@ -1,11 +1,5 @@
 import threading
 
-class Model_Task:
-    def __init__(self, process_function=None, prompt_dict={}): # not sure if should be None or empty dict
-        self.process_function = process_function
-        self.input_dict = prompt_dict
-        self.output = None
-
 class BoundedBuffer:
 
     def __init__(self, size):
@@ -49,15 +43,3 @@ class BoundedBuffer:
             rStr += str(self.buffer[i]) + " "
         rStr += "]"
         return rStr
-
-def worker(context,id):
-    while True:
-        item = context.state['todo_tasks'].remove()
-        if item == context.config['sentinel']:
-            context.state['todo_tasks'].add(item)
-            print(f"Worker {id} received termination signal")
-            break
-        process_result = item.process_function(item.input_dict)
-        item.output = process_result
-        print(f"Worker {id} processing {item.process_function.__name__} request to {process_result}")
-        context.state['done_tasks'].add(item)
