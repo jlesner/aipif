@@ -1,4 +1,7 @@
 {
+    // "python.analysis.extraPaths": [
+    //     "./src/common"
+    // ]
     // "[python]": {
     //     "editor.defaultFormatter": "ms-python.python"
     // },
