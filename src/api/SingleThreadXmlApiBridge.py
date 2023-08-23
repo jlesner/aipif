@@ -13,6 +13,7 @@ from pictures.StubPictureMaker import StubPictureMaker
 from text.CachingTextMaker import CachingTextMaker
 from text.DelayedTextMaker import DelayedTextMaker
 from text.Gpt35TextMaker import Gpt35TextMaker
+from text.Gpt4t8kTextMaker import Gpt4t8kTextMaker
 from text.StubTextMaker import StubTextMaker
 
 def context_configure(context:Context):
@@ -23,7 +24,8 @@ def context_configure(context:Context):
 def state_setup(context:Context):
     # for now we hardcode function bindings
     context.state['picture_maker'] = StubPictureMaker(context)
-    context.state['text_maker'] = CachingTextMaker(Gpt35TextMaker(context))
+    # context.state['text_maker'] = CachingTextMaker(Gpt35TextMaker(context))
+    context.state['text_maker'] = CachingTextMaker(Gpt4t8kTextMaker(context))
 
 def address_requests(context, input_file, output_file): # manager thread
     tree = etree.parse(input_file)
