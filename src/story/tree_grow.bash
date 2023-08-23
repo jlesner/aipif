@@ -73,5 +73,5 @@ tree_grow()
 } ; export -f tree_grow
 
 (rm -f ${outp}/*.xml || true )  2> /dev/null
-# (rm -f _cache/*.{json,xml} || true )  2> /dev/null
+(rm -f _cache/*.{json,xml} || true )  2> /dev/null
 tree_grow

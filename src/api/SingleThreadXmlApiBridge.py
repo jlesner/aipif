@@ -15,7 +15,6 @@ from text.DelayedTextMaker import DelayedTextMaker
 from text.Gpt35TextMaker import Gpt35TextMaker
 from text.StubTextMaker import StubTextMaker
 
-
 def context_configure(context:Context):
     context.config['story_maker_port'] = 8080
     context.config['make_text_attempts'] = 3
@@ -43,6 +42,8 @@ def address_requests(context, input_file, output_file): # manager thread
 def children_to_string(node):
     return " ".join([etree.tostring(child, encoding='unicode') for child in node])
 
+
+
 def process_request(context, request_node):  # worker thread
     request_type = request_node.get("type")
     match request_type:
@@ -55,6 +56,7 @@ def process_request(context, request_node):  # worker thread
                     raise Exception(f"process_request(): Ran out of attempts to get valid xml response. Last response_string: {response_string}")
                 positive_prompt_text = request_node.find('positive_prompt_text').text
                 positive_prompt_text += " " + children_to_string(request_node.find('positive_prompt_text'))
+                positive_prompt_text = re.sub(r'\s+', ' ', positive_prompt_text)
                 prompt_dict = ({"positive_prompt_text": positive_prompt_text + " "*attempts_left })
                 # print(f"\n\nprompt_dict:{prompt_dict}",file=sys.stderr)
                 response_string= context.state['text_maker'].make_text(prompt_dict)
