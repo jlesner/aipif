@@ -20,7 +20,6 @@ class MediaManager(ContextAware):
         return self.bytes_to_url(data, 'audio/mp4')
 
     def url_to_bytes(self, data_url: str) -> bytes:
-        # if not data_url.startswith('data:image/jpg;base64,'):
         if not data_url.startswith('data:'):
             raise ValueError("Invalid data URL format")
         base64_data = data_url.split(',', 1)[1]

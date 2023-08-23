@@ -6,7 +6,7 @@ from lxml import etree
 
 from common.ContextAware import ContextAware 
 
-class QueuingXmlApiBridge(ContextAware):
+class RqXmlApiBridge(ContextAware):
 
     def __init__(self, queue_dir: str = '_queue'):
         self.queue_dir = queue_dir
@@ -50,5 +50,5 @@ class QueuingXmlApiBridge(ContextAware):
         return response_node
 
 if __name__ == "__main__":
-    QueuingXmlApiBridge().address_requests("/dev/stdin", "/dev/stdout")
+    RqXmlApiBridge().address_requests("/dev/stdin", "/dev/stdout")
     

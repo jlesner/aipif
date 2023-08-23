@@ -12,15 +12,17 @@ xml_api_bridge()
     # python3 ../api/MultiThreadXmlApiBridge.py
 } ; export -f xml_api_bridge
 
-xml_api_worker()
-{
-    python3 ../api/XmlApiQueueWorker.py
-} ; export -f xml_api_worker
 
-rq_xml_api_bridge()
+rq_api_bridge()
 {
-    python3 ../api/QueuingXmlApiBridge.py 
-} ; export -f rq_xml_api_bridge
+    python3 ../api/RqXmlApiBridge.py 
+} ; export -f rq_api_bridge
+
+
+rq_worker()
+{
+    python3 ../api/RqWorker.py
+} ; export -f rq_worker
 
 
 xml_fix()
@@ -93,7 +95,8 @@ tree_grow_run()
 tree_decorate()
 {
     xsltproc xslt_002/p0070_media_request.xml /dev/stdin \
-        | rq_xml_api_bridge \
+        | rq_api_bridge \
+        | xsltproc xslt_002/p0080_url_add.xml /dev/stdin \
         | xml_fix
 } ; export -f tree_decorate
 
@@ -109,7 +112,7 @@ queue_pass()
 
         (
             cat $f \
-                | xml_api_worker
+                | rq_worker
         ) \
             | tee -a "${f}.res.xml"
 

@@ -22,6 +22,46 @@
         </xsl:copy>
     </xsl:template>
 
+    <xsl:template match="sound">
+        <xsl:copy>
+            <xsl:apply-templates select="@*|node()"/>
+            <xsl:element name="request">
+                <xsl:attribute name="type">
+                    <xsl:text>make_sound</xsl:text>
+                </xsl:attribute>
+                <xsl:element name="positive_prompt_text">
+                    <xsl:value-of select="."/>
+                </xsl:element>
+                <xsl:element name="negative_prompt_text">
+                    <xsl:text>muffed, unclear, noisy</xsl:text>
+                </xsl:element>
+                <xsl:element name="style_prompt_text">
+                    <xsl:text>entertaining for children</xsl:text>
+                </xsl:element>
+            </xsl:element>
+        </xsl:copy>
+    </xsl:template>
+
+    <xsl:template match="music">
+        <xsl:copy>
+            <xsl:apply-templates select="@*|node()"/>
+            <xsl:element name="request">
+                <xsl:attribute name="type">
+                    <xsl:text>make_music</xsl:text>
+                </xsl:attribute>
+                <xsl:element name="positive_prompt_text">
+                    <xsl:value-of select="."/>
+                </xsl:element>
+                <xsl:element name="negative_prompt_text">
+                    <xsl:text>muffed, unclear, noisy</xsl:text>
+                </xsl:element>
+                <xsl:element name="style_prompt_text">
+                    <xsl:text>entertaining for children</xsl:text>
+                </xsl:element>
+            </xsl:element>
+        </xsl:copy>
+    </xsl:template>
+
     <xsl:template match="@*|node()">
         <xsl:copy>
             <xsl:apply-templates select="@*|node()"/>

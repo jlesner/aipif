@@ -4,11 +4,11 @@ from common.ContextAware import ContextAware
 
 class FileMediaManager(ContextAware):
         
-    def binary_file_read(self, path:str) -> bytes:
+    def file_read(self, path:str) -> bytes:
         with open(path, 'rb') as file:
             return file.read()
         
-    def binary_file_write(self, path:str, data:bytes):
+    def file_write(self, path:str, data:bytes):
         with open(path, 'wb') as file:
             file.write(data)
 

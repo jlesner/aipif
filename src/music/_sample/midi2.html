@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MIDI Player</title>
+</head>
+<body>
+    <audio id="midiPlayer" controls loop>
+        <source src="music.mid" type="audio/midi">
+        Your browser does not support the audio element.
+    </audio>
+
+    <button id="playButton">Play</button>
+
+    <script>
+        const midiPlayer = document.getElementById("midiPlayer");
+        const playButton = document.getElementById("playButton");
+
+        playButton.addEventListener("click", () => {
+            midiPlayer.play();
+        });
+    </script>
+</body>
+</html>
