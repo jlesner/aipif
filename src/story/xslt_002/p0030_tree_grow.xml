@@ -16,11 +16,11 @@ A young child selected the following emojis: </xsl:text>
                     <xsl:value-of select="ancestor::tree/prompt"/>
                     <xsl:value-of select="prompt"/>
                     <xsl:text>
-Inspired by these emojis you will write a story for the child by editing the XML below. 
+Inspired by these emojis you will write a story for the child. 
 Show, Don't Tell: When possible reveal information using dialoge do not state it directly. If a specific aspect is important, reveal it using dialoge between characters. For example, if a character is sad, do not say "The character was sad."  Instead, have another character ask "Why are you sad?" This will allow audience to infer the character is sad without being told directly.
 Economy of Words: Be concise. You don't need long, poetic descriptions. Every word should serve the purpose of conveying essential visual or auditory information, setting the mood, or advancing the story.
 Clarity is Key: While you don't want to be overly verbose, you do want to be clear. Children reading should have a good understanding action and how it relates to the entire story.
-Please reply only with the updated XML below.
+Reply only with the updated XML from below. Keep the XML structure unchanged. Only edit existing elements. 
                     </xsl:text>
                     <xsl:apply-templates select="/story/path/scene[1]"/>
                 </xsl:element>
@@ -65,14 +65,15 @@ Here is the story you have written so far:
 
                             <xsl:call-template name="story_so_far">
                                 <xsl:with-param name="last_scene" select="$scene"/>
+                                <xsl:with-param name="protagonist_reaction" select="$protagonist_reaction"/>
                             </xsl:call-template>
 
                             <xsl:text>
-Please continue the story from last protagonist_reaction above by editing the next scene XML below.
+Please continue the story from the last protagonist_reaction above.
 Show, Don't Tell: When possible reveal information using dialoge do not state it directly. If a specific aspect is important, reveal it using dialoge between characters. For example, if a character is sad, do not say "The character was sad."  Instead, have another character ask "Why are you sad?" This will allow audience to infer the character is sad without being told directly.
 Economy of Words: Be concise. You don't need long, poetic descriptions. Every word should serve the purpose of conveying essential visual or auditory information, setting the mood, or advancing the story.
 Clarity is Key: While you don't want to be overly verbose, you do want to be clear. Children reading should have a good understanding action and how it relates to the entire story.
-Please reply only with the updated XML below:
+Reply only with the updated XML below. Keep the XML structure unchanged. Only edit existing elements. 
                             </xsl:text>
                             <xsl:apply-templates select="/story/path/scene[@index = $scene/@index+1]"/>
                         </xsl:element>
@@ -86,6 +87,7 @@ Please reply only with the updated XML below:
     
     <xsl:template name="story_so_far">
         <xsl:param name="last_scene"/>
+        <xsl:param name="protagonist_reaction"/>
         
         <xsl:element name="story_so_far">
             <xsl:for-each select="ancestor::scene">
@@ -98,11 +100,13 @@ Please reply only with the updated XML below:
                                 or name()='music'
                                 or name()='sound'
                                 or name()='illustration_title'
+                                or name()='protagonist_reaction'
                             )
                         ]"/>
                     <!-- TODO add protagonist reactions to story history-->
                 </xsl:element>
             </xsl:for-each>
+            <xsl:copy-of select="$protagonist_reaction" />
         </xsl:element>
 
     </xsl:template>

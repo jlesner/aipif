@@ -9,7 +9,8 @@
             <xsl:element name="tree">
                 <xsl:element name="prompt">
                     <!-- TODO replace with child interview result -->
-                    <xsl:text>🐧🍕🥄🏝👽</xsl:text>
+                    <!-- <xsl:text>🐧🍕🥄🏝👽</xsl:text> -->
+                    <xsl:text>⛄🌞🚚🗻🍦</xsl:text>
                 </xsl:element>
             </xsl:element>
             <xsl:apply-templates select="node()"/>

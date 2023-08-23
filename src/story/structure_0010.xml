@@ -10,7 +10,7 @@
                         <name>Introducing Protagonist's Daily Life</name>
                         <description>Showcase the protagonist's routine, relationships, and environment.</description>
                     </sequence>
-                    <sequence>
+                    <sequence branch_count="1">
                         <name>Establishing World's Rules and Tone</name>
                         <description>Introduce the rules of the story's world and setting the tone for the narrative.</description>
                     </sequence>
@@ -23,7 +23,7 @@
                         <name>Present the Disruptive Event</name>
                         <description>Introduce the event that disrupts the protagonist's normal life and sets the story in motion.</description>
                     </sequence>
-                    <sequence branch_count="3">
+                    <sequence branch_count="1">
                         <name>Initial Reaction of the Protagonist</name>
                         <description>Portray the protagonist's initial response and emotions upon encountering the inciting incident.</description>
                     </sequence>
@@ -64,7 +64,7 @@
                         <name>Building Tension</name>
                         <description>Gradually build tension and anticipation leading up to the story's climax.</description>
                     </sequence>
-                    <sequence branch_count="3">
+                    <sequence branch_count="1">
                         <name>Direct Confrontation</name>
                         <description>Depict the protagonist's head-on confrontation with the main obstacle, resulting in a turning point.</description>
                     </sequence>

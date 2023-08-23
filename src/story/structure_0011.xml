@@ -6,11 +6,11 @@
             <part>
                 <name>Introduction to Characters and Setting</name>
                 <sequences>
-                    <sequence>
+                    <sequence branch_count="2">
                         <name>Introducing Protagonist's Daily Life</name>
                         <description>Showcase the protagonist's routine, relationships, and environment.</description>
                     </sequence>
-                    <sequence>
+                    <sequence branch_count="2">
                         <name>Establishing World's Rules and Tone</name>
                         <description>Introduce the rules of the story's world and setting the tone for the narrative.</description>
                     </sequence>
@@ -19,11 +19,11 @@
             <part>
                 <name>Introduction of the Inciting Incident</name>
                 <sequences>
-                    <sequence>
+                    <sequence branch_count="2">
                         <name>Present the Disruptive Event</name>
                         <description>Introduce the event that disrupts the protagonist's normal life and sets the story in motion.</description>
                     </sequence>
-                    <sequence branch_count="1">
+                    <sequence branch_count="2">
                         <name>Initial Reaction of the Protagonist</name>
                         <description>Portray the protagonist's initial response and emotions upon encountering the inciting incident.</description>
                     </sequence>

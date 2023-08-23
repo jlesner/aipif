@@ -2,10 +2,10 @@
     <xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes" />
     <xsl:strip-space elements="*" />
     
+            <!-- | dialogue -->
     <xsl:template match="
             path
             | abc_music
-            | dialogue
         ">
     </xsl:template>
 

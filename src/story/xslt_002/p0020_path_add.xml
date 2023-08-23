@@ -26,25 +26,28 @@
                 <xsl:value-of select="@branch_count"/>
             </xsl:variable>
 
-            <xsl:element name="setting">
+            <!-- <xsl:element name="setting">
                 <xsl:text>Where and when does the scene take place: Interior or Exterior? location? time of day (day or night)? Paint a picture of the surroundings, the ambiance, any relevant objects or features and initial states of characters. </xsl:text>
-            </xsl:element>
+            </xsl:element> -->
 
             <xsl:element name="introduction">
-                <xsl:text>Write the words a narrator would use to introduce this scene</xsl:text>
+                <xsl:text>Write words a narrator would use to introduce this scene</xsl:text>
             </xsl:element>
 
             <xsl:element name="dialogue">
+                <xsl:text>Write short scene dialogue.</xsl:text>
+                <xsl:text>Use a new line for each new speaker. Do not repeat dialogue from above. Refer to characters by name. </xsl:text>            
                 <xsl:value-of select="outline"/>
+                <!-- <xsl:text>Write scence dialogue as in a screen play. Do not use new XML tags. </xsl:text> -->
             </xsl:element>
 
             <xsl:element name="illustration">
                 <xsl:text>Pick an important character or an important object from this scene and vividly describe it to be illustrated. Pick someone or something you have not yet picked before. Make your description simple and self-contained because our illustrator will only see your description and nothing else. The names of characters etc. will not mean anything to them and our illustrator gets confused if you mention more than one thing so describe just one character or object and do not mention anything else. </xsl:text>
             </xsl:element>
 
-            <xsl:element name="illustration_title">
+            <!-- <xsl:element name="illustration_title">
                 <xsl:text>Pick a short funny title to accompany the illustration you described above. </xsl:text>
-            </xsl:element>
+            </xsl:element> -->
 
             <xsl:element name="sound">
                 <xsl:text>Vividly describe one single simple sound suitable to introduce this scene that matches the mood, location and gives context. Make your description self-contained because our sound effects team will only see your description and nothing else. </xsl:text>
@@ -54,14 +57,16 @@
                 <xsl:text>Vividly describe music that matches this scene's mood, location and gives context. Make the description self-contained because our musician will only see your description and nothing else. </xsl:text>
             </xsl:element>
         
-            <xsl:element name="abc_music">
+            <!-- <xsl:element name="abc_music">
                 <xsl:text>Compose a suitable music tune for this scene using ABC music notation. </xsl:text>
-                <!-- <xsl:text>Please split it across lines.</xsl:text> -->
-            </xsl:element>
+                <xsl:text>Please split it across lines.</xsl:text>
+            </xsl:element> -->
 
             <xsl:for-each select="(//node() | //@*)[position() &lt;= number($branch_count) ]">
                 <xsl:element name="protagonist_reaction">
-                    <xsl:text>Briefly propose a single different way the protagonist can react to the situation in this scene. If asked to propose more than one reaction make all reactions as different as possible from each other and make sure some are bad and some are good. Do not mention reactions are choices or options. </xsl:text>
+                    <!-- <xsl:text>Briefly propose a single different way the protagonist can react to the situation in this scene. If asked to propose more than one reaction make all reactions as different as possible from each other and make sure some are bad and some are good. Do not mention reactions are choices or options. </xsl:text> -->
+                    <!-- <xsl:text>Briefly describe what the protagonist can do next after this scene. If, and only if, this scene has more than one protagonist_reaction element make all descriptions as different as possible from each other and make sure some are bad and some are good. Do not mention they are reactions or choices or options. </xsl:text> -->
+                    <xsl:text>What will the protagonist do after this scene? Propose to the reader a single unique action.</xsl:text>
                 </xsl:element>
             </xsl:for-each>
 

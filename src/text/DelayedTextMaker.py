@@ -5,7 +5,7 @@ from text.TextMaker import TextMaker
 class DelayedTextMaker(TextMaker):
 
     def make_text(self, prompt_dict:dict):
-        delay = random.randint(0, 10)
+        delay = 4 + random.randint(0, 10)
         time.sleep(delay)
         return ''' afh;lfkhdl;k;sklfh
         <scene name="Penguin Pizza Party" act="Setup" part="Introduction to Characters and Setting" branch_count="1" index="1">

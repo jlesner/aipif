@@ -3,7 +3,7 @@ from common.ContextAware import ContextAware
 
 class TextMaker(ContextAware):
 
-    def make_text(self, prompt_dict: dict):
+    def make_text(self, prompt_dict: dict) -> str:
         """
         Generates text  based on the provided `prompt_dict`.
         

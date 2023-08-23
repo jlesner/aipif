@@ -3,6 +3,7 @@
 _exclude
 _generated
 _media
+_cache
 
 sd_venv/
 story_venv/
