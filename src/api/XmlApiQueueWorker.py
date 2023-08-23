@@ -49,6 +49,7 @@ def process_request(context, request_node):
         "positive_prompt_text" : request_node.find('positive_prompt_text').text,
         "negative_prompt_text" : request_node.find('negative_prompt_text').text,
         "style_prompt_text" : request_node.find('style_prompt_text').text,
+        "rq_id" : request_node.find("rq").attrib['id'],
     }
     
     match request_type:

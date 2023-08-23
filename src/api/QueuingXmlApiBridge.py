@@ -34,12 +34,15 @@ class QueuingXmlApiBridge(ContextAware):
         request_str = etree.tostring(request_node, encoding='unicode', pretty_print=True)
         request_hash = hashlib.sha256(request_str.encode()).hexdigest()
         rq_id = request_hash[:8]
+        
         filepath = self._queue_filepath(request_type + "-" + rq_id)
         request_fp = filepath + "-req.xml"
         # response_fp = filepath + "-res.xml"
         response_node =  etree.fromstring(f'<rq id="{rq_id}"/>')
 
         with open(request_fp, 'w') as file:
+            request_node.append(response_node)
+            request_str = etree.tostring(request_node, encoding='unicode', pretty_print=True)    
             file.write("<queue>\n" + request_str + "</queue>\n")
 
         # request_node.write(request_fp, pretty_print=True)
