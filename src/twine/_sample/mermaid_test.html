@@ -1,0 +1,17 @@
+<html>
+  <body>
+    <pre class="mermaid">
+        flowchart TD
+        A[INTITAL_STATE <br> /Entry:Get current light state <br> /Exit:] -->|-| B(IN_DARK <br> /Entry:Turn off motors <br> /Exit: Check if bumpers are pressed)
+        B --> C[*]
+        C[*] --> E[IN_LIGHT <br> /Entry: Drive forward <br> /Exit: Turn off motors]
+        E --> |DARK| B
+    
+        C[*] --> D[<b>UNSTUCK_REVERSING</b> <hr> <div style="text-align: left"><b>/Entry:</b> Drive backwards set reverse motor timer <br> <b>/Exit:</b> Turn off motors </div>]
+    </pre>
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+      mermaid.initialize({ startOnLoad: true });
+    </script>
+  </body>
+</html>

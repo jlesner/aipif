@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" 
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:str="http://exslt.org/strings">
+
+    <!-- Identity template -->
+    <xsl:template match="@*|node()">
+        <xsl:copy>
+            <xsl:apply-templates select="@*|node()"/>
+        </xsl:copy>
+    </xsl:template>
+
+    <!-- Template for text nodes to replace characters -->
+    <xsl:template match="text()">
+        <xsl:variable name="temp1" select="str:replace(., '&quot;', '')"/>
+        <!-- <xsl:variable name="temp2" select="str:replace($temp1, &apos;'&apos;, '')"/> -->
+        <xsl:variable name="temp3" select="str:replace($temp1, '[', '')"/>
+        <xsl:variable name="temp4" select="str:replace($temp3, ']', '')"/>
+        <xsl:value-of select="$temp4"/>
+    </xsl:template>
+
+</xsl:stylesheet>

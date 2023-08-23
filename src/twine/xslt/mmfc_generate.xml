@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:output method="text"/>
+
+<xsl:template match="tree">
+
+    <xsl:text><![CDATA[<html>
+  <body>
+    <pre class="mermaid">
+    flowchart TD
+]]></xsl:text>
+
+    <xsl:apply-templates select="scene"/>
+
+    <xsl:text><![CDATA[
+    </pre>
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+      mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
+    </script>
+  </body>
+</html>
+]]></xsl:text>
+
+</xsl:template>
+
+
+<xsl:template match="scene">
+    <xsl:text>  </xsl:text>
+    <xsl:value-of select="@key"/>
+    <xsl:text>["</xsl:text>
+    <xsl:value-of select="@name"/>
+    <xsl:text>:
+</xsl:text>
+    <xsl:value-of select="introduction"/>
+    <xsl:text>`"]
+
+</xsl:text>
+
+    <xsl:if test="count(branch) > 1">
+    <xsl:text>style </xsl:text>
+    <xsl:value-of select="@key"/>
+    <xsl:text> fill:#f0cf7d
+</xsl:text>
+    </xsl:if>
+
+
+
+    <xsl:choose>
+        <xsl:when test="branch">
+            <xsl:text>
+</xsl:text>
+            <xsl:apply-templates select="branch"/>
+            <xsl:apply-templates select="branch/scene"/>
+
+        </xsl:when>
+
+    </xsl:choose>
+
+</xsl:template>
+
+<xsl:template match="branch">
+
+    <xsl:value-of select="ancestor::scene[1]/@key"/>
+    <xsl:text>--></xsl:text>
+    <xsl:value-of select="scene[1]/@key"/>
+    <xsl:text>
+
+</xsl:text>
+</xsl:template>
+
+
+</xsl:stylesheet>
