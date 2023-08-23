@@ -14,7 +14,10 @@ class Gpt35TextMaker(TextMaker):
             messages = [ 
                 {'role': 'user', 'content': prompt_dict['positive_prompt_text']}
             ],
-            temperature = 0.6  
+            temperature = 0.6
+            # temperature = 0.7
+            # temperature = 0.55
+
         )
         return completion['choices'][0]['message']['content']
 

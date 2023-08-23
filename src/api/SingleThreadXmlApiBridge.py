@@ -56,7 +56,7 @@ def process_request(context, request_node):  # worker thread
                     raise Exception(f"process_request(): Ran out of attempts to get valid xml response. Last response_string: {response_string}")
                 positive_prompt_text = request_node.find('positive_prompt_text').text
                 positive_prompt_text += " " + children_to_string(request_node.find('positive_prompt_text'))
-                positive_prompt_text = re.sub(r'\s+', ' ', positive_prompt_text)
+                positive_prompt_text = re.sub(r'\s+|\n', ' ', positive_prompt_text)
                 prompt_dict = ({"positive_prompt_text": positive_prompt_text + " "*attempts_left })
                 # print(f"\n\nprompt_dict:{prompt_dict}",file=sys.stderr)
                 response_string= context.state['text_maker'].make_text(prompt_dict)
@@ -91,7 +91,7 @@ def valid_xml(input_string):
                 # "/scene/@key", # TODO: enable once there is key gen
                 # "/scene/setting",
                 "/scene/introduction",
-                "/scene/dialogue",
+                "count(/scene/dialogue)=1",
                 "/scene/illustration",
                 # "/scene/illustration_title",
                 "/scene/sound",
