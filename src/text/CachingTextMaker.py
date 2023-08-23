@@ -22,7 +22,7 @@ class CachingTextMaker(TextMaker):
 
     def make_text(self, prompt_dict: dict) -> str:
         hash_value = self._get_hash(prompt_dict)
-        filepath = self._cache_filepath(hash_value)
+        filepath = self._cache_filepath(hash_value[:8])
         in_fp = filepath + "_in.json"
         out_fp = filepath + "_out.xml"
         

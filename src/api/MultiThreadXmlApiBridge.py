@@ -17,6 +17,7 @@ class Task:
         self.request_node = request_node
         self.response_node = None
 
+
 def context_configure(context:Context):
     # if your module needs to be configured, you can do it here
     # eventually we will have a config file and/or command line args
@@ -92,7 +93,7 @@ def process_request(context, id):  # worker thread
                         item.response_node = etree.fromstring(response_string_xml)
                         context.state['done_tasks'].add(item)
                     case _:
-                        raise Exception(f"Unknown request type: {request_type}")
+                        raise Exception(f"unsupported request_type: {request_type}")
             except Exception as e:
                 print(f"Worker {id} encountered error: {e}",file=sys.stderr)
                 item.response_node = etree.fromstring(f"<error>{e}</error>")

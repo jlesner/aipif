@@ -4,6 +4,7 @@ _exclude
 _generated
 _media
 _cache
+_queue
 
 sd_venv/
 story_venv/

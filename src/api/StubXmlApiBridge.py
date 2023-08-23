@@ -1,9 +1,3 @@
-# read xml from stdin
-# find all request nodes that do not have a response child
-# issue request to api
-# attach as a child the response to its request node
-# output xml to stdout
-
 import sys
 import re
 from lxml import etree

@@ -1,9 +1,3 @@
-# read xml from stdin
-# find all request nodes that do not have a response child
-# issue request to api
-# attach as a child the response to its request node
-# output xml to stdout
-
 import sys
 import re
 from lxml import etree
@@ -17,15 +11,14 @@ from text.Gpt4t8kTextMaker import Gpt4t8kTextMaker
 from text.StubTextMaker import StubTextMaker
 
 def context_configure(context:Context):
-    context.config['story_maker_port'] = 8080
+    # context.config['story_maker_port'] = 8080
     context.config['make_text_attempts'] = 3
-    
 
 def state_setup(context:Context):
     # for now we hardcode function bindings
-    context.state['picture_maker'] = StubPictureMaker(context)
-    # context.state['text_maker'] = CachingTextMaker(Gpt35TextMaker(context))
-    context.state['text_maker'] = CachingTextMaker(Gpt4t8kTextMaker(context))
+    # context.state['picture_maker'] = StubPictureMaker(context)
+    context.state['text_maker'] = CachingTextMaker(Gpt35TextMaker(context))
+    # context.state['text_maker'] = CachingTextMaker(Gpt4t8kTextMaker(context))
 
 def address_requests(context, input_file, output_file): # manager thread
     tree = etree.parse(input_file)
@@ -43,8 +36,6 @@ def address_requests(context, input_file, output_file): # manager thread
 
 def children_to_string(node):
     return " ".join([etree.tostring(child, encoding='unicode') for child in node])
-
-
 
 def process_request(context, request_node):  # worker thread
     request_type = request_node.get("type")
@@ -72,7 +63,7 @@ def process_request(context, request_node):  # worker thread
                 
             return etree.fromstring(response_string_xml)
         case _:
-            raise Exception(f"Unknown request type: {request_type}")
+            raise Exception(f"unsupported request_type: {request_type}")
 
 def extract_xml(input_string):
     match = re.search(r'<scene .*?</scene>', input_string, re.DOTALL)

@@ -1,0 +1,31 @@
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    <xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes" />
+    <xsl:strip-space elements="*" />
+
+    <xsl:template match="illustration">
+        <xsl:copy>
+            <xsl:apply-templates select="@*|node()"/>
+            <xsl:element name="request">
+                <xsl:attribute name="type">
+                    <xsl:text>make_picture</xsl:text>
+                </xsl:attribute>
+                <xsl:element name="positive_prompt_text">
+                    <xsl:value-of select="."/>
+                </xsl:element>
+                <xsl:element name="negative_prompt_text">
+                    <xsl:text>Disfigured, blurry, nude</xsl:text>
+                </xsl:element>
+                <xsl:element name="style_prompt_text">
+                    <xsl:text>Expressive, sketchy line drawing filled with humor and energy in the style of art from Quentin Blake</xsl:text>
+                </xsl:element>
+            </xsl:element>
+        </xsl:copy>
+    </xsl:template>
+
+    <xsl:template match="@*|node()">
+        <xsl:copy>
+            <xsl:apply-templates select="@*|node()"/>
+        </xsl:copy>
+    </xsl:template>
+
+</xsl:stylesheet>
