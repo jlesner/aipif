@@ -83,7 +83,5 @@ if __name__ == "__main__":
     context = Context() 
     context_configure(context)
     state_setup(context)
-    # input_xml = 'story/_generated/p00311_response_simulate.xml'
-    # input_xml = 'story/_generated/p00351_response_simulate.xml'
     address_requests(context, "/dev/stdin", "/dev/stdout")
     

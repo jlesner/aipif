@@ -81,7 +81,7 @@
                 <sequences>
                     <sequence>
                         <name>Aftermath of the Climax</name>
-                        <description>Address the aftermath of the climax and exploring the consequences of key decisions.</description>
+                        <description>Address the aftermath of the climax and explore the consequences of key decisions.</description>
                     </sequence>
                     <sequence>
                         <name>Resolution of Subplots</name>
@@ -98,7 +98,7 @@
                     </sequence>
                     <sequence>
                         <name>Main Conflict Resolution</name>
-                        <description>Resolve the main conflict and demonstrating how the characters have evolved.</description>
+                        <description>Resolve the main conflict and demonstrate how the characters have evolved.</description>
                     </sequence>
                 </sequences>
             </part>
@@ -111,7 +111,7 @@
                     </sequence>
                     <sequence branch_count="0">
                         <name>Sense of Closure</name>
-                        <description>Provide a sense of closure and leaving the audience with a lasting impression.</description>
+                        <description>Provide a sense of closure leaving the audience with a lasting impression.</description>
                     </sequence>
                 </sequences>
             </part>

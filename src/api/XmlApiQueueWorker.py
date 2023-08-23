@@ -3,7 +3,8 @@ import re
 from lxml import etree
 
 from common.Context import Context
-from pictures.FastLocalSdPictureMaker import FastLocalSdPictureMaker 
+from pictures.FastLocalSdPictureMaker import FastLocalSdPictureMaker
+from pictures.LocalSdPictureMaker import LocalSdPictureMaker 
 from pictures.StubPictureMaker import StubPictureMaker
 from text.CachingTextMaker import CachingTextMaker
 from text.DelayedTextMaker import DelayedTextMaker
@@ -20,7 +21,7 @@ def state_setup(context:Context):
     # for now we hardcode bindings
     context.state['picture_maker'] = StubPictureMaker(context)
     context.state['picture_maker'] = FastLocalSdPictureMaker(context)
-
+    # context.state['picture_maker'] = LocalSdPictureMaker(context)
     # context.state['text_maker'] = CachingTextMaker(Gpt35TextMaker(context))
     # context.state['text_maker'] = CachingTextMaker(Gpt4t8kTextMaker(context))
     pass
