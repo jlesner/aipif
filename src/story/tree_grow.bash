@@ -39,8 +39,8 @@ tree_cat()
 tree_grow()
 {
     # local nss=011
-    # local nss=014
-    local nss=003
+    local nss=016
+    # local nss=003
     local pss=000
 
     tree_cat \
@@ -73,5 +73,5 @@ tree_grow()
 } ; export -f tree_grow
 
 (rm -f ${outp}/*.xml || true )  2> /dev/null
-(rm -f _cache/*.{json,xml} || true )  2> /dev/null
+# (rm -f _cache/*.{json,xml} || true )  2> /dev/null
 tree_grow

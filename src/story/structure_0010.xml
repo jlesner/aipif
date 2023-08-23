@@ -64,7 +64,7 @@
                         <name>Building Tension</name>
                         <description>Gradually build tension and anticipation leading up to the story's climax.</description>
                     </sequence>
-                    <sequence branch_count="1">
+                    <sequence branch_count="2">
                         <name>Direct Confrontation</name>
                         <description>Depict the protagonist's head-on confrontation with the main obstacle, resulting in a turning point.</description>
                     </sequence>
