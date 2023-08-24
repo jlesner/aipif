@@ -19,7 +19,18 @@ My Story
 }
 
 :: Title Page
-
+<![CDATA[<<script>>
+Setting.addHeader("Game Settings");
+Setting.addRange("masterVolume", {
+	label    : "Master volume:",
+	min      : 0,
+	max      : 10,
+	step     : 1,
+	onChange : function () {
+		SimpleAudio.volume(settings.masterVolume / 10);
+	}
+});
+<</script>>]]>
 </xsl:text>
     <xsl:variable name="next_scene" select="scene[1]/@key"/>
 
