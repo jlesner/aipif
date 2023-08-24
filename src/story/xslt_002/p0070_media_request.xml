@@ -12,11 +12,12 @@
                 <xsl:element name="positive_prompt_text">
                     <xsl:value-of select="."/>
                 </xsl:element>
+                <!-- TODO Tune with https://github.com/lllyasviel/Fooocus/blob/main/modules/sdxl_styles.py -->
                 <xsl:element name="negative_prompt_text">
-                    <xsl:text>Disfigured, blurry, nude</xsl:text>
+                    <xsl:text>Disfigured, blurry, nude, sloppy, messy, deformed, mutated, ugly, disfigured</xsl:text>
                 </xsl:element>
                 <xsl:element name="style_prompt_text">
-                    <xsl:text>Expressive, sketchy line drawing filled with humor and energy in the style of art from Quentin Blake</xsl:text>
+                    <xsl:text>Expressive, minimalist, sketchy line drawing filled with humor and energy in the style of art from Quentin Blake</xsl:text>
                 </xsl:element>
             </xsl:element>
         </xsl:copy>

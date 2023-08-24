@@ -10,6 +10,7 @@ print(f'<html><img src="{png_url}"/></html>')
 
 file_list = S3MediaManager().file_list()
 
-file_list = S3MediaManager().file_list("media/")
+# file_list = S3MediaManager().file_list("media/")
+file_list = S3MediaManager().file_list("_queue/")
 
 print(f'{file_list}')

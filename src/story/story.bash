@@ -13,6 +13,12 @@ xml_api_bridge()
 } ; export -f xml_api_bridge
 
 
+xml_format()
+{
+    python3 ../common/xml_format.py
+} ; export -f xml_format
+
+
 rq_api_bridge()
 {
     python3 ../api/RqXmlApiBridge.py 
@@ -27,7 +33,7 @@ rq_worker()
 
 xml_fix()
 {
-    python3 xml_format.py \
+    xml_format \
         | grep -v '^<\?xml' \
         | grep -v '^ *$'
 } ; export -f xml_fix
@@ -122,6 +128,41 @@ queue_pass()
 } ; export -f queue_pass
 
 
+s3_queue_sync()
+{
+    aws s3 cp --recursive src/story/_queue/ s3://aipif-2023/_queue
+} ; export -f s3_queue
+
+
+s3_queue_touch()
+{
+    local file=_queue/$1
+    aws s3api put-object --bucket aipif-2023 --key $file --content-length 0
+} ; export -f s3_queue_touch
+
+
+s3_queue_log()
+{
+    local file=_queue/$1
+    aws s3 cp - s3://aipif-2023/${file}
+} ; export -f s3_queue_list
+
+
+s3_queue_rm()
+{
+    local file=_queue/$1
+    aws s3 rm s3://aipif-2023/$file
+} ; export -f s3_queue_touch
+
+
+s3_queue_list()
+{
+    aws s3 ls s3://aipif-2023/_queue/ \
+        | tr -s " " \
+        | cut -d" " -f4
+} ; export -f s3_queue_list
+
+
 picture_worker()
 {
     (
@@ -136,3 +177,16 @@ picture_worker()
         done
     )
 } ; export -f picture_worker
+
+
+
+run() {
+    ( 
+        clear
+        . ~/aipif/.env
+        export PYTHONPATH=~/aipif/src
+        cat _sample/tree_016_zzz3.xml \
+            | tree_decorate \
+            > _generated/decorated.xml
+    )
+} ; export -f run

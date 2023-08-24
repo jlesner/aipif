@@ -16,7 +16,7 @@ class RqXmlApiBridge(ContextAware):
     def _queue_filepath(self, hash_value: str) -> str:
         return os.path.join(self.queue_dir, hash_value)
 
-    def address_requests(self, input_file, output_file): # manager thread
+    def address_requests(self, input_file, output_file):
         tree = etree.parse(input_file)
         for request_node in tree.xpath("//request"):
             try:
@@ -44,8 +44,6 @@ class RqXmlApiBridge(ContextAware):
             request_node.append(response_node)
             request_str = etree.tostring(request_node, encoding='unicode', pretty_print=True)    
             file.write("<queue>\n" + request_str + "</queue>\n")
-
-        # request_node.write(request_fp, pretty_print=True)
 
         return response_node
 

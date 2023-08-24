@@ -19,14 +19,14 @@ def context_configure(context:Context):
 
 def state_setup(context:Context):
     # for now we hardcode bindings
-    context.state['picture_maker'] = StubPictureMaker(context)
+    # context.state['picture_maker'] = StubPictureMaker(context)
     context.state['picture_maker'] = FastLocalSdPictureMaker(context)
     # context.state['picture_maker'] = LocalSdPictureMaker(context)
     # context.state['text_maker'] = CachingTextMaker(Gpt35TextMaker(context))
     # context.state['text_maker'] = CachingTextMaker(Gpt4t8kTextMaker(context))
     pass
 
-def address_requests(context, input_file, output_file): # manager thread
+def address_requests(context, input_file, output_file):
     tree = etree.parse(input_file)
     request_nodes = tree.xpath("//request")
     for request_node in request_nodes:

@@ -6,7 +6,7 @@ from media.S3MediaManager import S3MediaManager
 
 base_url = 'http://aipif-2023.s3-website-us-west-1.amazonaws.com/_queue/'
 
-class RqS3MediaManager(ContextAware):
+class RqMediaManager(ContextAware):
 
     def __init__(self, mgr: S3MediaManager = S3MediaManager(), rq_prefix: str = '_queue/'):
         self._mgr = mgr
