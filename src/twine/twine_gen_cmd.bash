@@ -22,7 +22,9 @@ cat story/_sample/tree_016_zzz6_url.xml \
 
 /opt/tweego-2.1.1-linux-x64/tweego -f sugarcube-2 -o /dev/stdout \
     twine/_generated/tree_016_zzz6_url.twee \
-    | tee >( aws s3 cp - s3://aipif-2023/sample/index.html ) \
+    | tee >( aws s3 cp - s3://aipif-2023/sample/twine.html --content-type "text/html" --metadata "Content-Disposition=inline") \
     > twine/_generated/tree_016_zzz6_url.html
 
 # http://aipif-2023.s3-website-us-west-1.amazonaws.com/sample/twine.html
+
+# http://aipif-2023.s3.amazonaws.com/sample/twine.html

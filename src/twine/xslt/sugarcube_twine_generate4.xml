@@ -61,9 +61,26 @@ Setting.addRange("masterVolume", {
     <xsl:value-of select="@key"/>
     <xsl:text><![CDATA[" "mp3|]]></xsl:text>
     <xsl:value-of select="music/@url"/>
+    <xsl:text><![CDATA[">>]]></xsl:text>
+
+    <xsl:text><![CDATA[
+<<cacheaudio "sfx_]]></xsl:text>
+    <xsl:value-of select="@key"/>
+    <xsl:text><![CDATA[" "mp3|]]></xsl:text>
+    <xsl:value-of select="sound/@url"/>
     <xsl:text><![CDATA[">>
 <<waitforaudio>>]]></xsl:text>
 
+
+    <xsl:text><![CDATA[
+<<audio "bgm_]]></xsl:text>
+    <xsl:value-of select="@key"/>
+    <xsl:text><![CDATA[" loop volume 0.5 play>>]]></xsl:text>
+
+    <xsl:text><![CDATA[
+<<audio "sfx_]]></xsl:text>
+    <xsl:value-of select="@key"/>
+    <xsl:text><![CDATA[" volume 0.8 play>>]]></xsl:text>
 
     <xsl:text>
 
@@ -72,7 +89,7 @@ Setting.addRange("masterVolume", {
     <xsl:value-of select="illustration/@url"/>
     <xsl:text><![CDATA["/>
     <script>
-        defaultImageUrl = "https://digitalinquiryatuconn.files.wordpress.com/2014/09/tumblr_ncdbn1jdkl1rilp8po1_500.gif?w=300"; 
+        defaultImageUrl = "http://aipif-2023.s3.amazonaws.com/static/generating.png"; 
         images = document.getElementsByTagName("img");
 
         for (let i = 0; i < images.length; i++) {
@@ -95,8 +112,8 @@ Setting.addRange("masterVolume", {
 </xsl:text>
             <xsl:apply-templates select="branch"/>
             <xsl:text><![CDATA[<html> 
-    DEBUG: <a href="http://aipif-2023.s3-website-us-west-1.amazonaws.com/sample/tree.html" target="_blank">HTML</a>
-    <a href="http://aipif-2023.s3-website-us-west-1.amazonaws.com/sample/tree.xml" target="_blank">XML</a>
+    DEBUG: <a href="http://aipif-2023.s3.amazonaws.com/sample/tree.html" target="_blank">HTML</a>
+    <a href="http://aipif-2023.s3.amazonaws.com/sample/tree.xml" target="_blank">XML</a>
 </html>]]>
 </xsl:text>
             <xsl:apply-templates select="branch/scene"/>
@@ -119,6 +136,15 @@ The End!
     <xsl:text>|</xsl:text>
         <xsl:value-of select="scene[1]/@key"/>
     <xsl:text>]]&gt;&gt;</xsl:text>
+    <xsl:text><![CDATA[
+<<audio "bgm_]]></xsl:text>
+    <xsl:value-of select="ancestor::scene[1]/@key"/>
+    <xsl:text><![CDATA[" stop>>]]>
+</xsl:text>
+    <xsl:text><![CDATA[<<audio "sfx_]]></xsl:text>
+    <xsl:value-of select="ancestor::scene[1]/@key"/>
+    <xsl:text><![CDATA[" stop>>]]>
+</xsl:text>
     <xsl:text>&lt;&lt;/button&gt;&gt;
 
 </xsl:text>
