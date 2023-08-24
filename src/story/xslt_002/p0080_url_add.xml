@@ -10,7 +10,8 @@
                 <xsl:value-of select="rq/@id"/>
                 <xsl:choose>
                     <xsl:when test="name() = 'illustration'">
-                        <xsl:text>.png</xsl:text>
+                        <!-- <xsl:text>.png</xsl:text> -->
+                        <xsl:text>.jpg</xsl:text>
                     </xsl:when>
                     <xsl:when test="name() = 'sound'">
                         <xsl:text>.mp3</xsl:text>

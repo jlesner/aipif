@@ -1,5 +1,7 @@
 # Jasmine Task List
 
+# add twee to debug options
+
 # emoji for story title
 
 # first button labeled "psst..... click me!"

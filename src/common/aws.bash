@@ -90,11 +90,14 @@ content_type_cat()
     cat <<'EOF'
 text/plain
 text/html
+text/xml
 application/xml
+application/json
 image/jpeg
 image/png
 audio/mpeg
-application/json
+audio/wav
+audio/ogg
 EOF
 } ; export -f content_type_cat
 

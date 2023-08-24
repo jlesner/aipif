@@ -109,16 +109,59 @@ tree_decorate()
 } ; export -f tree_decorate
 
 
-tree_decorate_run() {
+story_publish_run() {
     (
-        clear
-        . ~/aipif/.env
-        export PYTHONPATH=~/aipif/src
+        story_configure
         cat _sample/tree_016_zzz3.xml \
-            | tree_decorate \
-            > _generated/decorated.xml
+            | story_publish
     )
-} ; export -f tree_decorate_run
+} ; export -f story_publish_run
+
+
+story_configure()
+{
+    export job_label=tw0102
+    export zzz_sample=_sample/tree_016_zzz3.xml
+
+    . ~/aipif/.env
+    export PYTHONPATH=~/aipif/src
+    export s3_bucket=aipif-2023
+    export s3_path_prefix="sample/${job_label}_"
+    export s3_prefix="s3://${s3_bucket}/${s3_path_prefix}"
+    export fs_prefix="_generated/${job_label}_"
+} ; export -f story_configure
+
+
+story_publish()
+{
+    local twine_path=../twine
+
+    cat - \
+        | tree_decorate \
+        > ${fs_prefix}decorated.xml
+
+    cat ${fs_prefix}decorated.xml \
+        | tee >( aws s3 cp - ${s3_prefix}tree.xml --content-type application/xml ) \
+        | tr -s " " \
+        | xsltproc ${twine_path}/xslt/problem_char_fix.xml /dev/stdin \
+        | fmt -w 60 \
+        | xsltproc ${twine_path}/xslt/mmfc_generate.xml /dev/stdin \
+        | tee >( aws s3 cp - ${s3_prefix}tree.html --content-type text/html ) \
+        > ${fs_prefix}tree.html
+
+    cat ${fs_prefix}decorated.xml  \
+        | xsltproc ${twine_path}/xslt/prompt_remove.xml /dev/stdin \
+        | xsltproc ${twine_path}/xslt/sugarcube_twine_generate4.xml /dev/stdin \
+        | perl -pe"s{http://aipif-2023.s3.amazonaws.com/sample/}{http://${s3_bucket}.s3.amazonaws.com/${s3_path_prefix}}g;" \
+        | tee >( aws s3 cp - ${s3_prefix}twine.twee.txt --content-type "text/plain" --metadata "Content-Disposition=inline") \
+        > ${fs_prefix}twine.twee
+
+    /opt/tweego-2.1.1-linux-x64/tweego -f sugarcube-2 -o /dev/stdout \
+        ${fs_prefix}twine.twee \
+        | tee >( aws s3 cp - ${s3_prefix}twine.html --content-type "text/html" --metadata "Content-Disposition=inline") \
+        > ${fs_prefix}twine.html
+
+} ; export -f story_publish
 
 
 fs_queue_pass()
@@ -185,7 +228,7 @@ fs_rq_worker()
             sleep 10
         done
     ) 2>&1 \
-        | tee fs_rq_worker.log
+        | tee _generated/fs_rq_worker.log
 } ; export -f fs_rq_worker
 
 
@@ -226,5 +269,5 @@ s3_rq_worker()
 s3_queue_sync()
 {
     aws s3 cp --recursive src/story/_queue s3://${s3_bucket}/_queue
-} ; export -f s3_queue
+} ; export -f s3_queue_sync
 
