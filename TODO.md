@@ -1,5 +1,6 @@
 # Jasmine Task List
 
+# replace generating image with ours
 # swicth illustrations to jpg
 # update prompts to remove duplication near end
 # swap in larger context gpt near end?

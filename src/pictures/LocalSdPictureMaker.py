@@ -9,7 +9,7 @@ from diffusers import DiffusionPipeline
 from media.MediaManager import MediaManager
 from pictures.PictureMaker import PictureMaker
 
-class LocalSdPictureMaker(PictureMaker):
+class LocalSdPictureMaker():
 
     def __init__(self, rq_mgr:RqMediaManager = RqMediaManager()):
         self._rq_mgr = rq_mgr

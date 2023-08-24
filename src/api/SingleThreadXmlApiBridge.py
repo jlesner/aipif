@@ -1,5 +1,6 @@
 import sys
 import re
+import traceback
 from lxml import etree
 
 from common.Context import Context
@@ -17,6 +18,8 @@ def context_configure(context:Context):
 def state_setup(context:Context):
     # for now we hardcode function bindings
     # context.state['picture_maker'] = StubPictureMaker(context)
+    # context.state['text_maker'] = StubTextMaker(context)
+    # context.state['picture_maker'] = StubPictureMaker(context)
     context.state['text_maker'] = CachingTextMaker(Gpt35TextMaker(context))
     # context.state['text_maker'] = CachingTextMaker(Gpt4t8kTextMaker(context))
 
@@ -27,7 +30,9 @@ def address_requests(context, input_file, output_file): # manager thread
         try:
             response_node = process_request(context, request_node)
         except Exception as e:
-            error_node = etree.fromstring(f"<error> <![CDATA[ {e} ]]> </error>")
+            error_message = str(e)
+            stack_trace = traceback.format_exc()  # Get the formatted stack trace as a string
+            error_node = etree.fromstring(f"<error><![CDATA[{error_message}\n\n{stack_trace}]]></error>")
             request_node.append(error_node)
             continue
         request_parent = request_node.getparent()

@@ -2,6 +2,7 @@ import hashlib
 import sys
 import os
 import re
+import traceback
 from lxml import etree
 
 from common.ContextAware import ContextAware 
@@ -22,7 +23,9 @@ class RqXmlApiBridge(ContextAware):
             try:
                 response_node = self._process_request(request_node)
             except Exception as e:
-                error_node = etree.fromstring(f"<error><![CDATA[{e}]]></error>")
+                error_message = str(e)
+                stack_trace = traceback.format_exc()  # Get the formatted stack trace as a string
+                error_node = etree.fromstring(f"<error><![CDATA[{error_message}\n\n{stack_trace}]]></error>")
                 request_node.append(error_node)
                 continue
             request_parent = request_node.getparent()

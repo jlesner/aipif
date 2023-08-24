@@ -1,11 +1,12 @@
 import sys
 import re
+import traceback
 from lxml import etree
 
 from common.Context import Context
 from pictures.FastLocalSdPictureMaker import FastLocalSdPictureMaker
 from pictures.LocalSdPictureMaker import LocalSdPictureMaker
-from pictures.StubPictureMaker import StubPictureMaker
+from pictures.RqStubPictureMaker import RqStubPictureMaker
 from text.CachingTextMaker import CachingTextMaker
 from text.DelayedTextMaker import DelayedTextMaker
 from text.Gpt35TextMaker import Gpt35TextMaker
@@ -19,9 +20,9 @@ def context_configure(context:Context):
 
 def state_setup(context:Context):
     # for now we hardcode bindings
-    # context.state['picture_maker'] = StubPictureMaker(context)
-    context.state['picture_maker'] = FastLocalSdPictureMaker(context)
-    # context.state['picture_maker'] = LocalSdPictureMaker(context)
+    # context.state['picture_maker'] = RqStubPictureMaker()
+    context.state['picture_maker'] = FastLocalSdPictureMaker()
+    # context.state['picture_maker'] = LocalSdPictureMaker()
     # context.state['text_maker'] = CachingTextMaker(Gpt35TextMaker(context))
     # context.state['text_maker'] = CachingTextMaker(Gpt4t8kTextMaker(context))
     pass
@@ -33,7 +34,9 @@ def address_requests(context, input_file, output_file):
         try:
             response_node = process_request(context, request_node)
         except Exception as e:
-            error_node = etree.fromstring(f"<error><![CDATA[{e}]]></error>")
+            error_message = str(e)
+            stack_trace = traceback.format_exc()  # Get the formatted stack trace as a string
+            error_node = etree.fromstring(f"<error><![CDATA[{error_message}\n\n{stack_trace}]]></error>")
             request_node.append(error_node)
             continue
         request_parent = request_node.getparent()

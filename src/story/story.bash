@@ -34,8 +34,8 @@ rq_worker()
 xml_fix()
 {
     xml_format \
-        | grep -v '^<\?xml' \
-        | grep -v '^ *$'
+        | ( grep -v '^<\?xml' || true ) \
+        | ( grep -v '^ *$' || true ) \
 } ; export -f xml_fix
 
 
@@ -178,13 +178,25 @@ fs_rq_worker()
                 | uniq -u \
                 | ( egrep -a "$filter" || true ) \
                 | head -n 1 \
-                | queue_pass
+                | fs_queue_pass
             echo -n .
-            sleep 4
+            sleep 10
         done
     ) 2>&1 \
         | tee fs_rq_worker.log
 } ; export -f fs_rq_worker
+
+
+fs_rq_worker_run()
+{
+    (
+        clear
+        . ~/aipif/.env
+        . ../common/aws.bash
+        export PYTHONPATH=~/aipif/src
+        fs_rq_worker make_picture
+    )
+} ; export -f fs_rq_worker_run
 
 
 s3_rq_worker()
@@ -207,9 +219,6 @@ s3_rq_worker()
     ) 2>&1 \
         | tee s3_rq_worker.log
 } ; export -f s3_rq_worker
-
-
-
 
 
 s3_queue_sync()
