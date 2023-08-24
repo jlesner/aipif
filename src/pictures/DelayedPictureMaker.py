@@ -8,4 +8,4 @@ class DelayedPictureMaker(PictureMaker):
         delay = random.randint(0, 10)
         time.sleep(delay)
         return f"result of DelayedPictureMaker after {delay} seconds for positive_prompt_text={prompt_dict['positive_prompt_text']}"
-    
+

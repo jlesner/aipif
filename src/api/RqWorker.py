@@ -4,7 +4,7 @@ from lxml import etree
 
 from common.Context import Context
 from pictures.FastLocalSdPictureMaker import FastLocalSdPictureMaker
-from pictures.LocalSdPictureMaker import LocalSdPictureMaker 
+from pictures.LocalSdPictureMaker import LocalSdPictureMaker
 from pictures.StubPictureMaker import StubPictureMaker
 from text.CachingTextMaker import CachingTextMaker
 from text.DelayedTextMaker import DelayedTextMaker
@@ -15,7 +15,7 @@ from text.StubTextMaker import StubTextMaker
 def context_configure(context:Context):
     # context.config['story_maker_port'] = 8080
     # context.config['make_text_attempts'] = 3
-    pass    
+    pass
 
 def state_setup(context:Context):
     # for now we hardcode bindings
@@ -52,7 +52,7 @@ def process_request(context, request_node):
         "style_prompt_text" : request_node.find('style_prompt_text').text,
         "rq_id" : request_node.find("rq").attrib['id'],
     }
-    
+
     match request_type:
         case "make_picture":
                 response_string = context.state['picture_maker'].make_picture(prompt_dict)
@@ -61,8 +61,7 @@ def process_request(context, request_node):
             raise Exception(f"unsupported request_type: {request_type}")
 
 if __name__ == "__main__":
-    context = Context() 
+    context = Context()
     context_configure(context)
     state_setup(context)
     address_requests(context, "/dev/stdin", "/dev/stdout")
-    

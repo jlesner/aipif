@@ -1,19 +1,24 @@
 import io
 import time
 import random
+from media.RqMediaManager import RqMediaManager
 import tomesd
 import torch
-from diffusers import DiffusionPipeline, utils
+from diffusers import DiffusionPipeline
+# , utils
 from media.MediaManager import MediaManager
 from pictures.PictureMaker import PictureMaker
 
 class LocalSdPictureMaker(PictureMaker):
+
+    def __init__(self, rq_mgr:RqMediaManager = RqMediaManager()):
+        self._rq_mgr = rq_mgr
         
     def make_picture(self, prompt_dict: dict):
         save_img = True
-        
+
         prompt, neg_prompt = self.create_prompt(prompt_dict)
-            
+
         base = DiffusionPipeline.from_pretrained(
             "stabilityai/stable-diffusion-xl-base-1.0", torch_dtype=torch.float16, variant="fp16", use_safetensors=True
         )
@@ -53,12 +58,15 @@ class LocalSdPictureMaker(PictureMaker):
         with io.BytesIO() as output:
             image.save(output, format="PNG")
             image_bytes = output.getvalue()
-
         if save_img:
             file_name = time.strftime("%Y%m%d_%H%M%S") + ''.join([str(random.randint(1, 9)) for _ in range(5)]) + ".png"
             image.save(file_name)
-            
-        url = MediaManager.bytes_to_png_url(image_bytes)
+
+        if "rq_id" in prompt_dict:
+            rq_id= prompt_dict["rq_id"]
+            return self._rq_mgr.file_write(rq_id, ".png", image_bytes, "image/png")
+        
+        url = MediaManager().bytes_to_png_url(image_bytes)
         return url
 
 
@@ -76,9 +84,8 @@ class LocalSdPictureMaker(PictureMaker):
 
         if pos_text == None:
             raise Exception("PictureMaker: No Positive Prompt")
-        
+
         prompt = pos_text if style_text == None else pos_text + " in the style of " + style_text
         neg_prompt = neg_text
 
         return (prompt,neg_prompt)
-    

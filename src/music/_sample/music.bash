@@ -11,8 +11,6 @@ ffmpeg -y \
     -af "afade=t=in:ss=0:d=5,afade=t=out:st=10:d=5" \
      src/music/_generated/faded_generated_sample.mp3
 
-
-
 aws s3 cp src/music/_generated/generated_sample.mp4 s3://aipif-2023/media/
 
 aws s3 cp src/music/_generated/faded_generated_sample.mp3 s3://aipif-2023/media/

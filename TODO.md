@@ -1,5 +1,10 @@
 # Jasmine Task List
 
+# update prompts to remove duplication near end
+# swap in larger context gpt near end?
+# fix n>1 protagonist_reqaction prompts
+# setup and test local llm? wizard?
+
 ## XML to Twee / Twine / Tweego
 ### run experiments creating the published child experience aka twines / HTML
 

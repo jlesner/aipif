@@ -21,7 +21,7 @@ xml_format()
 
 rq_api_bridge()
 {
-    python3 ../api/RqXmlApiBridge.py 
+    python3 ../api/RqXmlApiBridge.py
 } ; export -f rq_api_bridge
 
 
@@ -46,12 +46,14 @@ xml_trim()
         | head -n `tput lines`
 } ; export -f xml_trim
 
+
 tree_cat()
 {
     cat structure_0010.xml
     # cat structure_0011.xml
     # cat structure_0011.xml
 } ; export -f tree_cat
+
 
 tree_grow()
 {
@@ -107,81 +109,102 @@ tree_decorate()
 } ; export -f tree_decorate
 
 
-queue_pass()
+fs_queue_pass()
 {
     while read f ; do
-        if test -f "${f}.lock" || test -f "${f}.res.xml" ; then
+        if test -f "${f}.lock" || test -f "${f}.log" ; then
             continue
         fi
-        
+
         touch "${f}.lock"
 
         (
             cat $f \
                 | rq_worker
-        ) \
-            | tee -a "${f}.res.xml"
+        ) 2>&1 \
+            | tee -a "${f}.log"
 
         rm "${f}.lock"
     done
 
-} ; export -f queue_pass
+} ; export -f fs_queue_pass
+
+
+s3_queue_pass()
+{
+    while read f ; do
+
+        if s3_exists "_queue/${f}.lock" || s3_exists "_queue/${f}.log" ; then
+            continue
+        fi
+
+        s3_touch "_queue/${f}.lock"
+
+        (
+            s3_cat "_queue/${f}" \
+                | rq_worker
+        ) 2>&1 \
+            | tee "_queue/${f}.log" \
+            | s3_txt_stream "_queue/${f}.log"
+            # | tee /dev/stderr \
+
+        s3_rm "_queue/${f}.lock"
+    done
+
+} ; export -f fs_queue_pass
+
+
+fs_rq_worker()
+{
+    local filter=$1
+    (
+        source ~/aipif/sd_venv/bin/activate
+        while true ; do
+            find _queue -type f \
+                | perl -pe's{^(.+-req.xml).*}{$1}g;' \
+                | sort \
+                | uniq -u \
+                | ( egrep -a "$filter" || true ) \
+                | head -n 1 \
+                | queue_pass
+            echo -n .
+            sleep 4
+        done
+    ) 2>&1 \
+        | tee fs_rq_worker.log
+} ; export -f fs_rq_worker
+
+
+s3_rq_worker()
+{
+    local filter=$1
+    mkdir -p _queue 2>/dev/null || true
+    (
+        source ~/aipif/sd_venv/bin/activate
+        while true ; do
+            s3_file_ls "_queue/" \
+                | perl -pe's{^(.+-req.xml).*}{$1}g;' \
+                | sort \
+                | uniq -u \
+                | ( egrep -a "$filter" || true ) \
+                | head -n 1 \
+                | s3_queue_pass
+            echo -n .
+            sleep 5
+        done
+    ) 2>&1 \
+        | tee s3_rq_worker.log
+} ; export -f s3_rq_worker
 
 
 s3_queue_sync()
 {
-    aws s3 cp --recursive src/story/_queue/ s3://aipif-2023/_queue
+    aws s3 cp --recursive src/story/_queue s3://${s3_bucket}/_queue
 } ; export -f s3_queue
 
 
-s3_queue_touch()
-{
-    local file=_queue/$1
-    aws s3api put-object --bucket aipif-2023 --key $file --content-length 0
-} ; export -f s3_queue_touch
-
-
-s3_queue_log()
-{
-    local file=_queue/$1
-    aws s3 cp - s3://aipif-2023/${file}
-} ; export -f s3_queue_list
-
-
-s3_queue_rm()
-{
-    local file=_queue/$1
-    aws s3 rm s3://aipif-2023/$file
-} ; export -f s3_queue_touch
-
-
-s3_queue_list()
-{
-    aws s3 ls s3://aipif-2023/_queue/ \
-        | tr -s " " \
-        | cut -d" " -f4
-} ; export -f s3_queue_list
-
-
-picture_worker()
-{
-    (
-        source ~/aipif/sd_venv/bin/activate        
-        queue_path=_queue
-        while true ; do
-            find $queue_path -type f -name 'make_picture-*-req.xml' \
-                | head -n 1 \
-                | queue_pass
-            echo -n . 
-            sleep 4
-        done
-    )
-} ; export -f picture_worker
-
-
-
 run() {
-    ( 
+    (
         clear
         . ~/aipif/.env
         export PYTHONPATH=~/aipif/src

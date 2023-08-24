@@ -3,7 +3,7 @@ import boto3
 
 from common.ContextAware import ContextAware
 
-# base_url = 'http://aipif-2023.s3-website-us-west-1.amazonaws.com/_queue/'
+# base_url = 'http://aipif-2023.s3.amazonaws.com/'
 
 class S3MediaManager(ContextAware):
 
@@ -15,10 +15,10 @@ class S3MediaManager(ContextAware):
         response = self._s3_client.get_object(Bucket=self.bucket_name, Key=object_key)
         return response['Body'].read()
 
-    def file_write(self, object_key: str, data: bytes):
-        self._s3_client.put_object(Bucket=self._bucket_name, Key=object_key, Body=data)
-        return f'http://{self._bucket_name}.s3-website-us-west-1.amazonaws.com/{object_key}'
-    
+    def file_write(self, object_key: str, data: bytes, content_type: str) -> str:
+        self._s3_client.put_object(Bucket=self._bucket_name, Key=object_key, Body=data, ContentType=content_type)
+        return f'http://{self._bucket_name}.s3.amazonaws.com/{object_key}'
+
     def file_list(self, path=''):
         try:
             response = self._s3_client.list_objects_v2(Bucket=self._bucket_name, Prefix=path)

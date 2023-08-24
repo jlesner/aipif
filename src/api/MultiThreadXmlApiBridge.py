@@ -5,7 +5,7 @@ import random
 import threading
 from lxml import etree
 
-from common.Context import Context 
+from common.Context import Context
 from common.BoundedBuffer import BoundedBuffer
 from pictures.StubPictureMaker import StubPictureMaker
 from text.DelayedTextMaker import DelayedTextMaker
@@ -28,7 +28,7 @@ def context_configure(context:Context):
     context.config['num_workers'] = 4
     context.config['sentinel'] = "STOP"
     context.config['make_text_attempts'] = 3
-    
+
 
 def state_setup(context:Context):
     # for now we hardcode function bindings
@@ -89,7 +89,7 @@ def process_request(context, id):  # worker thread
                             attempts_left -= 1
                             if attempts_left <= 0:
                                 raise Exception("Ran out of attempts to generate valid xml response")
-                            
+
                         item.response_node = etree.fromstring(response_string_xml)
                         context.state['done_tasks'].add(item)
                     case _:
@@ -106,7 +106,7 @@ def extract_xml(input_string):
         return match.group()
     else:
         raise Exception("No xml found in input string")
-    
+
 def valid_xml(input_string):
     try:
         input_tree = etree.fromstring(input_string)
@@ -132,19 +132,19 @@ def valid_xml(input_string):
         return False
 
 if __name__ == "__main__":
-    context = Context() 
+    context = Context()
     context_configure(context)
     state_setup(context)
     manager_thread = threading.Thread(target=address_requests, args=(context,"/dev/stdin","/dev/stdout"))
     manager_thread.start()
-    
+
     worker_threads = []
     for i in range(context.config['num_workers']):
         worker_thread = threading.Thread(target=process_request, args=(context,i))
         worker_thread.start()
         worker_threads.append(worker_thread)
-    
+
     for worker_thread in worker_threads:
         worker_thread.join()
-    
+
     manager_thread.join()
