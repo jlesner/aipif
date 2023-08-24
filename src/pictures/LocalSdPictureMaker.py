@@ -15,7 +15,7 @@ class LocalSdPictureMaker():
         self._rq_mgr = rq_mgr
         
     def make_picture(self, prompt_dict: dict):
-        save_img = True
+        save_img = False
 
         prompt, neg_prompt = self.create_prompt(prompt_dict)
 

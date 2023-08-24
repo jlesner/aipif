@@ -1,5 +1,10 @@
 # Jasmine Task List
 
+
+# fix make_picture prompt style 
+## Token indices sequence length is longer than the specified maximum sequence length for this model (81 > 77). Running this sequence through the model will result in indexing errors The following part of your input was truncated because CLIP can only handle sequences up to 77 tokens: ['art from quentin blake']
+
+
 # replace generating image with ours
 # swicth illustrations to jpg
 # update prompts to remove duplication near end

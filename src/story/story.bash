@@ -132,6 +132,7 @@ fs_queue_pass()
 
         (
             cat $f \
+                | tee /dev/stderr \
                 | rq_worker
         ) 2>&1 \
             | tee -a "${f}.log"
@@ -154,7 +155,8 @@ s3_queue_pass()
 
         (
             s3_cat "_queue/${f}" \
-                | rq_worker
+                | tee /dev/stderr \
+                | time rq_worker
         ) 2>&1 \
             | tee "_queue/${f}.log" \
             | s3_txt_stream "_queue/${f}.log"
