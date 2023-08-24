@@ -15,7 +15,8 @@
 #     -o _generated/pengu_alien.html \
 #     _generated/pengu_alien.twee
 
-cat story/_sample/tree_016_zzz6_url.xml \
+# cat story/_sample/tree_016_zzz6_url.xml \
+cat story/_generated/decorated.xml \
     | xsltproc twine/xslt/prompt_remove.xml /dev/stdin \
     | xsltproc twine/xslt/sugarcube_twine_generate4.xml /dev/stdin \
     > twine/_generated/tree_016_zzz6_url.twee
