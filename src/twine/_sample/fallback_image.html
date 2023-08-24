@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Replacement</title>
+</head>
+<body>
+    <img src="invalid_url.jpg" alt="Image 1">
+    <img src="valid_url.jpg" alt="Image 2">
+    <img src="another_invalid_url.jpg" alt="Image 3">
+
+    <script>
+        const defaultImageUrl = "default_image.jpg"; // Replace with the actual default image URL
+        const images = document.getElementsByTagName("img");
+
+        for (let i = 0; i < images.length; i++) {
+            images[i].addEventListener("error", function() {
+                this.src = defaultImageUrl;
+            });
+        }
+    </script>
+</body>
+</html>

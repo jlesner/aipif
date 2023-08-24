@@ -33,7 +33,7 @@
                     <xsl:value-of select="."/>
                 </xsl:element>
                 <xsl:element name="negative_prompt_text">
-                    <xsl:text>muffed, unclear, noisy</xsl:text>
+                    <xsl:text>muffled, unclear, noisy, dull, boring</xsl:text>
                 </xsl:element>
                 <xsl:element name="style_prompt_text">
                     <xsl:text>entertaining for children</xsl:text>
@@ -53,7 +53,7 @@
                     <xsl:value-of select="."/>
                 </xsl:element>
                 <xsl:element name="negative_prompt_text">
-                    <xsl:text>muffed, unclear, noisy</xsl:text>
+                    <xsl:text>muffled, unclear, noisy, dull, boring</xsl:text>
                 </xsl:element>
                 <xsl:element name="style_prompt_text">
                     <xsl:text>entertaining for children</xsl:text>
