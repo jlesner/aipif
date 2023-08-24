@@ -34,7 +34,7 @@
     <xsl:text>:
 </xsl:text>
     <xsl:value-of select="introduction"/>
-    <xsl:text>`"]
+    <xsl:text>"]
 
 </xsl:text>
 

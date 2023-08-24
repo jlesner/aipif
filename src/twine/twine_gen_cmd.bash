@@ -17,9 +17,12 @@
 
 cat story/_sample/tree_016_zzz6_url.xml \
     | xsltproc twine/xslt/prompt_remove.xml /dev/stdin \
-    | xsltproc twine/xslt/sugarcube_twine_generate3.xml /dev/stdin \
+    | xsltproc twine/xslt/sugarcube_twine_generate4.xml /dev/stdin \
     > twine/_generated/tree_016_zzz6_url.twee
 
-/opt/tweego-2.1.1-linux-x64/tweego -f sugarcube-2 \
-    -o twine/_generated/tree_016_zzz6_url.html \
-    twine/_generated/tree_016_zzz6_url.twee
+/opt/tweego-2.1.1-linux-x64/tweego -f sugarcube-2 -o /dev/stdout \
+    twine/_generated/tree_016_zzz6_url.twee \
+    | tee >( aws s3 cp - s3://aipif-2023/sample/index.html ) \
+    > twine/_generated/tree_016_zzz6_url.html
+
+# http://aipif-2023.s3-website-us-west-1.amazonaws.com/sample/twine.html
