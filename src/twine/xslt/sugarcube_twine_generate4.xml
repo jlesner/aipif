@@ -18,8 +18,7 @@ My Story
   "zoom": 1
 }
 
-:: Title Page
-
+:: StoryInit
 <![CDATA[<<script>>
 Setting.addHeader("Game Settings");
 Setting.addRange("masterVolume", {
@@ -33,6 +32,7 @@ Setting.addRange("masterVolume", {
 });
 <</script>>]]>
 
+:: Title Page
 </xsl:text>
 
     <xsl:variable name="next_scene" select="scene[1]/@key"/>
@@ -42,7 +42,8 @@ Setting.addRange("masterVolume", {
     <xsl:text>|</xsl:text>
         <xsl:value-of select="$next_scene"/>
     <xsl:text>]]&gt;&gt;</xsl:text>
-    <xsl:text>&lt;&lt;/button&gt;&gt;</xsl:text>
+    <xsl:text>&lt;&lt;/button&gt;&gt;
+</xsl:text>
 
     <xsl:apply-templates select="scene"/>
 
@@ -54,8 +55,34 @@ Setting.addRange("masterVolume", {
 <xsl:text>
 :: </xsl:text>
     <xsl:value-of select="@key"/>
+
+    <xsl:text><![CDATA[
+<<cacheaudio "bgm_]]></xsl:text>
+    <xsl:value-of select="@key"/>
+    <xsl:text><![CDATA[" "mp3|]]></xsl:text>
+    <xsl:value-of select="music/@url"/>
+    <xsl:text><![CDATA[">>
+<<waitforaudio>>]]></xsl:text>
+
+
     <xsl:text>
-<![CDATA[<html><img src="https://www.tidybooks.com/wp-content/uploads/sites/12/2019/09/072519f74a95ea36f571d1e83f1c23bd_l.webp"/></html>]]>
+
+<![CDATA[<html>
+    <img src="]]></xsl:text>
+    <xsl:value-of select="illustration/@url"/>
+    <xsl:text><![CDATA["/>
+    <script>
+        defaultImageUrl = "https://digitalinquiryatuconn.files.wordpress.com/2014/09/tumblr_ncdbn1jdkl1rilp8po1_500.gif?w=300"; 
+        images = document.getElementsByTagName("img");
+
+        for (let i = 0; i < images.length; i++) {
+            images[i].addEventListener("error", function() {
+                this.src = defaultImageUrl;
+            });
+        }
+    </script>
+</html> ]]>
+
 </xsl:text>
         <xsl:value-of select="introduction"/>
     <xsl:text>
@@ -67,6 +94,11 @@ Setting.addRange("masterVolume", {
             <xsl:text>
 </xsl:text>
             <xsl:apply-templates select="branch"/>
+            <xsl:text><![CDATA[<html> 
+    DEBUG: <a href="http://aipif-2023.s3-website-us-west-1.amazonaws.com/sample/tree.html" target="_blank">HTML</a>
+    <a href="http://aipif-2023.s3-website-us-west-1.amazonaws.com/sample/tree.xml" target="_blank">XML</a>
+</html>]]>
+</xsl:text>
             <xsl:apply-templates select="branch/scene"/>
         </xsl:when>
 
@@ -81,7 +113,8 @@ The End!
 
 <xsl:template match="branch">
 
-    <xsl:text>&lt;&lt;button [[</xsl:text>
+    <xsl:text>
+&lt;&lt;button [[</xsl:text>
     <xsl:value-of select="protagonist_reaction"/>
     <xsl:text>|</xsl:text>
         <xsl:value-of select="scene[1]/@key"/>
