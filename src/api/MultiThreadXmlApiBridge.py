@@ -116,11 +116,12 @@ def valid_xml(input_string):
                 "/scene/@part",
                 "/scene/@branch_count",
                 "/scene/@index",
-                "/scene/setting",
+                # "/scene/@key", # TODO: enable once there is key gen
+                # "/scene/setting",
                 "/scene/introduction",
-                "/scene/dialogue",
+                "count(/scene/dialogue)=1",
                 "/scene/illustration",
-                "/scene/illustration_title",
+                # "/scene/illustration_title",
                 "/scene/sound",
                 "/scene/music"
         ]

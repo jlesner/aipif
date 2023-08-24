@@ -109,6 +109,18 @@ tree_decorate()
 } ; export -f tree_decorate
 
 
+tree_decorate_run() {
+    (
+        clear
+        . ~/aipif/.env
+        export PYTHONPATH=~/aipif/src
+        cat _sample/tree_016_zzz3.xml \
+            | tree_decorate \
+            > _generated/decorated.xml
+    )
+} ; export -f tree_decorate_run
+
+
 fs_queue_pass()
 {
     while read f ; do
@@ -197,19 +209,11 @@ s3_rq_worker()
 } ; export -f s3_rq_worker
 
 
+
+
+
 s3_queue_sync()
 {
     aws s3 cp --recursive src/story/_queue s3://${s3_bucket}/_queue
 } ; export -f s3_queue
 
-
-run() {
-    (
-        clear
-        . ~/aipif/.env
-        export PYTHONPATH=~/aipif/src
-        cat _sample/tree_016_zzz3.xml \
-            | tree_decorate \
-            > _generated/decorated.xml
-    )
-} ; export -f run

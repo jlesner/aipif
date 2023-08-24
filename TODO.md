@@ -1,9 +1,11 @@
 # Jasmine Task List
 
+# swicth illustrations to jpg
 # update prompts to remove duplication near end
 # swap in larger context gpt near end?
 # fix n>1 protagonist_reqaction prompts
 # setup and test local llm? wizard?
+# midi music maker ?
 
 ## XML to Twee / Twine / Tweego
 ### run experiments creating the published child experience aka twines / HTML
@@ -19,13 +21,6 @@
 ## emji DB
 
 ---------------------
-
-
-## DONE UPDATE concept slide 
-
-Make it clear that the product of our project is NOT a single static twine game. The product of our project an AI tool that parents / children can use to make personalized interactive twine games.
-We generate interactive twine games that are static so that the parent can review / approve. This is important because what LLMs generate is not predictable. This also allows child’s iPad etc to be loaded with their personalized twines and they can enjoy them without need for internet access. 
-
 
 ## web service setup
 ### "sells the service" -> shows concept slide
@@ -57,10 +52,6 @@ We generate interactive twine games that are static so that the parent can revie
 ### dpre_segment_list => dpost_outline_list
 
 ### dpost_outline_list_entry => dpost_segment_list
-
-
-
-
 
 # cutline
 

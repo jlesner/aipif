@@ -2,7 +2,7 @@ import sys
 import re
 from lxml import etree
 
-from common.Context import Context 
+from common.Context import Context
 from pictures.StubPictureMaker import StubPictureMaker
 from text.CachingTextMaker import CachingTextMaker
 from text.DelayedTextMaker import DelayedTextMaker
@@ -60,7 +60,7 @@ def process_request(context, request_node):  # worker thread
                         break
                 except Exception as e:
                     continue
-                
+
             return etree.fromstring(response_string_xml)
         case _:
             raise Exception(f"unsupported request_type: {request_type}")
@@ -71,7 +71,7 @@ def extract_xml(input_string):
         return match.group()
     else:
         raise Exception(f"\nextract_xml() failed to find XML in:\n{input_string}\n")
-    
+
 def valid_xml(input_string):
     try:
         input_tree = etree.fromstring(input_string)
@@ -98,8 +98,7 @@ def valid_xml(input_string):
         return False
 
 if __name__ == "__main__":
-    context = Context() 
+    context = Context()
     context_configure(context)
     state_setup(context)
     address_requests(context, "/dev/stdin", "/dev/stdout")
-    
