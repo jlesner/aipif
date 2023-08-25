@@ -5,6 +5,7 @@ _generated
 _media
 _cache
 _queue
+_queue_*
 
 sd_venv/
 story_venv/
