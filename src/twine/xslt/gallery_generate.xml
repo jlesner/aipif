@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:output method="text"/>
+
+<xsl:template match="tree">
+
+    <xsl:text><![CDATA[<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  .table-collage {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  .table {
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+    width: 100%;
+  }
+  .table img {
+    width: 100%;
+    height: auto;
+  }
+  .table td {
+    padding: 10px;
+    vertical-align: top;
+  }
+  .table-link {
+    display: block;
+    margin-top: 10px;
+  }
+</style>
+<title>Image Collage</title>
+</head>
+<body>
+    <div class="table-collage">
+]]></xsl:text>
+
+    <xsl:apply-templates select="scene"/>
+
+    <xsl:text><![CDATA[
+    </div>
+</body>
+</html>
+]]></xsl:text>
+
+</xsl:template>
+
+
+<xsl:template match="scene">
+    <xsl:text><![CDATA[
+    <div class="table">
+        <tr>
+            <td><img src="]]></xsl:text>
+    <xsl:value-of select="illustration/@url"/>
+    <xsl:text><![CDATA["></td>
+        </tr>
+        <tr>
+            <td>]]></xsl:text>
+    <xsl:value-of select="illustration"/>
+    <!-- <xsl:text><![CDATA[
+            <a class="table-link" href="]]></xsl:text>
+    <xsl:value-of select="illustration/@url"/>
+    <xsl:text><![CDATA[" target="_blank">]]></xsl:text>
+    <xsl:value-of select="illustration/@url"/> -->
+    <xsl:text><![CDATA[
+            </td>
+        </tr>
+        </table>
+    </div>]]></xsl:text>
+
+    <xsl:choose>
+        <xsl:when test="branch">
+            <xsl:text>
+</xsl:text>
+            <xsl:apply-templates select="branch/scene"/>
+
+        </xsl:when>
+
+    </xsl:choose>
+
+</xsl:template>
+
+</xsl:stylesheet>

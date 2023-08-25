@@ -1,8 +1,8 @@
 # Jasmine Task List
 
 # add twee to debug options
-
-# emoji for story title
+ # -> http://aipif-2023.s3.amazonaws.com/favicon.ico
+# emoji for story title 
 
 # first button labeled "psst..... click me!"
 # "the end" button take you to story selection

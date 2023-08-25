@@ -1,4 +1,4 @@
-import base64
+# import base64
 import boto3
 
 from common.ContextAware import ContextAware
