@@ -7,7 +7,7 @@ from diffusers import DiffusionPipeline
 # , utils
 from PIL import Image
 from media.MediaManager import MediaManager
-from pictures.PictureMaker import PictureMaker
+# from pictures.PictureMaker import PictureMaker
 from media.RqMediaManager import RqMediaManager
 
 class FastLocalSdPictureMaker():

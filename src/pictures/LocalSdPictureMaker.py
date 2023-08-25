@@ -6,8 +6,9 @@ import tomesd
 import torch
 from diffusers import DiffusionPipeline
 # , utils
+from PIL import Image
 from media.MediaManager import MediaManager
-from pictures.PictureMaker import PictureMaker
+# from pictures.PictureMaker import PictureMaker
 
 class LocalSdPictureMaker():
 
@@ -64,7 +65,12 @@ class LocalSdPictureMaker():
 
         if "rq_id" in prompt_dict:
             rq_id= prompt_dict["rq_id"]
-            return self._rq_mgr.file_write(rq_id, ".png", image_bytes, "image/png")
+            # return self._rq_mgr.file_write(rq_id, ".png", image_bytes, "image/png")
+            img = Image.open(io.BytesIO(image_bytes))
+            jpeg_buffer = io.BytesIO()
+            img.save(jpeg_buffer, format="JPEG")
+            jpeg_image_bytes = jpeg_buffer.getvalue()
+            return self._rq_mgr.file_write(rq_id, ".jpg", jpeg_image_bytes, "image/jpeg")
         
         url = MediaManager().bytes_to_png_url(image_bytes)
         return url
