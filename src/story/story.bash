@@ -264,7 +264,7 @@ s3_rq_worker()
                 | head -n 1 \
                 | s3_queue_pass
             echo -n .
-            break
+            # break
             sleep 10
         done
     ) 2>&1 \
@@ -272,10 +272,17 @@ s3_rq_worker()
 } ; export -f s3_rq_worker
 
 
-s3_queue_sync()
+s3_queue_push()
 {
     aws s3 rm --recursive s3://${s3_bucket}/_queue
     aws s3 cp --recursive _queue s3://${s3_bucket}/_queue
+} ; export -f s3_queue_sync
+
+
+s3_queue_pull()
+{
+    # rm -rf _queue
+    aws s3 cp --recursive s3://${s3_bucket}/_queue _queue 
 } ; export -f s3_queue_sync
 
 
