@@ -145,16 +145,18 @@ The End!
     <xsl:value-of select="protagonist_reaction"/>
     <xsl:text>|</xsl:text>
         <xsl:value-of select="scene[1]/@key"/>
-    <xsl:text>]]&gt;&gt;</xsl:text>
+    <xsl:text>]]&gt;&gt;
+</xsl:text>
 
     <!-- stopping audio if needed -->
+    <xsl:if test="ancestor::scene[music/@url][1]">
     <xsl:if test="scene/music/@url">
         <xsl:text><![CDATA[
 <<audio "bgm_]]></xsl:text>
-        <xsl:value-of select="ancestor::scene[1]/@key"/>
-        <!-- need to get the key of the last scene that has audio with an url attribute -->
+        <xsl:value-of select="ancestor::scene[music/@url][1]/@key"/>
         <xsl:text><![CDATA[" stop>>]]>
-    </xsl:text>
+</xsl:text>
+    </xsl:if>
     </xsl:if>
 
     <xsl:if test="ancestor::scene[1]/sound/@url">
