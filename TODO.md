@@ -4,6 +4,9 @@
  # -> http://aipif-2023.s3.amazonaws.com/favicon.ico
 # emoji for story title 
 
+
+arn:aws:s3:::aipif-2023
+
 # first button labeled "psst..... click me!"
 # "the end" button take you to story selection
 

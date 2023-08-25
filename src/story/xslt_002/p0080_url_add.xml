@@ -6,7 +6,8 @@
         <xsl:copy>
             <xsl:apply-templates select="@*"/>
             <xsl:attribute name="url">
-                <xsl:text>http://aipif-2023.s3-website-us-west-1.amazonaws.com/_asset/</xsl:text>
+                <!-- <xsl:text>http://aipif-2023.s3-website-us-west-1.amazonaws.com/_asset/</xsl:text> -->
+                <xsl:text>http://aipif-2023.s3.amazonaws.com/_asset/</xsl:text>                 
                 <xsl:value-of select="rq/@id"/>
                 <xsl:choose>
                     <xsl:when test="name() = 'illustration'">

@@ -113,9 +113,10 @@ Setting.addRange("masterVolume", {
             <xsl:apply-templates select="branch"/>
             <xsl:text>
             <![CDATA[<html>DEBUG: 
-                <a href="http://aipif-2023.s3.amazonaws.com/sample/tree.xml" target="_blank">XML</a>
-                <a href="http://aipif-2023.s3.amazonaws.com/sample/twine.twee.txt" target="_blank">TWEE</a>
-                <a href="http://aipif-2023.s3.amazonaws.com/sample/tree.html" target="_blank">TREE</a>
+                <a href="http://aipif-2023.s3.amazonaws.com/sample/tree.xml" target="_blank">xml</a>
+                <a href="http://aipif-2023.s3.amazonaws.com/sample/twine.twee.txt" target="_blank">twee</a>
+                <a href="http://aipif-2023.s3.amazonaws.com/sample/tree.html" target="_blank">tree</a>
+                <a href="http://aipif-2023.s3.amazonaws.com/sample/gallery.html" target="_blank">gallery</a>
             </html>]]>
             </xsl:text>
             <xsl:apply-templates select="branch/scene"/>

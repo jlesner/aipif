@@ -149,6 +149,13 @@ story_publish()
         | tee >( aws s3 cp - ${s3_prefix}tree.html --content-type text/html ) \
         > ${fs_prefix}tree.html
 
+    cat ${fs_prefix}decorated.xml \
+        | tr -s " " \
+        | fmt -w 60 \
+        | xsltproc ${twine_path}/xslt/gallery_generate.xml /dev/stdin \
+        | tee >( aws s3 cp - ${s3_prefix}gallery.html --content-type text/html ) \
+        > ${fs_prefix}gallery.html
+
     cat ${fs_prefix}decorated.xml  \
         | xsltproc ${twine_path}/xslt/prompt_remove.xml /dev/stdin \
         | xsltproc ${twine_path}/xslt/sugarcube_twine_generate4.xml /dev/stdin \
