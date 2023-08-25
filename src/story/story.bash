@@ -158,7 +158,7 @@ story_publish()
 
     cat ${fs_prefix}decorated.xml  \
         | xsltproc ${twine_path}/xslt/prompt_remove.xml /dev/stdin \
-        | xsltproc ${twine_path}/xslt/sugarcube_twine_generate4.xml /dev/stdin \
+        | xsltproc ${twine_path}/xslt/sugarcube_twine_generate5.xml /dev/stdin \
         | perl -pe"s{http://aipif-2023.s3.amazonaws.com/sample/}{http://${s3_bucket}.s3.amazonaws.com/${s3_path_prefix}}g;" \
         | tee >( aws s3 cp - ${s3_prefix}twine.twee.txt --content-type "text/plain" --metadata "Content-Disposition=inline") \
         > ${fs_prefix}twine.twee
@@ -282,14 +282,14 @@ s3_queue_push()
 {
     aws s3 rm --recursive s3://${s3_bucket}/_queue
     aws s3 cp --recursive _queue s3://${s3_bucket}/_queue
-} ; export -f s3_queue_sync
+} ; export -f s3_queue_push
 
 
 s3_queue_pull()
 {
     # rm -rf _queue
     aws s3 cp --recursive s3://${s3_bucket}/_queue _queue 
-} ; export -f s3_queue_sync
+} ; export -f s3_queue_pull
 
 
 s3_rq_worker_run()
