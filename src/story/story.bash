@@ -256,7 +256,6 @@ s3_rq_worker()
     (
         while true ; do
             s3_file_ls "_queue/" \
-                | tee s3_file_ls.out \
                 | perl -pe's{^(.+-req.xml).*}{$1}g;' \
                 | sort \
                 | uniq -u \
