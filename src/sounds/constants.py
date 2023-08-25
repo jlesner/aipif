@@ -1,4 +1,0 @@
-APIKEY_GPT = ""
-APIKEY_FRE = ""
-CLIENT_ID = ""
-CLIENT_SECRET= ""

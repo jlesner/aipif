@@ -4,76 +4,49 @@ import os
 import openai
 from langchain.chat_models import ChatOpenAI
 from langchain.llms import OpenAI
-from langchain.document_loaders import DirectoryLoader, TextLoader
-from langchain.embeddings import OpenAIEmbeddings
+from langchain.document_loaders import TextLoader
 from langchain.indexes import VectorstoreIndexCreator
-from langchain.indexes.vectorstore import VectorStoreIndexWrapper
-from langchain.vectorstores import Chroma
-import constants
-import json
 
-openai_key= constants.APIKEY_GPT
-os.environ["OPENAI_API_KEY"] = openai_key
-openai.api_key = openai_key
-
-# Enable to save to disk & reuse the model (for repeated queries on the same data)
-PERSIST = False
+openai.api_key= os.getenv('OPENAI_API_KEY')
 
 #langchain uses openai to read sounds.txt and responds with sound_id for a sound that fits to the prompt
 def select_title(prompt):
-    query = f"Provide a valid sound ID from the freesound JSON data that best matches the following description: {prompt}. Avoid responding with phrases like 'I don't know' or any unrelated text."
-
-    if PERSIST and os.path.exists("persist"):
-        print("Reusing index...\n")
-        vectorstore = Chroma(persist_directory="persist", embedding_function=OpenAIEmbeddings())
-        index = VectorStoreIndexWrapper(vectorstore=vectorstore)
-    else:
-        loader = TextLoader("SoundFiles/sounds.txt")
-        #loader = DirectoryLoader("data/")
-        if PERSIST:
-          index = VectorstoreIndexCreator(vectorstore_kwargs={"persist_directory":"persist"}).from_loaders([loader])
-        else:
-          index = VectorstoreIndexCreator().from_loaders([loader])
-
-    response= index.query(query, llm= OpenAI())
+    question = f"Provide a single valid sound id from the freesound data that best matches the following description: {prompt}."
+    loader = TextLoader("SoundFiles/sounds.txt")
+    index = VectorstoreIndexCreator().from_loaders([loader])
+    response= index.query(question, llm= OpenAI())
+    #print("response:", response)
     
     # Fallback in case model responds with "I don't know"
     if "I don't know" in response:
-        #return first sound id from sounds.txt
-        response= str(extract_first_id('SoundFiles/sounds.txt'))
-        
+        # return first sound id from sounds.txt
+        response= extract_first_id('SoundFiles/sounds.txt')
     return response
-        
-      
 
 # use openai ChatCompletion to extract 3 keywords from a prompt 
 def generate_keywords(prompt):
     response = openai.ChatCompletion.create(
-        model="gpt-4",  # Choose the appropriate engine
+        model="gpt-4",
         messages=[
-            {"role": "system", "content": "You will respond only with 3 keywords that capture the sound effect described in the prompt. The output should be in the form: keyword1 keyword2 keyword3. Do not repeat any keywords."},
+            {"role": "system", "content": "You are an assistant that will respond with only 3 keywords that best descibe the situation. Do not repeat any keywords."},
             {"role": "user", "content": prompt}
         ],
-        max_tokens=20,  # length of generated text
-        temperature=0.1,  # creativity of the output
+        max_tokens=20,
+        temperature=0.1,
         stop=None 
     )
-    
-    keywords = response.choices[0].message.content.replace(",[]", "")
+    keywords = response.choices[0].message.content.replace(",", "")
     return keywords
   
+# Extract first id from file_path
 def extract_first_id(file_path):
-    # Read the contents of sounds.txt, skipping the first line
     with open(file_path, 'r') as file:
-        lines = file.readlines()[1:]
+        lines = file.readlines()[2:]
 
-    # Combine remaining lines into a single string and parse as JSON
-    file_contents = ''.join(lines)
-    data = json.loads(file_contents)
-
-    # Access the "id" field of the first dictionary
-    id_of_first_sound = data[0]["id"]
-
-    #return type: int
-    return id_of_first_sound
+    for line in lines:
+        line = line.strip()
+        if line.startswith("id: "):
+            id_str = line[4:].strip()
+            return id_str
+        
     

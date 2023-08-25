@@ -27,7 +27,6 @@ class SoundMaker(ContextAware):
         
         # openai generates keywords from the prompt
         keywords= generate_keywords(prompt)
-        
         #print("keywords:",keywords)
         
         # keywords are used to query and collect sounds from freesound and results are written to sounds.txt
