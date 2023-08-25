@@ -13,10 +13,10 @@ style_prompt_text = style_prompt_samples[random.randint(0, len(style_prompt_samp
 
 make_sound_output =  sound_maker.make_sound({\
         "positive_prompt_text": positive_prompt_text, \
-        "style_prompt_text": style_prompt_text, \
+        "style_prompt_text": "", \
     })
 
 print(f"positive_prompt_text: {positive_prompt_text}")
-print(f"style_prompt_text: {style_prompt_text}")
+#print(f"style_prompt_text: {style_prompt_text}")
 print(f"make_sound_output: {make_sound_output}")
 print(f"\n")

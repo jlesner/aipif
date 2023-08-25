@@ -45,7 +45,7 @@ def collect_sounds(prompt=""):
         file.write("The json data represents sounds from freesound\n")
         file.write(json_data)
         
-#download sound preview to currect directory
+#download sound preview to SoundFiles directory
 def preview_sound(sound_id):
     sound = freesound_client.get_sound(
         sound_id, fields="previews"

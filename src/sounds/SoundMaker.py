@@ -58,7 +58,7 @@ def generate_audio_html(file_path):
     from media.MediaManager import MediaManager
     from media.FileMediaManager import FileMediaManager
 
-    sound = FileMediaManager().binary_file_read(file_path)
+    sound = FileMediaManager().file_read(file_path)
 
     sound_url = MediaManager().bytes_to_mp4_url(sound)
 
