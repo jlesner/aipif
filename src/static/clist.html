@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lists of Fun Emojis</title>
+    <style>
+        .emoji-wrapper {
+            display: inline-block;
+            padding: 5px;
+            margin: 5px;
+            border-radius: 50%;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .emoji-wrapper.selected {
+            background-color: rgb(92, 168, 255);
+        }
+
+        .emoji {
+            font-size: 30px;
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h4>Tell me a story about...</h4>
+    </header>
+    <div id="emojiContainer">
+        <!-- Emojis will be populated here -->
+    </div>
+
+    <script>
+        let emojis = [
+            '👻🤖👽👾🦕🦉🤡💩',
+            '🐶🐱🐭🐹🐰🦊🐻🐼',
+            '🦁🐯🦄🐷🐸🐵🦍🦒', 
+            '🦓🦔🦖🦕🦉🦆🐧🐦',
+            '🐤🐣🐔🦋🐛🐢🦎🦑',
+            '🐶🐱🐭🐹🐰🦊🐻🐼',
+            '🦁🐯🦄🐷🐸🐵🦍🦒', 
+            '🦓🦔🦖🦕🦉🦆🐧🐦',
+            '🐤🐣🐔🦋🐛🐢🦎🦑',
+            '🦐🦀🐡🐠🐟🐬🐳🦈',
+            '🍎🍉🍇🍓🍌🍍🥭🍏',
+            '🍊🍋🍔🍟🍕🍩🍦🍭',
+            '🐶🐱🐭🐹🐰🦊🐻🐼',
+            '🦁🐯🦄🐷🐸🐵🦍🦒', 
+            '🦓🦔🦖🦕🦉🦆🐧🐦',
+            '🐤🐣🐔🦋🐛🐢🦎🦑',
+            '🦐🦀🐡🐠🐟🐬🐳🦈',
+            '🍎🍉🍇🍓🍌🍍🥭🍏',
+            '🍊🍋🍔🍟🍕🍩🍦🍭',
+            '🐶🐱🐭🐹🐰🦊🐻🐼',
+            '🦁🐯🦄🐷🐸🐵🦍🦒', 
+            '🦓🦔🦖🦕🦉🦆🐧🐦',
+            '🐤🐣🐔🦋🐛🐢🦎🦑',
+            '🦐🦀🐡🐠🐟🐬🐳🦈',
+            '🍎🍉🍇🍓🍌🍍🥭🍏',
+            '🍊🍋🍔🍟🍕🍩🍦🍭',
+            '🐶🐱🐭🐹🐰🦊🐻🐼',
+            '🦁🐯🦄🐷🐸🐵🦍🦒', 
+            '🦓🦔🦖🦕🦉🦆🐧🐦',
+            '🐤🐣🐔🦋🐛🐢🦎🦑',
+            '🦐🦀🐡🐠🐟🐬🐳🦈',
+            '🍎🍉🍇🍓🍌🍍🥭🍏',
+            '🍊🍋🍔🍟🍕🍩🍦🍭',
+            '🐶🐱🐭🐹🐰🦊🐻🐼',
+            '🦁🐯🦄🐷🐸🐵🦍🦒', 
+            '🦓🦔🦖🦕🦉🦆🐧🐦',
+            '🐤🐣🐔🦋🐛🐢🦎🦑',
+            '🦐🦀🐡🐠🐟🐬🐳🦈',
+            '🍎🍉🍇🍓🍌🍍🥭🍏',
+            '🍊🍋🍔🍟🍕🍩🍦🍭',
+            '🐶🐱🐭🐹🐰🦊🐻🐼',
+            '🦁🐯🦄🐷🐸🐵🦍🦒', 
+            '🦓🦔🦖🦕🦉🦆🐧🐦',
+            '🐤🐣🐔🦋🐛🐢🦎🦑',
+            '🦐🦀🐡🐠🐟🐬🐳🦈',
+            '🍎🍉🍇🍓🍌🍍🥭🍏',
+            '🍊🍋🍔🍟🍕🍩🍦🍭',
+            '🦐🦀🐡🐠🐟🐬🐳🦈',
+            '🍎🍉🍇🍓🍌🍍🥭🍏',
+            '🍊🍋🍔🍟🍕🍩🍦🍭',
+            '🍪🍰🧁🍬🍫🍿🍩🍺',
+            '🚀🎈🛸🎉🎊🎁🎀🎈',
+            '🎠🎡🎪🚂🚒🚌🚓🚲'
+        ];
+        let selectedEmojis = [];
+
+        const emojiContainer = document.getElementById('emojiContainer');
+
+        emojis.forEach(emoji => {
+            let emojiWrapper = document.createElement('div');
+            emojiWrapper.classList.add('emoji-wrapper');
+
+            let emojiElement = document.createElement('span');
+            emojiElement.classList.add('emoji');
+            emojiElement.textContent = emoji;
+
+            emojiWrapper.appendChild(emojiElement);
+            emojiContainer.appendChild(emojiWrapper);
+
+            emojiWrapper.addEventListener('click', function () {
+                if (!this.classList.contains('selected')) {
+                    this.classList.add('selected');
+                    selectedEmojis.push(emoji);
+
+                    if (selectedEmojis.length === 5) {
+                        window.location.href = `nextPage.html?emojis=${selectedEmojis.join('')}`;
+                    }
+                } else {
+                    this.classList.remove('selected');
+                    let index = selectedEmojis.indexOf(emoji);
+                    if (index > -1) {
+                        selectedEmojis.splice(index, 1);
+                    }
+                }
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>
+
+<!-- 
+'😀😂😃😄😅😆😇😉', 
+'😊😋😎😍😘😗😙😜',
+'🤪🤩🥳🤗🤭🤫🤔🤠',  -->

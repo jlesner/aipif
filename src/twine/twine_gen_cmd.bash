@@ -29,3 +29,9 @@ cat story/_generated/decorated.xml \
 # http://aipif-2023.s3-website-us-west-1.amazonaws.com/sample/twine.html
 
 # http://aipif-2023.s3.amazonaws.com/sample/twine.html
+
+
+cat twine/_generated/example_decorated.xml \
+    | xsltproc twine/xslt/prompt_remove.xml /dev/stdin \
+    | xsltproc twine/xslt/sugarcube_twine_generate4b.xml /dev/stdin \
+    > twine/_generated/decorated_tree.twee
