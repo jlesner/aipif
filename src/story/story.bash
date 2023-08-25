@@ -178,6 +178,7 @@ fs_queue_pass()
                 | tee /dev/stderr \
                 | rq_worker
         ) 2>&1 \
+            | tee /dev/stderr \
             | tee -a "${f}.log"
 
         rm "${f}.lock"
@@ -186,30 +187,6 @@ fs_queue_pass()
 } ; export -f fs_queue_pass
 
 
-s3_queue_pass()
-{
-    while read f ; do
-
-        if s3_exists "_queue/${f}.lock" || s3_exists "_queue/${f}.log" ; then
-            continue
-        fi
-
-        s3_touch "_queue/${f}.lock"
-
-        (
-            s3_cat "_queue/${f}" \
-                | tee /dev/stderr \
-                | time rq_worker
-        ) 2>&1 \
-            | tee "_queue/${f}.log" \
-            | s3_txt_stream "_queue/${f}.log"
-            # | tee /dev/stderr \
-
-        s3_rm "_queue/${f}.lock"
-    done
-
-} ; export -f fs_queue_pass
-
 
 fs_rq_worker()
 {
@@ -217,7 +194,7 @@ fs_rq_worker()
     (
         source ~/aipif/sd_venv/bin/activate
         while true ; do
-            find _queue -type f \
+            find _queue -type f -maxdepth 1 \
                 | perl -pe's{^(.+-req.xml).*}{$1}g;' \
                 | sort \
                 | uniq -u \
@@ -244,14 +221,42 @@ fs_rq_worker_run()
 } ; export -f fs_rq_worker_run
 
 
+s3_queue_pass()
+{
+    while read f ; do
+
+        if s3_exists "_queue/${f}.lock" || s3_exists "_queue/${f}.log" ; then
+            continue
+        fi
+
+        s3_touch "_queue/${f}.lock"
+        touch "_queue/${f}.lock"
+
+        (
+            s3_get "_queue/${f}" \
+                | tee /dev/stderr \
+                | rq_worker
+        ) 2>&1 \
+            | tee /dev/stderr \
+            | tee "_queue/${f}.log" \
+            | s3_txt_stream "_queue/${f}.log"
+            # | tee /dev/stderr \
+
+        s3_rm "_queue/${f}.lock"
+        rm "_queue/${f}.lock"
+    done
+
+} ; export -f fs_queue_pass
+
+
 s3_rq_worker()
 {
     local filter=$1
     mkdir -p _queue 2>/dev/null || true
     (
-        source ~/aipif/sd_venv/bin/activate
         while true ; do
             s3_file_ls "_queue/" \
+                | tee s3_file_ls.out \
                 | perl -pe's{^(.+-req.xml).*}{$1}g;' \
                 | sort \
                 | uniq -u \
@@ -259,7 +264,8 @@ s3_rq_worker()
                 | head -n 1 \
                 | s3_queue_pass
             echo -n .
-            sleep 5
+            break
+            sleep 10
         done
     ) 2>&1 \
         | tee s3_rq_worker.log
@@ -268,6 +274,24 @@ s3_rq_worker()
 
 s3_queue_sync()
 {
-    aws s3 cp --recursive src/story/_queue s3://${s3_bucket}/_queue
+    aws s3 rm --recursive s3://${s3_bucket}/_queue
+    aws s3 cp --recursive _queue s3://${s3_bucket}/_queue
 } ; export -f s3_queue_sync
+
+
+s3_rq_worker_run()
+{
+    (
+        story_configure
+        source ../common/aws.bash
+        source ~/aipif/sd_venv/bin/activate
+        pip install -r ../pictures/requirements.txt
+        # s3_queue_sync
+        s3_rq_worker make_picture
+        # aws s3 rm s3://aipif-2023/_queue/make_picture-7ccab19d-req.xml.log
+        # aws s3 rm s3://aipif-2023/_queue/make_picture-7ccab19d-req.xml.lock
+        # echo make_picture-7ccab19d-req.xml \
+        #     | s3_queue_pass 
+    )
+} ; export -f s3_rq_worker_run
 
