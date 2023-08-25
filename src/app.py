@@ -35,6 +35,28 @@ def index():
     return render_template("index.html", result=result)
 
 
+
+@app.route("/story_suggest", methods=("GET", "POST"))
+def index():
+    # if request.method == "POST":
+    #     animal = request.form["animal"]
+    #     response = openai.Completion.create(
+    #         model="text-davinci-003",
+    #         prompt=generate_prompt(animal),
+    #         temperature=0.6,
+    #     )
+    #     # TODO assign story_suggestion from ss URL parameter
+
+    story_suggestion = request.args.get("ss")
+                
+    print(f"{story_suggestion} story suggestion" )
+    # return redirect(url_for("index", result=response.choices[0].text))
+
+    result = request.args.get("result")
+    return render_template("index.html", result=result)
+
+
+
 def generate_prompt(animal):
     return """Suggest three names for an animal that is a superhero.
 
