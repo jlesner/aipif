@@ -2,7 +2,7 @@ import os
 
 import openai
 from flask import Flask, redirect, render_template, request, url_for
-from story.seeds.image_seeds import *
+# from story.seeds.image_seeds import *
 
 
 app = Flask(__name__)

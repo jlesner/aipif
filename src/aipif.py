@@ -1,5 +1,5 @@
 import logging
-from Context import Context
+from common.Context import Context
 from pictures.StubPictureMaker import StubPictureMaker
 from sounds.StubSoundMaker import StubSoundMaker
 from music.StubMusicMaker import StubMusicMaker
@@ -13,7 +13,6 @@ def context_configure(context:Context):
     # WARNING: DO NOT CHECKIN YOUR API KEYS / SECRETS
     #
     context.config['story_maker_port'] = 8080
-    
 
 def state_setup(context:Context):
     # setup context.state using context.config 
@@ -23,7 +22,6 @@ def state_setup(context:Context):
     context.state['make_sound'] = StubSoundMaker(context).make_sound
     context.state['make_music'] = StubMusicMaker(context).make_music
     context.state['make_story'] = StubTextMaker(context).make_text
-
 
 if __name__ == '__main__':
     logging.basicConfig(filename=__file__[:-3] +'.log', filemode='w', level=logging.DEBUG)
