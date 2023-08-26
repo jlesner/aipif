@@ -2,8 +2,6 @@ from common.ContextAware import ContextAware
 from sounds.selection import select_title, generate_keywords
 from sounds.collection import collect_sounds, preview_sound
 
-from random import choice
-
 class SoundMaker(ContextAware):
 
     def make_sound(self, prompt_dict: dict):
