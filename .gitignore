@@ -7,6 +7,8 @@ _cache
 _queue
 _queue_*
 
+src/sounds/SoundFiles
+
 sd_venv/
 story_venv/
 

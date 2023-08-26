@@ -1,0 +1,79 @@
+
+
+
+==========================================================
+<FreesoundException: code=429, detail="Too Many Requests"
+==========================================================
+
+What I did was run the SoundMakerDemo in a loop like this 
+
+seq 100 | while read n ; do echo $n ; ( python3 src/sounds/SoundMakerDemo.py  ) ; done
+
+and sometimes it works but often there is <FreesoundException: code=429, detail="Too Many Requests"
+
+Likely what is happening there are many api calls sent rapidly rate limiting is tripped.
+
+Perhaps catch this FreesoundException and when it happens wait a bit before sending the next API call? 
+
+IMPORTANT: Make sure you code eventually gives up (perhaps after MAX_API_ATTEMPTS from env) --- do not write a loop that forever keeps trying.
+
+
+positive_prompt_text: The sound of chirping birds and rustling leaves filled the air, creating a peaceful and harmonious ambiance.
+
+Traceback (most recent call last):
+  File "/home/clesner/aipif_t/sm_venv/lib/python3.10/site-packages/freesound.py", line 248, in request
+    resp.raise_for_status()
+  File "/home/clesner/aipif_t/sm_venv/lib/python3.10/site-packages/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error: Too Many Requests for url: https://freesound.org/apiv2/sounds/519106/?fields=previews
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/clesner/aipif_t/src/sounds/SoundMakerDemo.py", line 16, in <module>
+    make_sound_output =  sound_maker.make_sound({\
+  File "/home/clesner/aipif_t/src/sounds/SoundMaker.py", line 42, in make_sound
+    preview_sound(title_id)
+  File "/home/clesner/aipif_t/src/sounds/collection.py", line 38, in preview_sound
+    sound = freesound_client.get_sound(
+  File "/home/clesner/aipif_t/sm_venv/lib/python3.10/site-packages/freesound.py", line 98, in get_sound
+    return FSRequest.request(uri, params, self, Sound)
+  File "/home/clesner/aipif_t/sm_venv/lib/python3.10/site-packages/freesound.py", line 250, in request
+    raise FreesoundException(resp.status_code, resp.reason) from e
+freesound.FreesoundException: <FreesoundException: code=429, detail="Too Many Requests">
+
+
+
+
+==========================================================
+<FreesoundException: code=404, detail="Not Found">
+==========================================================
+
+Sometimes the error is 404 for example with the positive_prompt_text below.
+
+What causes this? What options are there to gracefully handle this error? 
+
+
+positive_prompt_text: As Emily stepped outside, the sound of crunching snow beneath her boots filled the air, creating a magical and playful atmosphere.
+
+Traceback (most recent call last):
+  File "/home/clesner/aipif_t/sm_venv/lib/python3.10/site-packages/freesound.py", line 248, in request
+    resp.raise_for_status()
+  File "/home/clesner/aipif_t/sm_venv/lib/python3.10/site-packages/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://freesound.org/apiv2/sounds/The%20sound%20id%20for%20the%20best%20match%20is%2052144./?fields=previews
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/clesner/aipif_t/src/sounds/SoundMakerDemo.py", line 16, in <module>
+    make_sound_output =  sound_maker.make_sound({\
+  File "/home/clesner/aipif_t/src/sounds/SoundMaker.py", line 42, in make_sound
+    preview_sound(title_id)
+  File "/home/clesner/aipif_t/src/sounds/collection.py", line 38, in preview_sound
+    sound = freesound_client.get_sound(
+  File "/home/clesner/aipif_t/sm_venv/lib/python3.10/site-packages/freesound.py", line 98, in get_sound
+    return FSRequest.request(uri, params, self, Sound)
+  File "/home/clesner/aipif_t/sm_venv/lib/python3.10/site-packages/freesound.py", line 250, in request
+    raise FreesoundException(resp.status_code, resp.reason) from e
+freesound.FreesoundException: <FreesoundException: code=404, detail="Not Found">
