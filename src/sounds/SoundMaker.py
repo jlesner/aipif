@@ -2,6 +2,8 @@ from common.ContextAware import ContextAware
 from sounds.selection import select_title, generate_keywords
 from sounds.collection import collect_sounds, preview_sound
 
+from random import choice
+
 class SoundMaker(ContextAware):
 
     def make_sound(self, prompt_dict: dict):
@@ -27,7 +29,6 @@ class SoundMaker(ContextAware):
         
         # openai generates keywords from the prompt
         keywords= generate_keywords(prompt)
-        #print("keywords:",keywords)
         
         # keywords are used to query and collect sounds from freesound and results are written to sounds.txt
         collect_sounds(keywords)
@@ -35,7 +36,6 @@ class SoundMaker(ContextAware):
         # langchain uses openai to read sounds.txt and selects most relevant sound id based on prompt
         title_id= select_title(prompt)
         title_id= title_id.strip() #remove leading and trailing whitespace from id
-        #print(f"id: {title_id}")
         
         # download sound file from selected sound id to SoundFiles directory as 'title_id.mp3'
         preview_sound(title_id)
