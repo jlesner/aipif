@@ -1,16 +1,11 @@
 # Jasmine Task List
 
-
-change title of twine to emojis
-make the start page the first page of the twine
-"The End" button links to the story_list page
-DEBUG links to story_list and story_suggest
-
 get DEMO of make_sound() prototype working
 
 add retry button to gallery (sends get request to flask, parameter id="bob")
 
 remove wait_for_audio for ipad test
+fix the ui (in both story_list/story_suggest) being hidden by header and footer
 
 
 ? allow edit and regen of prompts that generate media
@@ -83,8 +78,6 @@ arn:aws:s3:::aipif-2023
 ## update sample picture prompts to be less complex 
 
 ## emji DB
-
----------------------
 
 ## web service setup
 ### "sells the service" -> shows concept slide

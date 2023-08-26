@@ -1,25 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <xsl:output method="text"/>
-
-<xsl:template match="story">
+<xsl:template match="tree">
 
     <xsl:text>
 :: StoryTitle
-My Story
+</xsl:text>
+    <xsl:value-of select="prompt"/>
+    <xsl:text>
 
 :: StoryData
 {
   "ifid": "649AB536-20DE-4D3D-BAF5-544D2ED975F6",
   "format": "SugarCube",
   "format-version": "2.36.1",
-  "start": "Title Page",
+  "start": "</xsl:text>
+    <xsl:value-of select="scene[1]/@key"/>
+  <xsl:text>",
   "zoom": 1
 }
 
 :: StoryInit
-<!-- <![CDATA[<<script>>
+<![CDATA[<<script>>
+function changeFavicon(src) {
+    const link = document.createElement('link');
+    const oldLink = document.getElementById('dynamic-favicon');
+
+    link.id = 'dynamic-favicon';
+    link.rel = 'shortcut icon';
+    link.href = src;
+
+    if (oldLink) {
+        document.head.removeChild(oldLink);
+    }
+
+    document.head.appendChild(link);
+}
+
+changeFavicon('http://aipif-2023.s3.amazonaws.com/static/favicon.png');
+
 Setting.addHeader("Game Settings");
 Setting.addRange("masterVolume", {
 	label    : "Master volume:",
@@ -30,12 +49,10 @@ Setting.addRange("masterVolume", {
 		SimpleAudio.volume(settings.masterVolume / 10);
 	}
 });
-<</script>>]]> -->
-
-:: Title Page
+<</script>>]]>
 </xsl:text>
 
-    <xsl:variable name="next_scene" select="scene[1]/@key"/>
+    <!-- <xsl:variable name="next_scene" select="scene[1]/@key"/>
 
     <xsl:text>&lt;&lt;button [[</xsl:text>
         <xsl:text>WELCOME</xsl:text>
@@ -43,7 +60,7 @@ Setting.addRange("masterVolume", {
         <xsl:value-of select="$next_scene"/>
     <xsl:text>]]&gt;&gt;</xsl:text>
     <xsl:text>&lt;&lt;/button&gt;&gt;
-</xsl:text>
+</xsl:text> -->
 
     <xsl:apply-templates select="scene"/>
 
@@ -107,15 +124,24 @@ Setting.addRange("masterVolume", {
                 <a href="http://aipif-2023.s3.amazonaws.com/sample/twine.twee.txt" target="_blank">twee</a>
                 <a href="http://aipif-2023.s3.amazonaws.com/sample/tree.html" target="_blank">tree</a>
                 <a href="http://aipif-2023.s3.amazonaws.com/sample/gallery.html" target="_blank">gallery</a>
+                <a href="http://aipif-2023.s3.amazonaws.com/static/story_list3b.html" target="_blank">story list</a>
+                <a href="http://aipif-2023.s3.amazonaws.com/static/story_suggest2b.html" target="_blank">story suggest</a>
             </html>]]>
             </xsl:text>
+            <!-- ^ story_list story_suggest links need to be updated -->
             <xsl:apply-templates select="branch/scene"/>
         </xsl:when>
 
         <xsl:when test="not(following-sibling::scene)">
             <xsl:text>
 The End!
-</xsl:text>
+<![CDATA[
+<<button [img[http://aipif-2023.s3.amazonaws.com/static/favicon.png]] >>
+    <<script>>
+    window.location.href='https://aipif-2023.s3.us-west-1.amazonaws.com/static/story_list3b.html'
+    <</script>>
+<</button>>
+]]></xsl:text>
         </xsl:when>
     </xsl:choose>
 

@@ -9,9 +9,6 @@
         <xsl:apply-templates select="node()"/>
     </xsl:template>
 
-    <xsl:template match="prompt">
-    </xsl:template>
-
     <xsl:template match="request">
     </xsl:template>
 
