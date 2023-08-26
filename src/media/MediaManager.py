@@ -18,6 +18,9 @@ class MediaManager(ContextAware):
 
     def bytes_to_mp4_url(self, data:bytes) -> str:
         return self.bytes_to_url(data, 'audio/mp4')
+    
+    def bytes_to_wav_url(self, data:bytes):
+        return self.bytes_to_url(data, 'audio/wav')
 
     def url_to_bytes(self, data_url: str) -> bytes:
         if not data_url.startswith('data:'):
