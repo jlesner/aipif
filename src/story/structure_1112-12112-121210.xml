@@ -23,7 +23,7 @@
                         <name>Present the Disruptive Event</name>
                         <description>Introduce the event that disrupts the protagonist's normal life and sets the story in motion.</description>
                     </sequence>
-                    <sequence branch_count="1">
+                    <sequence branch_count="2">
                         <name>Initial Reaction of the Protagonist</name>
                         <description>Portray the protagonist's initial response and emotions upon encountering the inciting incident.</description>
                     </sequence>
@@ -47,7 +47,7 @@
             <part>
                 <name>Escalation of Conflicts and Obstacles</name>
                 <sequences>
-                    <sequence branch_count="1">
+                    <sequence branch_count="2">
                         <name>Introduction of Challenges</name>
                         <description>Introduce challenges that push the protagonist to confront the central conflict.</description>
                     </sequence>
@@ -83,7 +83,7 @@
                         <name>Aftermath of the Climax</name>
                         <description>Address the aftermath of the climax and explore the consequences of key decisions.</description>
                     </sequence>
-                    <sequence branch_count="1">
+                    <sequence branch_count="2">
                         <name>Resolution of Subplots</name>
                         <description>Resolve any remaining subplots or loose ends in the story.</description>
                     </sequence>
@@ -96,7 +96,7 @@
                         <name>Character Growth and Transformation</name>
                         <description>Showcase the protagonist's growth, transformation, or change in perspective.</description>
                     </sequence>
-                    <sequence branch_count="1">
+                    <sequence branch_count="2">
                         <name>Main Conflict Resolution</name>
                         <description>Resolve the main conflict and demonstrate how the characters have evolved.</description>
                     </sequence>

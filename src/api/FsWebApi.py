@@ -3,7 +3,6 @@ import hashlib
 import json
 import os
 import sys
-# from common.ContextAware import ContextAware
 
 class FsWebApi():
 
@@ -32,11 +31,40 @@ class FsWebApi():
 
         print(f"Queued {fpath} with {request_xml}", file=sys.stderr)
 
-    def story_delete(self, rq_id:str):
-        pass
-
     def request_retry(self, rq_id:str):
-        pass
+        # TODO support retry beyond images
+        fpath = f"{self._queue_path}/make_picture-{rq_id}-req.xml.log"
+        try:
+            os.remove(fpath)
+        except OSError:
+            pass
+
+    def request_edit(self, rq_id:str, positive_prompt_text:str):
+        # TODO support edits beyond images
+        # TODO support style and negative prompt edits
+        fpath = f"{self._queue_path}/make_picture-{rq_id}-req.xml"
+        
+        request_xml = f'''
+<queue>
+    <request type="make_picture">
+        <positive_prompt_text>{positive_prompt_text}</positive_prompt_text>
+        <negative_prompt_text>Disfigured, blurry, nude, sloppy, deformed, mutated, ugly</negative_prompt_text>
+        <style_prompt_text>Quentin Blake. Expressive, sketchy line drawing having humor and energy.</style_prompt_text>
+        <rq id="{rq_id}"/>
+    </request>
+</queue>
+        '''
+
+        try:
+            with open(fpath, "w") as file:
+                file.write(request_xml)
+        except OSError:
+            pass
+
+        try:
+            os.remove(fpath + ".log")
+        except OSError:
+            pass
 
     def json_story_list(self) -> json:
         return json.dumps(
@@ -86,7 +114,7 @@ class FsWebApi():
 
 if __name__ == "__main__":
     api = FsWebApi()
-    api.story_suggest("Hello")
+    api.story_suggest("🌌🍅🦙🍝🚍🎻")
     print(api.json_story_list())
     # print(api.json_queue_list())
     # print(api.xml_queue_list())

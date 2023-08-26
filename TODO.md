@@ -13,14 +13,16 @@ add retry button to gallery (sends get request to flask, parameter id="bob")
 remove wait_for_audio for ipad test
 
 
-
+? allow edit and regen of prompts that generate media
 
 Fix the html titles of the story_list/story_suggest 
+
 
 story_list_view (static)
     "default landing page"
     load static json file with story title and rq_id
     { title: "SFASDF", rq_id: "F4S45FG" }
+
 
 story_suggest_view (static)
     allow selection of 5-6 emji 
@@ -121,6 +123,67 @@ arn:aws:s3:::aipif-2023
 ### design - word cloud?
 ### implementation - html+js?
 
+
+Todo
+Suggest story
+List images with delete option
+List stories
+List suggestions
+Delete suggestion
+Delete story
+Regen image
+Suggested stories with percent done
+Pictures sounds sciences
+
+Queue status page
+Image Regen page
+
+Fix mobile experience 
+ install on ipad 
+Browser Icon for bookmarks etc 
+
+
+Image version of story flow chart showing generation
+
+Multiple GPU selector for generation?
+
+Stub image rq worker?
+Fast image worker?
+Upgrade image worker?
+Multiple asset versions
+How to cycle them?
+
+Demo
+Ipad / phone / desktop
+Story pick
+Story view
+Story structure 
+
+RANDOM
+
+Who? +  
+Who? [ K H W F ] 
+Who? H + 
+Who? H + [ K W F ] 
+Who? H F  
+Who? H +
+
+Who? [ K H W F ] + 
+What? [ W V S ]  +
+Where? [ H D W ] + 
+When? [ A V X ] +
+Why? [ M O S ] +
+
+Endings? {1 4 16 64}
+Purpose?  [ K H W F ] +
+Mood? [ S G H ] +
+
+MAKE 
+
+
+Cloudflare cache?
+Sum of powers of two and three
+Real time generation
 
 
 
