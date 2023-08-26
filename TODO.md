@@ -1,6 +1,5 @@
 # Jasmine Task List
 
-make a sound/music gallery
 get DEMO of make_sound() prototype working
 
 add retry button to gallery (sends get request to flask, parameter id="bob")
