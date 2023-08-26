@@ -37,9 +37,23 @@
             background-color: #0056b3;
         }
 
+        #header_ty {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background-color: #333;
+            color: #fff;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
         /* Style for the container */
         #emojiContainer {
-            padding-top: 70px; /* Additional padding for the fixed header */
+            padding-top: 110px; /* Additional padding for the fixed header */
             max-height: 85vh; /* 80% of the viewport height */
             overflow-y: scroll; /* Scrollable */
         }
@@ -101,18 +115,27 @@
 
 <body>
     
+    <!-- <div id="thankYouMessage" >
+        Thank You for your suggestion. Please check back in a few hours to see your story.
+    </div> -->
+    
     <div id="header">
         <!-- <button onclick="window.location.href='http://design_story.com'">Add New Story</button> -->
-        PICK A STORY
+        A STORY ABOUT ...... ?
     </div>
 
+    <div id="header_ty">
+        <!-- <button onclick="window.location.href='http://design_story.com'">Add New Story</button> -->
+        THANK YOU FOR YOUR SUGGESTION!
+    </div>
+    
     <div id="emojiContainer">
         <!-- Emojis will be populated here -->
     </div>
     
     <!-- Footer with "Add New Story" button -->
     <footer>
-        <button class="add-story-btn" onclick="window.location.href='http://design_story.com'">MAKE A STORY</button>
+        <button class="add-story-btn" onclick="window.location.href='https://aipif-2023.s3.us-west-1.amazonaws.com/static/story_suggest.html'">MAKE A STORY</button>
     </footer>
 
     <script>
@@ -186,7 +209,20 @@
 
             emojiContainer.appendChild(emojiBox);
         });
+    
+        // Check for URL parameters
+        function getURLParameter(name) {
+            return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
+        }
 
+        window.onload = function() {
+            if (getURLParameter('m') === 'ty') {
+                console.log('Thank You! Your story has been submitted.');
+                document.getElementById('header_ty').style.display = 'flex';
+                document.getElementById('header').style.display = 'none';
+            }
+        };
+    
     </script>
 
 </body>
