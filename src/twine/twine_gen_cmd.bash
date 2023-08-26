@@ -32,6 +32,9 @@ cat story/_generated/decorated.xml \
 
 
 cat twine/_generated/example_decorated.xml \
-    | xsltproc twine/xslt/prompt_remove.xml /dev/stdin \
-    | xsltproc twine/xslt/sugarcube_twine_generate4b.xml /dev/stdin \
+    | xsltproc twine/xslt/sugarcube_twine_generate6.xml /dev/stdin \
     > twine/_generated/decorated_tree.twee
+
+/opt/tweego-2.1.1-linux-x64/tweego -f sugarcube-2 -o /dev/stdout \
+    twine/_generated/decorated_tree.twee \
+    > twine/_generated/decorated_tree.html

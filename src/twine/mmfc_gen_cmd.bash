@@ -17,3 +17,10 @@ cat story/_generated/decorated.xml \
 # http://aipif-2023.s3.amazonaws.com/sample/tree.html
 
 # aws s3 cp story/_sample/tree_016_zzz6_url.xml s3://aipif-2023/sample/tree.xml --content-type application/xml
+
+cat twine/_generated/example_decorated.xml \
+    | tr -s " " \
+    | xsltproc twine/xslt/problem_char_fix.xml /dev/stdin \
+    | fmt -w 60 \
+    | xsltproc twine/xslt/m_gallery_generate.xml /dev/stdin \
+    > twine/_generated/music_gallery.html
