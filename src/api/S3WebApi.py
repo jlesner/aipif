@@ -1,17 +1,15 @@
-
-import hashlib
+import sys
 import json
 import os
-import sys
-# from common.ContextAware import ContextAware
+import boto3
+import hashlib
 
 class S3WebApi():
 
-    def __init__(self, queue_path:str="story/_queue"):
+    def __init__(self, queue_path:str="_queue", bucket_name:str='aipif-2023'):
+        self._s3_client = boto3.client('s3')
         self._queue_path = queue_path
-        path = self._queue_path
-        if not os.path.exists(path) or not os.path.isdir(path):
-            raise ValueError(f"'{path}' is not a valid directory path")
+        self._bucket_name = bucket_name
 
     def story_suggest(self, story_prompt:str):
         request_hash = hashlib.sha256(story_prompt.encode()).hexdigest()
@@ -26,11 +24,16 @@ class S3WebApi():
 </queue>
         '''
 
-        fpath = f"{self._queue_path}/make_story-{rq_id}-req.xml"
-        with open(fpath, 'w') as file:
-            file.write(request_xml)
+        s3_key = f"{self._queue_path}/make_story-{rq_id}-req.xml"
 
-        print(f"Queued {fpath} with {request_xml}", file=sys.stderr)
+        self._s3_client.put_object(
+            Bucket=self._bucket_name,
+            Key=s3_key,
+            Body=request_xml,
+            ContentType='application/xml'
+        )
+
+        print(f"Queued {s3_key} in S3 bucket {self._bucket_name} with content {request_xml}", file=sys.stderr)
 
     def story_delete(self, rq_id:str):
         pass
@@ -83,10 +86,11 @@ class S3WebApi():
         file_data = {file: os.path.getsize(os.path.join(path, file)) for file in files}
         return self.dict_to_xml(file_data)
 
-
 if __name__ == "__main__":
-    api = FsWebApi()
+    api = S3WebApi()
     api.story_suggest("Hello")
     print(api.json_story_list())
     # print(api.json_queue_list())
     # print(api.xml_queue_list())
+
+
