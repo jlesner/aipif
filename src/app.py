@@ -1,12 +1,16 @@
-import os
-
-# import openai
 from flask import Flask, redirect, render_template, request, url_for
-
 from api.FsWebApi import FsWebApi
+from flask_cors import CORS
 
 app = Flask(__name__)
-web_api = FsWebApi()
+CORS(app)
+
+web_api = FsWebApi("src/story/_queue")
+
+@app.route("/sl", methods=("GET", "POST"))
+def story_list():
+    return web_api.json_story_list()
+
 
 
 @app.route("/ss", methods=("GET", "POST"))
@@ -20,22 +24,14 @@ def story_suggest():
     return redirect("https://aipif-2023.s3.amazonaws.com/static/story_list.html?m=ty")
 
 
-@app.route("/sl", methods=("GET", "POST"))
-def story_list():
-    return web_api.json_story_list()
 
+@app.route("/rr", methods=("GET", "POST"))
+def story_suggest():
 
-# @app.route("/", methods=("GET", "POST"))
-# def index():
-#     if request.method == "POST":
-#         animal = request.form["animal"]
-#         response = openai.Completion.create(
-#             model="text-davinci-003",
-#             prompt=generate_prompt(animal),
-#             temperature=0.6,
-#         )
-#         return redirect(url_for("index", result=response.choices[0].text))
+    if request.method == "GET":
+        id = request.args.get("id")
+        web_api.request_retry(id)
+        print(f"request_retry(id) with {id}" )
 
-#     result = request.args.get("result")
-#     return render_template("index.html", result=result)
+    return None
 

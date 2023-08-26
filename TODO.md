@@ -1,6 +1,22 @@
 # Jasmine Task List
 
 
+change title of twine to emojis
+make the start page the first page of the twine
+"The End" button links to the story_list page
+DEBUG links to story_list and story_suggest
+
+get DEMO of make_sound() prototype working
+
+add retry button to gallery (sends get request to flask, parameter id="bob")
+
+remove wait_for_audio for ipad test
+
+
+
+
+Fix the html titles of the story_list/story_suggest 
+
 story_list_view (static)
     "default landing page"
     load static json file with story title and rq_id
@@ -17,13 +33,6 @@ flask api call story_suggest
     reply with suggestion_status_view template (static)
         "Thank you for your suggestion.  Please check story_list_view in a few hours. 
         BUTTON "Show available stories" => story_list_view
-
-
-
-get make_sound() prototype working
-
-
-
 
 
 # add twee to debug options

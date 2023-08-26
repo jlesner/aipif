@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Fun Emojis</title>
+    <style>
+        #header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background-color: #333;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        .emoji-wrapper {
+            display: inline-block;
+            padding: 5px;
+            margin: 5px;
+            border-radius: 50%;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .emoji-wrapper.selected {
+            background-color: rgb(92, 168, 255);
+        }
+
+        .emoji {
+            font-size: 30px;
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        Suggest a story about . . . . . . ?
+    </div>
+    <div id="emojiContainer">
+        <!-- Emojis will be populated here -->
+    </div>
+
+    <script>
+        let emojis = [
+            '😀', '😂', '😃', '😄', '😅', '😆', '😇', '😉', 
+            '😊', '😋', '😎', '😍', '😘', '😗', '😙', '😜',
+            '🤪', '🤩', '🥳', '🤗', '🤭', '🤫', '🤔', '🤠', 
+            '👻', '🤖', '👽', '👾', '🤡', '💩',
+            '🐶', '🐱', '🐭', '🐹', '🐰', '🦊', '🐻', '🐼',
+            '🦁', '🐯', '🦄', '🐷', '🐸', '🐵', '🦍', '🦒', 
+            '🦓', '🦔', '🦖', '🦕', '🦉', '🦆', '🐧', '🐦',
+            '🐤', '🐣', '🐔', '🦋', '🐛', '🐢', '🦎', '🦑',
+            '🦐', '🦀', '🐡', '🐠', '🐟', '🐬', '🐳', '🦈',
+            '🍎', '🍉', '🍇', '🍓', '🍌', '🍍', '🥭', '🍏',
+            '🍊', '🍋', '🍔', '🍟', '🍕', '🍩', '🍦', '🍭',
+            '🍪', '🍰', '🧁', '🍬', '🍫', '🍿', '🍩', '🍺',
+            '🚀', '🎈', '🛸', '🎉', '🎊', '🎁', '🎀', '🎈',
+            '🎠', '🎡', '🎪', '🚂', '🚒', '🚌', '🚓', '🚲'
+        ];
+        let selectedEmojis = [];
+
+        const emojiContainer = document.getElementById('emojiContainer');
+
+        emojis.forEach(emoji => {
+            let emojiWrapper = document.createElement('div');
+            emojiWrapper.classList.add('emoji-wrapper');
+
+            let emojiElement = document.createElement('span');
+            emojiElement.classList.add('emoji');
+            emojiElement.textContent = emoji;
+
+            emojiWrapper.appendChild(emojiElement);
+            emojiContainer.appendChild(emojiWrapper);
+
+            emojiWrapper.addEventListener('click', function () {
+                if (!this.classList.contains('selected')) {
+                    this.classList.add('selected');
+                    selectedEmojis.push(emoji);
+
+                    if (selectedEmojis.length === 6) {
+                        // window.location.href = `nextPage.html?emojis=${selectedEmojis.join('')}`;
+                        window.location.href = `http://localhost:5000/ss?ss=${selectedEmojis.join('')}`;
+                    }
+                } else {
+                    this.classList.remove('selected');
+                    let index = selectedEmojis.indexOf(emoji);
+                    if (index > -1) {
+                        selectedEmojis.splice(index, 1);
+                    }
+                }
+            });
+        });
+
+        window.onload = function() {
+            // Set the default zoom level to 90%
+            document.body.style.zoom = "250%";
+        }
+
+    </script>
+
+</body>
+
+</html>

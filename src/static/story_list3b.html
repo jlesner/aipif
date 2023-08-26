@@ -3,8 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emoji Boxes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Story List</title>
+    <link rel="icon" type="image/png" href="/static/favicon.png">
     <style>
 
         /* Style for the header */
@@ -121,7 +122,7 @@
     
     <div id="header">
         <!-- <button onclick="window.location.href='http://design_story.com'">Add New Story</button> -->
-        A STORY ABOUT ...... ?
+        CHOOSE A STORY ABOUT ...... ?
     </div>
 
     <div id="header_ty">
@@ -135,87 +136,91 @@
     
     <!-- Footer with "Add New Story" button -->
     <footer>
-        <button class="add-story-btn" onclick="window.location.href='https://aipif-2023.s3.us-west-1.amazonaws.com/static/story_suggest.html'">MAKE A STORY</button>
+        <button class="add-story-btn" onclick="window.location.href='https://aipif-2023.s3.us-west-1.amazonaws.com/static/story_suggest2b.html'">SUGGEST A STORY</button>
     </footer>
 
     <script>
-        let emojis = [
-        '👻🤖👽👾🦕🦉🤡💩',
-            '🐶🐱🐭🐹🐰🦊🐻🐼',
-            '🦁🐯🦄🐷🐸🐵🦍🦒', 
-            '🦓🦔🦖🦕🦉🦆🐧🐦',
-            '🐤🐣🐔🦋🐛🐢🦎🦑',
-            '🐶🐱🐭🐹🐰🦊🐻🐼',
-            '🦁🐯🦄🐷🐸🐵🦍🦒', 
-            '🦓🦔🦖🦕🦉🦆🐧🐦',
-            '🐤🐣🐔🦋🐛🐢🦎🦑',
-            '🦐🦀🐡🐠🐟🐬🐳🦈',
-            '🍎🍉🍇🍓🍌🍍🥭🍏',
-            '🍊🍋🍔🍟🍕🍩🍦🍭',
-            '🐶🐱🐭🐹🐰🦊🐻🐼',
-            '🦁🐯🦄🐷🐸🐵🦍🦒', 
-            '🦓🦔🦖🦕🦉🦆🐧🐦',
-            '🐤🐣🐔🦋🐛🐢🦎🦑',
-            '🦐🦀🐡🐠🐟🐬🐳🦈',
-            '🍎🍉🍇🍓🍌🍍🥭🍏',
-            '🍊🍋🍔🍟🍕🍩🍦🍭',
-            '🐶🐱🐭🐹🐰🦊🐻🐼',
-            '🦁🐯🦄🐷🐸🐵🦍🦒', 
-            '🦓🦔🦖🦕🦉🦆🐧🐦',
-            '🐤🐣🐔🦋🐛🐢🦎🦑',
-            '🦐🦀🐡🐠🐟🐬🐳🦈',
-            '🍎🍉🍇🍓🍌🍍🥭🍏',
-            '🍊🍋🍔🍟🍕🍩🍦🍭',
-            '🐶🐱🐭🐹🐰🦊🐻🐼',
-            '🦁🐯🦄🐷🐸🐵🦍🦒', 
-            '🦓🦔🦖🦕🦉🦆🐧🐦',
-            '🐤🐣🐔🦋🐛🐢🦎🦑',
-            '🦐🦀🐡🐠🐟🐬🐳🦈',
-            '🍎🍉🍇🍓🍌🍍🥭🍏',
-            '🍊🍋🍔🍟🍕🍩🍦🍭',
-            '🐶🐱🐭🐹🐰🦊🐻🐼',
-            '🦁🐯🦄🐷🐸🐵🦍🦒', 
-            '🦓🦔🦖🦕🦉🦆🐧🐦',
-            '🐤🐣🐔🦋🐛🐢🦎🦑',
-            '🦐🦀🐡🐠🐟🐬🐳🦈',
-            '🍎🍉🍇🍓🍌🍍🥭🍏',
-            '🍊🍋🍔🍟🍕🍩🍦🍭',
-            '🐶🐱🐭🐹🐰🦊🐻🐼',
-            '🦁🐯🦄🐷🐸🐵🦍🦒', 
-            '🦓🦔🦖🦕🦉🦆🐧🐦',
-            '🐤🐣🐔🦋🐛🐢🦎🦑',
-            '🦐🦀🐡🐠🐟🐬🐳🦈',
-            '🍎🍉🍇🍓🍌🍍🥭🍏',
-            '🍊🍋🍔🍟🍕🍩🍦🍭',
-            '🦐🦀🐡🐠🐟🐬🐳🦈',
-            '🍎🍉🍇🍓🍌🍍🥭🍏',
-            '🍊🍋🍔🍟🍕🍩🍦🍭',
-            '🍪🍰🧁🍬🍫🍿🍩🍺',
-            '🚀🎈🛸🎉🎊🎁🎀🎈',
-            '🎠🎡🎪🚂🚒🚌🚓🚲'
-        ];
+
+        let elist = [
+                ["👻🤖👽👾🦕🦉", "fgsdfgsd"],
+                ["🎈🌵🦉🍉🚁🎻", "sdfgdfgsdf"],
+                ["🌕🍒🦎🍓🚂🎷", "sdfsdfsd"],
+                ["🎉🌻🦖🍏🚜🎺", "sdfsdf"],
+                ["🌈🍋🦚🍇🚓🎶", "sdfsdsd"],
+                ["🎊🌼🦜🍔🚕🎵", "sadfwerwrw"],
+                ["🌙🍎🦢🍩🚢🎤", "sadfwerwrw"],
+                ["🎋🍉🦋🍖🚤🎼", "sadfwerwrw"],
+                ["🌠🍓🦗🍜🚘🎧", "sadfwerwrw"],
+                ["🎍🍑🦘🍛🚖🎸", "sadfwerwrw"],
+                ["🌌🍅🦙🍝🚍🎻", "sadfwerwrw"],
+                ["🎎🍈🦡🍞🚔🎷", "sadfwerwrw"],
+                ["🌑🍇🦒🍟🚐🎺", "sadfwerwrw"],
+                ["🎏🍊🦓🍠🚑🎶", "sadfwerwrw"],
+                ["🌔🍎🦂🍡🚎🎵", "sadfwerwrw"],
+                ["🎐🍋🦔🍢🚛🎤", "sadfwerwrw"],
+                ["🌖🍌🦕🍣🚚🎼", "sadfwerwrw"],
+                ["🎒🍍🦏🍤🚜🎧", "sadfwerwrw"],
+                ["🌓🍏🦜🍥🚝🎸", "sadfwerwrw"],
+                ["🎑🍐🦑🍦🚞🎻", "sadfwerwrw"]
+            ];
+
+
+        fetch('http://localhost:5000/sl')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                elist = data;
+                console.log(elist);
+                elist.forEach(emojiString => {
+                    let emojiBox = document.createElement('div');
+                    emojiBox.classList.add('emoji-box');
+                    console.log(emojiString[0]);
+                    console.log(emojiString[1]);
+                    emojiBox.textContent = emojiString[0];
+
+                    // Redirect when an emoji box is clicked
+                    emojiBox.addEventListener('click', function() {
+                        // window.location.href = `nextPage.html?emojis=${encodeURIComponent(emojiString[1])}`;
+                        window.location.href = `http://aipif-2023.s3.us-west-1.amazonaws.com/sample/tw0102_twine.html`;
+                    });
+
+                    emojiContainer.appendChild(emojiBox);
+                });
+    
+            })
+            .catch(error => {
+                console.log('There was a problem with the fetch operation:', error.message);
+                elist.forEach(emojiString => {
+                    let emojiBox = document.createElement('div');
+                    emojiBox.classList.add('emoji-box');
+                    console.log(emojiString[0]);
+                    console.log(emojiString[1]);
+                    emojiBox.textContent = emojiString[0];
+
+                    // Redirect when an emoji box is clicked
+                    emojiBox.addEventListener('click', function() {
+                        // window.location.href = `nextPage.html?emojis=${encodeURIComponent(emojiString[1])}`;
+                        window.location.href = `http://aipif-2023.s3.us-west-1.amazonaws.com/sample/tw0102_twine.html`;
+                    });
+
+                    emojiContainer.appendChild(emojiBox);
+                });
+            });
 
         const emojiContainer = document.getElementById('emojiContainer');
 
-        emojis.forEach(emojiString => {
-            let emojiBox = document.createElement('div');
-            emojiBox.classList.add('emoji-box');
-            emojiBox.textContent = emojiString;
-
-            // Redirect when an emoji box is clicked
-            emojiBox.addEventListener('click', function() {
-                window.location.href = `nextPage.html?emojis=${encodeURIComponent(emojiString)}`;
-            });
-
-            emojiContainer.appendChild(emojiBox);
-        });
-    
+        
         // Check for URL parameters
         function getURLParameter(name) {
             return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
         }
 
         window.onload = function() {
+            document.body.style.zoom = "250%";
             if (getURLParameter('m') === 'ty') {
                 console.log('Thank You! Your story has been submitted.');
                 document.getElementById('header_ty').style.display = 'flex';

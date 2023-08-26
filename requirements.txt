@@ -27,3 +27,4 @@ Werkzeug==2.0.2
 lxml==4.9.3
 boto3
 Pillow
+flask_cors
