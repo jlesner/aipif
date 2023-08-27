@@ -3,7 +3,8 @@ from api.FsWebApi import FsWebApi
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)
+# CORS(app)
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 web_api = FsWebApi("src/story/_queue")
 
@@ -20,7 +21,7 @@ def story_suggest():
         print(f"{story_suggestion} story suggestion" )
         web_api.story_suggest(story_suggestion)
 
-    return redirect("https://aipif-2023.s3.amazonaws.com/static/story_list4.html?m=ty")
+    return redirect("http://aipif-2023.s3.amazonaws.com/static/story_list4.html?m=ty")
 
 
 @app.route("/rr", methods=("GET", "POST"))
