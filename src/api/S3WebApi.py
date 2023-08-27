@@ -1,4 +1,5 @@
 import sys
+import traceback
 import json
 import os
 import boto3
@@ -35,11 +36,48 @@ class S3WebApi():
 
         print(f"Queued {s3_key} in S3 bucket {self._bucket_name} with content {request_xml}", file=sys.stderr)
 
-    def story_delete(self, rq_id:str):
-        pass
+    def request_retry(self, rq_id: str):
+        # TODO support retry beyond images
+        s3_key = f"{self._queue_path}/make_picture-{rq_id}-req.xml.log"
+        try:
+            self.s3_client.delete_object(Bucket=self._bucket_name, Key=s3_key)
+        except self.s3_client.exceptions.NoSuchKey:
+            pass
+        except Exception as e:
+            print(f"request_retry(self, rq_id: str) with {rq_id} resulted in {e}", file=sys.stderr)
+            traceback.print_exc(file=sys.stderr)
 
-    def request_retry(self, rq_id:str):
-        pass
+
+    def request_edit(self, rq_id:str, positive_prompt_text:str):
+        # TODO support edits beyond images
+        # TODO support style and negative prompt edits
+        s3_key = f"{self._queue_path}/make_picture-{rq_id}-req.xml.log"
+        
+        request_xml = f'''
+<queue>
+    <request type="make_picture">
+        <positive_prompt_text>{positive_prompt_text}</positive_prompt_text>
+        <negative_prompt_text>Disfigured, blurry, nude, sloppy, deformed, mutated, ugly</negative_prompt_text>
+        <style_prompt_text>Quentin Blake. Expressive, sketchy line drawing having humor and energy.</style_prompt_text>
+        <rq id="{rq_id}"/>
+    </request>
+</queue>
+        '''
+
+        try:
+            self._s3_client.put_object(Bucket=self._bucket_name, Key=s3_key, Body=request_xml)
+        except Exception as e:
+            print(f"Error saving to S3: {e}", file=sys.stderr)
+            traceback.print_exc(file=sys.stderr)
+
+        try:
+            self._s3_client.delete_object(Bucket=self._bucket_name, Key=s3_key + ".log")
+        except self._s3_client.exceptions.NoSuchKey:
+            pass
+        except Exception as e:
+            print(f"request_retry(self, rq_id: str) with {rq_id} resulted in {e}", file=sys.stderr)
+            traceback.print_exc(file=sys.stderr)
+
 
     def json_story_list(self) -> json:
         return json.dumps(
@@ -88,7 +126,7 @@ class S3WebApi():
 
 if __name__ == "__main__":
     api = S3WebApi()
-    api.story_suggest("Hello")
+    api.story_suggest("🌌🍅🦙🍝🚍🎻")
     print(api.json_story_list())
     # print(api.json_queue_list())
     # print(api.xml_queue_list())

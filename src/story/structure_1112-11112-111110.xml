@@ -23,7 +23,7 @@
                         <name>Present the Disruptive Event</name>
                         <description>Introduce the event that disrupts the protagonist's normal life and sets the story in motion.</description>
                     </sequence>
-                    <sequence branch_count="1">
+                    <sequence branch_count="2">
                         <name>Initial Reaction of the Protagonist</name>
                         <description>Portray the protagonist's initial response and emotions upon encountering the inciting incident.</description>
                     </sequence>
