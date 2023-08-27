@@ -56,7 +56,10 @@ xml_format()
 
 rq_api_bridge()
 {
-    python3 ../api/RqXmlApiBridge.py
+    python3 ../api/S3RqApiBridge.py
+    # python3 ../api/FsRqApiBridge.py
+    # python3 ../api/RqXmlApiBridge.py
+
 } ; export -f rq_api_bridge
 
 
@@ -136,19 +139,20 @@ tree_grow()
         \
         | xsltproc xslt_002/p0060_path_drop.xml /dev/stdin \
         | xml_fix \
-        | tee ${output_path}/p0060_path_drop_out.xml \
-        \
-        | tee ${output_path}/tree_${nss}_zzz.xml
+        | tee ${output_path}/p0060_path_drop_out.xml 
+        # \
+        # \
+        # | tee ${output_path}/tree_${nss}_zzz.xml
 
 } ; export -f tree_grow
 
 
-tree_grow_run()
-{
-    (rm -f ${output_path}/*.xml || true )  2> /dev/null
-    (rm -f _cache/*.{json,xml} || true )  2> /dev/null
-    tree_grow
-} ; export -f tree_grow_run
+# tree_grow_run()
+# {
+#     (rm -f ${output_path}/*.xml || true )  2> /dev/null
+#     (rm -f _cache/*.{json,xml} || true )  2> /dev/null
+#     tree_grow
+# } ; export -f tree_grow_run
 
 
 tree_decorate()
@@ -218,13 +222,13 @@ story_publish()
 } ; export -f story_publish
 
 
-story_publish_run() {
-    (
-        story_configure
-        cat _sample/tree_016_zzz3.xml \
-            | story_publish
-    )
-} ; export -f story_publish_run
+# story_publish_run() {
+#     (
+#         story_configure
+#         cat _sample/tree_016_zzz3.xml \
+#             | story_publish
+#     )
+# } ; export -f story_publish_run
 
 
 fs_story_make()

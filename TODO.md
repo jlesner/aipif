@@ -1,5 +1,10 @@
 # Task List
 
+
+Update also fix sugarcube_twine_generate6
+  "ifid": "649AB536-20DE-4D3D-BAF5-544D2ED975F6",
+  "format": "SugarCube",
+
 pull story list from s3 bucket
 
 After suggestion if WebSerice is down redirect straight to story list
