@@ -4,6 +4,7 @@ import traceback
 from lxml import etree
 
 from common.Context import Context
+from music.RqMusicGenMusicMaker import RqMusicGenMusicMaker
 from pictures.FastLocalSdPictureMaker import FastLocalSdPictureMaker
 from pictures.LocalSdPictureMaker import LocalSdPictureMaker
 from pictures.RqStubPictureMaker import RqStubPictureMaker
@@ -22,6 +23,7 @@ def state_setup(context:Context):
     # for now we hardcode bindings
     # context.state['picture_maker'] = RqStubPictureMaker()
     context.state['picture_maker'] = FastLocalSdPictureMaker()
+    context.state['music_maker'] = RqMusicGenMusicMaker()
     # context.state['picture_maker'] = LocalSdPictureMaker()
     # context.state['text_maker'] = CachingTextMaker(Gpt35TextMaker(context))
     # context.state['text_maker'] = CachingTextMaker(Gpt4t8kTextMaker(context))
@@ -59,6 +61,9 @@ def process_request(context, request_node):
     match request_type:
         case "make_picture":
                 response_string = context.state['picture_maker'].make_picture(prompt_dict)
+                return etree.fromstring("<url>" + response_string + "</url>")
+        case "make_music":
+                response_string = context.state['music_maker'].make_music(prompt_dict)
                 return etree.fromstring("<url>" + response_string + "</url>")
         case _:
             raise Exception(f"unsupported request_type: {request_type}")

@@ -22,8 +22,8 @@
             </xsl:element>
         </xsl:copy>
     </xsl:template>
-<!-- 
-    <xsl:template match="sound">
+
+    <!-- <xsl:template match="sound">
         <xsl:copy>
             <xsl:apply-templates select="@*|node()"/>
             <xsl:element name="request">
@@ -41,7 +41,7 @@
                 </xsl:element>
             </xsl:element>
         </xsl:copy>
-    </xsl:template>
+    </xsl:template> -->
 
     <xsl:template match="music">
         <xsl:copy>
@@ -61,7 +61,7 @@
                 </xsl:element>
             </xsl:element>
         </xsl:copy>
-    </xsl:template> -->
+    </xsl:template>
 
     <xsl:template match="@*|node()">
         <xsl:copy>

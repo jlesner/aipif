@@ -372,14 +372,15 @@ s3_rq_worker()
                 | sort \
                 | uniq -u \
                 | ( egrep -a "$filter" || true ) \
-                | head -n 1 \
+                | sort -R \
                 | s3_queue_pass
+                # | head -n 1 \
             echo -n .
             # break
             sleep 10
         done
     ) 2>&1 \
-        | tee s3_rq_worker.log
+        | tee s3_rq_worker_${filter}.log
 } ; export -f s3_rq_worker
 
 
@@ -397,10 +398,10 @@ s3_queue_pull()
 } ; export -f s3_queue_pull
 
 
-s3_rq_worker_run()
+picture_worker_run()
 {
     (
-        story_configure
+        story_configure stub
         source ../common/aws.bash
         source ~/aipif/sd_venv/bin/activate
         pip install -r ../pictures/requirements.txt
@@ -411,5 +412,22 @@ s3_rq_worker_run()
         # echo make_picture-7ccab19d-req.xml \
         #     | s3_queue_pass 
     )
-} ; export -f s3_rq_worker_run
+} ; export -f picture_worker_run
+
+
+music_worker_run()
+{
+    (
+        story_configure stub
+        source ../common/aws.bash
+        source ~/aipif/mu_venv/bin/activate
+        pip install -r ../music/requirements.txt
+        # s3_queue_sync
+        s3_rq_worker make_music
+        # aws s3 rm s3://aipif-2023/_queue/make_picture-7ccab19d-req.xml.log
+        # aws s3 rm s3://aipif-2023/_queue/make_picture-7ccab19d-req.xml.lock
+        # echo make_picture-7ccab19d-req.xml \
+        #     | s3_queue_pass 
+    )
+} ; export -f music_worker_run
 
