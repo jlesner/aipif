@@ -18,5 +18,5 @@ make_sound_output =  sound_maker.make_sound({\
 
 print(f"positive_prompt_text: {positive_prompt_text}")
 #print(f"style_prompt_text: {style_prompt_text}")
-print(f"make_sound_output: {make_sound_output}")
+# print(f"make_sound_output: {make_sound_output}")
 print(f"\n")
