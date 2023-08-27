@@ -25,9 +25,13 @@ class BarkSoundMaker():
         # """
         # audio_array = generate_audio(text_prompt)
 
+        # I have a silky smooth voice, and today I will tell you about 
+        # the exercise regimen of the common sloth.
         text_prompt = """
-        I have a silky smooth voice, and today I will tell you about 
-        the exercise regimen of the common sloth.
+
+        After Max and his mom returned to their cozy hole in the cheese factory, 
+        they realized that their home was the safest and happiest place for them. 
+        They spent their days enjoying each other's company and the delicious cheese.
         """
         audio_array = generate_audio(text_prompt, history_prompt="v2/en_speaker_1")
 
