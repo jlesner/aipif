@@ -5,7 +5,9 @@ import os
 import boto3
 import hashlib
 
-class S3WebApi():
+from api.WebApi import WebApi
+
+class S3WebApi(WebApi):
 
     def __init__(self, queue_path:str="_queue", bucket_name:str='aipif-2023'):
         self._s3_client = boto3.client('s3')
@@ -15,11 +17,12 @@ class S3WebApi():
     def story_suggest(self, story_prompt:str):
         request_hash = hashlib.sha256(story_prompt.encode()).hexdigest()
         rq_id = request_hash[:8]
-
+        sanitized_story_prompt = self.sanitize(story_prompt)
+        
         request_xml = f'''
 <queue>
     <request type="make_story">
-        <positive_prompt_text>{story_prompt}</positive_prompt_text>
+        <positive_prompt_text>{sanitized_story_prompt}</positive_prompt_text>
         <rq id="{rq_id}"/>
     </request>
 </queue>

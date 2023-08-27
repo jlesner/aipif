@@ -7,7 +7,8 @@ class FsStoryMaker():
 
     def make_story(self, prompt_dict: dict):
         rq_id = prompt_dict['rq_id']
-        command = f'bash -c "(. story.bash && fs_story_make "{rq_id}" )'
+        positive_prompt_text = prompt_dict['positive_prompt_text']
+        command = f'bash -c "(. story2.bash && fs_story_make "{rq_id}" "{positive_prompt_text}" )'
         process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
         
         while True:

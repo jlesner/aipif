@@ -4,7 +4,9 @@ import json
 import os
 import sys
 
-class FsWebApi():
+from api.WebApi import WebApi
+
+class FsWebApi(WebApi):
 
     def __init__(self, queue_path:str="story/_queue"):
         self._queue_path = queue_path
@@ -15,11 +17,12 @@ class FsWebApi():
     def story_suggest(self, story_prompt:str):
         request_hash = hashlib.sha256(story_prompt.encode()).hexdigest()
         rq_id = request_hash[:8]
-
+        sanitized_story_prompt = self.sanitize(story_prompt)
+        
         request_xml = f'''
 <queue>
     <request type="make_story">
-        <positive_prompt_text>{story_prompt}</positive_prompt_text>
+        <positive_prompt_text>{sanitized_story_prompt}</positive_prompt_text>
         <rq id="{rq_id}"/>
     </request>
 </queue>

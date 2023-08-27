@@ -1,20 +1,17 @@
 
 import json
-from common.ContextAware import ContextAware
+# from common.ContextAware import ContextAware
 
-class WebApi(ContextAware):
+class WebApi():
 
-    def story_suggest(self, story_prompt:str):
-        pass
+    def sanitize(self, s):
+        return s.translate(
+            str.maketrans("'\"\\{}/", "      ")
+        )
 
-    def story_delete(self, rq_id:str):
-        pass
 
-    def request_retry(self, rq_id:str):
-        pass
+if __name__ == "__main__":
+    wa = WebApi()
+    test_string = "🌕🍒🦎🍓🚂🎷 This's a \"test\" with\\slashes.{}/"
+    print(wa.sanitize(test_string)) 
 
-    def story_list(self) -> json:
-        pass
-
-    def queue_list(self) -> json:
-        pass

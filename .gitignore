@@ -1,11 +1,15 @@
-# local settings
 .env
 _exclude
-_generated
 _media
 _cache
+_output
+
 _queue
 _queue_*
+
+_generated
+_generated_*
+
 src/sounds/SoundFiles
 
 sd_venv/
@@ -16,7 +20,6 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-_output
 
 # C extensions
 *.so
