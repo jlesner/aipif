@@ -37,7 +37,6 @@ class SoundMaker(ContextAware):
             sound_objects= collect_sounds(keywords)
         except FreesoundException as e:
             if e.code == 429: # Too many requests
-                # otherwise wait for throttle to expire 
                 print("Waiting for freesound api throttle to expire...")
                 time.sleep(60)
                 sound_objects= collect_sounds(keywords)
