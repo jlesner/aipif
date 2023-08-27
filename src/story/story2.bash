@@ -139,7 +139,12 @@ tree_grow()
         \
         | xsltproc xslt_002/p0060_path_drop.xml /dev/stdin \
         | xml_fix \
-        | tee ${output_path}/p0060_path_drop_out.xml 
+        | tee ${output_path}/p0060_path_drop_out.xml \
+        \
+        | xsltproc xslt_002/p0065_patch_sound.xml /dev/stdin \
+        | xml_fix \
+        | tee ${output_path}/p0065_patch_sound_out.xml 
+
         # \
         # \
         # | tee ${output_path}/tree_${nss}_zzz.xml
