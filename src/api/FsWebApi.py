@@ -34,7 +34,7 @@ class FsWebApi(WebApi):
 
         print(f"Queued {fpath} with {request_xml}", file=sys.stderr)
 
-    def request_retry(self, rq_id:str):
+    def retry_request(self, rq_id:str):
         # TODO support retry beyond images
         fpath = f"{self._queue_path}/make_picture-{rq_id}-req.xml.log"
         try:

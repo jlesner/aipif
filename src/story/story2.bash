@@ -7,6 +7,30 @@ set -o errexit
 # TODO make sure generated XML is marked with UTF-8 encoding
 # TODO give media elements rq_id attribute before url attribute
 
+story_configure()
+{
+    local rq_id="$1"
+    
+    export output_path="_generated/story_${rq_id}"    
+    export fs_path_prefix="${output_path}/p0090-"
+
+    export PYTHONPATH=~/aipif/src
+    export twine_path=../twine
+    # . ~/aipif/.env # TODO move outside to prevent logging
+    # export zzz_sample=_sample/tree_016_zzz3.xml
+
+    export s3_bucket=aipif-2023
+    export s3_bucket_prefix="story/story_${rq_id}/p0090-"
+    export s3_path_prefix="s3://${s3_bucket}/${s3_bucket_prefix}"
+
+
+    # export tweego_bin=/opt/tweego-2.1.1-linux-x64/tweego 
+    export tweego_bin=~/aipif/_exclude/tweego-2.1.1-linux-x64/tweego
+
+
+} ; export -f story_configure
+
+
 structure_cat()
 {
     cat structure_1111-11112-111110.xml # 2 endings
@@ -77,6 +101,10 @@ tree_grow()
         | xml_fix \
         | tee ${output_path}/p0020_path_add_out.xml \
         \
+        | xsltproc xslt_002/p0022_reaction_add.xml /dev/stdin \
+        | xml_fix \
+        | tee ${output_path}/p0022_reaction_add_out.xml \
+        \
         | xsltproc xslt_002/p0025_tree_add.xml /dev/stdin \
         | perl -pe"s{⛄🌞🚚🗻🍦}{$prompt}g" \
         | xml_fix \
@@ -101,7 +129,7 @@ tree_grow()
             pss=$ss
         done
 
-    cat ${output_path}/tree_${nss}_out.xml \
+    cat ${output_path}/p0030_tree_${nss}_out.xml \
         | xsltproc xslt_002/p0050_key_add.xml /dev/stdin \
         | xml_fix \
         | tee ${output_path}/p0050_key_add_out.xml \
@@ -139,34 +167,6 @@ tree_decorate()
 } ; export -f tree_decorate
 
 
-story_publish_run() {
-    (
-        story_configure
-        cat _sample/tree_016_zzz3.xml \
-            | story_publish
-    )
-} ; export -f story_publish_run
-
-
-story_configure()
-{
-    local rq_id="$1"
-    
-    export output_path="_generated/story_${rq_id}"    
-    export fs_path_prefix="${output_path}/p0090-${rq_id}-"
-
-    export PYTHONPATH=~/aipif/src
-    export twine_path=../twine
-    # . ~/aipif/.env # TODO move outside to prevent logging
-    # export zzz_sample=_sample/tree_016_zzz3.xml
-
-    export s3_bucket=aipif-2023
-    export s3_bucket_prefix="story/story_${rq_id}/p0090-${rq_id}-"
-    export s3_path_prefix="s3://${s3_bucket}/${s3_bucket_prefix}"
-
-} ; export -f story_configure
-
-
 story_publish()
 {
     cat - \
@@ -198,13 +198,21 @@ story_publish()
         | tee >( aws s3 cp - ${s3_path_prefix}twine.twee.txt --content-type "text/plain" --metadata "Content-Disposition=inline") \
         > ${fs_path_prefix}twine.twee
 
-    # TODO zip tweego up and push to S3 ?
-    /opt/tweego-2.1.1-linux-x64/tweego -f sugarcube-2 -o /dev/stdout \
+    $tweego_bin -f sugarcube-2 -o /dev/stdout \
         ${fs_path_prefix}twine.twee \
         | tee >( aws s3 cp - ${s3_path_prefix}twine.html --content-type "text/html" --metadata "Content-Disposition=inline") \
         > ${fs_path_prefix}twine.html
 
 } ; export -f story_publish
+
+
+story_publish_run() {
+    (
+        story_configure
+        cat _sample/tree_016_zzz3.xml \
+            | story_publish
+    )
+} ; export -f story_publish_run
 
 
 fs_story_make()
@@ -219,15 +227,32 @@ fs_story_make()
     mkdir -p ${output_path} 2>/dev/null || true
     (        
         tree_grow "$prompt" \
-            | story_publish
+            | story_publish 
     )
-    
+
+    (
+        export s3_bucket=${s3_bucket}b # TODO fix
+        s3_touch "${rq_id}_${prompt}"
+    )
+
     # tar cfz - ${output_path} \
     #     | aws s3 cp - ${fs_path_prefix}trace.tar.gz
 
     # rm -rf ${output_path} 2>/dev/null || true
 
 } ; export -f fs_story_make
+
+
+fs_story_make_run()
+{
+    (
+        . ~/aipif/.env
+        export OPENAI_API_KEY
+        . ../common/aws.bash
+        export PYTHONPATH=~/aipif/src
+        fs_story_make bob "🎈🌵🦉🍉🚁🎻"
+    )
+} ; export -f fs_story_make_run
 
 
 fs_queue_pass()

@@ -1,10 +1,17 @@
 # Task List
 
+pull story list from s3 bucket
+
+After suggestion if WebSerice is down redirect straight to story list
+
+add rq_id to support redo request
+
+
+
 remove wait_for_audio for ipad test
 fix the ui (in both story_list/story_suggest) being hidden by header and footer
 
 add retry button to gallery (sends get request to flask, parameter id="bob")
-
 
 
 ? allow edit and regen of prompts that generate media
@@ -23,12 +30,68 @@ story_suggest_view (static)
     then redirect to http://localhost:8080/story_suggest?ss=@#@#@#
 
 
+Call flow diagram in mermaid 
+
+State machine diagram in mermaid
+
+
+
+
+Add good vs bad decision reaction prompts
+
+Name? aiPIF.org
+
+
+Final slide is recruiting slide for open four project
+
+No permission needed to join our project
+fork the code on git hub and share patches if you implement improvements
+
+Randomize story suggest emoji
+No delay when list fails
+
+
+UI tweaks 
+
+Fix back button to suggestion page
+Fix white bar on bottom of story selection page.
+Add sort buttons to story list view: Pick a popular story? New story?
+
+
+
+
+
+PRESENTATION
+
+Presentation slides show design diagram link to github code that implements design
+Quote professor’s email in presentation.
+
+
+
+"THANK YOU for your suggestion!
+We pick ten each day. Check tomorrow.”
+
+Debug - to - parent view
+
+
+Story list fetches list from S3 direct by ls of a ready folder which has story prompt and Id in paths of touched files
+
+
+
+
+
+
+
 flask api call story_suggest 
     print to console "Suggestion @#@#@# arrived!"
         to be replaced with make_story queue addition
     reply with suggestion_status_view template (static)
         "Thank you for your suggestion.  Please check story_list_view in a few hours. 
         BUTTON "Show available stories" => story_list_view
+
+
+
+
 
 
 # add twee to debug options
