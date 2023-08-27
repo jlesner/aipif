@@ -172,18 +172,23 @@
 
                 files.forEach(file => {
                     parts = file.split('_');
-                    rqidString = parts[0]
-                    emojiString = parts[1]
+                    let rqidString = parts[0]; // Use let to scope it locally
+                    let emojiString = parts[1];
+
+                    console.log(rqidString);
+                    console.log(emojiString);
 
                     let emojiBox = document.createElement('div');
                     emojiBox.classList.add('emoji-box');
                     emojiBox.textContent = emojiString;
 
                     // Redirect when an emoji box is clicked
-                    emojiBox.addEventListener('click', function() {
-                        // window.location.href = `nextPage.html?emojis=${encodeURIComponent(emojiString[1])}`;
-                        window.location.href = `http://aipif-2023.s3.us-west-1.amazonaws.com/_ready/${rqidString}.html`;
-                    });
+                    // Use a closure to bind the current rqidString to the listener
+                    emojiBox.addEventListener('click', (function(rqid) {
+                        return function() {
+                            window.location.href = `http://aipif-2023.s3.us-west-1.amazonaws.com/story/story_${rqid}/p0090-twine.html`;
+                        };
+                    })(rqidString));
 
                     emojiContainer.appendChild(emojiBox);
                 });

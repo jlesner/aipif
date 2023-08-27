@@ -33,10 +33,10 @@ story_configure()
 
 structure_cat()
 {
-    # cat structure_1111-11112-111110.xml # 2 endings
+    cat structure_1111-11112-111110.xml # 2 endings
     # cat structure_1112-11112-111110.xml # 4 endings 
     # cat structure_1112-11112-121210.xml # 16 endings
-    cat structure_1112-12112-121210.xml # 32 endings
+    # cat structure_1112-12112-121210.xml # 32 endings
 } ; export -f structure_cat
 
 
@@ -287,8 +287,8 @@ fs_story_make_run()
         # fs_story_make bill "🌓🍏🦜🍥🚝🎸"
         # fs_story_make c1 "🐔🎤🎶🕺💃🎉"
         # fs_story_make c2 "🐌🏎️💨🏁🎈🏆"
-        fs_story_make c4 "🐭🧀🌍🚀🌔🎉 "
-        # fs_story_make c3 "🐵🙈🙉🙊🍌🎢 "
+        # fs_story_make c4 "🐭🧀🌍🚀🌔🎉"
+        fs_story_make c3 "🐵🙈🙉🙊🍌🎢"
     )
 } ; export -f fs_story_make_run
 
