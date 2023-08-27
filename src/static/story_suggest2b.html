@@ -15,6 +15,7 @@
             height: 60px;
             background-color: #333;
             color: #fff;
+            font-size: xx-large;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -23,6 +24,7 @@
         .emoji-wrapper {
             display: inline-block;
             padding: 5px;
+            padding-top: 50px;
             margin: 5px;
             border-radius: 50%;
             transition: 0.3s;
@@ -34,7 +36,7 @@
         }
 
         .emoji {
-            font-size: 200px;
+            font-size: 140px;
             user-select: none;
         }
     </style>
@@ -49,6 +51,17 @@
     </div>
 
     <script>
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                // Generate a random index
+                const j = Math.floor(Math.random() * (i + 1));
+                
+                // Swap elements
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
         let emojis = [
             '😀', '😂', '😃', '😄', '😅', '😆', '😇', '😉', 
             '😊', '😋', '😎', '😍', '😘', '😗', '😙', '😜',
@@ -65,6 +78,8 @@
             '🚀', '🎈', '🛸', '🎉', '🎊', '🎁', '🎀', '🎈',
             '🎠', '🎡', '🎪', '🚂', '🚒', '🚌', '🚓', '🚲'
         ];
+        shuffleArray(emojis);
+
         let selectedEmojis = [];
 
         const emojiContainer = document.getElementById('emojiContainer');

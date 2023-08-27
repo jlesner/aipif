@@ -185,11 +185,23 @@ story_publish()
     cat ${fs_path_prefix}decorated.xml \
         | tr -s " " \
         | fmt -w 60 \
-        | xsltproc ${twine_path}/xslt/gallery_generate.xml /dev/stdin \
-        | tee >( aws s3 cp - ${s3_path_prefix}gallery.html --content-type text/html ) \
-        > ${fs_path_prefix}gallery.html
+        | xsltproc ${twine_path}/xslt/pgallery_generate.xml /dev/stdin \
+        | tee >( aws s3 cp - ${s3_path_prefix}pgallery.html --content-type text/html ) \
+        > ${fs_path_prefix}pgallery.html
 
-    # TODO add sound and music gallery
+    cat ${fs_path_prefix}decorated.xml \
+        | tr -s " " \
+        | fmt -w 60 \
+        | xsltproc ${twine_path}/xslt/sgallery_generate.xml /dev/stdin \
+        | tee >( aws s3 cp - ${s3_path_prefix}sgallery.html --content-type text/html ) \
+        > ${fs_path_prefix}sgallery.html
+
+    cat ${fs_path_prefix}decorated.xml \
+        | tr -s " " \
+        | fmt -w 60 \
+        | xsltproc ${twine_path}/xslt/mgallery_generate.xml /dev/stdin \
+        | tee >( aws s3 cp - ${s3_path_prefix}mgallery.html --content-type text/html ) \
+        > ${fs_path_prefix}mgallery.html
 
     cat ${fs_path_prefix}decorated.xml  \
         | xsltproc ${twine_path}/xslt/prompt_remove.xml /dev/stdin \

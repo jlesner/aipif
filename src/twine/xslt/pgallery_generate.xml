@@ -45,6 +45,32 @@
     <xsl:text><![CDATA[
     </div>
     <script>
+
+        function sendRetyRequest(element,id) {
+            // create the URL with the id parameter
+            const url = `http://localhost:5000/rr?id=${id}`;
+            element.style.display = "none";
+            // make the GET request using the Fetch API
+            fetch(url, {
+                method: 'GET',
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response;
+                }
+                throw new Error('Network response was not ok.');
+            })
+            .then(data => {
+                console.log(data);
+                
+            })
+            .catch(error => {
+                console.log('There was a problem with the fetch operation:', error.message);
+            });
+
+            
+        }
+
         const defaultImageUrl = "http://aipif-2023.s3.amazonaws.com/static/generating.png"; // Replace with the actual default image URL
         const images = document.getElementsByTagName("img");
 
@@ -78,6 +104,11 @@
     <xsl:text><![CDATA[" target="_blank">]]></xsl:text>
     <xsl:value-of select="illustration/@url"/> -->
     <xsl:text><![CDATA[
+            </td>
+            <td>
+              <button onclick="sendRetyRequest(this,']]></xsl:text>
+
+            <xsl:text><![CDATA[')">retry</button>
             </td>
         </tr>
         </table>

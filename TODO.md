@@ -6,18 +6,14 @@ After suggestion if WebSerice is down redirect straight to story list
 
 add rq_id to support redo request
 
-
-
 remove wait_for_audio for ipad test
 fix the ui (in both story_list/story_suggest) being hidden by header and footer
 
 add retry button to gallery (sends get request to flask, parameter id="bob")
 
-
 ? allow edit and regen of prompts that generate media
 
 Fix the html titles of the story_list/story_suggest 
-
 
 story_list_view (static)
     "default landing page"

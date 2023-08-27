@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Story List</title>
-    <link rel="icon" type="image/png" href="/static/favicon.png">
+    <!-- <link rel="icon" type="image/png" href="/static/favicon.png"> -->
     <style>
 
         /* Style for the header */
@@ -161,29 +161,28 @@
                 ["🎑🍐🦑🍦🚞🎻", "sadfwerwrw"]
             ];
 
-        
-
-        fetch('http://localhost:5000/sl')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
+        const bucketURL = `http://aipif-2023b.s3-us-west-1.amazonaws.com/`;
+        fetch(bucketURL)
+            .then(response => response.text())
             .then(data => {
-                elist = data;
-                console.log(elist);
-                elist.forEach(emojiString => {
+                console.log(data);
+                const parser = new DOMParser();
+                const xml = parser.parseFromString(data, "text/xml");
+                const files = Array.from(xml.querySelectorAll('Key')).map(el => el.textContent);
+
+                files.forEach(file => {
+                    parts = file.split('_');
+                    rqidString = parts[0]
+                    emojiString = parts[1]
+
                     let emojiBox = document.createElement('div');
                     emojiBox.classList.add('emoji-box');
-                    console.log(emojiString[0]);
-                    console.log(emojiString[1]);
-                    emojiBox.textContent = emojiString[0];
+                    emojiBox.textContent = emojiString;
 
                     // Redirect when an emoji box is clicked
                     emojiBox.addEventListener('click', function() {
                         // window.location.href = `nextPage.html?emojis=${encodeURIComponent(emojiString[1])}`;
-                        window.location.href = `http://aipif-2023.s3.us-west-1.amazonaws.com/sample/tw0102_twine.html`;
+                        window.location.href = `http://aipif-2023.s3.us-west-1.amazonaws.com/_ready/${rqidString}.html`;
                     });
 
                     emojiContainer.appendChild(emojiBox);
@@ -191,7 +190,7 @@
     
             })
             .catch(error => {
-                console.log('There was a problem with the fetch operation:', error.message);
+                console.log("Error fetching S3 contents: ", error.message);
                 elist.forEach(emojiString => {
                     let emojiBox = document.createElement('div');
                     emojiBox.classList.add('emoji-box');

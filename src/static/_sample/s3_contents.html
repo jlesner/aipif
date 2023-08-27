@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Contents of S3 Bucket</title>
+</head>
+<body>
+    <h1>Contents of S3 Bucket</h1>
+    <ul id="s3Contents"></ul>
+
+    <script>
+        const bucketURL = `http://aipif-2023b.s3-us-west-1.amazonaws.com/`;
+
+        fetch(bucketURL)
+            .then(response => response.text())
+            .then(data => {
+                console.log(data);    
+                const parser = new DOMParser();
+                const xml = parser.parseFromString(data, "text/xml");
+                const files = Array.from(xml.querySelectorAll('Key')).map(el => el.textContent);
+
+                files.forEach(file => {
+                    console.log(file);
+                    parts = file.split('_');
+                    document.getElementById('s3Contents').innerHTML += `<li>${parts[1]}</li>`;
+                });
+            })
+            .catch(error => {
+                console.error("Error fetching S3 contents: ", error);
+            });
+    </script>
+</body>
