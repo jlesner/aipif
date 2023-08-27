@@ -75,31 +75,38 @@ Setting.addRange("masterVolume", {
 :: </xsl:text>
     <xsl:value-of select="@key"/>
 
-    <!-- <xsl:text><![CDATA[
+    <xsl:if test="music/@url">
+        <xsl:text><![CDATA[
 <<cacheaudio "bgm_]]></xsl:text>
-    <xsl:value-of select="@key"/>
-    <xsl:text><![CDATA[" "mp3|]]></xsl:text>
-    <xsl:value-of select="music/@url"/>
-    <xsl:text><![CDATA[">>]]></xsl:text>
+        <xsl:value-of select="@key"/>
+        <xsl:text><![CDATA[" "mp3|]]></xsl:text>
+        <xsl:value-of select="music/@url"/>
+        <xsl:text><![CDATA[">>]]></xsl:text>
+    </xsl:if>
 
-    <xsl:text><![CDATA[
+    <!-- <xsl:if test="sound/@url">
+        <xsl:text><![CDATA[
 <<cacheaudio "sfx_]]></xsl:text>
-    <xsl:value-of select="@key"/>
-    <xsl:text><![CDATA[" "mp3|]]></xsl:text>
-    <xsl:value-of select="sound/@url"/>
-    <xsl:text><![CDATA[">>
+        <xsl:value-of select="@key"/>
+        <xsl:text><![CDATA[" "mp3|]]></xsl:text>
+        <xsl:value-of select="sound/@url"/>
+        <xsl:text><![CDATA[">>
 <<waitforaudio>>]]></xsl:text>
+    </xsl:if> -->
 
-
-    <xsl:text><![CDATA[
+    <xsl:if test="music/@url">
+        <xsl:text><![CDATA[
 <<audio "bgm_]]></xsl:text>
-    <xsl:value-of select="@key"/>
-    <xsl:text><![CDATA[" loop volume 0.5 play>>]]></xsl:text>
+        <xsl:value-of select="@key"/>
+        <xsl:text><![CDATA[" loop volume 0.5 play>>]]></xsl:text>
+    </xsl:if>
 
-    <xsl:text><![CDATA[
+    <!-- <xsl:if test="sound/@url">
+        <xsl:text><![CDATA[
 <<audio "sfx_]]></xsl:text>
-    <xsl:value-of select="@key"/>
-    <xsl:text><![CDATA[" volume 0.8 play>>]]></xsl:text> -->
+        <xsl:value-of select="@key"/>
+        <xsl:text><![CDATA[" volume 0.8 play>>]]></xsl:text>
+    </xsl:if> -->
 
     <xsl:text>
 
@@ -156,16 +163,27 @@ The End!
     <xsl:value-of select="protagonist_reaction"/>
     <xsl:text>|</xsl:text>
         <xsl:value-of select="scene[1]/@key"/>
-    <xsl:text>]]&gt;&gt;</xsl:text>
-    <!-- <xsl:text><![CDATA[
-<<audio "bgm_]]></xsl:text>
-    <xsl:value-of select="ancestor::scene[1]/@key"/>
-    <xsl:text><![CDATA[" stop>>]]>
+    <xsl:text>]]&gt;&gt;
 </xsl:text>
-    <xsl:text><![CDATA[<<audio "sfx_]]></xsl:text>
-    <xsl:value-of select="ancestor::scene[1]/@key"/>
-    <xsl:text><![CDATA[" stop>>]]>
-</xsl:text> -->
+
+    <!-- stopping audio if needed -->
+    <xsl:if test="ancestor::scene[music/@url][1]">
+    <xsl:if test="scene/music/@url">
+        <xsl:text><![CDATA[
+<<audio "bgm_]]></xsl:text>
+        <xsl:value-of select="ancestor::scene[music/@url][1]/@key"/>
+        <xsl:text><![CDATA[" stop>>]]>
+</xsl:text>
+    </xsl:if>
+    </xsl:if>
+
+    <!-- <xsl:if test="ancestor::scene[1]/sound/@url">
+        <xsl:text><![CDATA[<<audio "sfx_]]></xsl:text>
+        <xsl:value-of select="ancestor::scene[1]/@key"/>
+        <xsl:text><![CDATA[" stop>>]]>
+</xsl:text>
+    </xsl:if> -->
+
     <xsl:text>&lt;&lt;/button&gt;&gt;
 
 </xsl:text>
