@@ -114,6 +114,16 @@ Setting.addRange("masterVolume", {
     <img src="]]></xsl:text>
     <xsl:value-of select="illustration/@url"/>
     <xsl:text><![CDATA["/>
+    <script>
+        defaultImageUrl = "http://aipif-2023.s3.amazonaws.com/static/generating.png"; 
+        images = document.getElementsByTagName("img");
+
+        for (let i = 0; i < images.length; i++) {
+            images[i].addEventListener("error", function() {
+                this.src = defaultImageUrl;
+            });
+        }
+    </script>
 </html> ]]>
 
 </xsl:text>
@@ -132,9 +142,9 @@ Setting.addRange("masterVolume", {
                 <a href="http://aipif-2023.s3.amazonaws.com/sample/tree.xml" target="_blank">xml</a>
                 <a href="http://aipif-2023.s3.amazonaws.com/sample/twine.twee.txt" target="_blank">twee</a>
                 <a href="http://aipif-2023.s3.amazonaws.com/sample/tree.html" target="_blank">tree</a>
-                <a href="http://aipif-2023.s3.amazonaws.com/sample/gallery.html" target="_blank">gallery</a>
-                <a href="http://aipif-2023.s3.amazonaws.com/static/story_list3b.html" target="_blank">story list</a>
-                <a href="http://aipif-2023.s3.amazonaws.com/static/story_suggest2b.html" target="_blank">story suggest</a>
+                <a href="http://aipif-2023.s3.amazonaws.com/sample/pgallery.html" target="_blank">pictures</a>
+                <a href="http://aipif-2023.s3.amazonaws.com/sample/mgallery.html" target="_blank">music</a>
+                <a href="http://aipif-2023.s3.amazonaws.com/sample/sgallery.html" target="_blank">sounds</a>
             </html>]]>
             </xsl:text>
             <!-- ^ story_list story_suggest links need to be updated -->
