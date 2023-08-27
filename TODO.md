@@ -5,7 +5,7 @@ fix the ui (in both story_list/story_suggest) being hidden by header and footer
 
 add retry button to gallery (sends get request to flask, parameter id="bob")
 
-
+finish this -> src/static/_sample/s3_contents.html
 
 ? allow edit and regen of prompts that generate media
 
