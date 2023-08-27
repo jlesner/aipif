@@ -21,17 +21,17 @@ def story_suggest():
         web_api.story_suggest(story_suggestion)
         print(f"{story_suggestion} story suggestion" )
 
-    return redirect("https://aipif-2023.s3.amazonaws.com/static/story_list.html?m=ty")
+    return redirect("https://aipif-2023.s3.amazonaws.com/static/story_list4.html?m=ty")
 
 
 
 @app.route("/rr", methods=("GET", "POST"))
-def story_suggest():
+def retry_request():
 
     if request.method == "GET":
         id = request.args.get("id")
-        web_api.request_retry(id)
+        # web_api.request_retry(id)
         print(f"request_retry(id) with {id}" )
 
-    return None
+    return "request fufilled"
 

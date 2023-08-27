@@ -10,7 +10,8 @@
     <ul id="s3Contents"></ul>
 
     <script>
-        const bucketURL = `http://aipif-2023b.s3-us-west-1.amazonaws.com/`;
+        const bucketName = 'aipif-2023b';  // replace with your bucket name
+        const bucketURL = `http://${bucketName}.s3.amazonaws.com`;
 
         fetch(bucketURL)
             .then(response => response.text())
@@ -21,9 +22,7 @@
                 const files = Array.from(xml.querySelectorAll('Key')).map(el => el.textContent);
 
                 files.forEach(file => {
-                    console.log(file);
-                    parts = file.split('_');
-                    document.getElementById('s3Contents').innerHTML += `<li>${parts[1]}</li>`;
+                    document.getElementById('s3Contents').innerHTML += `<li>${file}</li>`;
                 });
             })
             .catch(error => {
@@ -31,3 +30,4 @@
             });
     </script>
 </body>
+</html>

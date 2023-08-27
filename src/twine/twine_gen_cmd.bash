@@ -16,15 +16,15 @@
 #     _generated/pengu_alien.twee
 
 # cat story/_sample/tree_016_zzz6_url.xml \
-cat story/_generated/decorated.xml \
-    | xsltproc twine/xslt/prompt_remove.xml /dev/stdin \
-    | xsltproc twine/xslt/sugarcube_twine_generate4.xml /dev/stdin \
-    > twine/_generated/tree_016_zzz6_url.twee
+# cat story/_generated/decorated.xml \
+#     | xsltproc twine/xslt/prompt_remove.xml /dev/stdin \
+#     | xsltproc twine/xslt/sugarcube_twine_generate4.xml /dev/stdin \
+#     > twine/_generated/tree_016_zzz6_url.twee
 
-/opt/tweego-2.1.1-linux-x64/tweego -f sugarcube-2 -o /dev/stdout \
-    twine/_generated/tree_016_zzz6_url.twee \
-    | tee >( aws s3 cp - s3://aipif-2023/sample/twine.html --content-type "text/html" --metadata "Content-Disposition=inline") \
-    > twine/_generated/tree_016_zzz6_url.html
+# /opt/tweego-2.1.1-linux-x64/tweego -f sugarcube-2 -o /dev/stdout \
+#     twine/_generated/tree_016_zzz6_url.twee \
+#     | tee >( aws s3 cp - s3://aipif-2023/sample/twine.html --content-type "text/html" --metadata "Content-Disposition=inline") \
+#     > twine/_generated/tree_016_zzz6_url.html
 
 # http://aipif-2023.s3-website-us-west-1.amazonaws.com/sample/twine.html
 
@@ -37,4 +37,5 @@ cat twine/_generated/example_decorated.xml \
 
 /opt/tweego-2.1.1-linux-x64/tweego -f sugarcube-2 -o /dev/stdout \
     twine/_generated/decorated_tree.twee \
+    | tee >( aws s3 cp - s3://aipif-2023/sample/twine.html --content-type "text/html" --metadata "Content-Disposition=inline") \
     > twine/_generated/decorated_tree.html
