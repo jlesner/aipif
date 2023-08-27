@@ -37,3 +37,4 @@ lxml
 boto3
 Pillow
 flask_cors
+# audiocraft

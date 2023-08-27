@@ -69,6 +69,18 @@ rq_worker()
 } ; export -f rq_worker
 
 
+MusicRqWorker()
+{
+    python3 ../api/MusicRqWorker.py
+} ; export -f MusicRqWorker
+
+
+PictureRqWorker()
+{
+    python3 ../api/PictureRqWorker.py
+} ; export -f PictureRqWorker
+
+
 xml_fix()
 {
     xml_format \
@@ -340,6 +352,7 @@ fs_rq_worker_run()
 
 s3_queue_pass()
 {
+    local rq_worker=$1
     while read f ; do
 
         if s3_exists "_queue/${f}.lock" || s3_exists "_queue/${f}.log" ; then
@@ -352,7 +365,7 @@ s3_queue_pass()
         (
             s3_get "_queue/${f}" \
                 | tee /dev/stderr \
-                | rq_worker
+                | ${rq_worker}
         ) 2>&1 \
             | tee /dev/stderr \
             | tee "_queue/${f}.log" \
@@ -368,7 +381,8 @@ s3_queue_pass()
 
 s3_rq_worker()
 {
-    local filter=$1
+    local rq_worker=$1
+    local filter=$2
     mkdir -p _queue 2>/dev/null || true
     (
         while true ; do
@@ -378,7 +392,7 @@ s3_rq_worker()
                 | uniq -u \
                 | ( egrep -a "$filter" || true ) \
                 | sort -R \
-                | s3_queue_pass
+                | s3_queue_pass ${rq_worker}
                 # | head -n 1 \
             echo -n .
             # break
@@ -411,7 +425,7 @@ picture_worker_run()
         source ~/aipif/sd_venv/bin/activate
         pip install -r ../pictures/requirements.txt
         # s3_queue_sync
-        s3_rq_worker make_picture
+        s3_rq_worker PictureRqWorker make_picture
         # aws s3 rm s3://aipif-2023/_queue/make_picture-7ccab19d-req.xml.log
         # aws s3 rm s3://aipif-2023/_queue/make_picture-7ccab19d-req.xml.lock
         # echo make_picture-7ccab19d-req.xml \
@@ -428,7 +442,7 @@ music_worker_run()
         source ~/aipif/mu_venv/bin/activate
         pip install -r ../music/requirements.txt
         # s3_queue_sync
-        s3_rq_worker make_music
+        s3_rq_worker MusicRqWorker make_music
         # aws s3 rm s3://aipif-2023/_queue/make_picture-7ccab19d-req.xml.log
         # aws s3 rm s3://aipif-2023/_queue/make_picture-7ccab19d-req.xml.lock
         # echo make_picture-7ccab19d-req.xml \
