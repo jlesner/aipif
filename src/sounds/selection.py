@@ -9,11 +9,19 @@ from langchain.document_loaders import TextLoader
 from langchain.indexes import VectorstoreIndexCreator
 
 openai.api_key= os.getenv('OPENAI_API_KEY')
+temp_directory= os.getenv('TEMP_DIRECTORY')
 
-#langchain uses openai to read sounds.txt and responds with sound_id for a sound that fits to the prompt
 def select_title(prompt):
+    """ langchain uses openai to read sound data stored in `temp_directory` and recommend the sound id that best matches `prompt`.
+
+    Args:
+    -   `prompt`(string): prompt describing desired sound to be selected
+
+    Returns:
+        string: 6 digit response given by model, or first sound id from sound data (if model fails)
+    """
     question = f"Provide a single valid sound id from the freesound data that best matches the following description: {prompt}."
-    loader = TextLoader("SoundFiles/sounds.txt")
+    loader = TextLoader(f"{temp_directory}sound_data.txt")
     index = VectorstoreIndexCreator().from_loaders([loader])
     response= index.query(question, llm= OpenAI())
     
@@ -25,13 +33,20 @@ def select_title(prompt):
         if match:
             response = match.group()
         else:
-            # Otherwise return first sound id from sounds.txt
-            response= extract_first_id('SoundFiles/sounds.txt')  
+            # Otherwise return first sound id from sound_data.txt
+            response= extract_first_id(f'{temp_directory}sound_data.txt')  
     
     return response
-
-# use openai ChatCompletion to extract 3 keywords from a prompt 
+ 
 def generate_keywords(prompt):
+    """ use openai ChatCompletion to extract 3 keywords from `prompt`
+
+    Args:
+    -   `prompt`(string): text prompt describing a sound
+
+    Returns:
+        string: space separated collection of keywords describing `prompt`
+    """
     response = openai.ChatCompletion.create(
         model='gpt-3.5-turbo',
         messages=[
@@ -45,13 +60,13 @@ def generate_keywords(prompt):
     keywords = response.choices[0].message.content.replace(",", "")
     return keywords
   
-# Extract first id from file_path
 def extract_first_id(file_path):
-    with open(file_path, 'r') as file:
-        lines = file.readlines()[2:]
+    """ Extract first id from sound data in `file_path`
 
-    for line in lines:
-        line = line.strip()
-        if line.startswith("id: "):
-            id_str = line[4:].strip()
-            return id_str
+    Args:
+    -   `file_path`(string): path to the file being read
+    """
+    with open(file_path, 'r') as file:
+        lines = file.readlines()[4:5]
+    return lines[0].split(":")[1].strip().rstrip(',')
+
