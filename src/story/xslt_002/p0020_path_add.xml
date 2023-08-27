@@ -42,8 +42,8 @@
             </xsl:element>
 
             <xsl:element name="illustration">
-                <xsl:text>Replace this with a vivid description of a single important character or single object featured in this scene. </xsl:text>
-                <xsl:text>Pick something not already picked above. Do not mention anything else. Use just a dozen words. </xsl:text>
+                <xsl:text>Replace this with a vivid description of a single character or single object important in this scene. Just here do not use character names only their descriptons such as: man? woman? child? animal? what kind of animal? ... </xsl:text>
+                <xsl:text>Pick something not already picked above. Do not mention anything else. Use just two dozen words. </xsl:text>
                 <!-- <xsl:text>Make your description simple and self-contained because our illustrator will only see your description and nothing else. </xsl:text>
                 <xsl:text>The names of characters etc. will not mean anything to them and our illustrator gets confused if you mention more than one thing so describe just one character or object and do not mention anything else. </xsl:text> -->
             </xsl:element>
@@ -54,7 +54,7 @@
 
             <xsl:element name="sound">
                 <xsl:text>Replace this with a vivid description of a single possible sound suitable for this scene. </xsl:text>
-                <xsl:text>Pick something not already picked above. Do not mention anything else. Use just a dozen words. </xsl:text>
+                <xsl:text>Pick something not already picked above. Do not mention anything else. Use just two dozen words. </xsl:text>
                 <!-- <xsl:text>Vividly describe a single sound suitable to introduce this scene that matches the mood, location and gives context. Make your description self-contained because our sound effects team will only see your description and nothing else. </xsl:text> -->
             </xsl:element>        
 
@@ -76,7 +76,7 @@
                     <!-- <xsl:text>Replace this with  will the protagonist do after this scene? Propose to the reader a single unique action.</xsl:text> -->
                     <!-- <xsl:text>What will the protagonist do after this scene? Propose to the reader a single unique action.</xsl:text> -->
                     <!-- <xsl:text>Propose to the reader how the to the reader a single unique action.</xsl:text> -->
-                    <xsl:text>Replace this with a short child understandable fun description of a bad decision / bad outcome action the protagonist will take after this scene. Do not judge the action / decision.</xsl:text>
+                    <xsl:text>Replace this with a short child understandable description of a bad decision / bad action the protagonist will take after this scene. Do not judge the action / decision. </xsl:text>
                     <!-- <xsl:text>Replace this with a short child understandable fun description of a good decision / good outcome action the protagonist can take after this scene.</xsl:text> -->
                 </xsl:element>
             </xsl:for-each>

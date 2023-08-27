@@ -5,13 +5,13 @@
 
     <xsl:template match="protagonist_reaction[following-sibling::protagonist_reaction]">
         <xsl:element name="protagonist_reaction">
-            <xsl:text>Replace this with a short child understandable fun description of a bad decision / bad outcome action the protagonist can take after this scene.</xsl:text>
+            <xsl:text>Replace this with a short child understandable description of a bad decision / bad outcome action the protagonist can take after this scene.</xsl:text>
         </xsl:element>
     </xsl:template>
 
     <xsl:template match="protagonist_reaction[preceding-sibling::protagonist_reaction]">
         <xsl:element name="protagonist_reaction">
-            <xsl:text>Replace this with a short child understandable fun description of a good decision / good outcome action the protagonist can take after this scene.</xsl:text>
+            <xsl:text>Replace this with a short child understandable description of a good decision / good outcome action the protagonist can take after this scene.</xsl:text>
         </xsl:element>
     </xsl:template>
 

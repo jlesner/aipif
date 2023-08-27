@@ -33,10 +33,10 @@ story_configure()
 
 structure_cat()
 {
-    cat structure_1111-11112-111110.xml # 2 endings
+    # cat structure_1111-11112-111110.xml # 2 endings
     # cat structure_1112-11112-111110.xml # 4 endings 
     # cat structure_1112-11112-121210.xml # 16 endings
-    # cat structure_1112-12112-121210.xml # 32 endings
+    cat structure_1112-12112-121210.xml # 32 endings
 } ; export -f structure_cat
 
 
@@ -89,7 +89,7 @@ tree_grow()
 {
     local prompt="$1"
     # local nss=011
-    local nss=016
+    local nss=018
     # local nss=003
     local pss=000
 
@@ -181,7 +181,7 @@ story_publish()
         | tee >( aws s3 cp - ${s3_path_prefix}tree.xml --content-type application/xml ) \
         | tr -s " " \
         | xsltproc ${twine_path}/xslt/problem_char_fix.xml /dev/stdin \
-        | fmt -w 60 \
+        | fmt -w 40 \
         | xsltproc ${twine_path}/xslt/mmfc_generate.xml /dev/stdin \
         | tee >( aws s3 cp - ${s3_path_prefix}tree.html --content-type text/html ) \
         > ${fs_path_prefix}tree.html
@@ -266,7 +266,12 @@ fs_story_make_run()
         export OPENAI_API_KEY
         . ../common/aws.bash
         export PYTHONPATH=~/aipif/src
-        fs_story_make bob "🎈🌵🦉🍉🚁🎻"
+        # fs_story_make bob "🎈🌵🦉🍉🚁🎻"
+        # fs_story_make bill "🌓🍏🦜🍥🚝🎸"
+        # fs_story_make c1 "🐔🎤🎶🕺💃🎉"
+        # fs_story_make c2 "🐌🏎️💨🏁🎈🏆"
+        fs_story_make c4 "🐭🧀🌍🚀🌔🎉 "
+        # fs_story_make c3 "🐵🙈🙉🙊🍌🎢 "
     )
 } ; export -f fs_story_make_run
 

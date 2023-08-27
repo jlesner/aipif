@@ -12,14 +12,20 @@
                 </xsl:attribute>
                 <xsl:element name="positive_prompt_text">
                     <xsl:text>
-A young child selected the following emojis: </xsl:text>
+A child selected emojis: </xsl:text>
                     <xsl:value-of select="ancestor::tree/prompt"/>
                     <xsl:value-of select="prompt"/>
                     <xsl:text>
-Inspired by these emojis you will write a story for the child. 
-Show, Don't Tell: When possible reveal information using dialoge do not state it directly. If a specific aspect is important, reveal it using dialoge between characters. For example, if a character is sad, do not say "The character was sad."  Instead, have another character ask "Why are you sad?" This will allow audience to infer the character is sad without being told directly.
+Inspired by these you will write a story for the child.
+
+Show, Don't Tell: When possible reveal information using dialoge do not state it directly. If a specific aspect is important, reveal it using dialoge between characters. 
+For example, if a character is sad, do not say "The character was sad."  Instead, have another character ask "Why are you sad?" 
+This will allow audience to infer the character is sad without being told directly.
+ 
 Economy of Words: Be concise. You don't need long, poetic descriptions. Every word should serve the purpose of conveying essential visual or auditory information, setting the mood, or advancing the story.
-Clarity is Key: While you don't want to be overly verbose, you do want to be clear. Children reading should have a good understanding action and how it relates to the entire story.
+
+Clarity is Key: Children reading should have a good understanding. Use simple language and avoid complex words.
+
 Reply only with the updated XML from below. Keep the XML structure unchanged. Only edit existing elements. 
                     </xsl:text>
                     <xsl:apply-templates select="/story/path/scene[1]"/>
@@ -69,11 +75,17 @@ Here is the story you have written so far:
                             </xsl:call-template>
 
                             <xsl:text>
-Please continue the story from the last protagonist_reaction above.
-Show, Don't Tell: When possible reveal information using dialoge do not state it directly. If a specific aspect is important, reveal it using dialoge between characters. For example, if a character is sad, do not say "The character was sad."  Instead, have another character ask "Why are you sad?" This will allow audience to infer the character is sad without being told directly.
+Please continue the story from the last protagonist_reaction above. If last protagonist_reaction above has a bad decision make the story show how it is bad and bad things happen because of it.
+
+Show, Don't Tell: When possible reveal information using dialoge do not state it directly. If a specific aspect is important, reveal it using dialoge between characters. 
+For example, if a character is sad, do not say "The character was sad."  Instead, have another character ask "Why are you sad?" 
+This will allow audience to infer the character is sad without being told directly.
+
 Economy of Words: Be concise. You don't need long, poetic descriptions. Every word should serve the purpose of conveying essential visual or auditory information, setting the mood, or advancing the story.
-Clarity is Key: While you don't want to be overly verbose, you do want to be clear. Children reading should have a good understanding action and how it relates to the entire story.
-Reply only with the updated XML below. Keep the XML structure unchanged. Only edit existing elements. 
+
+Clarity is Key: Children reading should have a good understanding. Use simple language and avoid complex words.
+
+Reply only with the updated XML from below. Keep the XML structure unchanged. Only edit existing elements. 
                             </xsl:text>
                             <xsl:apply-templates select="/story/path/scene[@index = $scene/@index+1]"/>
                         </xsl:element>
