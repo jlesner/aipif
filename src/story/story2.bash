@@ -89,8 +89,8 @@ tree_grow()
 {
     local prompt="$1"
     # local nss=011
-    # local nss=016
-    local nss=003
+    local nss=016
+    # local nss=003
     local pss=000
 
     structure_cat \

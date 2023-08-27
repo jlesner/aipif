@@ -43,7 +43,8 @@ class S3RqApiBridge(ContextAware):
         request_key = filepath + "-req.xml"
         # response_fp = filepath + "-res.xml"
         response_node =  etree.fromstring(f'<rq id="{rq_id}"/>')
-
+        request_node.append(response_node)
+        request_str = etree.tostring(request_node, encoding='unicode', pretty_print=True)    
         s3_request_body = "<queue>\n" + request_str + "\n</queue>\n"
         self._s3_client.put_object(Bucket=self._bucket_name, Key=request_key, Body=s3_request_body)
 
