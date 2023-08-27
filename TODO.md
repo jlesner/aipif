@@ -1,5 +1,7 @@
-# Task List
+Add local lock check
+worker setup
 
+# Task List
 
 Update also fix sugarcube_twine_generate6
   "ifid": "649AB536-20DE-4D3D-BAF5-544D2ED975F6",
