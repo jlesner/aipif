@@ -30,7 +30,7 @@
 
 # http://aipif-2023.s3.amazonaws.com/sample/twine.html
 
-
+# src/story/_generated/story_c4/p0090-decorated.xml
 cat twine/_generated/example_decorated.xml \
     | xsltproc twine/xslt/sugarcube_twine_generate6.xml /dev/stdin \
     > twine/_generated/decorated_tree.twee

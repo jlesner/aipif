@@ -224,9 +224,9 @@ story_publish()
         | tee >( aws s3 cp - ${s3_path_prefix}mgallery.html --content-type text/html ) \
         > ${fs_path_prefix}mgallery.html
 
+        # | xsltproc ${twine_path}/xslt/prompt_remove.xml /dev/stdin \
     cat ${fs_path_prefix}decorated.xml  \
-        | xsltproc ${twine_path}/xslt/prompt_remove.xml /dev/stdin \
-        | xsltproc ${twine_path}/xslt/sugarcube_twine_generate5.xml /dev/stdin \
+        | xsltproc ${twine_path}/xslt/sugarcube_twine_generate6.xml /dev/stdin \
         | perl -pe"s{http://aipif-2023.s3.amazonaws.com/sample/}{http://${s3_bucket}.s3.amazonaws.com/${s3_bucket_prefix}}g;" \
         | tee >( aws s3 cp - ${s3_path_prefix}twine.twee.txt --content-type "text/plain" --metadata "Content-Disposition=inline") \
         > ${fs_path_prefix}twine.twee
