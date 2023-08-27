@@ -34,7 +34,8 @@ class MusicGenMusicMaker(MusicMaker):
          strategy="loudness", 
          loudness_compressor=True)
 
-      outfile_bytes = MediaManager.binary_file_read(outfile_name + ".wav")
-      out_url = MediaManager.bytes_to_wav_url(outfile_bytes)
+      mgr = MediaManager()
+      outfile_bytes = mgr.binary_file_read(outfile_name + ".wav")
+      out_url = mgr.bytes_to_wav_url(outfile_bytes)
 
       return out_url

@@ -22,7 +22,7 @@ class MediaManager(ContextAware):
     def bytes_to_wav_url(self, data:bytes):
         return self.bytes_to_url(data, 'audio/wav')
     
-    def binary_file_read(path:str):
+    def binary_file_read(self, path:str):
         with open(path, 'rb') as file:
             return file.read()
 

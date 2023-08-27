@@ -1,5 +1,5 @@
 import random
-from Context import Context
+from common.Context import Context
 # from StubMusicMaker import StubMusicMaker
 from MusicGenMusicMaker import MusicGenMusicMaker
 from music.positive_prompt_samples import positive_prompt_samples
@@ -29,12 +29,13 @@ positive_prompt_text = positive_prompt_samples[random.randint(0, len(positive_pr
 # positive_prompt_text = "A light-hearted, tropical melody with undertones of mysterious space vibes. Imagine a ukulele playing alongside a theremin, creating an atmosphere of both relaxation and intrigue."
 style_prompt_text = style_prompt_samples[random.randint(0, len(style_prompt_samples)-1)]
 
+print(f"positive_prompt_text: {positive_prompt_text}")
+print(f"style_prompt_text: {style_prompt_text}")
+
 make_music_output =  music_maker.make_music({\
         "positive_prompt_text": positive_prompt_text, \
         "style_prompt_text": style_prompt_text, \
     })
 
-print(f"positive_prompt_text: {positive_prompt_text}")
-print(f"style_prompt_text: {style_prompt_text}")
-print(f"make_music_output: {make_music_output}")
+# print(f"make_music_output: {make_music_output}")
 print(f"\n")
