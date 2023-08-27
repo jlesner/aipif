@@ -1,11 +1,10 @@
 # Task List
 
-get DEMO of make_sound() prototype working
+remove wait_for_audio for ipad test
+fix the ui (in both story_list/story_suggest) being hidden by header and footer
 
 add retry button to gallery (sends get request to flask, parameter id="bob")
 
-remove wait_for_audio for ipad test
-fix the ui (in both story_list/story_suggest) being hidden by header and footer
 
 
 ? allow edit and regen of prompts that generate media
