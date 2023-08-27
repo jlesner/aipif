@@ -157,7 +157,7 @@ The End!
 <![CDATA[
 <<button [img[http://aipif-2023.s3.amazonaws.com/static/favicon.png]] >>
     <<script>>
-    window.location.href='https://aipif-2023.s3.us-west-1.amazonaws.com/static/story_list3b.html'
+    window.location.href='https://aipif-2023.s3.us-west-1.amazonaws.com/static/story_list4.html'
     <</script>>
 <</button>>
 ]]></xsl:text>
