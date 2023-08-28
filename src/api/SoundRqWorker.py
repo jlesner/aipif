@@ -5,8 +5,9 @@ from lxml import etree
 
 from common.Context import Context
 # from music.RqMusicGenMusicMaker import RqMusicGenMusicMaker
-from pictures.FastLocalSdPictureMaker import FastLocalSdPictureMaker
-from pictures.LocalSdPictureMaker import LocalSdPictureMaker
+# from pictures.FastLocalSdPictureMaker import FastLocalSdPictureMaker
+# from pictures.LocalSdPictureMaker import LocalSdPictureMaker
+from sounds.BarkSoundMaker import BarkSoundMaker
 # from pictures.RqStubPictureMaker import RqStubPictureMaker
 # from text.CachingTextMaker import CachingTextMaker
 # from text.DelayedTextMaker import DelayedTextMaker
@@ -23,8 +24,11 @@ def state_setup(context:Context):
     # for now we hardcode bindings
     # context.state['picture_maker'] = RqStubPictureMaker()
     # context.state['picture_maker'] = FastLocalSdPictureMaker()
-    context.state['picture_maker'] = LocalSdPictureMaker()
+    # context.state['picture_maker'] = LocalSdPictureMaker()
+    
     # context.state['music_maker'] = RqMusicGenMusicMaker()
+    context.state['sound_maker'] = BarkSoundMaker()
+
     # context.state['text_maker'] = CachingTextMaker(Gpt35TextMaker(context))
     # context.state['text_maker'] = CachingTextMaker(Gpt4t8kTextMaker(context))
     pass
@@ -53,17 +57,20 @@ def process_request(context, request_node):
 
     prompt_dict = {
         "positive_prompt_text" : request_node.find('positive_prompt_text').text,
-        "negative_prompt_text" : request_node.find('negative_prompt_text').text,
-        "style_prompt_text" : request_node.find('style_prompt_text').text,
+        # "negative_prompt_text" : request_node.find('negative_prompt_text').text,
+        # "style_prompt_text" : request_node.find('style_prompt_text').text,
         "rq_id" : request_node.find("rq").attrib['id'],
     }
 
     match request_type:
-        case "make_picture":
-                response_string = context.state['picture_maker'].make_picture(prompt_dict)
-                return etree.fromstring("<url>" + response_string + "</url>")
-        case "make_music":
-                response_string = context.state['music_maker'].make_music(prompt_dict)
+        # case "make_picture":
+        #         response_string = context.state['picture_maker'].make_picture(prompt_dict)
+        #         return etree.fromstring("<url>" + response_string + "</url>")
+        # case "make_music":
+        #         response_string = context.state['music_maker'].make_music(prompt_dict)
+        #         return etree.fromstring("<url>" + response_string + "</url>")
+        case "make_sound":
+                response_string = context.state['sound_maker'].make_sound(prompt_dict)
                 return etree.fromstring("<url>" + response_string + "</url>")
         case _:
             raise Exception(f"unsupported request_type: {request_type}")
