@@ -391,7 +391,7 @@ s3_queue_pass()
         # rm "_queue/${f}.lock"
     done
 
-} ; export -f fs_queue_pass
+} ; export -f s3_queue_pass
 
 
 s3_rq_worker()
@@ -437,7 +437,7 @@ sound_worker_loop()
     story_configure stub
     (
         export worker_count=1
-        export venv_path=${phome}/snd_venv
+        export venv_path=${phome}/bark_venv
         export req_path=${phome}/src/sounds/bark_requirements.txt
 
         if [[ ! -d ${venv_path} ]] ; then
@@ -452,7 +452,9 @@ sound_worker_loop()
         seq $worker_count \
             | xargs -i -P $worker_count \
                 bash -c "
-                    . ${venv_path}/bin/activate
+                    source ${venv_path}/bin/activate
+                    source story2.bash
+                    story_configure stub
                     s3_rq_worker SoundRqWorker make_sound
                 "
     )
@@ -461,54 +463,89 @@ sound_worker_loop()
 
 picture_worker_loop()
 {
+    story_configure stub
     (
-        story_configure stub
-        source ../common/aws.bash
-        # source ~/aipif/sd_venv/bin/activate
-        # pip install -r ../pictures/requirements.txt
-        # s3_queue_sync
-        s3_rq_worker PictureRqWorker make_picture
-        # aws s3 rm s3://aipif-2023/_queue/make_picture-7ccab19d-req.xml.log
-        # aws s3 rm s3://aipif-2023/_queue/make_picture-7ccab19d-req.xml.lock
-        # echo make_picture-7ccab19d-req.xml \
-        #     | s3_queue_pass 
+        export worker_count=1
+        export venv_path=${phome}/sd_venv
+        export req_path=${phome}/src/pictures/requirements.txt
+
+        if [[ ! -d ${venv_path} ]] ; then
+            (
+                cd ${phome}
+                python3 -m venv ${venv_path}
+                . ${venv_path}/bin/activate
+                pip install -r ${req_path}
+            )
+        fi
+
+        seq $worker_count \
+            | xargs -i -P $worker_count \
+                bash -c "
+                    source ${venv_path}/bin/activate
+                    source story2.bash
+                    story_configure stub
+                    s3_rq_worker PictureRqWorker make_picture
+                "
     )
 } ; export -f picture_worker_loop
 
 
 music_worker_loop()
 {
+    story_configure stub
     (
-        story_configure stub
-        source ../common/aws.bash
-        # source ~/aipif/mu_venv/bin/activate
-        # pip install -r ../music/requirements.txt
-        # s3_queue_sync
-        s3_rq_worker MusicRqWorker make_music
-        # aws s3 rm s3://aipif-2023/_queue/make_picture-7ccab19d-req.xml.log
-        # aws s3 rm s3://aipif-2023/_queue/make_picture-7ccab19d-req.xml.lock
-        # echo make_picture-7ccab19d-req.xml \
-        #     | s3_queue_pass 
+        export worker_count=1
+        export venv_path=${phome}/mu_venv
+        export req_path=${phome}/src/music/requirements.txt
+
+        if [[ ! -d ${venv_path} ]] ; then
+            (
+                cd ${phome}
+                python3 -m venv ${venv_path}
+                . ${venv_path}/bin/activate
+                pip install -r ${req_path}
+            )
+        fi
+
+        seq $worker_count \
+            | xargs -i -P $worker_count \
+                bash -c "
+                    source ${venv_path}/bin/activate
+                    source story2.bash
+                    story_configure stub
+                    s3_rq_worker MusicRqWorker make_music
+                "
     )
 } ; export -f music_worker_loop
 
 
 story_worker_loop()
 {
+    story_configure stub
     (
-        story_configure stub
-        source ../common/aws.bash
-        # source ~/aipif/sd_venv/bin/activate
-        # pip install -r ../pictures/requirements.txt
-        # s3_queue_sync
-        s3_rq_worker StoryRqWorker make_story
-        # aws s3 rm s3://aipif-2023/_queue/make_picture-7ccab19d-req.xml.log
-        # aws s3 rm s3://aipif-2023/_queue/make_picture-7ccab19d-req.xml.lock
-        # echo make_picture-7ccab19d-req.xml \
-        #     | s3_queue_pass 
+        export worker_count=1
+        export venv_path=${phome}/story_venv
+        export req_path=${phome}/src/story/requirements.txt
+
+        if [[ ! -d ${venv_path} ]] ; then
+            (
+                cd ${phome}
+                python3 -m venv ${venv_path}
+                . ${venv_path}/bin/activate
+                pip install -r ${req_path}
+            )
+        fi
+
+        seq $worker_count \
+            | xargs -i -P $worker_count \
+                bash -c "
+                    source ${venv_path}/bin/activate
+                    source story2.bash
+                    story_configure stub
+                    s3_rq_worker StoryRqWorker make_story
+                "
     )
 } ; export -f story_worker_loop
-
 
 
 queue_worker_loop()
@@ -519,14 +556,13 @@ queue_worker_loop()
         
         # TODO watch job queue for issues and take action to fix them
 
+        # aws s3 ls aipif-2023/_queue/ | tr -s " "  | cut -f4 | grep lock | cut -d" " -f4  | while read f ; do aws s3 rm s3://"aipif-2023/_queue/${f}" ; done
+
+        # grep -l OutOfMemoryError  _queue/make_picture-*log | while read f ; do aws s3 rm s3://"aipif-2023/${f}" ; done
+
+        # egrep -l 'Traceback|Errno|error|memory'  _queue/make_* | while read f ; do aws s3 rm s3://aipif-2023/$f ; done
+
+        # aws s3 cp --recursive  s3://aipif-2023/_queue/ queue/
     )
 } ; export -f queue_worker_loop
 
-
-# aws s3 ls aipif-2023/_queue/ | tr -s " "  | cut -f4 | grep lock | cut -d" " -f4  | while read f ; do aws s3 rm s3://"aipif-2023/_queue/${f}" ; done
-
-# grep -l OutOfMemoryError  _queue/make_picture-*log | while read f ; do aws s3 rm s3://"aipif-2023/${f}" ; done
-
-# egrep -l 'Traceback|Errno|error|memory'  _queue/make_* | while read f ; do aws s3 rm s3://aipif-2023/$f ; done
-
-# aws s3 cp --recursive  s3://aipif-2023/_queue/ queue/
