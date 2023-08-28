@@ -269,9 +269,12 @@ fs_story_make()
     # rm -f _cache/*.{json,xml} 2>/dev/null || true
     rm -rf ${output_path} 2>/dev/null || true
     mkdir -p ${output_path} 2>/dev/null || true
-    (        
+    (
+        # set -o allexport
+        source ${phome}/.env
+        export OPENAI_API_KEY
         tree_grow "$prompt" \
-            | story_publish 
+            | story_publish
     )
 
     (

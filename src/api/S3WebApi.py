@@ -130,7 +130,7 @@ class S3WebApi(WebApi):
 if __name__ == "__main__":
     api = S3WebApi()
     api.story_suggest("🌌🍅🦙🍝🚍🎻")
-    print(api.json_story_list())
+    # print(api.json_story_list())
     # print(api.json_queue_list())
     # print(api.xml_queue_list())
 

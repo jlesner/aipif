@@ -26,7 +26,7 @@ class FsStoryMaker():
     def make_story(self, prompt_dict: dict):
         rq_id = prompt_dict['rq_id']
         positive_prompt_text = prompt_dict['positive_prompt_text']
-        command = f'bash -c "(cd ~/aipif/src/story && . story2.bash && fs_story_make "{self.sanitize(rq_id)}" "{self.sanitize(positive_prompt_text)}" )'
+        command = f'bash -c "(cd ~/aipif/src/story && . story2.bash && fs_story_make {self.sanitize(rq_id)} {self.sanitize(positive_prompt_text)} )"'
         process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
         
         while True:
@@ -42,5 +42,13 @@ class FsStoryMaker():
             return None
 
 if __name__ == "__main__":        
-    user_input = "rm -rf / 😉 && echo 'hacked'! 😊"
-    print(FsStoryMaker().sanitize(user_input))
+    maker = FsStoryMaker() 
+    
+    # user_input = "rm -rf / 😉 && echo 'hacked'! 😊"
+    # print(maker.sanitize(user_input))
+
+    print(maker.make_story({\
+            "positive_prompt_text": "🌌🍅🦙🍝🚍🎻", \
+            "rq_id": "test", \
+            # "style_prompt_text": style_prompt_text, \
+        }))
