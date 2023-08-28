@@ -427,7 +427,6 @@ s3_queue_pull()
 } ; export -f s3_queue_pull
 
 
-
 sound_worker_run()
 {
     (
@@ -442,7 +441,8 @@ sound_worker_run()
         # echo make_picture-7ccab19d-req.xml \
         #     | s3_queue_pass 
     )
-} ; export -f picture_worker_run
+} ; export -f sound_worker_run
+
 
 picture_worker_run()
 {
