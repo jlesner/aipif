@@ -14,9 +14,10 @@ src/sounds/SoundFiles
 
 sd_venv/
 story_venv/
-mu_venv/
 bark_venv/
 snd_venv/
+mus_venv
+mu_venv/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

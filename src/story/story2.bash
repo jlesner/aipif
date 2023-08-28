@@ -495,7 +495,7 @@ music_worker_loop()
     story_configure stub
     (
         export worker_count=1
-        export venv_path=${phome}/mu_venv
+        export venv_path=${phome}/mus_venv
         export req_path=${phome}/src/music/requirements.txt
 
         if [[ ! -d ${venv_path} ]] ; then
