@@ -449,8 +449,8 @@ picture_worker_run()
     (
         story_configure stub
         source ../common/aws.bash
-        source ~/aipif/sd_venv/bin/activate
-        pip install -r ../pictures/requirements.txt
+        # source ~/aipif/sd_venv/bin/activate
+        # pip install -r ../pictures/requirements.txt
         # s3_queue_sync
         s3_rq_worker PictureRqWorker make_picture
         # aws s3 rm s3://aipif-2023/_queue/make_picture-7ccab19d-req.xml.log
@@ -466,8 +466,8 @@ music_worker_run()
     (
         story_configure stub
         source ../common/aws.bash
-        source ~/aipif/mu_venv/bin/activate
-        pip install -r ../music/requirements.txt
+        # source ~/aipif/mu_venv/bin/activate
+        # pip install -r ../music/requirements.txt
         # s3_queue_sync
         s3_rq_worker MusicRqWorker make_music
         # aws s3 rm s3://aipif-2023/_queue/make_picture-7ccab19d-req.xml.log

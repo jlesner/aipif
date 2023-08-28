@@ -1,4 +1,5 @@
 import os
+import tempfile
 from common.Context import Context
 from media.RqMediaManager import RqMediaManager
 from music.MusicMaker import MusicMaker
@@ -22,16 +23,19 @@ class RqMusicGenMusicMaker():
 
       # Using small model, since a GPU with at least 16GB RAM is recommended 
       # for medium-sized models (i.e., 'medium' and 'melody' models)
-      self.model = MusicGen.get_pretrained("small")
+      # self.model = MusicGen.get_pretrained("small")
+      self.model = MusicGen.get_pretrained("medium")
       self.model.set_generation_params(duration=15)
    
    def make_music(self, prompt_dict: dict):
       print("Making music...")
       descriptions = [prompt_dict["positive_prompt_text"]]
       wav = self.model.generate(descriptions)[0]   # Generate a single output for the prompt
-      timestamp = int(datetime.now().timestamp())
-      outfile_name = f"output_{timestamp}"
-
+      
+      # timestamp = int(datetime.now().timestamp())
+      # outfile_name = f"output_{timestamp}"
+      outfile_name = tempfile.mktemp()
+      
       audio_write(
          outfile_name, 
          wav.cpu(), 
