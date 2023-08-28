@@ -2,10 +2,36 @@ WS_URL=18.222.213.41:8080
 WS_URL=ec2-18-222-213-41.us-east-2.compute.amazonaws.com:8080
 
 
+add mute button
+
+add home button
+
+
+
+centralize constants addresses etc
+    how to mass replace in s3?
+
+TODO ? separate music and sounds volume controls
+TODO music default volume at 50%?
+TODO sound default volume at 100%?
+
+TODO fix HOME redirects to ufafu.com
+
 DEBUG prompts for continuit progrems
 start of http://aipif-2023.s3.amazonaws.com/story/story_c8/p0090-twine.html
 end of several as well
 
+
+make urls region specific?
+<!-- <xsl:text>http://aipif-2023.s3-website-us-west-1.amazonaws.com/_asset/</xsl:text> -->
+<xsl:text>http://aipif-2023.s3.amazonaws.com/_asset/</xsl:text>   
+
+disable bucket listing 
+
+queue worker
+    cleanup stale locks
+    regen for tiny sized artifacts
+    regen for logs with errors
 
 Tune number of steps image generation uses
 
@@ -28,6 +54,9 @@ DEMO live render?
 THANK YOU for your SFSQWERW suggestion!
 We pick ten each day. Check tomorrow.
 
+# TODO make sure generated XML is marked with UTF-8 encoding
+
+# TODO give media elements rq_id attribute before url attribute
 
 UI views and updates request queue
     story suggest
@@ -110,19 +139,7 @@ Presentation slides show design diagram link to github code that implements desi
 Quote professor’s email in presentation.
 
 
-
-"THANK YOU for your suggestion!
-We pick ten each day. Check tomorrow.”
-
 Debug - to - parent view
-
-
-Story list fetches list from S3 direct by ls of a ready folder which has story prompt and Id in paths of touched files
-
-
-
-
-
 
 
 flask api call story_suggest 
@@ -133,16 +150,10 @@ flask api call story_suggest
         BUTTON "Show available stories" => story_list_view
 
 
-
-
-
-
 # add twee to debug options
  # -> http://aipif-2023.s3.amazonaws.com/favicon.ico
 # emoji for story title 
 
-
-arn:aws:s3:::aipif-2023
 
 # first button labeled "psst..... click me!"
 # "the end" button take you to story selection

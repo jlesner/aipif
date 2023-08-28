@@ -18,10 +18,11 @@ def story_suggest():
 
     if request.method == "GET":
         story_suggestion = request.args.get("ss")
-        print(f"{story_suggestion} story suggestion" )
+        print(f"story_suggest() with {story_suggestion}" )
         web_api.story_suggest(story_suggestion)
 
-    return redirect("http://aipif-2023.s3.amazonaws.com/static/story_list4.html?m=ty")
+    # return redirect("http://aipif-2023.s3.amazonaws.com/static/story_list4.html?m=ty")
+    return "OK"
 
 
 @app.route("/prr", methods=("GET", "POST"))
@@ -32,7 +33,7 @@ def picture_retry_request():
         print(f"retry_request(id) with {id}" )
         web_api.retry_request(id)
 
-    return "request fufilled"
+    return "OK"
 
 @app.route("/mrr", methods=("GET", "POST"))
 def music_retry_request():
@@ -42,7 +43,7 @@ def music_retry_request():
         print(f"retry_request(id) with {id}" )
         web_api.retry_request(id)
 
-    return "request fufilled"
+    return "OK"
 
 @app.route("/srr", methods=("GET", "POST"))
 def sound_retry_request():
@@ -52,4 +53,4 @@ def sound_retry_request():
         print(f"retry_request(id) with {id}" )
         web_api.retry_request(id)
 
-    return "request fufilled"
+    return "OK"

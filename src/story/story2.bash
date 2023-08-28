@@ -4,18 +4,17 @@ set -o nounset
 set -o errexit
 # export output_path=_generated
 
-# TODO make sure generated XML is marked with UTF-8 encoding
-# TODO give media elements rq_id attribute before url attribute
-
 story_configure()
 {
     local rq_id="$1"
+
+    export phome=~/aipif
+    export PYTHONPATH=${phome}/src
+    export twine_path=${phome}/src/twine
     
     export output_path="_generated/story_${rq_id}"    
     export fs_path_prefix="${output_path}/p0090-"
 
-    export PYTHONPATH=~/aipif/src
-    export twine_path=../twine
     # . ~/aipif/.env # TODO move outside to prevent logging
     # export zzz_sample=_sample/tree_016_zzz3.xml
 
@@ -23,20 +22,20 @@ story_configure()
     export s3_bucket_prefix="story/story_${rq_id}/p0090-"
     export s3_path_prefix="s3://${s3_bucket}/${s3_bucket_prefix}"
 
-
     # export tweego_bin=/opt/tweego-2.1.1-linux-x64/tweego 
-    export tweego_bin=~/aipif/_exclude/tweego-2.1.1-linux-x64/tweego
+    export tweego_bin=${phome}/_exclude/tweego-2.1.1-linux-x64/tweego
 
+    source ../common/aws.bash
 
 } ; export -f story_configure
 
 
 structure_cat()
 {
-    # cat structure_1111-11112-111110.xml # 2 endings
+    cat structure_1111-11112-111110.xml # 2 endings
     # cat structure_1112-11112-111110.xml # 4 endings 
     # cat structure_1112-11112-121210.xml # 16 endings
-    cat structure_1112-12112-121210.xml # 32 endings
+    # cat structure_1112-12112-121210.xml # 32 endings
 } ; export -f structure_cat
 
 
@@ -63,10 +62,10 @@ rq_api_bridge()
 } ; export -f rq_api_bridge
 
 
-rq_worker()
-{
-    python3 ../api/RqWorker.py
-} ; export -f rq_worker
+# rq_worker()
+# {
+#     python3 ../api/RqWorker.py
+# } ; export -f rq_worker
 
 
 MusicRqWorker()
@@ -85,6 +84,12 @@ SoundRqWorker()
 {
     python3 ../api/SoundRqWorker.py
 } ; export -f SoundRqWorker
+
+
+StoryRqWorker()
+{
+    python3 ../api/StoryRqWorker.py
+} ; export -f StoryRqWorker
 
 
 xml_fix()
@@ -107,8 +112,8 @@ tree_grow()
 {
     local prompt="$1"
     # local nss=011
-    local nss=018
-    # local nss=003
+    # local nss=018
+    local nss=003
     local pss=000
 
     structure_cat \
@@ -303,61 +308,61 @@ fs_story_make_run()
 } ; export -f fs_story_make_run
 
 
-fs_queue_pass()
-{
-    while read f ; do
-        if test -f "${f}.lock" || test -f "${f}.log" ; then
-            continue
-        fi
+# fs_queue_pass()
+# {
+#     while read f ; do
+#         if test -f "${f}.lock" || test -f "${f}.log" ; then
+#             continue
+#         fi
 
-        touch "${f}.lock"
+#         touch "${f}.lock"
 
-        (
-            cat $f \
-                | tee /dev/stderr \
-                | rq_worker
-        ) 2>&1 \
-            | tee /dev/stderr \
-            | tee -a "${f}.log"
+#         (
+#             cat $f \
+#                 | tee /dev/stderr \
+#                 | rq_worker
+#         ) 2>&1 \
+#             | tee /dev/stderr \
+#             | tee -a "${f}.log"
 
-        rm "${f}.lock"
-    done
+#         rm "${f}.lock"
+#     done
 
-} ; export -f fs_queue_pass
-
-
-
-fs_rq_worker()
-{
-    local filter=$1
-    (
-        source ~/aipif/sd_venv/bin/activate
-        while true ; do
-            find _queue -type f -maxdepth 1 \
-                | perl -pe's{^(.+-req.xml).*}{$1}g;' \
-                | sort \
-                | uniq -u \
-                | ( egrep -a "$filter" || true ) \
-                | head -n 1 \
-                | fs_queue_pass
-            echo -n .
-            sleep 10
-        done
-    ) 2>&1 \
-        | tee _generated/fs_rq_worker.log
-} ; export -f fs_rq_worker
+# } ; export -f fs_queue_pass
 
 
-fs_rq_worker_run()
-{
-    (
-        clear
-        . ~/aipif/.env
-        . ../common/aws.bash
-        export PYTHONPATH=~/aipif/src
-        fs_rq_worker make_picture
-    )
-} ; export -f fs_rq_worker_run
+
+# fs_rq_worker()
+# {
+#     local filter=$1
+#     (
+#         source ~/aipif/sd_venv/bin/activate
+#         while true ; do
+#             find _queue -type f -maxdepth 1 \
+#                 | perl -pe's{^(.+-req.xml).*}{$1}g;' \
+#                 | sort \
+#                 | uniq -u \
+#                 | ( egrep -a "$filter" || true ) \
+#                 | head -n 1 \
+#                 | fs_queue_pass
+#             echo -n .
+#             sleep 10
+#         done
+#     ) 2>&1 \
+#         | tee _generated/fs_rq_worker.log
+# } ; export -f fs_rq_worker
+
+
+# fs_rq_worker_loop()
+# {
+#     (
+#         clear
+#         . ~/aipif/.env
+#         . ../common/aws.bash
+#         export PYTHONPATH=~/aipif/src
+#         fs_rq_worker make_picture
+#     )
+# } ; export -f fs_rq_worker_loop
 
 
 s3_queue_pass()
@@ -370,7 +375,7 @@ s3_queue_pass()
         fi
 
         s3_touch "_queue/${f}.lock"
-        touch "_queue/${f}.lock"
+        # touch "_queue/${f}.lock"
 
         (
             s3_get "_queue/${f}" \
@@ -383,7 +388,7 @@ s3_queue_pass()
             # | tee /dev/stderr \
 
         s3_rm "_queue/${f}.lock"
-        rm "_queue/${f}.lock"
+        # rm "_queue/${f}.lock"
     done
 
 } ; export -f fs_queue_pass
@@ -427,24 +432,34 @@ s3_queue_pull()
 } ; export -f s3_queue_pull
 
 
-sound_worker_run()
+sound_worker_loop()
 {
+    story_configure stub
     (
-        story_configure stub
-        source ../common/aws.bash
-        # source ~/aipif/sd_venv/bin/activate
-        # pip install -r ../sounds/bark_requirements.txt
-        # s3_queue_sync
-        s3_rq_worker SoundRqWorker make_sound
-        # aws s3 rm s3://aipif-2023/_queue/make_picture-7ccab19d-req.xml.log
-        # aws s3 rm s3://aipif-2023/_queue/make_picture-7ccab19d-req.xml.lock
-        # echo make_picture-7ccab19d-req.xml \
-        #     | s3_queue_pass 
+        export worker_count=1
+        export venv_path=${phome}/snd_venv
+        export req_path=${phome}/src/sounds/bark_requirements.txt
+
+        if [[ ! -d ${venv_path} ]] ; then
+            (
+                cd ${phome}
+                python3 -m venv ${venv_path}
+                . ${venv_path}/bin/activate
+                pip install -r ${req_path}
+            )
+        fi
+
+        seq $worker_count \
+            | xargs -i -P $worker_count \
+                bash -c "
+                    . ${venv_path}/bin/activate
+                    s3_rq_worker SoundRqWorker make_sound
+                "
     )
-} ; export -f sound_worker_run
+} ; export -f sound_worker_loop
 
 
-picture_worker_run()
+picture_worker_loop()
 {
     (
         story_configure stub
@@ -458,10 +473,10 @@ picture_worker_run()
         # echo make_picture-7ccab19d-req.xml \
         #     | s3_queue_pass 
     )
-} ; export -f picture_worker_run
+} ; export -f picture_worker_loop
 
 
-music_worker_run()
+music_worker_loop()
 {
     (
         story_configure stub
@@ -475,14 +490,43 @@ music_worker_run()
         # echo make_picture-7ccab19d-req.xml \
         #     | s3_queue_pass 
     )
-} ; export -f music_worker_run
+} ; export -f music_worker_loop
+
+
+story_worker_loop()
+{
+    (
+        story_configure stub
+        source ../common/aws.bash
+        # source ~/aipif/sd_venv/bin/activate
+        # pip install -r ../pictures/requirements.txt
+        # s3_queue_sync
+        s3_rq_worker StoryRqWorker make_story
+        # aws s3 rm s3://aipif-2023/_queue/make_picture-7ccab19d-req.xml.log
+        # aws s3 rm s3://aipif-2023/_queue/make_picture-7ccab19d-req.xml.lock
+        # echo make_picture-7ccab19d-req.xml \
+        #     | s3_queue_pass 
+    )
+} ; export -f story_worker_loop
+
+
+
+queue_worker_loop()
+{
+    (
+        story_configure stub
+        source ../common/aws.bash
+        
+        # TODO watch job queue for issues and take action to fix them
+
+    )
+} ; export -f queue_worker_loop
+
 
 # aws s3 ls aipif-2023/_queue/ | tr -s " "  | cut -f4 | grep lock | cut -d" " -f4  | while read f ; do aws s3 rm s3://"aipif-2023/_queue/${f}" ; done
 
-#  grep -l OutOfMemoryError  _queue/make_picture-*log | while read f ; do aws s3 rm s3://"aipif-2023/${f}" ; done
-
+# grep -l OutOfMemoryError  _queue/make_picture-*log | while read f ; do aws s3 rm s3://"aipif-2023/${f}" ; done
 
 # egrep -l 'Traceback|Errno|error|memory'  _queue/make_* | while read f ; do aws s3 rm s3://aipif-2023/$f ; done
-
 
 # aws s3 cp --recursive  s3://aipif-2023/_queue/ queue/
