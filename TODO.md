@@ -1,8 +1,38 @@
-Add local lock check
+
+DEBUG prompts for continuit progrems
+start of http://aipif-2023.s3.amazonaws.com/story/story_c8/p0090-twine.html
+end of several as well
+
+Tune number of steps image generation uses
+
+prune story list for just new stories
+
+create story worker for EC2
+
+diagram of the system what runs were and why
+
+fav author attempt?
+
+DEBUG => Parent Views:
+Add LOG button to gallery pages
+
+Suggestion is via background get call
+
+DEMO live render?
+    what happens behind the scences
+
+THANK YOU for your SFSQWERW suggestion!
+We pick ten each day. Check tomorrow.
+
+
+UI views and updates request queue
+    story suggest
+    regen request
+    prompt edit
+
 worker setup
 
 ? allow edit and regen of prompts that generate media
-
 
 After suggestion if WebSerice is down redirect straight to story list
 
@@ -11,6 +41,18 @@ add retry button to gallery (sends get request to flask, parameter id="bob")
 
 
 fix the ui (in both story_list/story_suggest) being hidden by header and footer
+
+
+BUG FIX
+
+http://aipif-2023.s3.us-west-1.amazonaws.com/story/story_c8/p0090-twine.html
+Error: cannot execute macro <<button>>: unable to parse macro argument "[[ ": unterminated link markup
+http://aipif-2023.s3.amazonaws.com/story/story_c8/p0090-twine.twee.txt
+
+
+
+
+
 
 
 

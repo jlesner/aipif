@@ -19,11 +19,6 @@ class BarkSoundMaker():
         preload_models()
 
     def make_sound(self, prompt_dict: dict):
-        # text_prompt = """
-        # After Max and his mom returned to their cozy hole in the cheese factory, 
-        # they realized that their home was the safest and happiest place for them. 
-        # They spent their days enjoying each other's company and the delicious cheese.
-        # """
 
         text_prompt = prompt_dict['positive_prompt_text']
         audio_array = generate_audio(text_prompt, history_prompt="v2/en_speaker_1")
