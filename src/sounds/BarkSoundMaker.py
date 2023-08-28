@@ -6,7 +6,7 @@ import tempfile
 from media.MediaManager import MediaManager
 from media.RqMediaManager import RqMediaManager
 
-# os.environ['SUNO_USE_SMALL_MODELS'] = 'True'
+os.environ['SUNO_USE_SMALL_MODELS'] = 'True'
 
 from bark import SAMPLE_RATE, generate_audio, preload_models
 from scipy.io.wavfile import write as write_wav

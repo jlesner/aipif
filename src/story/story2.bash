@@ -81,6 +81,12 @@ PictureRqWorker()
 } ; export -f PictureRqWorker
 
 
+SoundRqWorker()
+{
+    python3 ../api/SoundRqWorker.py
+} ; export -f SoundRqWorker
+
+
 xml_fix()
 {
     xml_format \
@@ -421,6 +427,23 @@ s3_queue_pull()
 } ; export -f s3_queue_pull
 
 
+
+sound_worker_run()
+{
+    (
+        story_configure stub
+        source ../common/aws.bash
+        # source ~/aipif/sd_venv/bin/activate
+        # pip install -r ../sounds/bark_requirements.txt
+        # s3_queue_sync
+        s3_rq_worker SoundRqWorker make_sound
+        # aws s3 rm s3://aipif-2023/_queue/make_picture-7ccab19d-req.xml.log
+        # aws s3 rm s3://aipif-2023/_queue/make_picture-7ccab19d-req.xml.lock
+        # echo make_picture-7ccab19d-req.xml \
+        #     | s3_queue_pass 
+    )
+} ; export -f picture_worker_run
+
 picture_worker_run()
 {
     (
@@ -457,3 +480,9 @@ music_worker_run()
 # aws s3 ls aipif-2023/_queue/ | tr -s " "  | cut -f4 | grep lock | cut -d" " -f4  | while read f ; do aws s3 rm s3://"aipif-2023/_queue/${f}" ; done
 
 #  grep -l OutOfMemoryError  _queue/make_picture-*log | while read f ; do aws s3 rm s3://"aipif-2023/${f}" ; done
+
+
+# egrep -l 'Traceback|Errno|error|memory'  _queue/make_* | while read f ; do aws s3 rm s3://aipif-2023/$f ; done
+
+
+# aws s3 cp --recursive  s3://aipif-2023/_queue/ queue/
