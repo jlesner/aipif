@@ -1,4 +1,5 @@
-# Task List
+Add local lock check
+worker setup
 
 ? allow edit and regen of prompts that generate media
 
