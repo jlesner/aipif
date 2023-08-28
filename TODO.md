@@ -1,7 +1,11 @@
+WS_URL=18.222.213.41:8080
+WS_URL=ec2-18-222-213-41.us-east-2.compute.amazonaws.com:8080
+
 
 DEBUG prompts for continuit progrems
 start of http://aipif-2023.s3.amazonaws.com/story/story_c8/p0090-twine.html
 end of several as well
+
 
 Tune number of steps image generation uses
 
