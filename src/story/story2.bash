@@ -33,18 +33,18 @@ story_configure()
 
 structure_cat()
 {
-    cat structure_1111-11112-111110.xml # 2 endings
+    # cat structure_1111-11112-111110.xml # 2 endings
     # cat structure_1112-11112-111110.xml # 4 endings 
     # cat structure_1112-11112-121210.xml # 16 endings
-    # cat structure_1112-12112-121210.xml # 32 endings
+    cat structure_1112-12112-121210.xml # 32 endings
 } ; export -f structure_cat
 
 
 xml_api_bridge()
 {
     # python3 ../api/StubXmlApiBridge.py
-    python3 ../api/SingleThreadXmlApiBridge.py
-    # python3 ../api/MultiThreadXmlApiBridge.py
+    # python3 ../api/SingleThreadXmlApiBridge.py
+    python3 ../api/MultiThreadXmlApiBridge.py
 } ; export -f xml_api_bridge
 
 
@@ -288,7 +288,11 @@ fs_story_make_run()
         # fs_story_make c1 "🐔🎤🎶🕺💃🎉"
         # fs_story_make c2 "🐌🏎️💨🏁🎈🏆"
         # fs_story_make c4 "🐭🧀🌍🚀🌔🎉"
-        fs_story_make c3 "🐵🙈🙉🙊🍌🎢"
+        # fs_story_make c3 "🐵🙈🙉🙊🍌🎢"
+        # fs_story_make c5 "🐶🐱🐭🏫⛈🎾"
+        # fs_story_make c6 "🐷🐮🐔🐑🐴🐶"
+        # fs_story_make c7 "🐸🐢🐌👨‍💻🕵️‍♂️💎"
+        fs_story_make c8 "🐹🐰🐻🐨🐼🐯"
     )
 } ; export -f fs_story_make_run
 

@@ -48,7 +48,7 @@
 
         function sendRetyRequest(element,id) {
             // create the URL with the id parameter
-            const url = `http://localhost:5000/rr?id=${id}`;
+            const url = `http://localhost:5000/prr?id=${id}`;
             element.style.display = "none";
             // make the GET request using the Fetch API
             fetch(url, {
@@ -107,8 +107,8 @@
             </td>
             <td>
               <button onclick="sendRetyRequest(this,']]></xsl:text>
-
-            <xsl:text><![CDATA[')">retry</button>
+            <xsl:value-of select="illustration/@rq_id"/>
+            <xsl:text><![CDATA[')">REDO</button>
             </td>
         </tr>
         </table>

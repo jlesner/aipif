@@ -168,11 +168,21 @@
                 console.log(data);
                 const parser = new DOMParser();
                 const xml = parser.parseFromString(data, "text/xml");
-                const files = Array.from(xml.querySelectorAll('Key')).map(el => el.textContent);
 
-                files.forEach(file => {
-                    parts = file.split('_');
-                    let rqidString = parts[0]; // Use let to scope it locally
+                const contents = Array.from(xml.querySelectorAll('Contents'));
+
+                // Map the contents to an array of objects containing the 'Key' and 'LastModified' data
+                const filesData = contents.map(content => ({
+                    key: content.querySelector('Key').textContent,
+                    lastModified: new Date(content.querySelector('LastModified').textContent)
+                }));
+
+                // Sort the array based on the 'LastModified' timestamp
+                filesData.sort((a, b) => b.lastModified - a.lastModified); // From newest to oldest
+
+                filesData.forEach(fileData => {
+                    let parts = fileData.key.split('_');
+                    let rqidString = parts[0];
                     let emojiString = parts[1];
 
                     console.log(rqidString);
@@ -192,7 +202,6 @@
 
                     emojiContainer.appendChild(emojiBox);
                 });
-    
             })
             .catch(error => {
                 console.log("Error fetching S3 contents: ", error.message);
