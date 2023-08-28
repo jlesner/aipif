@@ -450,3 +450,6 @@ music_worker_run()
     )
 } ; export -f music_worker_run
 
+# aws s3 ls aipif-2023/_queue/ | tr -s " "  | cut -f4 | grep lock | cut -d" " -f4  | while read f ; do aws s3 rm s3://"aipif-2023/_queue/${f}" ; done
+
+#  grep -l OutOfMemoryError  _queue/make_picture-*log | while read f ; do aws s3 rm s3://"aipif-2023/${f}" ; done

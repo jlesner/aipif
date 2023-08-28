@@ -1,50 +1,54 @@
 
 import os
+import subprocess
+import tempfile
 
-os.environ['SUNO_USE_SMALL_MODELS'] = 'True'
+from media.MediaManager import MediaManager
+from media.RqMediaManager import RqMediaManager
+
+# os.environ['SUNO_USE_SMALL_MODELS'] = 'True'
 
 from bark import SAMPLE_RATE, generate_audio, preload_models
 from scipy.io.wavfile import write as write_wav
-# from IPython.display import Audio
-
 
 class BarkSoundMaker():
 
-    def make_sound(self, prompt_dict: dict):
-        # temp_directory= os.getenv('TEMP_DIRECTORY')
-        # text_prompt= prompt_dict['positive_prompt_text']
-        
-      
-        # download and load all models
+    def __init__(self, rq_mgr:RqMediaManager = RqMediaManager()):
+        self._rq_mgr = rq_mgr
+        self._fs_mgr = MediaManager()
         preload_models()
 
-        # generate audio from text
+    def make_sound(self, prompt_dict: dict):
         # text_prompt = """
-        #     Hello, my name is Suno. And, uh — and I like pizza. [laughs] 
-        #     But I also have other interests such as playing tic tac toe.
+        # After Max and his mom returned to their cozy hole in the cheese factory, 
+        # they realized that their home was the safest and happiest place for them. 
+        # They spent their days enjoying each other's company and the delicious cheese.
         # """
-        # audio_array = generate_audio(text_prompt)
 
-        # I have a silky smooth voice, and today I will tell you about 
-        # the exercise regimen of the common sloth.
-        text_prompt = """
-
-        After Max and his mom returned to their cozy hole in the cheese factory, 
-        they realized that their home was the safest and happiest place for them. 
-        They spent their days enjoying each other's company and the delicious cheese.
-        """
+        text_prompt = prompt_dict['positive_prompt_text']
         audio_array = generate_audio(text_prompt, history_prompt="v2/en_speaker_1")
 
+        temp_name = tempfile.mktemp()
 
-        # save audio to disk
-        write_wav("bark_generation.wav", SAMPLE_RATE, audio_array)
-        
-        # play text in notebook
-        # Audio(audio_array, rate=SAMPLE_RATE)
+        wavpath = temp_name + ".wav"
+        mp3path = temp_name + ".mp3"
+        write_wav(wavpath, SAMPLE_RATE, audio_array)
 
+        cmd = [
+            "ffmpeg", "-y",
+            "-i", wavpath,
+            "-acodec", "libmp3lame",
+            "-q:a", "4",
+            mp3path
+        ]
+        subprocess.run(cmd)
+        os.remove(wavpath)
 
-        return None
-    
+        mp3_bytes = self._fs_mgr.binary_file_read(mp3path)        
+        os.remove(mp3path)
+
+        rq_id= prompt_dict["rq_id"]
+        return self._rq_mgr.file_write(rq_id, ".mp3", mp3_bytes, "audio/mpeg")
 
 if __name__ == "__main__":
     BarkSoundMaker().make_sound(None)

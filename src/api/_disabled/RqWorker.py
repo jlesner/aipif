@@ -24,7 +24,7 @@ def state_setup(context:Context):
     # context.state['picture_maker'] = RqStubPictureMaker()
     context.state['picture_maker'] = FastLocalSdPictureMaker()
     context.state['music_maker'] = RqMusicGenMusicMaker()
-    # context.state['picture_maker'] = LocalSdPictureMaker()
+    context.state['picture_maker'] = LocalSdPictureMaker()
     # context.state['text_maker'] = CachingTextMaker(Gpt35TextMaker(context))
     # context.state['text_maker'] = CachingTextMaker(Gpt4t8kTextMaker(context))
     pass
