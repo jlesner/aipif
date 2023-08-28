@@ -24,8 +24,8 @@ def story_suggest():
     return redirect("http://aipif-2023.s3.amazonaws.com/static/story_list4.html?m=ty")
 
 
-@app.route("/rr", methods=("GET", "POST"))
-def retry_request():
+@app.route("/prr", methods=("GET", "POST"))
+def picture_retry_request():
 
     if request.method == "GET":
         id = request.args.get("id")
@@ -34,3 +34,22 @@ def retry_request():
 
     return "request fufilled"
 
+@app.route("/mrr", methods=("GET", "POST"))
+def music_retry_request():
+
+    if request.method == "GET":
+        id = request.args.get("id")
+        print(f"retry_request(id) with {id}" )
+        web_api.retry_request(id)
+
+    return "request fufilled"
+
+@app.route("/srr", methods=("GET", "POST"))
+def sound_retry_request():
+
+    if request.method == "GET":
+        id = request.args.get("id")
+        print(f"retry_request(id) with {id}" )
+        web_api.retry_request(id)
+
+    return "request fufilled"

@@ -84,29 +84,23 @@ Setting.addRange("masterVolume", {
         <xsl:text><![CDATA[">>]]></xsl:text>
     </xsl:if>
 
-    <!-- <xsl:if test="sound/@url">
+    <xsl:if test="sound/@url">
         <xsl:text><![CDATA[
 <<cacheaudio "sfx_]]></xsl:text>
         <xsl:value-of select="@key"/>
         <xsl:text><![CDATA[" "mp3|]]></xsl:text>
         <xsl:value-of select="sound/@url"/>
         <xsl:text><![CDATA[">>
-<<waitforaudio>>]]></xsl:text>
-    </xsl:if> -->
+]]></xsl:text>
+    </xsl:if>
 
     <xsl:if test="music/@url">
         <xsl:text><![CDATA[
 <<audio "bgm_]]></xsl:text>
         <xsl:value-of select="@key"/>
-        <xsl:text><![CDATA[" loop volume 0.5 play>>]]></xsl:text>
+        <xsl:text><![CDATA[" loop volume 0.1 play>>]]></xsl:text>
     </xsl:if>
 
-    <!-- <xsl:if test="sound/@url">
-        <xsl:text><![CDATA[
-<<audio "sfx_]]></xsl:text>
-        <xsl:value-of select="@key"/>
-        <xsl:text><![CDATA[" volume 0.8 play>>]]></xsl:text>
-    </xsl:if> -->
 
     <xsl:text>
 
@@ -127,6 +121,15 @@ Setting.addRange("masterVolume", {
 </html> ]]>
 
 </xsl:text>
+
+<xsl:if test="sound/@url">
+        <xsl:text><![CDATA[<<button "🔊" >>
+    <<audio "sfx_]]></xsl:text>
+        <xsl:value-of select="@key"/>
+        <xsl:text><![CDATA[" volume 0.3 play>>
+<</button>>   ]]></xsl:text>
+    </xsl:if>
+
         <xsl:value-of select="introduction"/>
     <xsl:text>
 </xsl:text>
