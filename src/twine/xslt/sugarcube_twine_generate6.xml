@@ -148,6 +148,8 @@ Setting.addRange("masterVolume", {
                 <a href="http://aipif-2023.s3.amazonaws.com/sample/pgallery.html" target="_blank">pictures</a>
                 <a href="http://aipif-2023.s3.amazonaws.com/sample/mgallery.html" target="_blank">music</a>
                 <a href="http://aipif-2023.s3.amazonaws.com/sample/sgallery.html" target="_blank">sounds</a>
+                <a href="http://aipif-2023.s3.amazonaws.com/static/story_list4.html" target="_blank">story list</a>
+                <a href="http://aipif-2023.s3.amazonaws.com/static/story_suggest2b.html" target="_blank">story suggest</a>
             </html>]]>
             </xsl:text>
             <!-- ^ story_list story_suggest links need to be updated -->
