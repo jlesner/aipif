@@ -519,6 +519,13 @@ music_worker_loop()
 } ; export -f music_worker_loop
 
 
+apt_requirements_install()
+{
+    req_path=${phome}/src/story/apt_requirements.txt
+    sudo xargs apt-get install -y < ${req_path}
+} ; export -f apt_requirements_install
+
+
 story_worker_loop()
 {
     story_configure stub
