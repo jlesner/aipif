@@ -33,6 +33,11 @@
     display: block;
     margin-top: 10px;
   }
+
+  .table textarea {
+    width: 100%;
+    resize: none;
+  }
 </style>
 <title>Image Collage</title>
 </head>
@@ -46,8 +51,30 @@
     </div>
     <script>
 
+        function openLogsWindow(id){
+            window.open(`http://aipif-2023.s3.us-west-1.amazonaws.com/_queue/make_picture-${id}-req.xml.log`, '_blank');
+        }
+
+        function sendUpdateRequest(element,id) {
+            element.style.display = "none";
+            const prompt = document.getElementById(id).value;
+            fetch("http://18.222.213.41:8080/pe", {
+                method: "POST",
+                headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({id, prompt})
+                })
+                .then(response => response.text())
+                .then(data => {
+                    console.log("Response:", data);
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                });
+        }
+
         function sendRetyRequest(element,id) {
-            // create the URL with the id parameter
             const url = `http://18.222.213.41:8080/pr?id=${id}`;
             element.style.display = "none";
             // make the GET request using the Fetch API
@@ -96,19 +123,29 @@
     <xsl:text><![CDATA["></td>
         </tr>
         <tr>
-            <td>]]></xsl:text>
-    <xsl:value-of select="illustration"/>
-    <!-- <xsl:text><![CDATA[
-            <a class="table-link" href="]]></xsl:text>
-    <xsl:value-of select="illustration/@url"/>
-    <xsl:text><![CDATA[" target="_blank">]]></xsl:text>
-    <xsl:value-of select="illustration/@url"/> -->
+            <td>
+                <textarea id="]]></xsl:text>
+                <xsl:value-of select="illustration/@rq_id"/>
+                <xsl:text><![CDATA[" rows="5" style="width: 100%;">
+]]></xsl:text>
+    <xsl:value-of select="normalize-space(illustration)"/>
     <xsl:text><![CDATA[
+</textarea>
+            </td>
+            <td>
+                <button onclick="sendUpdateRequest(this,']]></xsl:text>
+            <xsl:value-of select="illustration/@rq_id"/>
+    <xsl:text><![CDATA[')">UPDATE</button>
             </td>
             <td>
               <button onclick="sendRetyRequest(this,']]></xsl:text>
             <xsl:value-of select="illustration/@rq_id"/>
-            <xsl:text><![CDATA[')">REDO</button>
+            <xsl:text><![CDATA[')">RETRY</button>
+            </td>
+            <td>
+              <button onclick="openLogsWindow(']]></xsl:text>
+            <xsl:value-of select="illustration/@rq_id"/>
+            <xsl:text><![CDATA[')">LOGS</button>
             </td>
         </tr>
         </table>

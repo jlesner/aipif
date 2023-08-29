@@ -32,5 +32,5 @@ cat twine/_generated/example_decorated.xml \
 # cat twine/_generated/example_decorated.xml \
 #     | tr -s " " \
 #     | fmt -w 60 \
-#     | xsltproc twine/xslt/sgallery_generate.xml /dev/stdin \
+#     | xsltproc twine/xslt/pgallery_generate.xml /dev/stdin \
 #     > twine/_generated/gallery3.html
