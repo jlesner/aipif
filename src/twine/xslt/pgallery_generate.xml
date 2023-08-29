@@ -117,13 +117,9 @@
 <xsl:template match="scene">
     <xsl:text><![CDATA[
     <div class="table">
-        <tr>
-            <td><img src="]]></xsl:text>
+        <img src="]]></xsl:text>
     <xsl:value-of select="illustration/@url"/>
-    <xsl:text><![CDATA["></td>
-        </tr>
-        <tr>
-            <td>
+    <xsl:text><![CDATA[">
                 <textarea id="]]></xsl:text>
                 <xsl:value-of select="illustration/@rq_id"/>
                 <xsl:text><![CDATA[" rows="5" style="width: 100%;">
@@ -131,24 +127,17 @@
     <xsl:value-of select="normalize-space(illustration)"/>
     <xsl:text><![CDATA[
 </textarea>
-            </td>
-            <td>
+        <div>
                 <button onclick="sendUpdateRequest(this,']]></xsl:text>
             <xsl:value-of select="illustration/@rq_id"/>
     <xsl:text><![CDATA[')">UPDATE</button>
-            </td>
-            <td>
               <button onclick="sendRetyRequest(this,']]></xsl:text>
             <xsl:value-of select="illustration/@rq_id"/>
             <xsl:text><![CDATA[')">RETRY</button>
-            </td>
-            <td>
               <button onclick="openLogsWindow(']]></xsl:text>
             <xsl:value-of select="illustration/@rq_id"/>
             <xsl:text><![CDATA[')">LOGS</button>
-            </td>
-        </tr>
-        </table>
+        </div>
     </div>]]></xsl:text>
 
     <xsl:choose>

@@ -46,6 +46,10 @@
     </div>
     <script>
 
+        function openLogsWindow(id){
+            window.open(`http://aipif-2023.s3.us-west-1.amazonaws.com/_queue/make_picture-${id}-req.xml.log`, '_blank');
+        }
+
         function sendRetyRequest(element,id) {
             // create the URL with the id parameter
             const url = `http://18.222.213.41:8080/mr?id=${id}`;
@@ -90,8 +94,6 @@
 <xsl:template match="scene">
     <xsl:text><![CDATA[
     <div class="table">
-        <tr>
-            <td>
               <div class="audio-player">
                 <audio controls>
                   <source src="]]></xsl:text>
@@ -99,21 +101,17 @@
     <xsl:text><![CDATA[">
                   Your browser does not support the audio element.
                 </audio>
-              </div>
-             </td>
-        </tr>
-        <tr>
-            <td>]]></xsl:text>
+              </div>]]></xsl:text>
     <xsl:value-of select="music"/>
     <xsl:text><![CDATA[
-            </td>
-            <td>
-              <button onclick="sendRetyRequest(this,']]></xsl:text>
+        <div>
+          <button onclick="sendRetyRequest(this,']]></xsl:text>
           <xsl:value-of select="music/@rq_id"/>
-          <xsl:text><![CDATA[')">REDO</button>
-          </td>
-        </tr>
-        </table>
+          <xsl:text><![CDATA[')">RETRY</button>
+          <button onclick="openLogsWindow(']]></xsl:text>
+          <xsl:value-of select="music/@rq_id"/>
+          <xsl:text><![CDATA[')">LOGS</button>
+        </div>
     </div>]]></xsl:text>
 
     <xsl:choose>
