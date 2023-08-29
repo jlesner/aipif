@@ -28,7 +28,9 @@ class FsStoryMaker():
         process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, bufsize=1, text=True)
         
         while True:
-            output = process.stdout.readline().decode('utf-8')
+            output = process.stdout.readline()
+            # output = process.stdout.readline().decode('utf-8')
+
             if output == '' and process.poll() is not None:
                 break
             if output:
