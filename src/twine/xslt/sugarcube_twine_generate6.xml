@@ -221,7 +221,7 @@ The End!
 
     <xsl:text>
 &lt;&lt;button [[</xsl:text>
-    <xsl:value-of select="protagonist_reaction"/>
+    <xsl:value-of select="normalize-space(protagonist_reaction)"/>
     <xsl:text>|</xsl:text>
         <xsl:value-of select="scene[1]/@key"/>
     <xsl:text>]]&gt;&gt;

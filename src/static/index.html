@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Story List</title>
+    <!-- <link rel="icon" type="image/png" href="/static/favicon.png"> -->
+    <style>
+
+        /* Style for the header */
+        #header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background-color: #333;
+            color: #fff;
+            font-size: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        /* Style for the button in the header */
+        #header button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #header button:hover {
+            background-color: #0056b3;
+        }
+
+        #header_ty {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            font-size: xx-large;
+            background-color: #333;
+            color: #fff;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        /* Style for the container */
+        #emojiContainer {
+            padding-top: 50px;
+            max-height: 90vh; /* 80% of the viewport height */
+            overflow-y: scroll; /* Scrollable */
+        }
+
+
+        /* Style for each emoji box */
+        .emoji-box {
+            padding: 20px;
+            margin: 10px;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 100px; /* Increase font size of emojis */
+            line-height: 1.3; /* Adjust line height for proper vertical alignment */
+        }
+
+        /* Different colors for emoji boxes */
+        .emoji-box:nth-child(odd) {
+            background-color: #FFDDC1;
+        }
+
+        .emoji-box:nth-child(even) {
+            background-color: #C1FFDD;
+        }
+
+        /* Footer styles */
+        footer {
+            position: fixed;
+            height: 100px;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .add-story-btn {
+            background-color: #FFA500;
+            border: none;
+            border-radius: 5px;
+            padding: 30px 60px;
+            font-size: xx-large;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .add-story-btn:hover {
+            background-color: #FF8C00;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <!-- <div id="thankYouMessage" >
+        Thank You for your suggestion. Please check back in a few hours to see your story.
+    </div> -->
+    
+    <div id="header">
+        <!-- <button onclick="window.location.href='http://design_story.com'">Add New Story</button> -->
+        CHOOSE A STORY ABOUT ...... ?
+    </div>
+
+    <div id="header_ty">
+        <!-- <button onclick="window.location.href='http://design_story.com'">Add New Story</button> -->
+        THANK YOU for your suggestion! We pick ten each day. Check tomorrow.
+    </div>
+    
+    <div id="emojiContainer">
+        <!-- Emojis will be populated here -->
+    </div>
+    
+    <!-- Footer with "Add New Story" button -->
+    <footer>
+        <button class="add-story-btn" onclick="window.location.href='http://www.ufafu.com/suggest.html'">SUGGEST A STORY</button>
+    </footer>
+
+    <script>
+
+        let elist = [
+                ["👻🤖👽👾🦕🦉", "fgsdfgsd"],
+                ["🎈🌵🦉🍉🚁🎻", "sdfgdfgsdf"],
+                ["🌕🍒🦎🍓🚂🎷", "sdfsdfsd"],
+                ["🎉🌻🦖🍏🚜🎺", "sdfsdf"],
+                ["🌈🍋🦚🍇🚓🎶", "sdfsdsd"],
+                ["🎊🌼🦜🍔🚕🎵", "sadfwerwrw"],
+                ["🌙🍎🦢🍩🚢🎤", "sadfwerwrw"],
+                ["🎋🍉🦋🍖🚤🎼", "sadfwerwrw"],
+                ["🌠🍓🦗🍜🚘🎧", "sadfwerwrw"],
+                ["🎍🍑🦘🍛🚖🎸", "sadfwerwrw"],
+                ["🌌🍅🦙🍝🚍🎻", "sadfwerwrw"],
+                ["🎎🍈🦡🍞🚔🎷", "sadfwerwrw"],
+                ["🌑🍇🦒🍟🚐🎺", "sadfwerwrw"],
+                ["🎏🍊🦓🍠🚑🎶", "sadfwerwrw"],
+                ["🌔🍎🦂🍡🚎🎵", "sadfwerwrw"],
+                ["🎐🍋🦔🍢🚛🎤", "sadfwerwrw"],
+                ["🌖🍌🦕🍣🚚🎼", "sadfwerwrw"],
+                ["🎒🍍🦏🍤🚜🎧", "sadfwerwrw"],
+                ["🌓🍏🦜🍥🚝🎸", "sadfwerwrw"],
+                ["🎑🍐🦑🍦🚞🎻", "sadfwerwrw"]
+            ];
+
+        const bucketURL = `http://aipif-2023b.s3-us-west-1.amazonaws.com/`;
+        fetch(bucketURL)
+            .then(response => response.text())
+            .then(data => {
+                console.log(data);
+                const parser = new DOMParser();
+                const xml = parser.parseFromString(data, "text/xml");
+
+                const contents = Array.from(xml.querySelectorAll('Contents'));
+
+                // Map the contents to an array of objects containing the 'Key' and 'LastModified' data
+                const filesData = contents.map(content => ({
+                    key: content.querySelector('Key').textContent,
+                    lastModified: new Date(content.querySelector('LastModified').textContent)
+                }));
+
+                // Sort the array based on the 'LastModified' timestamp
+                filesData.sort((a, b) => b.lastModified - a.lastModified); // From newest to oldest
+
+                filesData.forEach(fileData => {
+                    let parts = fileData.key.split('_');
+                    let rqidString = parts[0];
+                    let emojiString = parts[1];
+
+                    console.log(rqidString);
+                    console.log(emojiString);
+
+                    let emojiBox = document.createElement('div');
+                    emojiBox.classList.add('emoji-box');
+                    emojiBox.textContent = emojiString;
+
+                    // Redirect when an emoji box is clicked
+                    // Use a closure to bind the current rqidString to the listener
+                    emojiBox.addEventListener('click', (function(rqid) {
+                        return function() {
+                            window.location.href = `http://aipif-2023.s3.us-west-1.amazonaws.com/story/story_${rqid}/p0090-twine.html`;
+                        };
+                    })(rqidString));
+
+                    emojiContainer.appendChild(emojiBox);
+                });
+            })
+            .catch(error => {
+                console.log("Error fetching S3 contents: ", error.message);
+                elist.forEach(emojiString => {
+                    let emojiBox = document.createElement('div');
+                    emojiBox.classList.add('emoji-box');
+                    console.log(emojiString[0]);
+                    console.log(emojiString[1]);
+                    emojiBox.textContent = emojiString[0];
+
+                    // Redirect when an emoji box is clicked
+                    emojiBox.addEventListener('click', function() {
+                        // window.location.href = `nextPage.html?emojis=${encodeURIComponent(emojiString[1])}`;
+                        window.location.href = `http://aipif-2023.s3.us-west-1.amazonaws.com/sample/tw0102_twine.html`; // TODO: put in a default story
+                    });
+
+                    emojiContainer.appendChild(emojiBox);
+                });
+            });
+
+        const emojiContainer = document.getElementById('emojiContainer');
+
+        
+        // Check for URL parameters
+        function getURLParameter(name) {
+            return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
+        }
+
+        window.onload = function() {
+            document.body.style.zoom = "100%";
+            if (getURLParameter('m') && getURLParameter('m').length > 0) {
+                console.log('Thank You! Your story has been submitted.');
+                document.getElementById('header_ty').style.display = 'flex';
+                document.getElementById('header').style.display = 'none';
+                document.getElementById('header_ty').innerHTML = `THANK YOU for your ${getURLParameter('m')} suggestion!\nWe pick ten each day. Check tomorrow.`;
+                fetch(`http://18.222.213.41:8080/ss?ss=${getURLParameter('m')}`) // using the mParam value as the emoji parameter
+                .then(response => {
+                    if(response.ok) {
+                        console.log("GET request sent successfully.");
+                        return response.text();
+                    } else {
+                        throw new Error("Failed to send GET request.");
+                    }
+                })
+                .then(data => {
+                    console.log(data); // Log the response data from the server
+                })
+                .catch(error => {
+                    console.log(error.message);
+                });
+            }
+        };
+    
+    </script>
+
+</body>
+
+</html>

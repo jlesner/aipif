@@ -69,8 +69,7 @@ add retry button to gallery (sends get request to flask, parameter id="bob")
 fix the ui (in both story_list/story_suggest) being hidden by header and footer
 
 
-BUG FIX
-
+TEST THIS
 http://aipif-2023.s3.us-west-1.amazonaws.com/story/story_c8/p0090-twine.html
 Error: cannot execute macro <<button>>: unable to parse macro argument "[[ ": unterminated link markup
 http://aipif-2023.s3.amazonaws.com/story/story_c8/p0090-twine.twee.txt
