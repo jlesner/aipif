@@ -94,13 +94,6 @@ Setting.addRange("masterVolume", {
 ]]></xsl:text>
     </xsl:if>
 
-    <xsl:if test="music/@url">
-        <xsl:text><![CDATA[
-<<audio "bgm_]]></xsl:text>
-        <xsl:value-of select="@key"/>
-        <xsl:text><![CDATA[" loop volume 0.02 play>>]]></xsl:text>
-    </xsl:if>
-
 
     <xsl:text>
 
@@ -123,14 +116,14 @@ Setting.addRange("masterVolume", {
 </xsl:text>
 
 
-<xsl:if test="sound/@url">
-        <xsl:text><![CDATA[<<button "🔊" >>
-    <<audio "sfx_]]></xsl:text>
-        <xsl:value-of select="@key"/>
-        <xsl:text><![CDATA[" volume 0.5 play>>
-<</button>>   ]]></xsl:text>
-    </xsl:if>
-
+    <xsl:text><![CDATA[<<button "🔊" >>
+<<audio "sfx_]]></xsl:text>
+                <xsl:value-of select="@key"/>
+                <xsl:text><![CDATA[" volume 0.4 play>>
+<<audio "bgm_]]></xsl:text>
+                <xsl:value-of select="@key"/>
+                <xsl:text><![CDATA[" loop volume 0.02 play>>
+<</button>>]]>     </xsl:text>
         <xsl:value-of select="introduction"/>
     <xsl:text>
 </xsl:text>
@@ -141,26 +134,39 @@ Setting.addRange("masterVolume", {
             <xsl:text>
 </xsl:text>
             <xsl:apply-templates select="branch"/>
-            <xsl:text><![CDATA[
+            <xsl:if test="music/@url">
+                <xsl:text><![CDATA[
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<<button "🔇">> <<masteraudio stop>> <</button>>]]></xsl:text>
+<<button "🎵" >>
+<<audio "bgm_]]></xsl:text>
+                <xsl:value-of select="@key"/>
+                <xsl:text><![CDATA[" loop volume 0.02 play>>
+<</button>>   ]]></xsl:text>
+            </xsl:if>
+            <xsl:if test="sound/@url">
+                <xsl:text><![CDATA[<<button "🗣️" >>
+<<audio "sfx_]]></xsl:text>
+                <xsl:value-of select="@key"/>
+                <xsl:text><![CDATA[" volume 0.5 play>>
+<</button>>   ]]></xsl:text>
+            </xsl:if>
+            <xsl:text><![CDATA[<<button "🔇">> <<masteraudio stop>> <</button>>]]></xsl:text>
             <xsl:text><![CDATA[<html>   DEBUG: 
                 <a href="http://aipif-2023.s3.amazonaws.com/sample/tree.xml" target="_blank">xml</a>
                 <a href="http://aipif-2023.s3.amazonaws.com/sample/twine.twee.txt" target="_blank">twee</a>
@@ -202,6 +208,20 @@ The End!
 
 
 ]]></xsl:text>
+         <xsl:if test="music/@url">
+            <xsl:text><![CDATA[<<button "🎵" >>
+<<audio "bgm_]]></xsl:text>
+            <xsl:value-of select="@key"/>
+            <xsl:text><![CDATA[" loop volume 0.02 play>>
+<</button>>   ]]></xsl:text>
+        </xsl:if>
+        <xsl:if test="sound/@url">
+            <xsl:text><![CDATA[<<button "🗣️" >>
+<<audio "sfx_]]></xsl:text>
+            <xsl:value-of select="@key"/>
+            <xsl:text><![CDATA[" volume 0.5 play>>
+<</button>>   ]]></xsl:text>
+        </xsl:if>
         <xsl:text><![CDATA[<<button "🔇">> <<masteraudio stop>> <</button>>]]></xsl:text>
 <xsl:text><![CDATA[<html>DEBUG:
             <a href="http://aipif-2023.s3.amazonaws.com/sample/tree.xml" target="_blank">xml</a>

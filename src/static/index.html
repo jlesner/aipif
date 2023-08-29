@@ -238,7 +238,7 @@
                 console.log('Thank You! Your story has been submitted.');
                 document.getElementById('header_ty').style.display = 'flex';
                 document.getElementById('header').style.display = 'none';
-                document.getElementById('header_ty').innerHTML = `THANK YOU for your ${getURLParameter('m')} suggestion!\nWe pick ten each day. Check tomorrow.`;
+                document.getElementById('header_ty').innerHTML = `THANK YOU for ${getURLParameter('m')}<br>We pick ten each day. Check tomorrow.`;
                 fetch(`http://18.222.213.41:8080/ss?ss=${getURLParameter('m')}`) // using the mParam value as the emoji parameter
                 .then(response => {
                     if(response.ok) {
