@@ -17,7 +17,7 @@ s3_txt_stream()
 {
     local fs_path=$1
     aws s3 cp - s3://${s3_bucket}/${fs_path} \
-        --content-type text/html
+        --content-type text/plain
         # --content-type application/xml \
         # --metadata "Content-Disposition=inline"
 } ; export -f s3_txt_stream
