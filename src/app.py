@@ -1,3 +1,4 @@
+from api.S3WebApi import S3WebApi
 from flask import Flask, redirect, render_template, request, url_for
 from api.FsWebApi import FsWebApi
 from flask_cors import CORS
@@ -6,7 +7,8 @@ app = Flask(__name__)
 # CORS(app)
 CORS(app, resources={r"/*": {"origins": "*"}})
 
-web_api = FsWebApi("src/story/_queue")
+# web_api = FsWebApi("src/story/_queue")
+web_api = S3WebApi()
 
 @app.route("/sl", methods=("GET", "POST"))
 def story_list():
@@ -25,33 +27,33 @@ def story_suggest():
     return "OK"
 
 
-@app.route("/prr", methods=("GET", "POST"))
-def picture_retry_request():
+@app.route("/pr", methods=("GET", "POST"))
+def picture_retry():
 
     if request.method == "GET":
         id = request.args.get("id")
-        print(f"retry_request(id) with {id}" )
-        web_api.retry_request(id)
+        print(f"picture_retry(id) with {id}" )
+        web_api.picture_retry(id)
 
     return "OK"
 
-@app.route("/mrr", methods=("GET", "POST"))
-def music_retry_request():
+@app.route("/mr", methods=("GET", "POST"))
+def music_retry():
 
     if request.method == "GET":
         id = request.args.get("id")
-        print(f"retry_request(id) with {id}" )
-        web_api.retry_request(id)
+        print(f"music_retry(id) with {id}" )
+        web_api.music_retry(id)
 
     return "OK"
 
-@app.route("/srr", methods=("GET", "POST"))
-def sound_retry_request():
+@app.route("/sr", methods=("GET", "POST"))
+def sound_retry():
 
     if request.method == "GET":
         id = request.args.get("id")
-        print(f"retry_request(id) with {id}" )
-        web_api.retry_request(id)
+        print(f"sound_retry(id) with {id}" )
+        web_api.sound_retry(id)
 
     return "OK"
 
