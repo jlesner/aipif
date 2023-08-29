@@ -22,12 +22,13 @@ Avoid long poetic descriptions. Use simple language and avoid complex words.
                     <xsl:value-of select="ancestor::tree/prompt"/>
                     <xsl:value-of select="prompt"/>
                     <xsl:text>                    
-                        Inspired by these you will write a short story for the child in a style similar to Edward Gorey
-
+                        Inspired by emoji you will write a short short story in the style of Mo Willems, Arnold Lobel.
+                        
+                        
                         Show, Don't Tell: When possible reveal information using dialoge. 
                         Make the story strange, wacky and funny or scary but exciting. 
                         Avoid clichés like "once upon a time" or "happily ever after." 
-                        Avoid long poetic descriptions. Use simple language and avoid complex words.
+                        Use simple language and avoid complex words.
 
                         Reply only with the updated XML from below. Keep the XML structure unchanged. Only edit existing elements. 
                     </xsl:text>
@@ -83,7 +84,7 @@ Avoid long poetic descriptions. Use simple language and avoid complex words.
                                 Show, Don't Tell: When possible reveal information using dialoge. 
                                 Make the story strange, wacky and funny or scary but exciting. 
                                 Avoid clichés like "once upon a time" or "happily ever after." 
-                                Avoid long poetic descriptions. Use simple language and avoid complex words.
+                                Use simple language and avoid complex words.
 
                                 Reply only with the updated XML from below. Keep the XML structure unchanged. Only edit existing elements. 
                             </xsl:text>
