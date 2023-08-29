@@ -29,7 +29,7 @@ def context_configure(context:Context):
     context.config['story_maker_port'] = 8080
     context.config['num_workers'] = 8
     context.config['sentinel'] = "STOP"
-    context.config['make_text_attempts'] = 3
+    context.config['make_text_attempts'] = 6
 
 
 def state_setup(context:Context):
