@@ -25,7 +25,7 @@ class FsStoryMaker():
         rq_id = prompt_dict['rq_id']
         positive_prompt_text = prompt_dict['positive_prompt_text']
         command = f'bash -c "(cd ~/aipif/src/story && . story2.bash && py_fs_story_make {self.sanitize(rq_id)} {self.sanitize(positive_prompt_text)}  )"'
-        process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, bufsize=1)
+        process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, bufsize=1, text=True)
         
         while True:
             output = process.stdout.readline().decode('utf-8')
