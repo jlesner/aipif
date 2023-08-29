@@ -32,7 +32,7 @@ def state_setup(context:Context):
 
     # context.state['text_maker'] = CachingTextMaker(Gpt35TextMaker(context))
     # context.state['text_maker'] = CachingTextMaker(Gpt4t8kTextMaker(context))
-    context.state['story_maker'] = FsStoryMaker(context)
+    context.state['story_maker'] = FsStoryMaker()
     pass
 
 def address_requests(context, input_file, output_file):
