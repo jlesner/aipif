@@ -48,7 +48,7 @@
     
         function sendRetyRequest(element,id) {
             // create the URL with the id parameter
-            const url = `http://localhost:5000/srr?id=${id}`;
+            const url = `http://18.222.213.41:8080/sr?id=${id}`;
             element.style.display = "none";
             // make the GET request using the Fetch API
             fetch(url, {
