@@ -7,6 +7,9 @@ TODO update prompts so actions drive the story
 WS_URL=18.222.213.41:8080
 WS_URL=ec2-18-222-213-41.us-east-2.compute.amazonaws.com:8080
 
+create a text box in the gallerys with a save button so that it sends prompt retry requests
+
+
 centralize constants addresses etc
     how to mass replace in s3?
 
