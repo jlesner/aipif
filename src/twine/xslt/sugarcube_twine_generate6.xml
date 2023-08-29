@@ -122,12 +122,6 @@ Setting.addRange("masterVolume", {
 
 </xsl:text>
 
-<xsl:text><![CDATA[<<button "🔇">>
-    <<masteraudio stop>>
-<</button>>
-
-]]></xsl:text>
-
 
 <xsl:if test="sound/@url">
         <xsl:text><![CDATA[<<button "🔊" >>
@@ -147,8 +141,27 @@ Setting.addRange("masterVolume", {
             <xsl:text>
 </xsl:text>
             <xsl:apply-templates select="branch"/>
-            <xsl:text>
-            <![CDATA[<html>DEBUG: 
+            <xsl:text><![CDATA[
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<<button "🔇">> <<masteraudio stop>> <</button>>]]></xsl:text>
+            <xsl:text><![CDATA[<html>   DEBUG: 
                 <a href="http://aipif-2023.s3.amazonaws.com/sample/tree.xml" target="_blank">xml</a>
                 <a href="http://aipif-2023.s3.amazonaws.com/sample/twine.twee.txt" target="_blank">twee</a>
                 <a href="http://aipif-2023.s3.amazonaws.com/sample/tree.html" target="_blank">tree</a>
@@ -156,8 +169,7 @@ Setting.addRange("masterVolume", {
                 <a href="http://aipif-2023.s3.amazonaws.com/sample/mgallery.html" target="_blank">music</a>
                 <a href="http://aipif-2023.s3.amazonaws.com/sample/sgallery.html" target="_blank">sounds</a>
                 <a href="http://www.ufafu.com">home</a>
-            </html>]]>
-            </xsl:text>
+            </html>   ]]></xsl:text>
             <!-- ^ story_list story_suggest links need to be updated -->
             <xsl:apply-templates select="branch/scene"/>
         </xsl:when>
@@ -171,7 +183,35 @@ The End!
     window.location.href='http://www.ufafu.com'
     <</script>>
 <</button>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ]]></xsl:text>
+        <xsl:text><![CDATA[<<button "🔇">> <<masteraudio stop>> <</button>>]]></xsl:text>
+<xsl:text><![CDATA[<html>DEBUG:
+            <a href="http://aipif-2023.s3.amazonaws.com/sample/tree.xml" target="_blank">xml</a>
+            <a href="http://aipif-2023.s3.amazonaws.com/sample/twine.twee.txt" target="_blank">twee</a>
+            <a href="http://aipif-2023.s3.amazonaws.com/sample/tree.html" target="_blank">tree</a>
+            <a href="http://aipif-2023.s3.amazonaws.com/sample/pgallery.html" target="_blank">pictures</a>
+            <a href="http://aipif-2023.s3.amazonaws.com/sample/mgallery.html" target="_blank">music</a>
+            <a href="http://aipif-2023.s3.amazonaws.com/sample/sgallery.html" target="_blank">sounds</a>
+            <a href="http://www.ufafu.com">home</a>
+        </html>   ]]></xsl:text>
         </xsl:when>
     </xsl:choose>
 
