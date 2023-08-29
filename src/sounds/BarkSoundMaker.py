@@ -21,7 +21,7 @@ class BarkSoundMaker():
     def make_sound(self, prompt_dict: dict):
 
         text_prompt = prompt_dict['positive_prompt_text']
-        audio_array = generate_audio(text_prompt, history_prompt="v2/en_speaker_1")
+        audio_array = generate_audio(text_prompt, history_prompt="v2/en_speaker_6")
 
         temp_name = tempfile.mktemp()
 

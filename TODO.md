@@ -1,5 +1,7 @@
 
 
+add more emoji perhaps most of them? 
+
 
 story gallery view with logs and redo 
 
