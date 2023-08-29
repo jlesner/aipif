@@ -36,8 +36,8 @@
             </xsl:element>
 
             <xsl:element name="dialogue">
-                <xsl:text>Replace this with a scene dialogue that is suitable for children.</xsl:text>
-                <xsl:text>Put all dialogue inside this one single dialogue element. Use a new line for each new speaker. </xsl:text>            
+                <!-- <xsl:text>Replace this with a scene dialogue that is suitable for children.</xsl:text> -->
+                <xsl:text>Put all scence dialogue inside this one single dialogue element. Use a new line for each new speaker. </xsl:text>            
                 <xsl:value-of select="outline"/>
                 <!-- <xsl:text>Write scence dialogue as in a screen play. Do not use new XML tags. </xsl:text> -->
             </xsl:element>
