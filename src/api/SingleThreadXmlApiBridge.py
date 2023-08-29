@@ -15,7 +15,7 @@ from text.StubTextMaker import StubTextMaker
 
 def context_configure(context:Context):
     # context.config['story_maker_port'] = 8080
-    context.config['make_text_attempts'] = 3
+    context.config['make_text_attempts'] = 2
 
 def state_setup(context:Context):
     # for now we hardcode function bindings
