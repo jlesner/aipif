@@ -45,8 +45,8 @@ Setting.addHeader("Game Settings");
 Setting.addRange("masterVolume", {
 	label    : "Master volume:",
 	min      : 0,
-	max      : 10,
-	step     : 1,
+	max      : 1,
+	step     : 0.1,
 	onChange : function () {
 		SimpleAudio.volume(settings.masterVolume / 10);
 	}
@@ -98,7 +98,7 @@ Setting.addRange("masterVolume", {
         <xsl:text><![CDATA[
 <<audio "bgm_]]></xsl:text>
         <xsl:value-of select="@key"/>
-        <xsl:text><![CDATA[" loop volume 0.1 play>>]]></xsl:text>
+        <xsl:text><![CDATA[" loop volume 0.02 play>>]]></xsl:text>
     </xsl:if>
 
 
@@ -118,15 +118,22 @@ Setting.addRange("masterVolume", {
             });
         }
     </script>
-</html> ]]>
+</html>]]>
 
 </xsl:text>
+
+<xsl:text><![CDATA[<<button "🔇">>
+    <<masteraudio stop>>
+<</button>>
+
+]]></xsl:text>
+
 
 <xsl:if test="sound/@url">
         <xsl:text><![CDATA[<<button "🔊" >>
     <<audio "sfx_]]></xsl:text>
         <xsl:value-of select="@key"/>
-        <xsl:text><![CDATA[" volume 0.3 play>>
+        <xsl:text><![CDATA[" volume 0.5 play>>
 <</button>>   ]]></xsl:text>
     </xsl:if>
 
@@ -148,8 +155,7 @@ Setting.addRange("masterVolume", {
                 <a href="http://aipif-2023.s3.amazonaws.com/sample/pgallery.html" target="_blank">pictures</a>
                 <a href="http://aipif-2023.s3.amazonaws.com/sample/mgallery.html" target="_blank">music</a>
                 <a href="http://aipif-2023.s3.amazonaws.com/sample/sgallery.html" target="_blank">sounds</a>
-                <a href="http://aipif-2023.s3.amazonaws.com/static/story_list4.html" target="_blank">story list</a>
-                <a href="http://aipif-2023.s3.amazonaws.com/static/story_suggest2b.html" target="_blank">story suggest</a>
+                <a href="http://www.ufafu.com">home</a>
             </html>]]>
             </xsl:text>
             <!-- ^ story_list story_suggest links need to be updated -->
@@ -162,7 +168,7 @@ The End!
 <![CDATA[
 <<button [img[http://aipif-2023.s3.amazonaws.com/static/favicon.png]] >>
     <<script>>
-    window.location.href='https://aipif-2023.s3.us-west-1.amazonaws.com/static/story_list4.html'
+    window.location.href='http://www.ufafu.com'
     <</script>>
 <</button>>
 ]]></xsl:text>

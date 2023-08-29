@@ -44,7 +44,8 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 60px;
+            height: 100px;
+            font-size: xx-large;
             background-color: #333;
             color: #fff;
             display: none;
@@ -133,7 +134,7 @@
     
     <!-- Footer with "Add New Story" button -->
     <footer>
-        <button class="add-story-btn" onclick="window.location.href='https://aipif-2023.s3.us-west-1.amazonaws.com/static/story_suggest2b.html'">SUGGEST A STORY</button>
+        <button class="add-story-btn" onclick="window.location.href='http://www.ufafu.com/suggest.html'">SUGGEST A STORY</button>
     </footer>
 
     <script>
@@ -215,7 +216,7 @@
                     // Redirect when an emoji box is clicked
                     emojiBox.addEventListener('click', function() {
                         // window.location.href = `nextPage.html?emojis=${encodeURIComponent(emojiString[1])}`;
-                        window.location.href = `http://aipif-2023.s3.us-west-1.amazonaws.com/sample/tw0102_twine.html`;
+                        window.location.href = `http://aipif-2023.s3.us-west-1.amazonaws.com/sample/tw0102_twine.html`; // TODO: put in a default story
                     });
 
                     emojiContainer.appendChild(emojiBox);
@@ -232,10 +233,26 @@
 
         window.onload = function() {
             document.body.style.zoom = "100%";
-            if (getURLParameter('m') === 'ty') {
+            if (getURLParameter('m') && getURLParameter('m').length > 0) {
                 console.log('Thank You! Your story has been submitted.');
                 document.getElementById('header_ty').style.display = 'flex';
                 document.getElementById('header').style.display = 'none';
+                document.getElementById('header_ty').innerHTML = `THANK YOU for your ${getURLParameter('m')} suggestion! We pick ten each day. Check tomorrow.`;
+                fetch(`http://18.222.213.41:8080/ss?ss=${getURLParameter('m')}`) // using the mParam value as the emoji parameter
+                .then(response => {
+                    if(response.ok) {
+                        console.log("GET request sent successfully.");
+                        return response.text();
+                    } else {
+                        throw new Error("Failed to send GET request.");
+                    }
+                })
+                .then(data => {
+                    console.log(data); // Log the response data from the server
+                })
+                .catch(error => {
+                    console.log(error.message);
+                });
             }
         };
     
