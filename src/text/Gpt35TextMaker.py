@@ -12,7 +12,8 @@ class Gpt35TextMaker(TextMaker):
  def make_text(self, prompt_dict:dict, retry_count:int=0):
     try:
         completion = openai.ChatCompletion.create( 
-            model = 'gpt-3.5-turbo',
+            # model = 'gpt-3.5-turbo',
+            model = 'gpt-3.5-turbo-16k',
             messages = [ 
                 {'role': 'user', 'content': prompt_dict['positive_prompt_text']}
             ],
