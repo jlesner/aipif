@@ -1,6 +1,6 @@
 
 
-
+refresh fetch image with a url param
 
 add log view open https://aipif-2023.s3.us-west-1.amazonaws.com/_queue/make_picture-00a5ccf7-req.xml.log
 
