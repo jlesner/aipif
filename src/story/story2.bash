@@ -536,6 +536,14 @@ apt_requirements_install()
     story_configure stub
     req_path=${phome}/src/story/apt_requirements.txt
     sudo xargs apt-get install -y < ${req_path}
+
+    (
+        mkdir -p ${phome}/exclude || true
+        cd ${phome}/exclude
+        aws s3 cp s3://aipif-2023/opt/tweego-2.1.1-linux-x64.tgz .
+        unzip tweego-2.1.1-linux-x64.tgz
+    ) 
+
 } ; export -f apt_requirements_install
 
 
