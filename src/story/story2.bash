@@ -230,7 +230,7 @@ story_publish()
         | tr -s " " \
         | xsltproc ${twine_path}/xslt/problem_char_fix.xml /dev/stdin \
         | fmt -w 40 \
-        | xsltproc ${twine_path}/xslt/mmfc_generate.xml /dev/stdin \
+        | xsltproc ${twine_path}/xslt/mmfc_generate2.xml /dev/stdin \
         | tee >( aws s3 cp - ${s3_path_prefix}tree.html --content-type text/html ) \
         > ${fs_path_prefix}tree.html
 
