@@ -38,8 +38,8 @@
             <xsl:element name="dialogue">
                 <!-- <xsl:text>Replace this with a scene dialogue that is suitable for children.</xsl:text> -->
                 <xsl:text>Put all scence dialogue inside this single dialogue element. Use a new line for each new speaker. </xsl:text>
-                <xsl:text>Prefix each speaking part using character names. Each character gets two speaking turns max. </xsl:text>
-                <xsl:text>Keep it simple and funny and less than two dozen impactful words. </xsl:text>            
+                <xsl:text>Prefix each speaking part using character names. Each character gets one short speaking turn. </xsl:text>
+                <!-- <xsl:text>Keep it simple and funny and less than two dozen impactful words. </xsl:text>             -->
                 <xsl:value-of select="outline"/>
                 <!-- <xsl:text>Write scence dialogue as in a screen play. Do not use new XML tags. </xsl:text> -->
             </xsl:element>
