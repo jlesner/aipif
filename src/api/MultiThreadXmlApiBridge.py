@@ -27,7 +27,7 @@ def context_configure(context:Context):
     # WARNING: DO NOT CHECKIN YOUR API KEYS / SECRETS
     #
     context.config['story_maker_port'] = 8080
-    context.config['num_workers'] = 32
+    context.config['num_workers'] = 8
     context.config['sentinel'] = "STOP"
     context.config['make_text_attempts'] = 3
 
