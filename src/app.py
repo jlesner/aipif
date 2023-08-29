@@ -67,7 +67,7 @@ def story_retry():
     return "OK"
 
 
-@app.route("/pe", methods=("POST"))
+@app.route("/pe", methods=("GET", "POST"))
 def picture_edit():
 
     if request.method == "POST":
