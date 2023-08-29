@@ -68,7 +68,7 @@ Avoid long poetic descriptions. Use simple language and avoid complex words.
                             <xsl:text>
                             A child asked you for a story about the following emojis: </xsl:text>
                             <xsl:value-of select="ancestor::tree/prompt"/><xsl:text>
-                            Your story so far is the following:
+                            Your story for them so far:
                             </xsl:text>
 
                             <xsl:call-template name="story_so_far">
@@ -77,8 +77,8 @@ Avoid long poetic descriptions. Use simple language and avoid complex words.
                             </xsl:call-template>
                             <xsl:text>
                                 Please continue this story from the last protagonist_reaction decision above. 
-                                If the last protagonist_reaction decision was a bad decision tell how it lead to a disaster or tradgedy.
-
+                                If the last protagonist_reaction decision is a bad decision have your story show how it leads to a bad outcome.
+                                
                                 Show, Don't Tell: When possible reveal information using dialoge. 
                                 Make the story strange, wacky and funny or scary but exciting. 
                                 Avoid clichés like "once upon a time" or "happily ever after." 
