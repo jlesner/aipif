@@ -42,8 +42,8 @@ structure_cat()
 xml_api_bridge()
 {
     # python3 ../api/StubXmlApiBridge.py
-    # python3 ../api/SingleThreadXmlApiBridge.py
-    python3 ../api/MultiThreadXmlApiBridge.py
+    python3 ../api/SingleThreadXmlApiBridge.py
+    # python3 ../api/MultiThreadXmlApiBridge.py
 } ; export -f xml_api_bridge
 
 
