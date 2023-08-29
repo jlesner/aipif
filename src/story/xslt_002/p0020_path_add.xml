@@ -77,7 +77,7 @@
                     <!-- <xsl:text>Replace this with  will the protagonist do after this scene? Propose to the reader a single unique action.</xsl:text> -->
                     <!-- <xsl:text>What will the protagonist do after this scene? Propose to the reader a single unique action.</xsl:text> -->
                     <!-- <xsl:text>Propose to the reader how the to the reader a single unique action.</xsl:text> -->
-                    <xsl:text>Replace this with a description of an obviously bad decision / obviously bad action the protagonist will take after this scene. Do not judge the action / decision. </xsl:text>
+                    <xsl:text>Replace this with a description of an obviously bad decision / obviously bad action the main character will take after this scene. Do not judge the action / decision. </xsl:text>
                     <!-- <xsl:text>Replace this with a short child understandable fun description of a good decision / good outcome action the protagonist can take after this scene.</xsl:text> -->
                 </xsl:element>
             </xsl:for-each>
