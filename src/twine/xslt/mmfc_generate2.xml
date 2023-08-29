@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:output method="text"/>
+
+<xsl:template match="tree">
+
+    <xsl:text><![CDATA[<html>
+  <head>
+    <script> src="https://cdn.jsdelivr.net/npm/mermaid@8.10.2/dist/mermaid.min.js"> </script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <style>
+      body {
+            overflow-x: scroll; /* Enable horizontal scrolling */
+      }
+
+      .graph-container {
+          overflow: auto; /* Enable scrolling for the container */
+          width: 100%; /* Occupy full width of the viewport */
+          min-width: 2000px; /* You can adjust this value to suit your needs */
+      }
+      
+      .graph-container svg {
+          display: block;
+          width: 100%; /* Make sure SVG fills the container */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="graph-container">
+    <pre class="mermaid">
+    flowchart TD
+]]></xsl:text>
+
+    <xsl:apply-templates select="scene"/>
+
+    <xsl:text><![CDATA[
+    </pre>
+    </div>
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+
+      mermaid.initialize({
+          startOnLoad: true,
+          theme: 'neutral',
+          flowchart: {
+              useMaxWidth: false  // Ensure graph uses actual width
+          }
+      });
+
+      // After mermaid initializes and renders the diagram, add the zoom functionality
+      document.addEventListener("DOMContentLoaded", function(event) {
+          var svg = d3.select("svg");
+          var zoom = d3.zoom().on("zoom", function() {
+              svg.attr("transform", d3.event.transform);
+          });
+          svg.call(zoom);
+      });
+    </script>
+  </body>
+</html>
+]]></xsl:text>
+
+</xsl:template>
+
+
+<xsl:template match="scene">
+    <xsl:text>  </xsl:text>
+    <xsl:value-of select="@key"/>
+    <xsl:text>["</xsl:text>
+    <xsl:value-of select="@name"/>
+    <xsl:text>:
+</xsl:text>
+    <xsl:value-of select="introduction"/>
+    <xsl:text>"]
+
+</xsl:text>
+
+    <xsl:if test="count(branch) > 1">
+    <xsl:text>style </xsl:text>
+    <xsl:value-of select="@key"/>
+    <xsl:text> fill:#f0cf7d
+</xsl:text>
+    </xsl:if>
+
+
+
+    <xsl:choose>
+        <xsl:when test="branch">
+            <xsl:text>
+</xsl:text>
+            <xsl:apply-templates select="branch"/>
+            <xsl:apply-templates select="branch/scene"/>
+
+        </xsl:when>
+
+    </xsl:choose>
+
+</xsl:template>
+
+<xsl:template match="branch">
+
+    <xsl:value-of select="ancestor::scene[1]/@key"/>
+    <xsl:text>--></xsl:text>
+    <xsl:value-of select="scene[1]/@key"/>
+    <xsl:text>
+
+</xsl:text>
+</xsl:template>
+
+
+</xsl:stylesheet>
