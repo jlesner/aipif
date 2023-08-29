@@ -6,7 +6,7 @@ import tempfile
 from media.MediaManager import MediaManager
 from media.RqMediaManager import RqMediaManager
 
-os.environ['SUNO_USE_SMALL_MODELS'] = 'True'
+# os.environ['SUNO_USE_SMALL_MODELS'] = 'True'
 
 from bark import SAMPLE_RATE, generate_audio, preload_models
 from scipy.io.wavfile import write as write_wav
@@ -21,7 +21,7 @@ class BarkSoundMaker():
     def make_sound(self, prompt_dict: dict):
 
         text_prompt = prompt_dict['positive_prompt_text']
-        audio_array = generate_audio(text_prompt, history_prompt="v2/en_speaker_6")
+        audio_array = generate_audio(text_prompt, history_prompt="v2/en_speaker_1")
 
         temp_name = tempfile.mktemp()
 
