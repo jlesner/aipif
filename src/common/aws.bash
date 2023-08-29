@@ -17,7 +17,9 @@ s3_txt_stream()
 {
     local fs_path=$1
     aws s3 cp - s3://${s3_bucket}/${fs_path} \
-        --content-type text/plain
+        --no-guess-mime-type \
+        --content-type text/plain \
+        --cache-control "public, max-age=20" # 20s hour DEBUG
         # --content-type application/xml \
         # --metadata "Content-Disposition=inline"
 } ; export -f s3_txt_stream
@@ -36,7 +38,10 @@ s3_put()
     local content_type=$2
     aws s3 cp - s3://${s3_bucket}/${fs_path} \
         --content-type ${content_type} \
-        --metadata "Content-Disposition=inline"
+        --metadata "Content-Disposition=inline" \
+        --cache-control "public, max-age=20" # 20s hour DEBUG
+
+        # --cache-control "public, max-age=3600" # 1 hour 
 } ; export -f s3_put
 
 
