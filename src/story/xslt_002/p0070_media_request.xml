@@ -17,7 +17,8 @@
                     <xsl:text>Disfigured, blurry, nude, sloppy, deformed, mutated, ugly</xsl:text>
                 </xsl:element>
                 <xsl:element name="style_prompt_text">
-                    <xsl:text>Quentin Blake. Expressive, sketchy line drawing having humor and energy.</xsl:text>
+                    <!-- <xsl:text>Quentin Blake. Expressive, sketchy line drawing having humor and energy.</xsl:text> -->
+                    <xsl:text>In the art style of Edward Gorey</xsl:text> 
                 </xsl:element>
             </xsl:element>
         </xsl:copy>
