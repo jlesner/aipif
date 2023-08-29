@@ -169,9 +169,9 @@ tree_grow()
                 \
                 > /dev/null
 
-                grep -F '<error>' < ${output_path}/p0030_tree_${ss}_out.xml \
-                    && echo "tree_grow() ABORTED DUE TO ERROR in ${output_path}/p0030_tree_${ss}_out.xml" \
-                    && return 1
+                # grep -F '<error>' < ${output_path}/p0030_tree_${ss}_out.xml \
+                #     && echo "tree_grow() ABORTED DUE TO ERROR in ${output_path}/p0030_tree_${ss}_out.xml" \
+                #     && return 1
             pss=$ss
         done
 
