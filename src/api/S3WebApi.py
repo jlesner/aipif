@@ -46,9 +46,17 @@ class S3WebApi(WebApi):
         # TODO santize prompt text
         # TODO santize prompt text
 
-        s3_key = f"{self._queue_path}/make_{object_type}-{rq_id}-req.xml.log"
+        s3_key = f"{self._queue_path}/make_{object_type}-{rq_id}-req.xml"
         try:
-            self._s3_client.delete_object(Bucket=self._bucket_name, Key=s3_key)
+            self._s3_client.delete_object(Bucket=self._bucket_name, Key=s3_key + ".lock")
+        except self._s3_client.exceptions.NoSuchKey:
+            pass
+        except Exception as e:
+            print(f"request_retry(self, rq_id: str) with {rq_id} resulted in {e}", file=sys.stderr)
+            traceback.print_exc(file=sys.stderr)
+
+        try:
+            self._s3_client.delete_object(Bucket=self._bucket_name, Key=s3_key + ".log")
         except self._s3_client.exceptions.NoSuchKey:
             pass
         except Exception as e:
