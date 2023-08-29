@@ -39,9 +39,14 @@ class S3WebApi(WebApi):
 
         print(f"Queued {s3_key} in S3 bucket {self._bucket_name} with content {request_xml}", file=sys.stderr)
 
-    def request_retry(self, rq_id: str):
-        # TODO support retry beyond images
-        s3_key = f"{self._queue_path}/make_picture-{rq_id}-req.xml.log"
+    def retry_request(self, object_type:str, rq_id: str):
+
+        # TODO santize prompt text
+        # TODO santize prompt text
+        # TODO santize prompt text
+        # TODO santize prompt text
+
+        s3_key = f"{self._queue_path}/make_{object_type}-{rq_id}-req.xml.log"
         try:
             self.s3_client.delete_object(Bucket=self._bucket_name, Key=s3_key)
         except self.s3_client.exceptions.NoSuchKey:
@@ -51,14 +56,18 @@ class S3WebApi(WebApi):
             traceback.print_exc(file=sys.stderr)
 
 
-    def request_edit(self, rq_id:str, positive_prompt_text:str):
-        # TODO support edits beyond images
+    def edit_request(self, object_type:str, rq_id:str, positive_prompt_text:str):
         # TODO support style and negative prompt edits
-        s3_key = f"{self._queue_path}/make_picture-{rq_id}-req.xml.log"
+        s3_key = f"{self._queue_path}/make_{object_type}-{rq_id}-req.xml"
         
+        # TODO santize prompt text
+        # TODO santize prompt text
+        # TODO santize prompt text
+        # TODO santize prompt text
+
         request_xml = f'''
 <queue>
-    <request type="make_picture">
+    <request type="make_{object_type}">
         <positive_prompt_text>{positive_prompt_text}</positive_prompt_text>
         <negative_prompt_text>Disfigured, blurry, nude, sloppy, deformed, mutated, ugly</negative_prompt_text>
         <style_prompt_text>Quentin Blake. Expressive, sketchy line drawing having humor and energy.</style_prompt_text>
@@ -72,6 +81,7 @@ class S3WebApi(WebApi):
         except Exception as e:
             print(f"Error saving to S3: {e}", file=sys.stderr)
             traceback.print_exc(file=sys.stderr)
+            return
 
         try:
             self._s3_client.delete_object(Bucket=self._bucket_name, Key=s3_key + ".log")
@@ -80,6 +90,7 @@ class S3WebApi(WebApi):
         except Exception as e:
             print(f"request_retry(self, rq_id: str) with {rq_id} resulted in {e}", file=sys.stderr)
             traceback.print_exc(file=sys.stderr)
+            return
 
 
     def json_story_list(self) -> json:

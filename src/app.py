@@ -26,14 +26,13 @@ def story_suggest():
     # return redirect("http://aipif-2023.s3.amazonaws.com/static/story_list4.html?m=ty")
     return "OK"
 
-
 @app.route("/pr", methods=("GET", "POST"))
 def picture_retry():
 
     if request.method == "GET":
         id = request.args.get("id")
         print(f"picture_retry(id) with {id}" )
-        web_api.picture_retry(id)
+        web_api.retry_request("picture",id)
 
     return "OK"
 
@@ -43,7 +42,7 @@ def music_retry():
     if request.method == "GET":
         id = request.args.get("id")
         print(f"music_retry(id) with {id}" )
-        web_api.music_retry(id)
+        web_api.retry_request("music",id)
 
     return "OK"
 
@@ -53,7 +52,29 @@ def sound_retry():
     if request.method == "GET":
         id = request.args.get("id")
         print(f"sound_retry(id) with {id}" )
-        web_api.sound_retry(id)
+        web_api.retry_request("sound",id)
+
+    return "OK"
+
+@app.route("/tr", methods=("GET", "POST"))
+def story_retry():
+
+    if request.method == "GET":
+        id = request.args.get("id")
+        print(f"story_retry(id) with {id}" )
+        web_api.retry_request("story",id)
+
+    return "OK"
+
+
+@app.route("/pe", methods=("POST"))
+def picture_edit():
+
+    if request.method == "POST":
+        id = request.json.get("id")
+        prompt = request.json.get("prompt")
+        print(f"picture_edit(id) with {id} and {prompt}")
+        web_api.edit_request("picture", id, prompt)
 
     return "OK"
 
