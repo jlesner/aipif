@@ -1,5 +1,7 @@
 import sys
 import re
+import time
+import random
 import traceback
 from lxml import etree
 
@@ -63,6 +65,7 @@ def process_request(context, request_node):  # worker thread
                     response_string_xml = extract_xml(response_string)
                     if valid_xml(response_string_xml):
                         break
+                    time.sleep(random.random()*2)
                 except Exception as e:
                     continue
 

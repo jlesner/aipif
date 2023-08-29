@@ -29,7 +29,7 @@ def context_configure(context:Context):
     context.config['story_maker_port'] = 8080
     context.config['num_workers'] = 8
     context.config['sentinel'] = "STOP"
-    context.config['make_text_attempts'] = 6
+    context.config['make_text_attempts'] = 4
 
 
 def state_setup(context:Context):
@@ -98,6 +98,7 @@ def process_request(context, id):  # worker thread
                                 response_string_xml = extract_xml(response_string)
                                 if valid_xml(response_string_xml):
                                     break
+                                time.sleep(random.random()*2)
                             except Exception as e:
                                 continue
 
