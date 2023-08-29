@@ -18,7 +18,7 @@
                 </xsl:element>
                 <xsl:element name="style_prompt_text">
                     <!-- <xsl:text>Quentin Blake. Expressive, sketchy line drawing having humor and energy.</xsl:text> -->
-                    <xsl:text>In the art style of Edward Gorey</xsl:text> 
+                    <xsl:text>Edward Gorey, Tim Burton, Shel Silverstein, Gahan Wilson</xsl:text> 
                 </xsl:element>
             </xsl:element>
         </xsl:copy>
