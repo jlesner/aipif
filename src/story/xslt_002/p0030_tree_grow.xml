@@ -18,13 +18,12 @@ A child selected emojis: </xsl:text>
                     <xsl:text>
 Inspired by these you will write a story for the child.
 
-Show, Don't Tell: When possible reveal information using dialoge do not state it directly. If a specific aspect is important, reveal it using dialoge between characters. 
+Use writing style that is a mix of Mo Willems, Arnold Lobel, Roald Dahl, Edward Gorey, John Bellairs 
+Show, Don't Tell: When possible reveal information using dialoge do not state it directly. 
+If a specific aspect is important, reveal it using dialoge between characters to show it. 
 For example, if a character is sad, do not say "The character was sad."  Instead, have another character ask "Why are you sad?" 
-This will allow audience to infer the character is sad without being told directly.
- 
-Economy of Words: Be concise. You don't need long, poetic descriptions. Every word should serve the purpose of conveying essential visual or auditory information, setting the mood, or advancing the story.
-
-Clarity is Key: Children reading should have a good understanding. Use simple language and avoid complex words.
+Be concise. You don't need long, poetic descriptions. Use simple language and avoid complex words.
+Use writing style that is a mix of Mo Willems, Arnold Lobel, Roald Dahl, Edward Gorey, John Bellairs 
 
 Reply only with the updated XML from below. Keep the XML structure unchanged. Only edit existing elements. 
                     </xsl:text>
@@ -64,9 +63,9 @@ Reply only with the updated XML from below. Keep the XML structure unchanged. On
 
                         <xsl:element name="positive_prompt_text">
                             <xsl:text>
-A young child asked you for a story about the following emojis:</xsl:text>
+A child asked you for a story about the following emojis:</xsl:text>
                             <xsl:value-of select="ancestor::tree/prompt"/><xsl:text>
-Here is the story you have written so far:
+Your story so far is:
                             </xsl:text>
 
                             <xsl:call-template name="story_so_far">
@@ -74,16 +73,23 @@ Here is the story you have written so far:
                                 <xsl:with-param name="protagonist_reaction" select="$protagonist_reaction"/>
                             </xsl:call-template>
 
+<!-- 
+    Every word should serve the purpose of conveying essential visual or auditory information, setting the mood, or advancing the story. 
+
+Clarity is Key: Children reading should have a good understanding. 
+-->
+
+
                             <xsl:text>
-Please continue the story from the last protagonist_reaction above. If last protagonist_reaction above has a bad decision make the story show how it is bad and bad things happen because of it.
+The last protagonist_reaction element says what happened last. Please continue the story from that last protagonist_reaction decision. 
+If the last protagonist_reaction decision was a bad decision tell the story how it lead to a bad outcome.
 
-Show, Don't Tell: When possible reveal information using dialoge do not state it directly. If a specific aspect is important, reveal it using dialoge between characters. 
+Use writing style that is a mix of Mo Willems, Arnold Lobel, Roald Dahl, Edward Gorey, John Bellairs 
+Show, Don't Tell: When possible reveal information using dialoge do not state it directly. 
+If a specific aspect is important, reveal it using dialoge between characters to show it. 
 For example, if a character is sad, do not say "The character was sad."  Instead, have another character ask "Why are you sad?" 
-This will allow audience to infer the character is sad without being told directly.
-
-Economy of Words: Be concise. You don't need long, poetic descriptions. Every word should serve the purpose of conveying essential visual or auditory information, setting the mood, or advancing the story.
-
-Clarity is Key: Children reading should have a good understanding. Use simple language and avoid complex words.
+Be concise. You don't need long, poetic descriptions. Use simple language and avoid complex words.
+Use writing style that is a mix of Mo Willems, Arnold Lobel, Roald Dahl, Edward Gorey, John Bellairs 
 
 Reply only with the updated XML from below. Keep the XML structure unchanged. Only edit existing elements. 
                             </xsl:text>
