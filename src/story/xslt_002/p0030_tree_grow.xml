@@ -16,11 +16,13 @@ A child selected emojis: </xsl:text>
                     <xsl:value-of select="ancestor::tree/prompt"/>
                     <xsl:value-of select="prompt"/>
                     <xsl:text>
-Inspired by these you will write a story for the child in a style that is like Mo Willems, Arnold Lobel, Roald Dahl, Edward Gorey, John Bellairs 
+Inspired by these you will write a story for the child in a style similar to 
+Mo Willems, Arnold Lobel, Roald Dahl, Edward Gorey, John Bellairs 
+
 Show, Don't Tell: When possible reveal information using dialoge do not state it directly. 
-Be concise. Avoid long poetic descriptions. Use simple language and avoid complex words.
-Make the story strange, wacky and funny or scary but exciting. Which ever you pick stick with it. 
-Importantly avoid using clichés like "once upon a time" or "happily ever after." 
+Avoid long poetic descriptions. Use simple language and avoid complex words.
+Make the story strange, wacky and funny or scary but exciting. 
+Avoid clichés like "once upon a time" or "happily ever after." 
 
 Reply only with the updated XML from below. Keep the XML structure unchanged. Only edit existing elements. 
                     </xsl:text>
@@ -69,26 +71,17 @@ Your story so far is:
                                 <xsl:with-param name="last_scene" select="$scene"/>
                                 <xsl:with-param name="protagonist_reaction" select="$protagonist_reaction"/>
                             </xsl:call-template>
-
-<!-- 
-    Every word should serve the purpose of conveying essential visual or auditory information, setting the mood, or advancing the story. 
-
-For example, if a character is sad, do not say "The character was sad."  Instead, have another character ask "Why are you sad?" 
-If a specific aspect is important, reveal it using dialoge between characters to show it. 
-Clarity is Key: Children reading should have a good understanding. 
-The last protagonist_reaction element says what happened last. 
--->
-
-
                             <xsl:text>
-Continue this story (using unchanged XML format) from the last protagonist_reaction decision above. 
+Please continue this story from the last protagonist_reaction decision above. 
 If the last protagonist_reaction decision was a bad decision tell how it lead to a disaster or tradgedy.
 
-Write in a style that is like Mo Willems, Arnold Lobel, Roald Dahl, Edward Gorey, John Bellairs 
+Write in the style of Mo Willems, Arnold Lobel, Roald Dahl, Edward Gorey, John Bellairs 
+
 Show, Don't Tell: When possible reveal information using dialoge do not state it directly. 
+
 Be concise. Avoid long poetic descriptions. Use simple language and avoid complex words.
 Make the story strange, wacky and funny or scary but exciting. Which ever you pick stick with it. 
-Importantly avoid using clichés like "once upon a time" or "happily ever after." 
+Avoid common tropes and clichés like "once upon a time" or "happily ever after." 
 
 Reply by filling out the XML template below. Keep its XML structure unchanged. 
                             </xsl:text>
@@ -101,6 +94,17 @@ Reply by filling out the XML template below. Keep its XML structure unchanged.
         </xsl:copy>
     </xsl:template>
     
+
+<!-- 
+    Every word should serve the purpose of conveying essential visual or auditory information, setting the mood, or advancing the story. 
+
+For example, if a character is sad, do not say "The character was sad."  Instead, have another character ask "Why are you sad?" 
+If a specific aspect is important, reveal it using dialoge between characters to show it. 
+Clarity is Key: Children reading should have a good understanding. 
+The last protagonist_reaction element says what happened last. 
+-->
+
+
     
     <xsl:template name="story_so_far">
         <xsl:param name="last_scene"/>

@@ -23,7 +23,7 @@ class Gpt35TextMaker(TextMaker):
     except openai.error.OpenAIError as error:
         if "throttle" in str(error).lower():
             print("Throttle error detected! Waiting for 60 seconds before retrying.")
-            time.sleep(30)  # Delay for 60 seconds.
+            time.sleep(60)  # Delay for 60 seconds.
             if retry_count < 3:
                 return self.make_text(prompt_dict, retry_count+1)  # Recursive call to try again.
             else:
