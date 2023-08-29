@@ -47,7 +47,7 @@
     <script>
     
         function openLogsWindow(id){
-            window.open(`http://aipif-2023.s3.us-west-1.amazonaws.com/_queue/make_picture-${id}-req.xml.log`, '_blank');
+            window.open(`http://aipif-2023.s3.us-west-1.amazonaws.com/_queue/make_sound-${id}-req.xml.log`, '_blank');
         }
   
         function sendRetyRequest(element,id) {
