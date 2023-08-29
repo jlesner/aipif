@@ -259,25 +259,32 @@ story_publish()
 # } ; export -f story_publish_run
 
 
+py_fs_story_make()
+{
+    export PYTHONPATH=~/aipif/src
+    source ~/aipif/.env
+    export OPENAI_API_KEY
+    fs_story_make "$@"
+}
+
+
 fs_story_make()
 { 
     local rq_id="$1"
     local prompt="$2"
     
-    story_configure "$rq_id"
-    
-    # rm -f _cache/*.{json,xml} 2>/dev/null || true
-    rm -rf ${output_path} 2>/dev/null || true
-    mkdir -p ${output_path} 2>/dev/null || true
     (
+        story_configure "$rq_id"
+        # rm -f _cache/*.{json,xml} 2>/dev/null || true
+        rm -rf ${output_path} 2>/dev/null || true
+        mkdir -p ${output_path} 2>/dev/null || true
+
         # set -o allexport
-        source ${phome}/.env
-        export OPENAI_API_KEY
+        # source ${phome}/.env
+        # export OPENAI_API_KEY
         tree_grow "$prompt" \
             | story_publish
-    )
 
-    (
         export s3_bucket=${s3_bucket}b # TODO fix
         s3_touch "${rq_id}_${prompt}"
     )
@@ -293,10 +300,12 @@ fs_story_make()
 fs_story_make_run()
 {
     (
+        export PYTHONPATH=~/aipif/src
         . ~/aipif/.env
         export OPENAI_API_KEY
-        . ../common/aws.bash
-        export PYTHONPATH=~/aipif/src
+
+
+        # . ../common/aws.bash
         # fs_story_make bob "🎈🌵🦉🍉🚁🎻"
         # fs_story_make bill "🌓🍏🦜🍥🚝🎸"
         # fs_story_make c1 "🐔🎤🎶🕺💃🎉"
