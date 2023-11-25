@@ -1,6 +1,6 @@
-# AI Personalized Interactive Fiction
+# [View Presentation Slides](https://github.com/jlesner/aipif/blob/main/doc/sgen_157.pdf)
 ![Alt text](doc/aipif_pitch.png)
-
+# AI Personalized Interactive Fiction
 ## Team
 
 Luke / Tony / Jasmine / Poom
