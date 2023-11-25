@@ -1,4 +1,5 @@
 # AI Personalized Interactive Fiction
+![Alt text](doc/aipif_pitch.png)
 
 ## Team
 
