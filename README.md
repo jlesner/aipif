@@ -1,4 +1,5 @@
-# [View Presentation Slides](https://github.com/jlesner/aipif/blob/main/doc/sgen_157.pdf)
+# [Demo (live)](http://ufafu.com) | [Demo (slides)](https://docs.google.com/presentation/d/e/2PACX-1vQEWpCd9rHw_nf3z8NwHst0oOntTuaGIxebmH2r4SJwz3Ssi7kKm19cR8xOb36DqljtyWZ15cL_KNCZ/pub?start=true&loop=true&delayms=3000)
+# ["How story generation works" by jlesner](https://docs.google.com/presentation/d/e/2PACX-1vT9OusSkHbOU1f3sRQi1LRLuh0QPsd0Mq38jS_FgIOabma__D0oo9390NqoR5efjg/pub?start=true&loop=true&delayms=3000)
 ![Alt text](doc/aipif_pitch.png)
 # AI Personalized Interactive Fiction
 ## Team
