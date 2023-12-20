@@ -1,5 +1,14 @@
-# AI Personalized Interactive Fiction
+# CONCEPT => [DEMO SLIDES](https://docs.google.com/presentation/d/e/2PACX-1vQEWpCd9rHw_nf3z8NwHst0oOntTuaGIxebmH2r4SJwz3Ssi7kKm19cR8xOb36DqljtyWZ15cL_KNCZ/pub?start=true&loop=true&delayms=3000) 
+[![demo_summary](doc/aipif_pitch.png)](https://docs.google.com/presentation/d/e/2PACX-1vQEWpCd9rHw_nf3z8NwHst0oOntTuaGIxebmH2r4SJwz3Ssi7kKm19cR8xOb36DqljtyWZ15cL_KNCZ/pub?start=true&loop=true&delayms=3000)
 
+# PROTOTYPE => [TRY IT!](http://ufafu.com) 
+[![demo_summary](doc/demo_summary.png)](http://ufafu.com)
+
+# MECHANISM => [PRESENTATION SLIDES](https://docs.google.com/presentation/d/e/2PACX-1vT9OusSkHbOU1f3sRQi1LRLuh0QPsd0Mq38jS_FgIOabma__D0oo9390NqoR5efjg/pub?start=true&loop=true&delayms=3000)
+[![Research Writeup](doc/how_summary.png)](https://docs.google.com/presentation/d/e/2PACX-1vT9OusSkHbOU1f3sRQi1LRLuh0QPsd0Mq38jS_FgIOabma__D0oo9390NqoR5efjg/pub?start=true&loop=true&delayms=3000)
+
+
+# AI Personalized Interactive Fiction
 ## Team
 
 Luke / Tony / Jasmine / Poom
