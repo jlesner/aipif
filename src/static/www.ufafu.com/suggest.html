@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Story Suggest</title>
+    <link rel="icon" type="image/png" href="/static/favicon.png">
+    <style>
+        #header {
+            position: fixed;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background-color: #333;
+            color: #fff;
+            font-size: xx-large;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        .emoji-wrapper {
+            display: inline-block;
+            padding: 5px;
+            padding-top: 50px;
+            margin: 5px;
+            border-radius: 50%;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .emoji-wrapper.selected {
+            background-color: rgb(92, 168, 255);
+        }
+
+        .emoji {
+            font-size: 140px;
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        A STORY ABOUT . . . . . . ?
+    </div>
+    <div id="emojiContainer">
+        <!-- Emojis will be populated here -->
+    </div>
+
+    <script>
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                // Generate a random index
+                const j = Math.floor(Math.random() * (i + 1));
+                
+                // Swap elements
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        let empji0 = [
+            '😀', '😂', '😃', '😄', '😅', '😆', '😇', '😉', 
+            '😊', '😋', '😎', '😍', '😘', '😗', '😙', '😜',
+            '🤪', '🤩', '🥳', '🤗', '🤭', '🤫', '🤔', '🤠', 
+            '👻', '🤖', '👽', '👾', '🤡', '💩',
+            '🐶', '🐱', '🐭', '🐹', '🐰', '🦊', '🐻', '🐼',
+            '🦁', '🐯', '🦄', '🐷', '🐸', '🐵', '🦍', '🦒', 
+            '🦓', '🦔', '🦖', '🦕', '🦉', '🦆', '🐧', '🐦',
+            '🐤', '🐣', '🐔', '🦋', '🐛', '🐢', '🦎', '🦑',
+            '🦐', '🦀', '🐡', '🐠', '🐟', '🐬', '🐳', '🦈',
+            '🍊', '🍋', '🍔', '🍟', '🍕', '🍩', '🍦', '🍭',
+            '🍪', '🍰', '🧁', '🍬', '🍫', '🍿', '🍩', '🍺',
+            '🚀', '🎈', '🛸', '🎉', '🎊', '🎁', '🎀', '🎈',
+            '🎠', '🎡', '🎪', '🚂', '🚒', '🚌', '🚓', '🚲',
+            '🐶', '🐱', '🐭', '🐹', '🐰', '🦊', '🐻', '🐼',
+            '🐨', '🐯', '🦁', '🐮', '🐷', '🐽', '🐸', '🐵',
+            '🙈', '🙉', '🙊', '🐒', '🐔', '🐧', '🐦', '🐤',
+            '🐣', '🐥', '🦆', '🦅', '🦉', '🦚', '🦜', '🐺',
+            '🦝', '🐴', '🦄', '🐗', '🐐', '🐏', '🐑', '🐕',
+            '🐩', '🦮', '🐕‍🦺', '🐕‍🦺', '🐈', '🐈‍', '🐅', '🐆',
+            '🐎', '🦌', '🦙', '🦘', '🦥', '🦡', '🐿️', '🦔',
+            '🍎', '🍉',  '🍓', '🍌', '🍍', '🥭', '🍏',
+            '🍊', '🍋', '🍔', '🍟', '🍕', '🍩', '🍦', '🍭',
+            '🍪', '🍰', '🧁', '🍬', '🍫', '🍿', '🍩', '🍺',
+            '🍕', '🍔', '🍟', '🍗', '🌭', '🍕', '🍟', '🍕',
+            '🍕', '🍟', '🍕', '🍕', '🍔', '🍔', '🍔', '🍔',
+            '🚀', '🎈', '🛸', '🎉', '🎊', '🎁', '🎀', '🎈',
+            '🎠', '🎡', '🎪', '🚂', '🚒', '🚌', '🚓', '🚲',
+            '🏞️', '🏖️', '🏕️', '🚣‍♂️', '🏄‍♀️', '🚴‍♂️', '🏊‍♀️', '⛷️',
+            '🏂', '🪂', '🎮', '🎲', '🎳', '🎸', '🎤', '🎬',
+            '🎭', '🎨', '✍️', '📚', '🔬', '🧪', '🔭', '🌍',
+            '✈️', '🚁', '🛶', '🚢', '🚆', '🚗', '🛵', '🚲',
+            '🏟️', '🎢', '🎪', '🏰', '🏛️', '🏠', '🛏️', '🏞️',
+            '🛍️', '🎁', '🎈', '🎉', '🥳', '🎈', '🎂', '🍽️',
+            '🍔', '🍕', '🌮', '🍣', '🍦', '🍹', '☕',
+            '🗽', '🏰', '🏟️', '🕌', '🏞️', '🏝️', '⛰️', '🏜️',
+            '🏙️', '🏯', '🏖️', '🏕️', '🏔️', '🛤️', '🏛️', '🏭',
+            '🏟️', '🏨', '🗺️', '🗼', '🗾', '🏟️', '🛣️', '⛩️',
+            '🏔️', '🏞️', '🌅', '🌉', '🌄', '🌌', '🎑', '🌆',
+            '🏜️', '🏟️', '🏕️', '🚂', '🏗️', '🚃', '🚆', '🚲',
+            '⛵', '🏖️', '✈️', '🚁', '🌇', '🌃', '🏙️', '🛳️',
+            '🏛️', '🏔️', '🗻', '🌋', '🛶', '🚤', '🌊', '🚢',
+            '🧸', '🎈', '🎁', '🎉', '🍭', '🍦', '🍪', '🍩', // Toys & celebrations
+            '📚', '✏️', '🖍', '📖', '🔍', '🎨', '🎤', '🎧', // School & creative activities
+            '🎮', '🕹', '🎲', '🧩', '🚀', '🤖', '🛹', '🪁', // Games & play
+            '🦄', '🐉', '🦖', '🦕', '🦋', '🐬', '🐶', '🐱', // Animals & mythical creatures
+            '⚽', '🏀', '🎾', '🎳', '🏓', '🏐', '⛳', '🎣', // Sports & outdoor activities
+            '🎥', '🍿', '🌈', '🎟', '🏰', '🎢', '🎠', '🍕', // Entertainment & food
+            '🍔', '🍟', '🎂', '🧁', '🍫', '🍉', '🍏', '🍎',  // More food & celebrations
+            '☕', '🍷', '🍺', '📚', '🎥', '🏋️', '🚴', '🍔',
+            '🍕', '🍱', '🥗', '👔', '👜', '👠', '🕶', '🌂',
+            '🎧', '📷', '💻', '📱', '🖥', '🎭', '🎨', '🎤',
+            '🎼', '🎷', '🎻', '💼', '🛍', '🚗', '✈️', '🏖',
+            '🛌', '🏠', '🌆', '🍫', '🍵', '🍦', '💄', '💍',
+            '⛳', '🏊', '🎾', '🏀', '🎮', '🎲', '🚢', '🌍',
+            '🔑', '💡', '📖', '💌', '🍹', '🛁'
+        ];
+
+        function removeDuplicates(arr) {
+           return [...new Set(arr)]; }
+
+        let emojis = removeDuplicates(empji0)   
+
+
+        shuffleArray(emojis);
+
+        console.log(emojis.join(''));
+
+        let selectedEmojis = [];
+
+        const emojiContainer = document.getElementById('emojiContainer');
+
+        emojis.forEach(emoji => {
+            let emojiWrapper = document.createElement('div');
+            emojiWrapper.classList.add('emoji-wrapper');
+
+            let emojiElement = document.createElement('span');
+            emojiElement.classList.add('emoji');
+            emojiElement.textContent = emoji;
+
+            emojiWrapper.appendChild(emojiElement);
+            emojiContainer.appendChild(emojiWrapper);
+
+            emojiWrapper.addEventListener('click', function () {
+                if (!this.classList.contains('selected')) {
+                    this.classList.add('selected');
+                    selectedEmojis.push(emoji);
+
+                    if (selectedEmojis.length === 6) {
+                        // window.location.href = `nextPage.html?emojis=${selectedEmojis.join('')}`;
+                        // window.location.href = `http://18.222.213.41:8080/ss?ss=${selectedEmojis.join('')}`;
+                        window.location.href = `http://www.ufafu.com/index.html?m=${selectedEmojis.join('')}`;
+                    }
+                } else {
+                    this.classList.remove('selected');
+                    let index = selectedEmojis.indexOf(emoji);
+                    if (index > -1) {
+                        selectedEmojis.splice(index, 1);
+                    }
+                }
+            });
+        });
+
+        window.onload = function() {
+            // Set the default zoom level to 90%
+            document.body.style.zoom = "100%";
+        }
+
+    </script>
+
+</body>
+
+</html>
