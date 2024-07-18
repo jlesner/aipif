@@ -38,15 +38,16 @@ conditioning = [{
     # "prompt": "A gentle tinkling sound filled the air, like the delicate chimes of a wind chime on a breezy day.",
     "prompt": prompt,
     "seconds_start": 0, 
-    "seconds_total": 30
+    # "seconds_total": 30
+    "seconds_total": 45
     # "seconds_total": 7
 }]
 
 # Generate stereo audio
 output = generate_diffusion_cond(
     model,
+    # steps=100,
     steps=100,
-    # steps=50,
     cfg_scale=7,
     conditioning=conditioning,
     sample_size=sample_size,
