@@ -1,0 +1,92 @@
+<story>
+	<act>
+		<name>Setup</name>
+		<description>This is where we meet our main character and learn about their world. Something big happens that starts the adventure!</description>
+		<parts>
+			<part>
+				<name>Meeting Our Hero</name>
+				<sequences>
+					<sequence branch_count="1">
+						<name>Getting to Know Our Hero</name>
+						<description>We see what our hero's life is like and learn about the world they live in.</description>
+					</sequence>
+				</sequences>
+			</part>
+			<part>
+				<name>The Big Event</name>
+				<sequences>
+					<sequence branch_count="2">
+						<name>Adventure Begins</name>
+						<description>Something exciting happens that changes everything for our hero.</description>
+					</sequence>
+				</sequences>
+			</part>
+		</parts>
+	</act>
+	<act>
+		<name>Adventure</name>
+		<description>Our hero faces lots of challenges and exciting moments. Things get tougher and tougher until the biggest challenge of all!</description>
+		<parts>
+			<part>
+				<name>Hero's First Steps</name>
+				<sequences>
+					<sequence branch_count="1">
+						<name>Hero Decides What to Do</name>
+						<description>Our hero figures out how to deal with the big change in their life.</description>
+					</sequence>
+				</sequences>
+			</part>
+			<part>
+				<name>Lots of Challenges</name>
+				<sequences>
+					<sequence branch_count="1">
+						<name>Facing Difficulties</name>
+						<description>Our hero faces many hard tasks and problems along the way.</description>
+					</sequence>
+				</sequences>
+			</part>
+			<part>
+				<name>The Biggest Challenge</name>
+				<sequences>
+					<sequence branch_count="2">
+						<name>The Most Exciting Part</name>
+						<description>Our hero faces their biggest challenge yet! It's very exciting and important.</description>
+					</sequence>
+				</sequences>
+			</part>
+		</parts>
+	</act>
+	<act>
+		<name>Ending</name>
+		<description>We see what happens after the big challenge. The story wraps up, and we learn how our hero has changed.</description>
+		<parts>
+			<part>
+				<name>After the Big Challenge</name>
+				<sequences>
+					<sequence branch_count="1">
+						<name>What Happens Next</name>
+						<description>We see what happens right after the big challenge and how it affects everyone.</description>
+					</sequence>
+				</sequences>
+			</part>
+			<part>
+				<name>Wrapping Up</name>
+				<sequences>
+					<sequence branch_count="1">
+						<name>How Our Hero Has Changed</name>
+						<description>We see how our hero has grown and changed from their adventure.</description>
+					</sequence>
+				</sequences>
+			</part>
+			<part>
+				<name>The End</name>
+				<sequences>
+					<sequence branch_count="0">
+						<name>Saying Goodbye</name>
+						<description>The story ends, leaving us with good feelings about what we've seen.</description>
+					</sequence>
+				</sequences>
+			</part>
+		</parts>
+	</act>
+</story>

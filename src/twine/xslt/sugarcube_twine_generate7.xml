@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:output method="text"/>
+
+
+
+<xsl:template match="tree">
+    <xsl:text>
+:: StoryTitle
+</xsl:text>
+    <xsl:value-of select="prompt"/>
+    <xsl:text>
+
+:: StoryData
+{
+  "ifid": "649AB536-20DE-4D3D-BAF5-544D2ED975F6",
+  "format": "SugarCube",
+  "format-version": "2.36.1",
+  "start": "</xsl:text>
+    <xsl:value-of select="scene[1]/@key"/>
+  <xsl:text>",
+  "zoom": 1
+}
+
+:: StoryInit
+<![CDATA[<<script>>
+function changeFavicon(src) {
+    const link = document.createElement('link');
+    const oldLink = document.getElementById('dynamic-favicon');
+
+    link.id = 'dynamic-favicon';
+    link.rel = 'shortcut icon';
+    link.href = src;
+
+    if (oldLink) {
+        document.head.removeChild(oldLink);
+    }
+
+    document.head.appendChild(link);
+}
+
+changeFavicon('http://aipif-2023.s3.amazonaws.com/static/favicon.png');
+
+Setting.addHeader("Game Settings");
+Setting.addRange("masterVolume", {
+	label    : "Master volume:",
+	min      : 0,
+	max      : 1,
+	step     : 0.1,
+	onChange : function () {
+		SimpleAudio.volume(settings.masterVolume / 10);
+	}
+});
+<</script>>]]>
+</xsl:text>
+
+    <!-- <xsl:variable name="next_scene" select="scene[1]/@key"/>
+
+    <xsl:text>&lt;&lt;button [[</xsl:text>
+        <xsl:text>WELCOME</xsl:text>
+    <xsl:text>|</xsl:text>
+        <xsl:value-of select="$next_scene"/>
+    <xsl:text>]]&gt;&gt;</xsl:text>
+    <xsl:text>&lt;&lt;/button&gt;&gt;
+</xsl:text> -->
+
+    <xsl:apply-templates select="scene"/>
+
+</xsl:template>
+
+
+<xsl:template match="scene">
+    
+<xsl:text>
+:: </xsl:text>
+    <xsl:value-of select="@key"/>
+
+    <xsl:if test="music/@url">
+        <xsl:text><![CDATA[
+<<cacheaudio "bgm_]]></xsl:text>
+        <xsl:value-of select="@key"/>
+        <xsl:text><![CDATA[" "mp3|]]></xsl:text>
+        <xsl:value-of select="music/@url"/>
+        <xsl:text><![CDATA[">>]]></xsl:text>
+    </xsl:if>
+
+    <xsl:if test="sound/@url">
+        <xsl:text><![CDATA[
+<<cacheaudio "sfx_]]></xsl:text>
+        <xsl:value-of select="@key"/>
+        <xsl:text><![CDATA[" "mp3|]]></xsl:text>
+        <xsl:value-of select="sound/@url"/>
+        <xsl:text><![CDATA[">>
+]]></xsl:text>
+    </xsl:if>
+
+
+    <xsl:text>
+
+<![CDATA[<html>
+    <img src="]]></xsl:text>
+    <xsl:value-of select="illustration/@url"/>
+    <xsl:text><![CDATA["/>
+    <script>
+        defaultImageUrl = "http://aipif-2023.s3.amazonaws.com/static/generating.png"; 
+        images = document.getElementsByTagName("img");
+
+        for (let i = 0; i < images.length; i++) {
+            images[i].addEventListener("error", function() {
+                this.src = defaultImageUrl;
+            });
+        }
+    </script>
+</html>]]>
+
+</xsl:text>
+
+
+    <!-- <xsl:text><![CDATA[<<button "🔊" >>
+<<audio "sfx_]]></xsl:text>
+                <xsl:value-of select="@key"/>
+                <xsl:text><![CDATA[" volume 0.4 play>>
+<<audio "bgm_]]></xsl:text>
+                <xsl:value-of select="@key"/>
+                <xsl:text><![CDATA[" loop volume 0.02 play>>
+<</button>>]]>     </xsl:text> -->
+<xsl:if test="music/@url">
+ <xsl:text><![CDATA[<<button "🎵" >>
+<<audio "bgm_]]></xsl:text>
+                <xsl:value-of select="@key"/>
+                <xsl:text><![CDATA[" loop volume 0.3 play>>
+<</button>>   ]]></xsl:text>
+            </xsl:if>
+            <xsl:if test="sound/@url">
+                <xsl:text><![CDATA[<<button "🗣️" >>
+<<audio "sfx_]]></xsl:text>
+                <xsl:value-of select="@key"/>
+                <xsl:text><![CDATA[" volume 0.5 play>>
+<</button>>   ]]></xsl:text>
+            </xsl:if>
+            <xsl:text><![CDATA[<<button "🔇">> <<masteraudio stop>> <</button>>
+            ]]></xsl:text>
+        <xsl:value-of select="introduction"/>
+    <xsl:text>
+</xsl:text>
+
+        <xsl:value-of select="dialogue"/>
+    <xsl:choose>
+        <xsl:when test="branch">
+            <xsl:text>
+</xsl:text>
+            <xsl:apply-templates select="branch"/>
+           
+            <xsl:text><![CDATA[
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+                <a href="http://aipif-2023.s3.amazonaws.com/sample/tree.xml" target="_blank">xml</a>
+                <a href="http://aipif-2023.s3.amazonaws.com/sample/twine.twee.txt" target="_blank">twee</a>
+                <a href="http://aipif-2023.s3.amazonaws.com/sample/tree.html" target="_blank">tree</a>
+                <a href="http://aipif-2023.s3.amazonaws.com/sample/pgallery.html" target="_blank">pictures</a>
+                <a href="http://aipif-2023.s3.amazonaws.com/sample/mgallery.html" target="_blank">music</a>
+                <a href="http://aipif-2023.s3.amazonaws.com/sample/sgallery.html" target="_blank">sounds</a>
+                <a href="http://www.ufafu.com">home</a>
+            </html>   ]]></xsl:text>
+            <!-- ^ story_list story_suggest links need to be updated -->
+            <xsl:apply-templates select="branch/scene"/>
+        </xsl:when>
+
+        <xsl:when test="not(following-sibling::scene)">
+            <xsl:text>
+The End!
+<![CDATA[
+<<button [img[http://aipif-2023.s3.amazonaws.com/static/favicon.png]] >>
+    <<script>>
+    window.location.href='http://www.ufafu.com'
+    <</script>>
+<</button>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+]]></xsl:text>
+         
+<xsl:text><![CDATA[<html>
+            <a href="http://aipif-2023.s3.amazonaws.com/sample/tree.xml" target="_blank">xml</a>
+            <a href="http://aipif-2023.s3.amazonaws.com/sample/twine.twee.txt" target="_blank">twee</a>
+            <a href="http://aipif-2023.s3.amazonaws.com/sample/tree.html" target="_blank">tree</a>
+            <a href="http://aipif-2023.s3.amazonaws.com/sample/pgallery.html" target="_blank">pictures</a>
+            <a href="http://aipif-2023.s3.amazonaws.com/sample/mgallery.html" target="_blank">music</a>
+            <a href="http://aipif-2023.s3.amazonaws.com/sample/sgallery.html" target="_blank">sounds</a>
+            <a href="http://www.ufafu.com">home</a>
+        </html>   ]]></xsl:text>
+        </xsl:when>
+    </xsl:choose>
+
+</xsl:template>
+
+<xsl:template match="branch">
+
+    <xsl:text>
+&lt;&lt;button [[</xsl:text>
+    <xsl:value-of select="normalize-space(protagonist_reaction)"/>
+    <xsl:text>|</xsl:text>
+        <xsl:value-of select="scene[1]/@key"/>
+    <xsl:text>]]&gt;&gt;
+</xsl:text>
+
+    <!-- stopping audio if needed -->
+    <xsl:if test="ancestor::scene[music/@url][1]">
+    <xsl:if test="scene/music/@url">
+        <xsl:text><![CDATA[
+<<audio "bgm_]]></xsl:text>
+        <xsl:value-of select="ancestor::scene[music/@url][1]/@key"/>
+        <xsl:text><![CDATA[" stop>>]]>
+</xsl:text>
+    </xsl:if>
+    </xsl:if>
+
+    <!-- <xsl:if test="ancestor::scene[1]/sound/@url">
+        <xsl:text><![CDATA[<<audio "sfx_]]></xsl:text>
+        <xsl:value-of select="ancestor::scene[1]/@key"/>
+        <xsl:text><![CDATA[" stop>>]]>
+</xsl:text>
+    </xsl:if> -->
+
+    <xsl:text>&lt;&lt;/button&gt;&gt;
+
+</xsl:text>
+
+</xsl:template>
+
+
+</xsl:stylesheet>

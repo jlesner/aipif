@@ -1,0 +1,91 @@
+<story>
+    <act>
+        <name>Introduction (Ki)</name>
+        <description>This is the introduction of the story, presenting the characters, era, and essential background information. It sets the stage for the plot without major conflicts or disruptions.</description>
+        <parts>
+            <part>
+                <name>Introduction to Characters and Setting</name>
+                <sequences>
+                    <sequence branch_count="1">
+                        <name>Introducing Protagonist's Daily Life</name>
+                        <description>Showcase the protagonist's routine, relationships, and environment.</description>
+                    </sequence>
+                    <sequence branch_count="1">
+                        <name>Establishing World's Rules and Tone</name>
+                        <description>Introduce the rules of the story's world and setting the tone for the narrative.</description>
+                    </sequence>
+                </sequences>
+            </part>
+        </parts>
+    </act>
+    <act>
+        <name>Development (Shō)</name>
+        <description>This act follows the leads towards the twist in the story, without introducing major changes. It builds upon the introduction, gradually increasing engagement with the plot.</description>
+        <parts>
+            <part>
+                <name>Deepening of Plot and Characters</name>
+                <sequences>
+                    <sequence branch_count="1">
+                        <name>Enhancing Character Relationships</name>
+                        <description>Develop deeper insights into the relationships and dynamics between characters.</description>
+                    </sequence>
+                    <sequence branch_count="1">
+                        <name>Introduction of Subtle Conflicts</name>
+                        <description>Introduce subtle conflicts or challenges that hint at future developments.</description>
+                    </sequence>
+                </sequences>
+            </part>
+        </parts>
+    </act>
+    <act>
+        <name>Twist (Ten)</name>
+        <description>This act introduces an unexpected development, serving as the climax or the major turning point of the story. It is the crux, where the narrative takes its most significant turn.</description>
+        <parts>
+            <part>
+                <name>Introduction of the Major Twist</name>
+                <sequences>
+                    <sequence branch_count="1">
+                        <name>Revealing the Unexpected Development</name>
+                        <description>Introduce a significant, unforeseen development that changes the course of the narrative.</description>
+                    </sequence>
+                    <sequence branch_count="2">
+                        <name>Impact on Protagonist and Plot</name>
+                        <description>Show the impact of this development on the protagonist and the overall plot.</description>
+                    </sequence>
+                </sequences>
+            </part>
+        </parts>
+    </act>
+    <act>
+        <name>Conclusion (Ketsu)</name>
+        <description>This final act wraps up the story, addressing the consequences of the twist and providing a resolution. It brings a sense of closure and fruition to the narrative.</description>
+        <parts>
+            <part>
+                <name>Resolving the Twist's Consequences</name>
+                <sequences>
+                    <sequence branch_count="1">
+                        <name>Addressing the Aftermath</name>
+                        <description>Explore the consequences and aftermath of the twist, leading towards resolution.</description>
+                    </sequence>
+                    <sequence branch_count="1">
+                        <name>Resolution of Main and Subplot Conflicts</name>
+                        <description>Resolve the main and any subplot conflicts, tying up loose ends.</description>
+                    </sequence>
+                </sequences>
+            </part>
+            <part>
+                <name>Final Conclusion</name>
+                <sequences>
+                    <sequence branch_count="1">
+                        <name>Character Growth and Final Message</name>
+                        <description>Showcase the protagonist's growth and convey the final message or moral of the story.</description>
+                    </sequence>
+                    <sequence branch_count="0">
+                        <name>Providing Closure</name>
+                        <description>Offer a satisfying conclusion that leaves the audience with a lasting impression.</description>
+                    </sequence>
+                </sequences>
+            </part>
+        </parts>
+    </act>
+</story>
