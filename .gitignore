@@ -20,6 +20,7 @@ mus_venv
 mu_venv/
 *_venv/
 flask_venv/
+sat_venv/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

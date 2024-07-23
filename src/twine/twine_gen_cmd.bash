@@ -32,12 +32,13 @@
 
 # src/story/_generated/story_c4/p0090-decorated.xml
 cat twine/_generated/example_decorated.xml \
-    | xsltproc twine/xslt/sugarcube_twine_generate6.xml /dev/stdin \
+    | xsltproc twine/xslt/sugarcube_twine_generate7.xml /dev/stdin \
     > twine/_generated/decorated_tree.twee
 
-/opt/tweego-2.1.1-linux-x64/tweego -f sugarcube-2 -o /dev/stdout \
+# /opt/tweego-2.1.1-linux-x64/tweego -f sugarcube-2 -o /dev/stdout \
+../_exclude/tweego-2.1.1-linux-x64/tweego -f sugarcube-2 -o /dev/stdout \
     twine/_generated/decorated_tree.twee \
     > twine/_generated/decorated_tree.html
 
     
-    | tee >( aws s3 cp - s3://aipif-2023/sample/twine.html --content-type "text/html" --metadata "Content-Disposition=inline") \
+    # | tee >( aws s3 cp - s3://aipif-2023/sample/twine.html --content-type "text/html" --metadata "Content-Disposition=inline") \
