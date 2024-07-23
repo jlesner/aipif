@@ -11,11 +11,12 @@ class Gpt4oMiniTextMaker(TextMaker):
     def make_text(self, prompt_dict: dict, retry_count: int = 0):
         try:
             completion = openai.ChatCompletion.create(
-                model='gpt-4o-mini',
+                # model='gpt-4o-mini',
+                model='gpt-4o',
                 messages=[
                     {'role': 'user', 'content': prompt_dict['positive_prompt_text']}
                 ],
-                temperature=0.6
+                # temperature=0.6
             )
             return completion['choices'][0]['message']['content']
         except openai.error.OpenAIError as error:
