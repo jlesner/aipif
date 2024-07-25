@@ -653,7 +653,8 @@
 <lesson>Find peace in the acceptance of life's impermanence.</lesson>
 <lesson>Realize that true happiness comes from within, not from external circumstances.</lesson>
 <lesson>Understand that life’s meaning is found in the here and now, not in any distant goal.</lesson>
-<lesson>Desire: The starting point of all achievement.</lesson>
+
+<!-- <lesson>Desire: The starting point of all achievement.</lesson>
 <lesson>Faith: Visualization and belief in the attainment of desire.</lesson>
 <lesson>Autosuggestion: The medium for influencing the subconscious mind.</lesson>
 <lesson>Specialized Knowledge: Personal experiences or observations employed for a specific purpose.</lesson>
@@ -666,7 +667,8 @@
 <lesson>The Subconscious Mind: The connecting link.</lesson>
 <lesson>The Brain: A broadcasting and receiving station for thought.</lesson>
 <lesson>The Sixth Sense: The door to the temple of wisdom.</lesson>
-<lesson>Overcoming Fear: The six ghosts of fear.</lesson>
+<lesson>Overcoming Fear: The six ghosts of fear.</lesson> -->
+
 <lesson>Change Happens: They Keep Moving The Cheese.</lesson>
 <lesson>Anticipate Change: Get Ready For The Cheese To Move.</lesson>
 <lesson>Monitor Change: Smell The Cheese Often So You Know When It Is Getting Old.</lesson>
@@ -674,31 +676,3 @@
 <lesson>Change: Move With The Cheese.</lesson>
 <lesson>Enjoy Change: Savor The Adventure And Enjoy The Taste Of New Cheese.</lesson>
 <lesson>Be Ready To Change Quickly And Enjoy It Again: They Keep Moving The Cheese.</lesson>
-
-
-
-
-<scene>
-  <character name="Tommy">“I wish I was good at something, but I’m just so ordinary,” Tommy sighed, staring at his drawing of a dragon. “Why can’t I be like Super Duper Steve, who can draw so well?”</character>
-  <character name="Grandma">“Oh, Tommy, everyone starts off ordinary,” Grandma said, patting Tommy’s back. “But you can become extraordinary if you really want to. It’s all about putting your heart into it!”</character>
-</scene>
-
-<scene>
-  <character name="Tommy">“But how do I put my heart into it?” Tommy asked, looking puzzled.</character>
-  <character name="Grandma">“Think about why you want to be good at drawing,” Grandma explained. “Do you want to make the most amazing dragons? Do you dream of drawing magical places? Let that dream guide you.”</character>
-</scene>
-
-<scene>
-  <character name="Tommy">“Okay, I’ll try that!” Tommy said, grabbing his crayons with new energy. He spent hours drawing with all his might, imagining he was creating a world full of dragons and magical creatures.</character>
-  <character name="Neighbor">“Wow, Tommy! Your drawings are getting so much better!” the neighbor exclaimed, looking amazed at Tommy’s artwork.</character>
-</scene>
-
-<scene>
-  <character name="Tommy">“Really? You think so?” Tommy asked, feeling proud.</character>
-  <character name="Neighbor">“Absolutely!” the neighbor said. “I can see you’re putting your whole heart into it. That’s what makes your drawings special.”</character>
-</scene>
-
-<scene>
-  <character name="Grandma">“Look at you now, Tommy! You’ve turned your ordinary drawings into something truly magical,” Grandma beamed, looking at the incredible dragons Tommy had drawn.</character>
-  <character name="Tommy">“I did it because I really wanted to. It’s like Grandma said, if you really care about something, you can make it amazing!” Tommy grinned, feeling like a true artist.</character>
-</scene>

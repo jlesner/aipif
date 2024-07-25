@@ -1,0 +1,197 @@
+<story>
+    <sceneList>
+        <prompt><![CDATA[ 
+        Write a short five scene story for young children in the style or Roald Dahl about the life lesson "Make sure your habits align with your desired identity." Do not repeat the lesson words verbatim.  Change the words to be suitable for children. Tell a story that has tragic ending because this life lesson was ignored. Tell the story using dialogue between the characters. Do not use XML except put each different scene in it's own XML<scene> tag.
+        ]]><prompt>
+        
+        <scene>
+        Once upon a time, in the small town of Spick-and-Span, there lived a boy named Charlie Chuckles. Charlie was always dreaming of becoming a great inventor. Every day, he would say, "One day, I'll make amazing gadgets and gizmos, and everyone will know my name!" But instead of working on his inventions, Charlie spent most of his time playing video games and munching on chocolates.
+
+        One sunny morning, Charlie's best friend, Lila, came over to visit. "Charlie, come see the new workshop my dad built for us! We can start working on our inventions today!"
+
+        Charlie sighed, "Maybe later, Lila. I'm just about to beat this level!"
+
+        Lila frowned, "But Charlie, if you want to be an inventor, you need to start inventing!"
+
+        "I'll get to it," Charlie mumbled, not taking his eyes off the screen.
+        </scene>
+
+        <scene>
+        Days turned into weeks, and Lila was busy in the workshop, tinkering and creating new gadgets. One day, she burst into Charlie's room, holding a shiny new contraption. "Look, Charlie! I made a robot that can clean our rooms! Isn't it cool?"
+
+        Charlie looked up from his game, a bit envious. "That's awesome, Lila. I wish I could make something like that."
+
+        Lila smiled, "You can, Charlie! Just come to the workshop and start building with me."
+
+        But Charlie shrugged, "Maybe tomorrow, Lila. I'm really close to unlocking a new level."
+        </scene>
+
+        <scene>
+        Months passed, and the town of Spick-and-Span announced an invention fair. The best invention would win a golden trophy and a tour of the famous Inventors' Academy. Lila was thrilled and worked day and night on her latest creation, while Charlie kept playing his games and eating chocolates.
+
+        One evening, Lila visited Charlie again. "Charlie, the fair is tomorrow! Do you have anything to show?"
+
+        Charlie looked worried, "I haven't had time, Lila. Maybe I can come up with something quick."
+
+        Lila shook her head, "You can't invent something great overnight, Charlie. You need to put in the work every day."
+
+        Charlie sighed, "I know, but I just couldn't stop playing my games."
+        </scene>
+
+        <scene>
+        The day of the fair arrived, and the town square was buzzing with excitement. Lila presented her amazing room-cleaning robot, and the crowd was in awe. Charlie, on the other hand, showed up with a hastily put-together gadget that barely worked.
+
+        The judges examined all the inventions and announced the winner. "The golden trophy goes to... Lila and her incredible robot!"
+
+        The crowd cheered, and Lila beamed with pride. Charlie watched from the sidelines, feeling a knot in his stomach. He knew he could have been up there with Lila if only he had spent more time inventing and less time playing games.
+
+        Lila came over and hugged Charlie. "I'm sorry, Charlie. I wish you had worked with me."
+
+        Charlie nodded, tears in his eyes, "I wish I had too, Lila. I really do."
+        </scene>
+
+        <scene>
+        As the years went by, Lila became a famous inventor, known far and wide for her brilliant creations. Charlie, however, struggled to find his way. He never quite became the inventor he dreamed of being. One day, he saw a news article about Lila's latest invention and felt a pang of regret.
+
+        Sitting alone in his room, he whispered to himself, "If only I had started sooner. If only I had worked on my inventions every day, like Lila did."
+
+        And so, Charlie learned a hard lesson: to be who you want to be, you have to act like it every day. He hoped that one day, another young dreamer would hear his story and choose the right path from the start.
+        </scene>
+
+    </sceneList>
+
+    <questionList>
+
+        <question>
+            <prompt><![CDATA[
+                Suggest a thoughtful question about the story. Output this question inside a <question> xml tag. Also output a brief answer to this question using an<answer> XML tag. Also create three other thoughtful just as long responses that sound plausible but are not correct. Wrap each of these responses in a <decoy> XML tag. 
+            ]]><prompt>
+
+            <question>
+            Why did Charlie not become a famous inventor like Lila?
+            </question>
+
+            <answer>
+            Charlie did not become a famous inventor because he spent too much time playing video games and eating chocolates instead of working on his inventions every day.
+            </answer>
+
+            <decoy>
+            Charlie did not become a famous inventor because Lila refused to help him with his inventions.
+            </decoy>
+
+            <decoy>
+            Charlie did not become a famous inventor because the town of Spick-and-Span did not support his dreams.
+            </decoy>
+
+            <decoy>
+            Charlie did not become a famous inventor because he did not have access to the workshop that Lila had.
+            </decoy>
+        </question>
+
+
+        <question>
+            <prompt><![CDATA[
+                Briefly explain the life lesson this story teaches without making references to the story. Wrap this in an <answer> XML tag. Also create three other life lesson explanations that sound plausible but that this story DOES NOT teach. Wrap each of these in a <decoy> XML tag.
+            ]]><prompt>
+
+            <question>
+            What life lesson does this story teach?
+            </question>
+            
+            <answer>
+            This story teaches that to become the person you want to be, you must develop habits and take actions that align with that desired identity every day.
+            </answer>
+            
+            <decoy>
+            This story teaches that friendship is the most valuable thing in life, and we should always prioritize spending time with our friends.
+            </decoy>
+            
+            <decoy>
+            This story teaches that success comes from taking risks and being bold in your decisions, even if it means facing failure.
+            </decoy>
+
+            <decoy>
+            This story teaches that playing games can help develop problem-solving skills and should be a central part of one's daily routine.
+            </decoy>
+
+        </question>
+<!-- 
+        <question>
+            <question>
+            Which emoji inspired this story?
+            </question>
+            
+            <answer>
+            ☕
+            </answer>
+            
+            <decoy>
+            💎
+            </decoy>
+            
+            <decoy>
+            🎶
+            </decoy>
+
+            <decoy>
+            👩‍🦳
+            </decoy>
+
+            <decoy>
+            🗽
+            </decoy>
+
+            <decoy>
+            🍞
+            </decoy>
+
+        </question> -->
+
+    </questionList>
+
+    <musicList>
+        <prompt><![CDATA[
+            Describe a suitable soundscape / musicscape for each of the five scenes above. Each description must be short and must mention instruments and mood of the music but must not refer to the story. Use XML <music> tag to wrap each description. Output five lines containing one description each.
+        ]]><prompt>
+
+        
+        <music>Cheerful and playful melody with light piano and whimsical flutes, creating a bright and sunny mood.</music>
+        <music>Soft and encouraging tones with acoustic guitar and gentle strings, evoking a sense of hope and friendship.</music>
+        <music>Energetic and bustling music with lively violins and upbeat drums, capturing the excitement of a bustling fair.</music>
+        <music>Somber and reflective tune with a slow cello and melancholic piano, highlighting feelings of regret and realization.</music>
+        <music>Bittersweet and nostalgic harmonies with soft violins and a distant harp, conveying a sense of longing and contemplation.</music>
+    </musicList>
+
+    <pictureList>
+
+        <prompt><![CDATA[
+            Describe a single character or item that appears in each of the six scenes above. List them in order one per scene. Do not output duplicates. Each description must be short and must NOT name people or items in the story only describe them. Use XML <picture> tag to wrap each description. Output six lines containing one description each.
+        ]]><prompt>
+
+        <picture>
+        A boy with a mop of messy hair, always clutching a game controller and surrounded by chocolate wrappers.
+        </picture>
+        <picture>
+        A bright-eyed girl with a ponytail, holding a shiny, self-made cleaning robot in her hands.
+        </picture>
+        <picture>
+        A gleaming golden trophy, intricately designed, representing the ultimate prize at the town's invention fair.
+        </picture>
+        <picture>
+        A bustling town square filled with colorful tents and curious onlookers eagerly examining various inventions.
+        </picture>
+        <picture>
+        A newspaper with a headline featuring an impressive new invention and a photo of a confident, smiling inventor. 
+        </picture>
+
+        <!-- Create an image for each <picture> above. Make sure all images have the same style described below: "The art style is characterized by lively, loose, and whimsical line work with an emphasis on exaggerated expressions and dynamic movement. The illustrations often feature vibrant, splashy watercolors that bring the characters and scenes to life. The style captures a sense of spontaneity and humor, creating a playful and imaginative atmosphere. The characters are typically quirky, with distinctive features that convey a lot of personality through minimal detail. This approach gives the artwork a charming, almost childlike quality that is both engaging and memorable." -->
+    </pictureList>
+
+    <title>
+        <prompt><![CDATA[ 
+            Give this story a short life lesson warning title. Wrap your answer in a title XML tag.
+        ]]><prompt>
+        <title>The Tale of Charlie Chuckles: How Dreams Can Slip Away</title>
+    </title>
+
+</story>
