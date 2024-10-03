@@ -1,3 +1,6 @@
+# OVERVIEW => [VIDEO](https://youtu.be/TaVGem3nFrk)
+[![aipif_video](doc/aipif_video.png)](https://youtu.be/TaVGem3nFrk)
+
 # CONCEPT => [DEMO SLIDES](https://docs.google.com/presentation/d/e/2PACX-1vQEWpCd9rHw_nf3z8NwHst0oOntTuaGIxebmH2r4SJwz3Ssi7kKm19cR8xOb36DqljtyWZ15cL_KNCZ/pub?start=true&loop=true&delayms=3000) 
 [![demo_summary](doc/aipif_pitch.png)](https://docs.google.com/presentation/d/e/2PACX-1vQEWpCd9rHw_nf3z8NwHst0oOntTuaGIxebmH2r4SJwz3Ssi7kKm19cR8xOb36DqljtyWZ15cL_KNCZ/pub?start=true&loop=true&delayms=3000)
 
