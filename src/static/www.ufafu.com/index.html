@@ -144,7 +144,7 @@
     
     <!-- Footer with "Add New Story" button -->
     <footer>
-        <button class="add-story-btn" onclick="window.location.href='http://www.ufafu.com/suggest.html'">SUGGEST A STORY</button>
+        <button class="add-story-btn" onclick="window.location.href='https://www.ufafu.com/suggest.html'">SUGGEST A STORY</button>
     </footer>
 
     <script>
@@ -172,7 +172,7 @@
                 ["🎑🍐🦑🍦🚞🎻", "sadfwerwrw"]
             ];
 
-        const bucketURL = `http://aipif-2023b.s3-us-west-1.amazonaws.com/`;
+        const bucketURL = `https://aipif-2023b.s3-us-west-1.amazonaws.com/`;
         fetch(bucketURL)
             .then(response => response.text())
             .then(data => {
@@ -207,7 +207,7 @@
                     // Use a closure to bind the current rqidString to the listener
                     emojiBox.addEventListener('click', (function(rqid) {
                         return function() {
-                            window.location.href = `http://aipif-2023.s3.us-west-1.amazonaws.com/story/story_${rqid}/p0090-twine.html`;
+                            window.location.href = `https://aipif-2023.s3.us-west-1.amazonaws.com/story/story_${rqid}/p0090-twine.html`;
                         };
                     })(rqidString));
 
@@ -226,7 +226,7 @@
                     // Redirect when an emoji box is clicked
                     emojiBox.addEventListener('click', function() {
                         // window.location.href = `nextPage.html?emojis=${encodeURIComponent(emojiString[1])}`;
-                        window.location.href = `http://aipif-2023.s3.us-west-1.amazonaws.com/sample/tw0102_twine.html`; // TODO: put in a default story
+                        window.location.href = `https://aipif-2023.s3.us-west-1.amazonaws.com/sample/tw0102_twine.html`; // TODO: put in a default story
                     });
 
                     emojiContainer.appendChild(emojiBox);
